@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Pur
+        psr4_prefix: Pur
+        src_path: app
