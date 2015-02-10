@@ -1,1 +1,2 @@
-# pur
+# Pur regnskap
+Et bachelorprosjekt
