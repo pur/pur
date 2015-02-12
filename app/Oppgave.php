@@ -6,4 +6,5 @@ class Oppgave extends Model {
 
     protected $table = 'oppgaver';
 
+    protected $fillable = ['beskrivelse', 'bruker_id'];
 }
