@@ -15,9 +15,10 @@ class CreateOppgaveTable extends Migration {
 		Schema::create('oppgave', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->text('beskrivelse');
 			$table->timestamps();
-			$table->integer('innlegger_id')->unsigned()->nullable();
-			$table->foreign('innlegger_id')
+			$table->integer('bruker_id')->unsigned()->nullable();
+			$table->foreign('bruker_id')
 				->references('id')->on('users')
 				->onDelete('set null');
 		});
