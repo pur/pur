@@ -20,3 +20,4 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 $router->resource('bilagsmaler', 'BilagsmalerController');
+$router->resource('oppgave', 'OppgaveController');
