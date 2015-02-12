@@ -24,7 +24,7 @@ class OppgaveController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view("oppgave.create");
 	}
 
 	/**
