@@ -16,7 +16,8 @@ class OppgaveController extends Controller {
 	 */
 	public function index(Oppgave $oppgave)
 	{
-		//
+		$oppgaver = $oppgave->get();
+		return view('oppgave.index', compact('oppgaver'));
 	}
 
 	/**
