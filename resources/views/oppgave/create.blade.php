@@ -62,7 +62,8 @@
                 </label>
             </div>
             <button type="submit" class="btn btn-success">Legg til bilag</button>
-            <button type="submit" class="btn btn-default">Lagre oppgave</button>
+            <button type="submit" class="btn btn-default">Opprett oppgave</button>
+            <button type="reset" class="btn btn-danger">Avbryt</button>
         </form>
     </div>
 
