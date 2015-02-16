@@ -16,9 +16,8 @@ class CreateOppgaverTable extends Migration {
 		{
 			$table->increments('id');
 			$table->text('beskrivelse');
-			$table->timestamps();
-			$table->integer('brukere_id')->unsigned()->nullable();
-			$table->foreign('brukere_id')
+			$table->integer('bruker_id')->unsigned()->nullable();
+			$table->foreign('bruker_id')
 				->references('id')->on('users')
 				->onDelete('set null');
 		});

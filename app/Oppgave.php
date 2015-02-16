@@ -7,4 +7,7 @@ class Oppgave extends Model {
     protected $table = 'oppgaver';
 
     protected $fillable = ['beskrivelse', 'brukere_id'];
+
+    public $timestamps = false;
+
 }
