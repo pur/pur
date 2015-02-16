@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOppgaveTable extends Migration {
+class CreateOppgaverTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,13 @@ class CreateOppgaveTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('oppgave', function(Blueprint $table)
+		Schema::create('oppgaver', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->text('beskrivelse');
 			$table->timestamps();
-			$table->integer('innlegger_id')->unsigned()->nullable();
-			$table->foreign('innlegger_id')
+			$table->integer('brukere_id')->unsigned()->nullable();
+			$table->foreign('brukere_id')
 				->references('id')->on('users')
 				->onDelete('set null');
 		});
@@ -30,7 +31,7 @@ class CreateOppgaveTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('oppgave');
+		Schema::drop('oppgaver');
 	}
 
 }
