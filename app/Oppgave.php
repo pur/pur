@@ -12,11 +12,11 @@ class Oppgave extends Model
     public $timestamps = false;
 
     /**
-     * Den som har laget oppgaven
+     * Den brukeren som har laget oppgaven
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function skaper()
     {
-        return $this->belongsTo('Pur\User', 'bruker_id');
+        return $this->belongsTo('Pur\Bruker', 'bruker_id');
     }
 }

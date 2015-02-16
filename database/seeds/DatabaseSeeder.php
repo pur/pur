@@ -3,8 +3,9 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use Pur\Bilagsmal;
+use Pur\Bruker;
 use Pur\Oppgave;
-use Pur\User;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,34 +19,41 @@ class DatabaseSeeder extends Seeder
 	{
 		Model::unguard();
 
-		$this->call('UserTableSeeder');
+		$this->call('BrukerTableSeeder');
 		$this->call('OppgaveTableSeeder');
 		$this->call('BilagsmalTableSeeder');
 	}
 }
 
-class UserTableSeeder extends Seeder {
+class BrukerTableSeeder extends Seeder {
 
 	public function run()
 	{
-		DB::table('users')->delete();
+		DB::table('brukere')->delete();
 
-		User::create([
-			'name' => 'Lektor Lur',
-			'email' => 'lektor@lur.no',
-			'password' => bcrypt('passord'),
+		Bruker::create([
+			'fornavn' => 'Lektor',
+			'etternavn' => 'Lur',
+			'epost' => 'lektor@lur.no',
+			'passord' => bcrypt('passord'),
+			'rolle' => 'faglærer'
 		]);
 
-		User::create([
-			'name' => 'Professor Proff',
-			'email' => 'professor@proff.no',
-			'password' => bcrypt('passord'),
+		Bruker::create([
+
+			'fornavn' => 'Professor',
+			'etternavn' => 'Proff',
+			'epost' => 'professor@proff.no',
+			'passord' => bcrypt('passord'),
+			'rolle' => 'faglærer'
 		]);
 
-		User::create([
-			'name' => 'Sture Student',
-			'email' => 'sture@student.no',
-			'password' => bcrypt('passord'),
+		Bruker::create([
+			'fornavn' => 'Sture',
+			'etternavn' => 'Student',
+			'epost' => 'sture@student.no',
+			'passord' => bcrypt('passord'),
+			'rolle' => 'student',
 		]);
 	}
 }
