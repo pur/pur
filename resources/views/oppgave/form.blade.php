@@ -6,6 +6,12 @@
     <div class="panel panel-body">
 
         <div class="row">
+            <div class="form-group col-sm-12">
+                <label for="bruttobelop-min">Beskrivelse</label>
+                    <input id="beskrivelse" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row">
             <div class="form-group col-sm-4">
                 <label for="bruttobelop-min">Minimum bruttobeløp</label>
                 <div class="input-group">
