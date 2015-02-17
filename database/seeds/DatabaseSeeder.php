@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use Pur\Bruker;
 use Pur\Oppgave;
-use Pur\Purmoduler\Bilagsmal;
+use Pur\Purmoduler\Regnskap\Bilagsmal;
 
 
 class DatabaseSeeder extends Seeder
@@ -19,8 +19,11 @@ class DatabaseSeeder extends Seeder
 	{
 		Model::unguard();
 
+        // Pur
 		$this->call('BrukerTableSeeder');
-		$this->call('OppgaveTableSeeder');
+        $this->call('OppgaveTableSeeder');
+
+        //Pur\Regnskap
 		$this->call('BilagsmalTableSeeder');
 	}
 }
