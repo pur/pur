@@ -1,4 +1,4 @@
-<?php namespace Pur\Purmoduler;
+<?php namespace Pur\Purmoduler\Regnskap;
 
 use Illuminate\Database\Eloquent\Model;
 

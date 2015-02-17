@@ -1,11 +1,10 @@
-<?php namespace Pur\Http\Controllers\Purmoduler;
+<?php namespace Pur\Http\Controllers\Purmoduler\Regnskap;
 
 use Pur\Http\Requests;
 use Pur\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-use Pur\Oppgave;
-use Pur\Purmoduler\Bilagssekvens;
+use Pur\Purmoduler\Regnskap\Bilagssekvens;
 
 class BilagssekvensController extends Controller {
 
@@ -18,7 +17,7 @@ class BilagssekvensController extends Controller {
 	public function index(Bilagssekvens $bilagssekvens)
 	{
         $bilagssekvenser = $bilagssekvens->get();
-		return view('bilagssekvenser.index', compact('bilagssekvenser'));
+		return view('purmoduler.regnskap.bilagssekvenser.index', compact('bilagssekvenser'));
 	}
 
 	/**
