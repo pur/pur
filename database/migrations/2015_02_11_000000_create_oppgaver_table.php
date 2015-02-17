@@ -17,6 +17,9 @@ class CreateOppgaverTable extends Migration {
 			$table->increments('id');
 			$table->text('beskrivelse');
 			$table->integer('bruker_id')->unsigned()->nullable();
+            $table->integer('moduloppgave_id');
+            $table->string('moduloppgave_type');
+            $table->timestamps();
 			$table->foreign('bruker_id')
 				->references('id')->on('brukere')
 				->onDelete('set null');

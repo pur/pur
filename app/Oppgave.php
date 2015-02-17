@@ -9,8 +9,6 @@ class Oppgave extends Model
 
     protected $fillable = ['beskrivelse', 'bruker_id'];
 
-    public $timestamps = false;
-
     /**
      * Den brukeren som har laget oppgaven
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -18,5 +16,13 @@ class Oppgave extends Model
     public function skaper()
     {
         return $this->belongsTo('Pur\Bruker', 'bruker_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     */
+    public function moduloppgave()
+    {
+        return $this->morphTo();
     }
 }

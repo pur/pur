@@ -4,8 +4,15 @@ use Pur\Oppgave;
 
 class Bilagssekvens extends Oppgave
 {
-    public function type(){
-        return "Lønnssekvens";
+    protected $table = 'bilagssekvenser';
+
+    public $timestamps = false;
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
+    public function oppgave()
+    {
+        return $this->morphOne('Pur\Oppgave', 'moduloppgave');
     }
 }
-
