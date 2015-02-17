@@ -19,6 +19,8 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
-$router->resource('bilagsmaler', 'BilagsmalerController');
+$router->resource('bruker', 'BrukerController');
 $router->resource('oppgave', 'OppgaveController');
+
+$router->resource('bilagsmaler', 'Purmoduler\Regnskap\BilagsmalerController');
 $router->resource('bilagssekvens', 'Purmoduler\Regnskap\BilagssekvensController');
