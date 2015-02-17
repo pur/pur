@@ -2,6 +2,6 @@
 
     @foreach($oppgaver as $oppgave)
 
-        <p>{{ $oppgave->beskrivelse }}<br />Laget av {{ $oppgave->brukere_id  }}, {{ $oppgave->created_at }}</p>
+        <p>{{ $oppgave->beskrivelse }}<br />Laget av {{ $oppgave->skaper->fornavn  }}</p>
 
     @endforeach
