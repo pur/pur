@@ -1,7 +1,5 @@
 @extends('app')
 @section('content')
-
-
     <div class="container">
         <h1>Opprett oppgave</h1>
         <form class="col-md-12">
@@ -12,14 +10,14 @@
                 <div class="panel panel-body">
 
                     <div class="row">
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-sm-4">
                             <label for="bruttobelop-min">Minimum bruttobeløp</label>
                             <div class="input-group">
                                 <div class="input-group-addon">NOK</div>
                                 <input id="bruttobelop-min" type="number" step="any" class="form-control">
                             </div>
                         </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-sm-4">
                             <label for="bruttobelop-maks">Maksimum bruttobeløp</label>
                             <div class="input-group">
                                 <div class="input-group-addon">NOK</div>
@@ -27,7 +25,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-sm-4">
                             <label for="rabattsats">Rabattsats</label>
                             <div class="input-group">
                                 <div class="input-group-addon">%</div>
@@ -78,14 +76,14 @@
 
 
                     <div class="row">
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-sm-4">
                             <label for="bruttobelop-min">Minimum bruttobeløp</label>
                             <div class="input-group">
                                 <div class="input-group-addon">NOK</div>
                                 <input id="bruttobelop-min" type="number" step="any" class="form-control">
                             </div>
                         </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-sm-4">
                             <label for="bruttobelop-maks">Maksimum bruttobeløp</label>
                             <div class="input-group">
                                 <div class="input-group-addon">NOK</div>
@@ -93,7 +91,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-sm-4">
                             <label for="rabattsats">Rabattsats</label>
                             <div class="input-group">
                                 <div class="input-group-addon">%</div>
@@ -143,14 +141,14 @@
                 <div class="panel panel-body">
 
                     <div class="row">
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-sm-4">
                             <label for="bruttobelop-min">Minimum bruttobeløp</label>
                             <div class="input-group">
                                 <div class="input-group-addon">NOK</div>
                                 <input id="bruttobelop-min" type="number" step="any" class="form-control">
                             </div>
                         </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-sm-4">
                             <label for="bruttobelop-maks">Maksimum bruttobeløp</label>
                             <div class="input-group">
                                 <div class="input-group-addon">NOK</div>
@@ -158,7 +156,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-sm-4">
                             <label for="rabattsats">Rabattsats</label>
                             <div class="input-group">
                                 <div class="input-group-addon">%</div>
