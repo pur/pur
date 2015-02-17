@@ -21,3 +21,4 @@ Route::controllers([
 ]);
 $router->resource('bilagsmaler', 'BilagsmalerController');
 $router->resource('oppgave', 'OppgaveController');
+$router->resource('bilagssekvens', 'Purmoduler\BilagssekvensController');
