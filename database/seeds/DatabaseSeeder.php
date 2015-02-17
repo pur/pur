@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-use Pur\Bilagsmal;
 use Pur\Bruker;
 use Pur\Oppgave;
+use Pur\Purmoduler\Bilagsmal;
 
 
 class DatabaseSeeder extends Seeder

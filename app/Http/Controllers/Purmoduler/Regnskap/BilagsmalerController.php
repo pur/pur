@@ -1,4 +1,4 @@
-<?php namespace Pur\Http\Controllers;
+<?php namespace Pur\Http\Controllers\Purmoduler\Regnskap;
 
 use Pur\Http\Requests;
 use Pur\Http\Controllers\Controller;
