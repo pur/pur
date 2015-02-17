@@ -1,70 +1,253 @@
 @extends('app')
 @section('content')
+
+
     <div class="container">
         <h1>Opprett oppgave</h1>
-        <form>
-            <div class="form-group">
-                <label for="tittel">Tittel</label>
-                <input id="tittel" type="text" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="beskrivelse">Beskrivelse</label>
-                <textarea id="beskrivelse" class="form-control"></textarea>
-            </div>
-            <h2>Bilagsmaler</h2>
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div class="form-inline">
-                        <div class="form-group">
-                            <label for="bilagstype">Bilagstype</label>
-                            <select class="form-control">
-                                <option>Inngående faktura</option>
-                                <option>Inngående kreditnota</option>
-                                <option>Utbetaling</option>
-                            </select>
+        <form class="col-md-12">
+            <h2>Inngående faktura</h2>
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h3 class="panel-title">Inngående faktura</h3></div>
+
+                <div class="panel panel-body">
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="bruttobelop-min">Minimum bruttobeløp</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">NOK</div>
+                                <input id="bruttobelop-min" type="number" step="any" class="form-control">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="dato">Dato</label>
-                            <input type="date" id="dato" class="form-control">
+                        <div class="form-group col-md-4">
+                            <label for="bruttobelop-maks">Maksimum bruttobeløp</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">NOK</div>
+                                <input id="bruttobelop-maks" type="number" step="any" class="form-control">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="motpart">Motpart</label>
-                            <input id="motpart" type="text" step="any" class="form-control">
-                        </div>
-                        <div class="form-group">
+
+                        <div class="form-group col-md-4">
                             <label for="rabattsats">Rabattsats</label>
                             <div class="input-group">
                                 <div class="input-group-addon">%</div>
                                 <input id="rabattsats" type="number" step="any" class="form-control">
                             </div>
                         </div>
+
                     </div>
-                    <h3>Bruttobeløp</h3>
-                    <div class="form-inline">
-                        <div class="form-group">
-                            <label for="bruttobelop-min">Min</label>
+                    <div id="inngaende-faktura-post" class="list-group">
+                        <div class="row list-group-item">
+
+                            <div class="col-md-5"><h4>Postering 1</h4></div>
+                            <div class="form-group col-md-3">
+
+                                <select class="form-control">
+                                    <option>2343 Konto 1</option>
+                                    <option>4324 Konto 2</option>
+                                    <option>1284 Konto 3</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-3">
+
+                                <select class="form-control">
+                                    <option>Formel 1</option>
+                                    <option>Formel 2</option>
+                                    <option>Formel 3</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-1">
+                                <a class="btn btn-danger slett-inngaende-faktura-post">Slett</a>
+                            </div>
+                        </div>
+
+
+                        <a id="ny-inngaende-faktura-post" class="row list-group-item list-group-item-success text-center">
+
+                                Legg til ny postering
+
+                        </a>
+                    </div>
+                    </div>
+                </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h3 class="panel-title">Inngående kreditnota</h3></div>
+
+                <div class="panel panel-body">
+
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="bruttobelop-min">Minimum bruttobeløp</label>
                             <div class="input-group">
                                 <div class="input-group-addon">NOK</div>
                                 <input id="bruttobelop-min" type="number" step="any" class="form-control">
                             </div>
-                            <label for="bruttobelop-maks">Maks</label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="bruttobelop-maks">Maksimum bruttobeløp</label>
                             <div class="input-group">
                                 <div class="input-group-addon">NOK</div>
                                 <input id="bruttobelop-maks" type="number" step="any" class="form-control">
                             </div>
                         </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="rabattsats">Rabattsats</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">%</div>
+                                <input id="rabattsats" type="number" step="any" class="form-control">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="inngaende-kreditnota-post" class="list-group">
+                        <div class="row list-group-item">
+
+                            <div class="col-md-5"><h4>Postering 1</h4></div>
+                            <div class="form-group col-md-3">
+
+                                <select class="form-control">
+                                    <option>2343 Konto 1</option>
+                                    <option>4324 Konto 2</option>
+                                    <option>1284 Konto 3</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-3">
+
+                                <select class="form-control">
+                                    <option>Formel 1</option>
+                                    <option>Formel 2</option>
+                                    <option>Formel 3</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-1">
+                                <a class="btn btn-danger slett-inngaende-kreditnota-post">Slett</a>
+                            </div>
+                        </div>
+
+
+                        <a id="ny-inngaende-kreditnota-post" class="row list-group-item list-group-item-success text-center">
+
+                                Legg til ny postering
+
+                        </a>
+                    </div>
                     </div>
                 </div>
-            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h3 class="panel-title">Utbetaling</h3></div>
+
+                <div class="panel panel-body">
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="bruttobelop-min">Minimum bruttobeløp</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">NOK</div>
+                                <input id="bruttobelop-min" type="number" step="any" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="bruttobelop-maks">Maksimum bruttobeløp</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">NOK</div>
+                                <input id="bruttobelop-maks" type="number" step="any" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="rabattsats">Rabattsats</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">%</div>
+                                <input id="rabattsats" type="number" step="any" class="form-control">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="utbetaling-post" class="list-group">
+                        <div class="row list-group-item">
+
+                            <div class="col-md-5"><h4>Postering 1</h4></div>
+                            <div class="form-group col-md-3">
+
+                                <select class="form-control">
+                                    <option>2343 Konto 1</option>
+                                    <option>4324 Konto 2</option>
+                                    <option>1284 Konto 3</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-3">
+
+                                <select class="form-control">
+                                    <option>Formel 1</option>
+                                    <option>Formel 2</option>
+                                    <option>Formel 3</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-1">
+                                <a class="btn btn-danger slett-utbetaling-post">Slett</a>
+                            </div>
+                        </div>
+
+
+                        <a id="ny-utbetaling-post" class="row list-group-item list-group-item-success text-center">
+
+                                Legg til ny postering
+
+                        </a>
+                    </div>
+
+
+
+
+                </div> <!-- Slutt panel body -->
+
+            </div> <!-- Slutt panel -->
+
             <div class="checkbox">
                 <label>
                     <input type="checkbox"> Del med andre faglærere
                 </label>
             </div>
-            <button type="submit" class="btn btn-success">Legg til bilag</button>
-            <button type="submit" class="btn btn-default">Lagre oppgave</button>
-        </form>
-    </div>
+<div class="btn-group">
+            <button type="submit" class="btn btn-success">Opprett oppgave</button>
+            <button type="reset" class="btn btn-danger">Avbryt</button>
+</div>
 
+        </form>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        var id= 1;
+        $('#ny-inngaende-faktura-post').click(function(){
+            id += 1;
+            $('#ny-inngaende-faktura-post').before('<div class="row list-group-item"><div class="col-md-5"><h4>Postering ' + id + '</h4></div> <div class="form-group col-md-3"> <select class="form-control"> <option>2343 Konto 1</option> <option>4324 Konto 2</option> <option>1284 Konto 3</option> </select> </div> <div class="form-group col-md-3"><select class="form-control"> <option>Formel 1</option> <option>Formel 2</option> <option>Formel 3</option> </select> </div> <div class="form-group col-md-1"> <a id="' + id + '" class="btn btn-danger slett-inngaende-faktura-post">Slett</a></div></div>');
+        });
+        $('#ny-inngaende-kreditnota-post').click(function(){
+            id += 1;
+            $('#ny-inngaende-kreditnota-post').before('<div class="row list-group-item"><div class="col-md-5"><h4>Postering ' + id + '</h4></div> <div class="form-group col-md-3"> <select class="form-control"> <option>2343 Konto 1</option> <option>4324 Konto 2</option> <option>1284 Konto 3</option> </select> </div> <div class="form-group col-md-3"><select class="form-control"> <option>Formel 1</option> <option>Formel 2</option> <option>Formel 3</option> </select> </div> <div class="form-group col-md-1"> <a id="' + id + '" class="btn btn-danger slett-inngaende-faktura-post">Slett</a></div></div>');
+        });
+        $('#ny-utbetaling-post').click(function(){
+            id += 1;
+            $('#ny-utbetaling-post').before('<div class="row list-group-item"><div class="col-md-5"><h4>Postering ' + id + '</h4></div> <div class="form-group col-md-3"> <select class="form-control"> <option>2343 Konto 1</option> <option>4324 Konto 2</option> <option>1284 Konto 3</option> </select> </div> <div class="form-group col-md-3"><select class="form-control"> <option>Formel 1</option> <option>Formel 2</option> <option>Formel 3</option> </select> </div> <div class="form-group col-md-1"> <a id="' + id + '" class="btn btn-danger slett-inngaende-faktura-post">Slett</a></div></div>');
+        });
+
+
+        $('.slett-inngaende-faktura-post').click(function(event){
+            $(event.target).closest('.list-group-item').remove();
+        });
+        $('.slett-inngaende-kreditnota-post').click(function(event){
+            $(event.target).closest('.list-group-item').remove();
+        });
+        $('.slett-utbetaling-post').click(function(event){
+            $(event.target).closest('.list-group-item').remove();
+        });
+
+    </script>
 
 @endsection
