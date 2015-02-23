@@ -27,7 +27,9 @@
         });
 
         function addPostering(id){
-            $(id).before('');
+            var content = "";
+           // content = content.load("postering.php");
+            $(id).before(content);
         }
 
 
