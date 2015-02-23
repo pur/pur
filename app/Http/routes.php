@@ -24,3 +24,8 @@ $router->resource('oppgave', 'OppgaveController');
 
 $router->resource('bilagsmaler', 'Purmoduler\Regnskap\BilagsmalerController');
 $router->resource('bilagssekvens', 'Purmoduler\Regnskap\BilagssekvensController');
+
+
+$router->bind('bilagssekvens', function ($id) {
+    return Pur\Purmoduler\Regnskap\Bilagssekvens::whereId($id)->first();
+});

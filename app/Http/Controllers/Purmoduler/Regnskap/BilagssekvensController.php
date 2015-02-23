@@ -40,26 +40,30 @@ class BilagssekvensController extends Controller {
 		//
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
+    /**
+     * Display the specified resource.
+     *
+     * @param Bilagssekvens $bilagssekvens
+     * @return Response
+     * @internal param int $id
+     */
+	public function show(Bilagssekvens $bilagssekvens)
 	{
-		//
+        dd($bilagssekvens);
+        //return view('purmoduler.regnskap.bilagssekvenser.show', compact('bilagssekvens'));
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param Bilagssekvens $bilagssekvens
+     * @return Response
+     * @internal param int $id
+     */
+	public function edit(Bilagssekvens $bilagssekvens)
 	{
-		//
+        dd($bilagssekvens);
+        //return view('purmoduler.regnskap.bilagssekvenser.edit', compact('bilagssekvens'));
 	}
 
 	/**
