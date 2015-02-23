@@ -33,5 +33,4 @@ class CreateBilagsmalerTable extends Migration {
 	{
 		Schema::drop('bilagsmaler');
 	}
-
 }
