@@ -16,10 +16,9 @@ class CreateBilagsmalerTable extends Migration {
 		{
 			$table->increments('id');
 			$table->text('bilagstype');
-			$table->integer('oppgave_id')->unsigned();
-			//$table->timestamps();
-			$table->foreign('oppgave_id')
-				->references('id')->on('oppgaver')
+			$table->integer('bilagssekvens_id')->unsigned();
+			$table->foreign('bilagssekvens_id')
+				->references('id')->on('bilagssekvenser')
 				->onDelete('cascade');
 		});
 	}

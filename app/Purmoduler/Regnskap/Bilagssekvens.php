@@ -8,6 +8,17 @@ class Bilagssekvens extends Oppgave
 
     public $timestamps = false;
 
+
+    /**
+     * Bilagssekvensen sine bilagsmaler
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function bilagsmaler()
+    {
+        return $this->hasMany('\Pur\Purmoduler\Regnskap\Bilagsmal');
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphOne
      */

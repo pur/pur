@@ -125,17 +125,17 @@ class BilagsmalTableSeeder extends Seeder
 
         Bilagsmal::create([
             'bilagstype' => '01 - Inngående faktura',
-            'oppgave_id' => '1',
+            'bilagssekvens_id' => '1',
         ]);
 
         Bilagsmal::create([
             'bilagstype' => '02 - Inngående kreditnota',
-            'oppgave_id' => '1',
+            'bilagssekvens_id' => '1',
         ]);
 
         Bilagsmal::create([
             'bilagstype' => '06 - Utbetaling',
-            'oppgave_id' => '1',
+            'bilagssekvens_id' => '1',
         ]);
     }
 }

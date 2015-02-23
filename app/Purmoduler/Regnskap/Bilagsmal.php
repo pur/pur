@@ -10,5 +10,9 @@ class Bilagsmal extends Model {
 
     public $timestamps = false;
 
+    public function bilagssekvens()
+    {
+        return $this->belongsTo('Pur\Purmoduler\Regnskap\Bilagssekvens');
+    }
 }
 
