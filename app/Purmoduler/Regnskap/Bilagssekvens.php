@@ -6,6 +6,8 @@ class Bilagssekvens extends Oppgave
 {
     protected $table = 'bilagssekvenser';
 
+    protected $fillable = ['sekvenstype'];
+
     public $timestamps = false;
 
 
