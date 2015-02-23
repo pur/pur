@@ -27,7 +27,7 @@ class BilagssekvensController extends Controller {
 	 */
 	public function create()
 	{
-		//
+        return view("purmoduler.regnskap.bilagssekvenser.inngaaende-faktura.create");
 	}
 
 	/**

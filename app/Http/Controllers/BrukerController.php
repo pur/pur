@@ -4,7 +4,7 @@ use Pur\Bruker;
 use Pur\Http\Requests;
 use Pur\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+use Request;
 
 class BrukerController extends Controller {
 
@@ -38,7 +38,9 @@ class BrukerController extends Controller {
 	 */
 	public function store(Bruker $bruker)
 	{
-		//
+        $input = Request::all();
+
+        return $input;
 	}
 
 	/**
