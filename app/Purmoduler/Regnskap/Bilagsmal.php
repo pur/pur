@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Bilagsmal extends Model {
+class Bilagsmal extends Model
+{
 
     protected $table = 'bilagsmaler';
 
@@ -10,9 +11,21 @@ class Bilagsmal extends Model {
 
     public $timestamps = false;
 
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function bilagssekvens()
     {
         return $this->belongsTo('Pur\Purmoduler\Regnskap\Bilagssekvens');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function posteringsmaler()
+    {
+        return $this->hasMany('Pur\Purmoduler\Regnskap\Posteringsmal');
     }
 }
 

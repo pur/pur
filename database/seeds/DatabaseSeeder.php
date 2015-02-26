@@ -6,6 +6,7 @@ use Pur\Bruker;
 use Pur\Oppgave;
 use Pur\Purmoduler\Regnskap\Bilagsmal;
 use Pur\Purmoduler\Regnskap\Bilagssekvens;
+use Pur\Purmoduler\Regnskap\Posteringsmal;
 
 
 class DatabaseSeeder extends Seeder
@@ -27,6 +28,7 @@ class DatabaseSeeder extends Seeder
         //Pur\Regnskap
         $this->call('BilagssekvensTableSeeder');
         $this->call('BilagsmalTableSeeder');
+        $this->call('PosteringsmalTableSeeder');
     }
 }
 
@@ -140,3 +142,46 @@ class BilagsmalTableSeeder extends Seeder
     }
 }
 
+class PosteringsmalTableSeeder extends Seeder
+{
+    public function run()
+    {
+        DB::table('posteringsmaler')->delete();
+
+        Posteringsmal::create([
+            'formel' => 'formelA',
+            'bilagsmal_id' => '1',
+            'konto_id' => null
+        ]);
+
+        Posteringsmal::create([
+            'formel' => 'formelB',
+            'bilagsmal_id' => '1',
+            'konto_id' => null
+        ]);
+
+        Posteringsmal::create([
+            'formel' => 'formelC',
+            'bilagsmal_id' => '1',
+            'konto_id' => null
+        ]);
+
+        Posteringsmal::create([
+            'formel' => 'formelA',
+            'bilagsmal_id' => '2',
+            'konto_id' => null
+        ]);
+
+        Posteringsmal::create([
+            'formel' => 'formelB',
+            'bilagsmal_id' => '2',
+            'konto_id' => null
+        ]);
+
+        Posteringsmal::create([
+            'formel' => 'formelC',
+            'bilagsmal_id' => '2',
+            'konto_id' => null
+        ]);
+    }
+}

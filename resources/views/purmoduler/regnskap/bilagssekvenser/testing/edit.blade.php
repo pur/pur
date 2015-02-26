@@ -24,14 +24,29 @@
 
     <h2>Bilagsmaler</h2>
     @foreach($bilagssekvens->bilagsmaler as $bilagsmal)
-        {!! Form::model($bilagsmal, ['route' => ['bilagsmaler.update', $bilagsmal->id], 'method' => 'PATCH', 'submit-async' => 'true']) !!}
 
+        {!! Form::model($bilagsmal, ['route' => ['bilagsmaler.update', $bilagsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
         <h3>Bilagsmal {{ $bilagsmal->id }}</h3>
         {!! Form::label('bilagstype', 'Bilagstype') !!}
-        <br/>
         {!! Form::text('bilagstype', $bilagsmal->bilagstype, ['style' => 'width:300px']) !!}
         <p class="ajax-success">Lagret</p>
         {!! Form::close() !!}
+
+        @foreach($bilagsmal->posteringsmaler as $posteringsmal)
+
+            {!! Form::model($posteringsmal, ['route' => ['posteringsmal.update', $posteringsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
+            <h4>Posteringsmal {{ $posteringsmal->id }}</h4>
+            {!! Form::label('formel', 'Formel') !!}
+            {!! Form::text('formel', $posteringsmal->formel, ['style' => 'width:300px']) !!}
+            {!! Form::label('konto', 'Konto') !!}
+            {{--{!! Form::select('konto', $posteringsmal->konto(), ['style' => 'width:300px']) !!}--}}
+            {!!Form::select('konto', array('2343' => '2343 Konto 1', '4324' => '4324 Konto 2', '1284' => '1284 Konto 3')) !!}
+            <p class="ajax-success">Lagret</p>
+            {!! Form::close() !!}
+
+        @endforeach
+
+        <hr />
 
     @endforeach
 

@@ -13,6 +13,7 @@
 
 use Pur\Purmoduler\Regnskap\Bilagsmal;
 use Pur\Purmoduler\Regnskap\Bilagssekvens;
+use Pur\Purmoduler\Regnskap\Posteringsmal;
 
 Route::get('/', 'WelcomeController@index');
 
@@ -27,11 +28,18 @@ Route::controllers([
 $router->resource('bruker', 'BrukerController');
 $router->resource('oppgave', 'OppgaveController');
 
+// Purmoduler/Regnskap:
+$router->resource('bilagssekvens', 'Purmoduler\Regnskap\BilagssekvensController');
+$router->bind('bilagssekvens', function ($id) {
+    return Bilagssekvens::whereId($id)->first();
+});
+
 $router->resource('bilagsmaler', 'Purmoduler\Regnskap\BilagsmalerController');
 ;$router->bind('bilagsmaler', function ($id) {
     return Bilagsmal::whereId($id)->first();
 });
-$router->resource('bilagssekvens', 'Purmoduler\Regnskap\BilagssekvensController');
-$router->bind('bilagssekvens', function ($id) {
-    return Bilagssekvens::whereId($id)->first();
+
+$router->resource('posteringsmal', 'Purmoduler\Regnskap\PosteringsmalController');
+$router->bind('posteringsmal', function ($id) {
+    return Posteringsmal::whereId($id)->first();
 });
