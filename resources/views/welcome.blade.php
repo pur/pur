@@ -70,7 +70,7 @@
 				<div class="title">pur:Regnskap</div>
 				<!--<div class="quote">{{ Inspiring::quote() }}</div> -->
                 <div class="quote">Tren på å føre regnskap - og bare det!</div>
-                <a href="home" class="button">Kom igang</a>
+                <a href="bilagssekvens/1/edit" class="button">Gå til testeksempel</a>
 			</div>
 		</div>
 	</body>

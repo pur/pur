@@ -68,8 +68,8 @@ class BilagssekvensController extends Controller
     {
         $selectKontoer = Konto::alleSomKodeNavnTabell();
 
-        //return view('purmoduler.regnskap.bilagssekvenser.edit', compact('bilagssekvens'));
-        return view('purmoduler.regnskap.bilagssekvenser.testing.edit', compact('bilagssekvens', 'selectKontoer'));
+        return view('purmoduler.regnskap.bilagssekvenser.edit', compact('bilagssekvens', 'selectKontoer'));
+        //return view('purmoduler.regnskap.bilagssekvenser.testing.edit', compact('bilagssekvens', 'selectKontoer'));
     }
 
     /**

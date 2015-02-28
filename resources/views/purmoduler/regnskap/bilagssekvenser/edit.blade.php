@@ -91,7 +91,7 @@
 
                                 <div class="col-md-5"><h4>Postering {{$posteringsmal->id}}</h4></div>
                                 <div class="form-group col-md-3">
-                                    {!!Form::select('konto', array('2343' => '2343 Konto 1', '4324' => '4324 Konto 2', '1284' => '1284 Konto 3'), null, ['class' => 'form-control']) !!}
+                                    {!!Form::select('kontokode', $selectKontoer, $posteringsmal->konto->kontokode, ['class' => 'form-control']) !!}
                                 </div>
 
                                 <div class="form-group col-md-3">
