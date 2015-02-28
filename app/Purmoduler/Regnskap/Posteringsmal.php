@@ -7,7 +7,7 @@ class Posteringsmal extends Model
 
     protected $table = 'posteringsmaler';
 
-    protected $fillable = ['formel', 'bilagsmal_id', 'konto_id'];
+    protected $fillable = ['formel', 'bilagsmal_id', 'kontokode'];
 
     public $timestamps = false;
 
@@ -26,7 +26,7 @@ class Posteringsmal extends Model
      */
     public function konto()
     {
-        return $this->belongsTo('Pur\Purmoduler\Regnskap\Konto');
+        return $this->belongsTo('Pur\Purmoduler\Regnskap\Konto', 'kontokode', 'kontokode');
     }
 
 }

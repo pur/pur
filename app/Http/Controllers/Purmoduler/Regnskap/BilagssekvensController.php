@@ -6,6 +6,7 @@ use Pur\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Pur\Oppgave;
 use Pur\Purmoduler\Regnskap\Bilagssekvens;
+use Pur\Purmoduler\Regnskap\Konto;
 
 
 class BilagssekvensController extends Controller
@@ -65,8 +66,10 @@ class BilagssekvensController extends Controller
      */
     public function edit(Bilagssekvens $bilagssekvens)
     {
+        $selectKontoer = Konto::alleSomKodeNavnTabell();
+
         //return view('purmoduler.regnskap.bilagssekvenser.edit', compact('bilagssekvens'));
-        return view('purmoduler.regnskap.bilagssekvenser.testing.edit', compact('bilagssekvens'));
+        return view('purmoduler.regnskap.bilagssekvenser.testing.edit', compact('bilagssekvens', 'selectKontoer'));
     }
 
     /**

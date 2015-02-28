@@ -1,11 +1,12 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Seeder;
 use Pur\Bruker;
 use Pur\Oppgave;
 use Pur\Purmoduler\Regnskap\Bilagsmal;
 use Pur\Purmoduler\Regnskap\Bilagssekvens;
+use Pur\Purmoduler\Regnskap\Konto;
 use Pur\Purmoduler\Regnskap\Posteringsmal;
 
 
@@ -28,6 +29,7 @@ class DatabaseSeeder extends Seeder
         //Pur\Regnskap
         $this->call('BilagssekvensTableSeeder');
         $this->call('BilagsmalTableSeeder');
+        $this->call('KontoTableSeeder');
         $this->call('PosteringsmalTableSeeder');
     }
 }
@@ -117,7 +119,6 @@ class BilagssekvensTableSeeder extends Seeder
 }
 
 
-
 class BilagsmalTableSeeder extends Seeder
 {
 
@@ -151,37 +152,58 @@ class PosteringsmalTableSeeder extends Seeder
         Posteringsmal::create([
             'formel' => 'formelA',
             'bilagsmal_id' => '1',
-            'konto_id' => null
+            'kontokode' => '1300'
         ]);
 
         Posteringsmal::create([
             'formel' => 'formelB',
             'bilagsmal_id' => '1',
-            'konto_id' => null
+            'kontokode' => '1480'
         ]);
 
         Posteringsmal::create([
             'formel' => 'formelC',
             'bilagsmal_id' => '1',
-            'konto_id' => null
+            'kontokode' => '1760'
         ]);
 
         Posteringsmal::create([
             'formel' => 'formelA',
             'bilagsmal_id' => '2',
-            'konto_id' => null
+            'kontokode' => '1900'
         ]);
 
         Posteringsmal::create([
             'formel' => 'formelB',
             'bilagsmal_id' => '2',
-            'konto_id' => null
+            'kontokode' => '1612'
         ]);
 
         Posteringsmal::create([
             'formel' => 'formelC',
             'bilagsmal_id' => '2',
-            'konto_id' => null
+            'kontokode' => '1100'
         ]);
+    }
+}
+
+class KontoTableSeeder extends Seeder
+{
+    public function run()
+    {
+        DB::table('kontoer')->delete();
+
+        $csvFile = 'database/seeds/Kontoplan_NS-4102.csv';
+        $file_handle = fopen($csvFile, 'r');
+        while (!feof($file_handle))
+            $kontoer[] = fgetcsv($file_handle, 1024);
+        fclose($file_handle);
+
+        foreach ($kontoer as $konto) {
+            Konto::create([
+                'kontokode' => $konto[0],
+                'kontonavn' => $konto[1],
+            ]);
+        }
     }
 }

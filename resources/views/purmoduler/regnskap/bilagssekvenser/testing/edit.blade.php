@@ -38,9 +38,8 @@
             <h4>Posteringsmal {{ $posteringsmal->id }}</h4>
             {!! Form::label('formel', 'Formel') !!}
             {!! Form::text('formel', $posteringsmal->formel, ['style' => 'width:300px']) !!}
-            {!! Form::label('konto', 'Konto') !!}
-            {{--{!! Form::select('konto', $posteringsmal->konto(), ['style' => 'width:300px']) !!}--}}
-            {!!Form::select('konto', array('2343' => '2343 Konto 1', '4324' => '4324 Konto 2', '1284' => '1284 Konto 3')) !!}
+            {!! Form::label('kontokode', 'Konto') !!}
+            {!! Form::select('kontokode', $selectKontoer, $posteringsmal->konto->kontokode) !!}
             <p class="ajax-success">Lagret</p>
             {!! Form::close() !!}
 
