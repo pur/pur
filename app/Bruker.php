@@ -31,4 +31,14 @@ class Bruker extends Model implements AuthenticatableContract, CanResetPasswordC
 	 */
 	protected $hidden = ['passord', 'remember_token'];
 
+
+    /**
+     * Returnerer brukerens for– og etternavn satt sammen
+     *
+     * @return string
+     */
+    public function fulltnavn()
+    {
+        return $this->fornavn . " " . $this->etternavn;
+    }
 }

@@ -10,6 +10,16 @@ class Bilagssekvens extends Oppgave
 
     public $timestamps = false;
 
+    /**
+     * Den som har laget bilagssekvensen
+     *
+     * @Override
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function skaper()
+    {
+        return $this->oppgave->skaper();
+    }
 
     /**
      * Bilagssekvensen sine bilagsmaler
