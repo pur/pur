@@ -37,7 +37,7 @@ class Bruker extends Model implements AuthenticatableContract, CanResetPasswordC
      *
      * @return string
      */
-    public function fulltnavn()
+    public function fulltNavn()
     {
         return $this->fornavn . " " . $this->etternavn;
     }

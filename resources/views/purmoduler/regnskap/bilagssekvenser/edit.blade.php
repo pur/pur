@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="form-group col-sm-6">
                         {!!Form::label('bruker', 'Bruker:', ['class' => 'control-label']) !!}
-                        {!! Form::text('bruker', $bilagssekvens->skaper->fulltnavn(), ['class' => 'form-control', 'readonly']) !!}
+                        {!! Form::text('bruker', $bilagssekvens->skaper->fulltNavn(), ['class' => 'form-control', 'readonly']) !!}
 
                     </div>
                     <div class="form-group col-sm-6">
