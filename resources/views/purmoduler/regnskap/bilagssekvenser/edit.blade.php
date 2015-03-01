@@ -118,6 +118,8 @@
 
     </div>
 
+@section('scripts')
+
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
     <script>
@@ -144,5 +146,9 @@
             return content;
         }
     </script>
+
+    <script src="/js/ajaxformsubmit.js"></script>
+
+@endsection
 
 @endsection
