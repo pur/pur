@@ -96,11 +96,12 @@
 
                                 <div class="form-group col-md-3">
 
-                                    {!! Form::select('formel', array('formelA' => 'formelB', 'formelB' => 'formelC', 'formelC' => 'formelA'), $posteringsmal->formel, ['class' => 'form-control']) !!}
+                                    {!! Form::select('formel', $selectFormler, $posteringsmal->formel, ['class' => 'form-control']) !!}
 
                                 </div>
                                 <div class="form-group col-md-1">
                                     <a class="btn btn-danger slett-postering">Slett</a>
+                                    {{-- TODO Slett postering i DB --}}
                                 </div>
                             </div>
                             {!! Form::close() !!}

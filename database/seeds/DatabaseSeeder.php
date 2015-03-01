@@ -76,7 +76,7 @@ class OppgaveTableSeeder extends Seeder
         DB::table('oppgaver')->delete();
 
         Oppgave::create([
-            'beskrivelse' => 'Genial oppgave...',
+            'beskrivelse' => 'Varekjøp med 3 bilag: Faktura for varekjøp, kreditnota for del av kjøpesum, og utbetaling.',
             'bruker_id' => '1',
             'moduloppgave_id' => '1',
             'moduloppgave_type' => 'Pur\Purmoduler\Regnskap\Bilagssekvens'
@@ -149,40 +149,78 @@ class PosteringsmalTableSeeder extends Seeder
     {
         DB::table('posteringsmaler')->delete();
 
+        // Bilag 1
+
         Posteringsmal::create([
-            'formel' => 'formelA',
+            'formel' => '1',
             'bilagsmal_id' => '1',
-            'kontokode' => '1300'
+            'kontokode' => '2400'
         ]);
 
         Posteringsmal::create([
-            'formel' => 'formelB',
+            'formel' => '2',
             'bilagsmal_id' => '1',
-            'kontokode' => '1480'
+            'kontokode' => '2710'
         ]);
 
         Posteringsmal::create([
-            'formel' => 'formelC',
+            'formel' => '3',
             'bilagsmal_id' => '1',
-            'kontokode' => '1760'
+            'kontokode' => '4300'
+        ]);
+
+
+        // Bilag 2
+
+        Posteringsmal::create([
+            'formel' => '1',
+            'bilagsmal_id' => '2',
+            'kontokode' => '2400'
         ]);
 
         Posteringsmal::create([
-            'formel' => 'formelA',
+            'formel' => '2',
             'bilagsmal_id' => '2',
-            'kontokode' => '1900'
+            'kontokode' => '2710'
         ]);
 
         Posteringsmal::create([
-            'formel' => 'formelB',
+            'formel' => '3',
             'bilagsmal_id' => '2',
-            'kontokode' => '1612'
+            'kontokode' => '4300'
+        ]);
+
+
+        // Bilag 3
+
+        Posteringsmal::create([
+            'formel' => '4',
+            'bilagsmal_id' => '3',
+            'kontokode' => '2400'
         ]);
 
         Posteringsmal::create([
-            'formel' => 'formelC',
-            'bilagsmal_id' => '2',
-            'kontokode' => '1100'
+            'formel' => '5',
+            'bilagsmal_id' => '3',
+            'kontokode' => '1910'
+        ]);
+
+        Posteringsmal::create([
+            'formel' => '4',
+            'bilagsmal_id' => '3',
+            'kontokode' => '2400'
+        ]);
+
+        Posteringsmal::create([
+            'formel' => '6',
+            'bilagsmal_id' => '3',
+            'kontokode' => '2710'
+        ]);
+
+        Posteringsmal::create([
+            'formel' => '7',
+            'bilagsmal_id' => '3',
+            'kontokode' => '4300'
         ]);
     }
 }
