@@ -11,6 +11,7 @@
 |
 */
 
+use Pur\Purmoduler\Regnskap\Bilag;
 use Pur\Purmoduler\Regnskap\Bilagsmal;
 use Pur\Purmoduler\Regnskap\Bilagssekvens;
 use Pur\Purmoduler\Regnskap\Posteringsmal;
@@ -42,4 +43,9 @@ $router->resource('bilagsmaler', 'Purmoduler\Regnskap\BilagsmalerController');
 $router->resource('posteringsmal', 'Purmoduler\Regnskap\PosteringsmalController');
 $router->bind('posteringsmal', function ($id) {
     return Posteringsmal::whereId($id)->first();
+});
+
+$router->resource('bilag', 'Purmoduler\Regnskap\BilagController');
+$router->bind('bilag', function ($id) {
+    return Bilag::whereId($id)->first();
 });

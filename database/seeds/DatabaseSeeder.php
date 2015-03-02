@@ -4,6 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 use Pur\Bruker;
 use Pur\Oppgave;
+use Pur\Purmoduler\Regnskap\Bilag;
 use Pur\Purmoduler\Regnskap\Bilagsmal;
 use Pur\Purmoduler\Regnskap\Bilagssekvens;
 use Pur\Purmoduler\Regnskap\Konto;
@@ -26,11 +27,12 @@ class DatabaseSeeder extends Seeder
         $this->call('BrukerTableSeeder');
         $this->call('OppgaveTableSeeder');
 
-        //Pur\Regnskap
+        // Pur\Regnskap
         $this->call('BilagssekvensTableSeeder');
         $this->call('BilagsmalTableSeeder');
         $this->call('KontoTableSeeder');
         $this->call('PosteringsmalTableSeeder');
+        $this->call('BilagTableSeeder');
     }
 }
 
@@ -243,5 +245,33 @@ class KontoTableSeeder extends Seeder
                 'kontonavn' => $konto[1],
             ]);
         }
+    }
+}
+
+class BilagTableSeeder extends Seeder
+{
+
+    public function run()
+    {
+        DB::table('bilag')->delete();
+
+        Bilag::create([
+            'sekvensposisjon' => '1',
+            'bilagsmal_id' => '1',
+            'besvarelse_id' => '1',
+        ]);
+
+        Bilag::create([
+            'sekvensposisjon' => '2',
+            'bilagsmal_id' => '1',
+            'besvarelse_id' => '1',
+
+        ]);
+
+        Bilag::create([
+            'sekvensposisjon' => '3',
+            'bilagsmal_id' => '1',
+            'besvarelse_id' => '1',
+        ]);
     }
 }
