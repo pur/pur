@@ -18,8 +18,7 @@ class Bilag extends Model {
      */
     public function elevposteringer()
     {
-        return $this->posteringer()->where('er_fasit', false);
-        // whereErFasit(false) ;-)
+        return $this->posteringer()->avElev();
     }
 
     /**
@@ -29,8 +28,7 @@ class Bilag extends Model {
      */
     public function fasitposteringer()
     {
-        return $this->posteringer()->where('er_fasit', true);
-        // whereErFasit(true) ;-)
+        return $this->posteringer()->fasit();
     }
 
     /**
