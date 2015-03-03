@@ -9,7 +9,8 @@
 
                 <div class="row">
                     <div class="form-group col-sm-6">
-                        <p>Laget av: {!! $bilagssekvens->skaper->fulltNavn() !!}, {!! $bilagssekvens->oppgave->tid_opprettet !!}</p>
+                        <p>Laget av: {!! $bilagssekvens->skaper->fulltNavn() !!}
+                            , {!! $bilagssekvens->oppgave->tid_opprettet !!}</p>
 
                         <p>Sist endret: {!! $bilagssekvens->oppgave->tid_endret !!}</p>
 
@@ -80,7 +81,7 @@
                             {!!Form::label('diverse-tekst', 'Diversetekst:') !!}
                             {!! Form::textarea( 'diverse-tekst', 'Kun til info for studentene. F.eks. Kontantrabatt ved betaling før 60 dager.', ['class' => 'form-control', 'style' => 'height: 75px;']) !!}
 
-                            </div>
+                        </div>
                     </div>
 
 
@@ -94,17 +95,35 @@
                             {!! Form::model($posteringsmal, ['route' => ['posteringsmal.update', $posteringsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
                             <div class="row list-group-item">
 
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-4">
+                                    {!!Form::label('kontokode', 'Konto:') !!}
                                     {!!Form::select('kontokode', $selectKontoer, $posteringsmal->konto->kontokode, ['class' => 'form-control']) !!}
                                 </div>
 
-                                <div class="form-group col-md-5">
-
+                                <div class="form-group col-md-3">
+                                    {!!Form::label('formel', 'Formel:') !!}
                                     {!! Form::select('formel', $selectFormler, $posteringsmal->formel, ['class' => 'form-control']) !!}
-
                                 </div>
+                                <div class="form-group col-md-2">
+                                    {!!Form::label('diverse-tekst', 'Bruttobeløp A:') !!}
+                                    <select class="form-control">
+                                    @foreach($bilagssekvens->bilagsmaler as $bilagsmal)
+                                        <option>{{$bilagsmal->bilagstype}}</option>
+                                    @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    {!!Form::label('diverse-tekst', 'Bruttobeløp B:') !!}
+                                    <select class="form-control">
+                                        @foreach($bilagssekvens->bilagsmaler as $bilagsmal)
+                                            <option>{{$bilagsmal->bilagstype}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
                                 <div class="form-group col-md-1">
-                                    <a class="slett-postering"><span class="fa fa-trash-o fa-2x"></span></a>
+                                    {!!Form::label('slett', 'Fjern:') !!}
+                                    <p><a class="slett-postering"><span class="fa fa-trash-o fa-2x"></span></a></p>
                                     {{-- TODO Slett postering i DB --}}
                                 </div>
                             </div>
@@ -142,8 +161,11 @@
             var content = '';
             content += '{!! Form::model($posteringsmal, ["route" => ["posteringsmal.update", $posteringsmal->id], "method" => "PATCH", "submit-async" => "on-form-focusout"]) !!}';
             content += '<div class="row list-group-item">';
-            content += '<div class="form-group col-md-6">{!! Form::select("kontokode", $selectKontoer, $posteringsmal->konto->kontokode, ["class" => "form-control"]) !!}</div>';
-            content += '<div class="form-group col-md-5">{!! Form::select("formel", $selectFormler, $posteringsmal->formel, ["class" => "form-control"]) !!} </div>';
+            content += '<div class="form-group col-md-4">{!! Form::select("kontokode", $selectKontoer, $posteringsmal->konto->kontokode, ["class" => "form-control"]) !!}</div>';
+            content += '<div class="form-group col-md-3">{!! Form::select("formel", $selectFormler, $posteringsmal->formel, ["class" => "form-control"]) !!} </div>';
+            content += '<div class="form-group col-md-2">{!! Form::select("formel", $selectFormler, $posteringsmal->formel, ["class" => "form-control"]) !!} </div>';
+            content += '<div class="form-group col-md-2">{!! Form::select("formel", $selectFormler, $posteringsmal->formel, ["class" => "form-control"]) !!} </div>';
+
             content += '<div class="form-group col-md-1"><a class="slett-postering"><span class="fa fa-trash-o fa-2x"></span></a></div>';
             content += '</div>';
             content += '{!! Form::close() !!}';
