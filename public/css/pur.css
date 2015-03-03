@@ -3,3 +3,7 @@
     color: green;
     visibility: hidden;
 }
+
+.input-group .form-control:last-child{
+    -webkit-appearance: none;
+}
