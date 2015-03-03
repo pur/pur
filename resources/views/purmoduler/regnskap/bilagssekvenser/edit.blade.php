@@ -105,20 +105,12 @@
                                     {!! Form::select('formel', $selectFormler, $posteringsmal->formel, ['class' => 'form-control']) !!}
                                 </div>
                                 <div class="form-group col-md-2">
-                                    {!!Form::label('diverse-tekst', 'Bruttobeløp A:') !!}
-                                    <select class="form-control">
-                                    @foreach($bilagssekvens->bilagsmaler as $bilagsmal)
-                                        <option>{{$bilagsmal->bilagstype}}</option>
-                                    @endforeach
-                                    </select>
+                                    {!!Form::label('diverse-tekst', 'A =') !!}
+                                    {!! Form::select('formelbilag_b', $bilagssekvens->selectBilagsmaler(), $posteringsmal->formel, ['class' => 'form-control']) !!}
                                 </div>
                                 <div class="form-group col-md-2">
-                                    {!!Form::label('diverse-tekst', 'Bruttobeløp B:') !!}
-                                    <select class="form-control">
-                                        @foreach($bilagssekvens->bilagsmaler as $bilagsmal)
-                                            <option>{{$bilagsmal->bilagstype}}</option>
-                                        @endforeach
-                                    </select>
+                                    {!!Form::label('formelbilag_b', 'B =') !!}
+                                    {!! Form::select('formelbilag_b', $bilagssekvens->selectBilagsmaler(), $posteringsmal->formel, ['class' => 'form-control']) !!}
                                 </div>
 
                                 <div class="form-group col-md-1">

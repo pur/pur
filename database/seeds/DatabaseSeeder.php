@@ -131,19 +131,19 @@ class BilagsmalTableSeeder extends Seeder
         DB::table('bilagsmaler')->delete();
 
         Bilagsmal::create([
-            'bilagstype' => '01 - Inngående faktura',
+            'bilagstype' => 'Inngående faktura',
             'nr_i_sekvens' => 1,
             'bilagssekvens_id' => 1,
         ]);
 
         Bilagsmal::create([
-            'bilagstype' => '02 - Inngående kreditnota',
+            'bilagstype' => 'Inngående kreditnota',
             'nr_i_sekvens' => 2,
             'bilagssekvens_id' => 1,
         ]);
 
         Bilagsmal::create([
-            'bilagstype' => '06 - Utbetaling',
+            'bilagstype' => 'Utbetaling',
             'nr_i_sekvens' => 3,
             'bilagssekvens_id' => 1,
         ]);

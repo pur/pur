@@ -10,6 +10,21 @@ class Bilagssekvens extends Oppgave
 
     public $timestamps = false;
 
+
+
+    /**
+     * Returnerer nøkkel-verdi-par egnet til nedtrekksliste
+     *
+     * @return mixed
+     */
+    public function selectBilagsmaler()
+    {
+        foreach ($this->bilagsmaler as $bilagsmal)
+            $kodeNavnTabell[$bilagsmal->nr_i_sekvens] = $bilagsmal->nr_i_sekvens . " – " . $bilagsmal->bilagstype;
+        return $kodeNavnTabell;
+    }
+
+
     /**
      * Den som har laget bilagssekvensen
      *
