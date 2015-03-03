@@ -48,27 +48,22 @@
                 <div class="panel-body">
                     {!! Form::model($bilagsmal, ['route' => ['bilagsmaler.update', $bilagsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
                     <div class="row">
-                        <div class="form-group col-sm-3">
-                            {!!Form::label('dato', 'Dato:') !!}
 
-                            {!! Form::input('date', 'dato', null, ['class' => 'form-control']) !!}
-
-                        </div>
-                        <div class="form-group col-sm-3">
+                        <div class="form-group col-sm-4">
                             {!!Form::label('bruttobelop-min', 'Minimum bruttobeløp:') !!}
                             <div class="input-group">
                                 <div class="input-group-addon">kr</div>
                                 {!! Form::input('number', 'bruttobelop-min', null, ['class' => 'form-control']) !!}
                             </div>
                         </div>
-                        <div class="form-group col-sm-3">
+                        <div class="form-group col-sm-4">
                             {!!Form::label('bruttobelop-maks', 'Maksimum bruttobeløp:') !!}
                             <div class="input-group">
                                 <div class="input-group-addon">kr</div>
                                 {!! Form::input('number', 'bruttobelop-maks', null, ['class' => 'form-control']) !!}
                             </div>
                         </div>
-                        <div class="form-group col-sm-3">
+                        <div class="form-group col-sm-4">
                             {!!Form::label('rabattsats', 'Rabattsats:') !!}
                             <div class="input-group">
                                 <div class="input-group-addon">%</div>
@@ -149,6 +144,7 @@
 @section('scripts')
 
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
     <script>
         $('.slett-postering').click(function () {
