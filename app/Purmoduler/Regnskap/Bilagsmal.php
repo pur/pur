@@ -7,7 +7,7 @@ class Bilagsmal extends Model
 
     protected $table = 'bilagsmaler';
 
-    protected $fillable = ['bilagstype', 'oppgave_id'];
+    protected $fillable = ['bilagstype', 'nr_i_sekvens', 'bilagssekvens_id'];
 
     public $timestamps = false;
 

@@ -16,7 +16,7 @@ class CreateBilagTable extends Migration {
 		{
             $table->increments('id');
             $table->integer('bilagsmal_id')->unsigned();
-            $table->integer('sekvensposisjon')->unsigned();
+            $table->integer('nr_i_oppgsett')->unsigned();
 			$table->integer('besvarelse_id')->unsigned();
 
             //$table->primary(['bilagsmal_id', 'sekvensposisjon']);
