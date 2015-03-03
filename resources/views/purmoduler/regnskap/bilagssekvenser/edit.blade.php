@@ -57,14 +57,14 @@
                         <div class="form-group col-sm-3">
                             {!!Form::label('bruttobelop-min', 'Minimum bruttobeløp:') !!}
                             <div class="input-group">
-                                <div class="input-group-addon">NOK</div>
+                                <div class="input-group-addon">kr</div>
                                 {!! Form::input('number', 'bruttobelop-min', null, ['class' => 'form-control']) !!}
                             </div>
                         </div>
                         <div class="form-group col-sm-3">
                             {!!Form::label('bruttobelop-maks', 'Maksimum bruttobeløp:') !!}
                             <div class="input-group">
-                                <div class="input-group-addon">NOK</div>
+                                <div class="input-group-addon">kr</div>
                                 {!! Form::input('number', 'bruttobelop-maks', null, ['class' => 'form-control']) !!}
                             </div>
                         </div>
@@ -96,25 +96,37 @@
                             <div class="row list-group-item">
 
                                 <div class="form-group col-md-4">
-                                    {!!Form::label('kontokode', 'Konto:') !!}
-                                    {!!Form::select('kontokode', $selectKontoer, $posteringsmal->konto->kontokode, ['class' => 'form-control']) !!}
+                                    <div class="input-group">
+                                        <div class="input-group-addon">Konto: </div>
+                                        {!!Form::select('kontokode', $selectKontoer, $posteringsmal->konto->kontokode, ['class' => 'form-control']) !!}
+                                    </div>
                                 </div>
 
                                 <div class="form-group col-md-3">
-                                    {!!Form::label('formel', 'Formel:') !!}
-                                    {!! Form::select('formel', $selectFormler, $posteringsmal->formel, ['class' => 'form-control']) !!}
+                                    <div class="input-group">
+                                        <div class="input-group-addon">&fnof;(x) =</div>
+                                        {!! Form::select('formel', $selectFormler, $posteringsmal->formel, ['class' => 'form-control']) !!}
+                                    </div>
+
+
                                 </div>
                                 <div class="form-group col-md-2">
-                                    {!!Form::label('diverse-tekst', 'A =') !!}
-                                    {!! Form::select('formelbilag_b', $bilagssekvens->selectBilagsmaler(), $posteringsmal->formel, ['class' => 'form-control']) !!}
+                                    <div class="input-group">
+                                        <div class="input-group-addon">A =</div>
+                                        {!! Form::select('formelbilag_b', $bilagssekvens->selectBilagsmaler(), $posteringsmal->formel, ['class' => 'form-control']) !!}
+
+                                    </div>
                                 </div>
                                 <div class="form-group col-md-2">
-                                    {!!Form::label('formelbilag_b', 'B =') !!}
-                                    {!! Form::select('formelbilag_b', $bilagssekvens->selectBilagsmaler(), $posteringsmal->formel, ['class' => 'form-control']) !!}
+                                    <div class="input-group">
+                                        <div class="input-group-addon">B =</div>
+                                        {!! Form::select('formelbilag_b', $bilagssekvens->selectBilagsmaler(), $posteringsmal->formel, ['class' => 'form-control']) !!}
+                                    </div>
+
+
                                 </div>
 
                                 <div class="form-group col-md-1">
-                                    {!!Form::label('slett', 'Fjern:') !!}
                                     <p><a class="slett-postering"><span class="fa fa-trash-o fa-2x"></span></a></p>
                                     {{-- TODO Slett postering i DB --}}
                                 </div>
