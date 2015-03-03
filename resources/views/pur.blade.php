@@ -2,8 +2,8 @@
 <head>
     <title>Pur regnskap</title>
     <meta charset="utf-8">
-    <link href="/css/app.css" rel="stylesheet">
-    <link href="/css/pur.css" rel="stylesheet">
+    <link href="{{ env('APPWEBPATH') }}/css/app.css" rel="stylesheet">
+    <link href="{{ env('APPWEBPATH') }}/css/pur.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
