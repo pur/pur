@@ -54,8 +54,8 @@ class BilagssekvensController extends Controller
      */
     public function show(Bilagssekvens $bilagssekvens)
     {
-        //return view('purmoduler.regnskap.bilagssekvenser.show', compact('bilagssekvens'));
-        return view('purmoduler.regnskap.bilagssekvenser.testing.show', compact('bilagssekvens'));
+        return view('purmoduler.regnskap.bilagssekvenser.show', compact('bilagssekvens'));
+        //return view('purmoduler.regnskap.bilagssekvenser.testing.show', compact('bilagssekvens'));
     }
 
     /**
