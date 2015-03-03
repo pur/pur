@@ -6,6 +6,7 @@ use Pur\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Pur\Oppgave;
 use Pur\Purmoduler\Regnskap\Bilagssekvens;
+use Pur\Purmoduler\Regnskap\Formel;
 use Pur\Purmoduler\Regnskap\Konto;
 
 
@@ -68,16 +69,7 @@ class BilagssekvensController extends Controller
     {
         $selectKontoer = Konto::alleSomKodeNavnTabell();
 
-        //MIDLERTIDIG:
-        $selectFormler = [
-            '1'=>'bruttobeløp - bruttobeløp',
-            '2'=>'bruttobeløp / 5',
-            '3'=>'bruttobeløp / 1,25',
-            '4'=>'brt.belA - brt.belB * (100-rabattA)',
-            '5'=>'-(brt.belA - brt.belB * (100-rabattA))',
-            '6'=>'rabattbeløp / 5',
-            '7'=>'rabattbeløp / 1,25'
-        ];
+        $selectFormler = Formel::navnAlleFormler();
 
         return view('purmoduler.regnskap.bilagssekvenser.edit', compact('bilagssekvens', 'selectKontoer', 'selectFormler'));
         //return view('purmoduler.regnskap.bilagssekvenser.testing.edit', compact('bilagssekvens', 'selectKontoer'));
