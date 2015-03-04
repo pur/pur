@@ -4,6 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 use Pur\Bruker;
 use Pur\Oppgave;
+use Pur\Oppgavesett;
 use Pur\Purmoduler\Regnskap\Bilag;
 use Pur\Purmoduler\Regnskap\Bilagsmal;
 use Pur\Purmoduler\Regnskap\Bilagssekvens;
@@ -35,6 +36,7 @@ class DatabaseSeeder extends Seeder
         $this->call('PosteringsmalTableSeeder');
         $this->call('BilagTableSeeder');
         $this->call('PosteringTableSeeder');
+        $this->call('OppgavesettTableSeeder');
     }
 }
 
@@ -499,6 +501,55 @@ class PosteringTableSeeder extends Seeder
             'er_fasit' => false,
             'bilag_id' => 3,
             'kontokode' => 4300
+        ]);
+    }
+}
+
+class OppgavesettTableSeeder extends Seeder
+{
+
+    public function run()
+    {
+        DB::table('oppgavesett')->delete();
+
+        Oppgavesett::create([
+            'beskrivelse' => 'Øvingsoppgavesett 1',
+            'tid_opprettet' => '2015-08-01 09:00:00',
+            'tid_endret' => '2015-08-05 09:00:00',
+            'tid_publisert' => '2015-08-05 10:00:00',
+            'tid_aapent' => '2015-08-10 10:00:00',
+            'tid_lukket' => '2015-09-10 10:00:00',
+            'bruker_id' => 1,
+        ]);
+
+        Oppgavesett::create([
+            'beskrivelse' => 'Obligatorisk oppgavesett 1',
+            'tid_opprettet' => '2015-09-01 09:00:00',
+            'tid_endret' => '2015-09-05 09:00:00',
+            'tid_publisert' => '2015-09-05 10:00:00',
+            'tid_aapent' => '2015-09-10 10:00:00',
+            'tid_lukket' => '2015-10-10 10:00:00',
+            'bruker_id' => 1,
+        ]);
+
+        Oppgavesett::create([
+            'beskrivelse' => 'Øvingsoppgavesett 2',
+            'tid_opprettet' => '2015-10-01 09:00:00',
+            'tid_endret' => '2015-10-05 09:00:00',
+            'tid_publisert' => '2015-10-05 10:00:00',
+            'tid_aapent' => '2015-10-10 10:00:00',
+            'tid_lukket' => '2015-11-10 10:00:00',
+            'bruker_id' => 1,
+        ]);
+
+        Oppgavesett::create([
+            'beskrivelse' => 'Obligatorisk oppgavesett 2',
+            'tid_opprettet' => '2015-11-01 09:00:00',
+            'tid_endret' => '2015-11-05 09:00:00',
+            'tid_publisert' => '2015-11-05 10:00:00',
+            'tid_aapent' => '2015-11-10 10:00:00',
+            'tid_lukket' => '2015-12-10 10:00:00',
+            'bruker_id' => 1,
         ]);
     }
 }

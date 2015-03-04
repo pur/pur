@@ -11,6 +11,7 @@
 |
 */
 
+use Pur\Oppgavesett;
 use Pur\Purmoduler\Regnskap\Bilag;
 use Pur\Purmoduler\Regnskap\Bilagsmal;
 use Pur\Purmoduler\Regnskap\Bilagssekvens;
@@ -28,6 +29,10 @@ Route::controllers([
 
 $router->resource('bruker', 'BrukerController');
 $router->resource('oppgave', 'OppgaveController');
+$router->resource('oppgavesett', 'OppgavesettController');
+$router->bind('oppgavesett', function ($id) {
+    return Oppgavesett::whereId($id)->first();
+});
 
 // Purmoduler/Regnskap:
 $router->resource('bilagssekvens', 'Purmoduler\Regnskap\BilagssekvensController');
