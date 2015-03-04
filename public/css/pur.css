@@ -4,6 +4,45 @@
     visibility: hidden;
 }
 
+.panel-action-bar {
+    position: relative;
+    top: -19px;
+}
+
+.panel-action-bar a{
+    color: #FFF;
+}
+
+.panel-action-bar a .fa{
+    font-size: 1.5em;
+    margin-left: 8px;
+}
+
+.panel-action-bar .collapsed .fa-compress:before{
+    content: "\f065";
+}
+
 .input-group .form-control:last-child{
     -webkit-appearance: none;
+}
+
+.input-group-addon, .form-control {
+    padding: 6px 6px;
+    font-size: 12px;
+}
+
+.row.list-group-item {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 8px 0;
+}
+
+.row.list-group-item .form-group {
+    margin-bottom: 0;
+}
+
+@media (max-width: 992px) {
+    .row.list-group-item .form-group {
+        margin-bottom: 10px;
+    }
 }
