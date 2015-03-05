@@ -37,6 +37,7 @@ class DatabaseSeeder extends Seeder
         $this->call('BilagTableSeeder');
         $this->call('PosteringTableSeeder');
         $this->call('OppgavesettTableSeeder');
+        $this->call('SettoppgaveTableSeeder');
     }
 }
 
@@ -89,14 +90,14 @@ class OppgaveTableSeeder extends Seeder
         ]);
 
         Oppgave::create([
-            'beskrivelse' => 'Brilliant oppgave...',
+            'beskrivelse' => 'En annen oppgave...',
             'bruker_id' => 1,
             'moduloppgave_id' => 2,
             'moduloppgave_type' => 'Pur\Purmoduler\Regnskap\Bilagssekvens'
         ]);
 
         Oppgave::create([
-            'beskrivelse' => 'Superb oppgave...',
+            'beskrivelse' => 'Nok en oppgave...',
             'bruker_id' => 2,
             'moduloppgave_id' => 3,
             'moduloppgave_type' => 'Pur\Purmoduler\Regnskap\Bilagssekvens'
@@ -551,5 +552,21 @@ class OppgavesettTableSeeder extends Seeder
             'tid_lukket' => '2015-12-10 10:00:00',
             'bruker_id' => 1,
         ]);
+    }
+}
+
+class SettoppgaveTableSeeder extends Seeder
+{
+
+    public function run()
+    {
+        DB::table('settoppgaver')->delete();
+
+        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [1, 1]);
+        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [1, 2]);
+        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [1, 3]);
+        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [2, 1]);
+        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [2, 2]);
+        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [2, 3]);
     }
 }

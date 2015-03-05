@@ -21,7 +21,20 @@ class Oppgave extends Model
         return $this->belongsTo('Pur\Bruker', 'bruker_id');
     }
 
+
     /**
+     * Alle oppgavesett som oppgaven inngår i
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function oppgavesett()
+    {
+        return $this->belongsToMany('Pur\Oppgavesett', 'settoppgaver');
+    }
+
+    /**
+     * Purmodul-spesifikk oppgave som arver fra denne klassen
+     *
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function moduloppgave()

@@ -28,6 +28,18 @@ class Oppgavesett extends Model {
         return $this->belongsTo('Pur\Bruker', 'bruker_id');
     }
 
+
+    /**
+     * Alle oppgavesettets oppgaver
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function oppgaver()
+    {
+       return $this->belongsToMany('Pur\Oppgave', 'settoppgaver');
+    }
+
+
     /**
      * Besvarelser på oppgaver i oppgavesettet
      *
