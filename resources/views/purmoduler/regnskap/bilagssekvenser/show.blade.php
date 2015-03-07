@@ -1,6 +1,6 @@
 @extends('pur')
 @section('content')
-    <div class="container">
+
         <h1>Rediger bilagssekvens</h1>
 
 
@@ -26,8 +26,8 @@
             </div>
             <div class="col-sm-4">
                 <div class="btn-group">
-                    <button type="reset" class="btn btn-danger">Tilbake</button>
-                    <button type="reset" class="btn btn-primary">Rediger</button>
+                    <a href="../" class="btn btn-danger">Tilbake</a>
+                    <a href="edit/" class="btn btn-primary">Rediger</a>
                     <button type="reset" class="btn btn-info">Skriv ut</button>
                 </div>
                 <div class="checkbox">
@@ -76,7 +76,7 @@
 
 
 
-
+                </div>
 
 
 
@@ -117,18 +117,13 @@
 
                     </div>
 
-                </div>
+
             </div>
 
         @endforeach
 
 
-    </div>
-
 @section('scripts')
-
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
 
 

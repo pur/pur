@@ -1,6 +1,6 @@
 @extends('pur')
 @section('content')
-    <div class="container">
+
         <h1>Rediger bilagssekvens</h1>
         {!! Form::model($bilagssekvens, ['route' => ['bilagssekvens.update', $bilagssekvens->id], 'method' => 'PATCH']) !!}
         <div class="row">
@@ -52,27 +52,37 @@
                         {!! Form::model($bilagsmal, ['route' => ['bilagsmaler.update', $bilagsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
                         <div class="row">
 
-                            <div class="form-group col-sm-4">
-                                {!!Form::label('bruttobelop-min', 'Minimum bruttobeløp:') !!}
+                            <div class="form-group col-sm-3">
+                                {!!Form::label('motpart', 'Motpart:') !!}
                                 <div class="input-group">
-                                    <div class="input-group-addon">kr</div>
-                                    {!! Form::input('number', 'bruttobelop-min', null, ['class' => 'form-control']) !!}
+                                    <div class="input-group-addon"><span class="fa fa-user"></span></div>
+                                    {!! Form::input('text', 'motpart', null, ['class' => 'form-control']) !!}
                                 </div>
                             </div>
-                            <div class="form-group col-sm-4">
-                                {!!Form::label('bruttobelop-maks', 'Maksimum bruttobeløp:') !!}
-                                <div class="input-group">
-                                    <div class="input-group-addon">kr</div>
-                                    {!! Form::input('number', 'bruttobelop-maks', null, ['class' => 'form-control']) !!}
-                                </div>
-                            </div>
-                            <div class="form-group col-sm-4">
+
+                            <div class="form-group col-sm-3">
                                 {!!Form::label('rabattsats', 'Rabattsats:') !!}
                                 <div class="input-group">
                                     <div class="input-group-addon">%</div>
                                     {!! Form::input('number', 'rabattsats', null, ['class' => 'form-control']) !!}
                                 </div>
                             </div>
+
+                            <div class="form-group col-sm-3">
+                                {!!Form::label('bruttobelop-min', 'Minimum bruttobeløp:') !!}
+                                <div class="input-group">
+                                    <div class="input-group-addon">kr</div>
+                                    {!! Form::input('number', 'bruttobelop-min', null, ['class' => 'form-control']) !!}
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-3">
+                                {!!Form::label('bruttobelop-maks', 'Maksimum bruttobeløp:') !!}
+                                <div class="input-group">
+                                    <div class="input-group-addon">kr</div>
+                                    {!! Form::input('number', 'bruttobelop-maks', null, ['class' => 'form-control']) !!}
+                                </div>
+                            </div>
+
                             <div class="form-group col-sm-12">
                                 {!!Form::label('diverse-tekst', 'Diversetekst:') !!}
                                 {!! Form::textarea( 'diverse-tekst', 'Kun til info for studentene. F.eks. Kontantrabatt ved betaling før 60 dager.', ['class' => 'form-control', 'style' => 'height: 75px;']) !!}
@@ -84,36 +94,42 @@
                         @foreach($bilagsmal->posteringsmaler as $posteringsmal)
                             {!! Form::model($posteringsmal, ['route' => ['posteringsmal.update', $posteringsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
                             <div class="row list-group-item">
-
-                                <div class="form-group col-md-4">
+                                <div class="col-md-11">
+                                    <div class="row">
+                                <div class="form-group col-md-12">
                                     <div class="input-group">
                                         <div class="input-group-addon">Konto:</div>
                                         {!!Form::select('kontokode', $selectKontoer, $posteringsmal->konto->kontokode, ['class' => 'form-control']) !!}
                                     </div>
                                 </div>
-                                <div class="form-group col-md-3">
+                                    </div>
+                                    <div class="row">
+                                <div class="form-group col-md-4">
                                     <div class="input-group">
                                         <div class="input-group-addon">&fnof;(x) =</div>
                                         {!! Form::select('formel', $selectFormler, $posteringsmal->formel, ['class' => 'form-control']) !!}
                                     </div>
                                 </div>
-                                <div class="form-group col-md-2">
+                                <div class="form-group col-md-4">
                                     <div class="input-group">
                                         <div class="input-group-addon">A =</div>
                                         {!! Form::select('formelbilag_b', $bilagssekvens->selectBilagsmaler(), $posteringsmal->formel, ['class' => 'form-control']) !!}
 
                                     </div>
                                 </div>
-                                <div class="form-group col-md-2">
+                                <div class="form-group col-md-4">
                                     <div class="input-group">
                                         <div class="input-group-addon">B =</div>
                                         {!! Form::select('formelbilag_b', $bilagssekvens->selectBilagsmaler(), $posteringsmal->formel, ['class' => 'form-control']) !!}
+                                    </div>
+                                </div>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-1">
                                     <p><a class="slett-postering"><span class="fa fa-trash-o fa-2x"></span></a></p>
                                     {{-- TODO Slett postering i DB --}}
                                 </div>
+
                             </div>
                             {!! Form::close() !!}
                         @endforeach
@@ -124,12 +140,11 @@
                 </div>
             </div>
         @endforeach
-    </div>
+
 
 
 @section('scripts')
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
 
     <script>
         $('.slett-postering').click(function () {

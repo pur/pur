@@ -25,11 +25,11 @@
 .input-group .form-control:last-child{
     -webkit-appearance: none;
 }
-
+/*
 .input-group-addon, .form-control {
     padding: 6px 6px;
     font-size: 12px;
-}
+}*/
 
 .row.list-group-item {
     margin-left: 0;
@@ -38,7 +38,7 @@
 }
 
 .row.list-group-item .form-group {
-    margin-bottom: 0;
+    margin-bottom: 5px;
 }
 
 @media (max-width: 992px) {

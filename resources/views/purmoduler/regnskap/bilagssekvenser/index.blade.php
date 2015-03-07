@@ -42,7 +42,8 @@
                             </div>
                             <div class="col-sm-2">
                                 <div class="btn-group">
-                                    <a class="btn btn-default">Vis</a><a class="btn btn-default">Rediger</a>
+                                    <a href="{{$bilagssekvens->id}}/" class="btn btn-default">Vis</a>
+                                    <a href="{{$bilagssekvens->id}}/edit/" class="btn btn-default">Rediger</a>
                                 </div>
                             </div>
 
