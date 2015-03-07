@@ -21,7 +21,8 @@ class CreateBrukereTable extends Migration {
 			$table->string('passord', 60);
 			$table->string('rolle');
 			$table->rememberToken();
-			$table->timestamps();
+            $table->timestamp('tid_opprettet');
+            $table->timestamp('tid_endret');
 		});
 	}
 

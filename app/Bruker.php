@@ -31,6 +31,9 @@ class Bruker extends Model implements AuthenticatableContract, CanResetPasswordC
 	 */
 	protected $hidden = ['passord', 'remember_token'];
 
+    const CREATED_AT = 'tid_opprettet';
+    const UPDATED_AT = 'tid_endret';
+
 
     /**
      * Returnerer brukerens for– og etternavn satt sammen

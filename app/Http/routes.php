@@ -11,6 +11,7 @@
 |
 */
 
+use Pur\Besvarelse;
 use Pur\Oppgavesett;
 use Pur\Purmoduler\Regnskap\Bilag;
 use Pur\Purmoduler\Regnskap\Bilagsmal;
@@ -32,6 +33,11 @@ $router->resource('oppgave', 'OppgaveController');
 $router->resource('oppgavesett', 'OppgavesettController');
 $router->bind('oppgavesett', function ($id) {
     return Oppgavesett::whereId($id)->first();
+});
+
+$router->resource('besvarelser', 'BesvarelseController');
+$router->bind('besvarelser', function ($id) {
+    return Besvarelse::whereId($id)->first();
 });
 
 // Purmoduler/Regnskap:

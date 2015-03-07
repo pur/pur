@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBilagssekvensTable extends Migration {
+class CreateBilagssekvenserTable extends Migration {
 
 	/**
 	 * Run the migrations.

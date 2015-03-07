@@ -26,21 +26,6 @@ class CreateOppgavesettTable extends Migration
                 ->references('id')->on('brukere')
                 ->onDelete('cascade');
         });
-
-        Schema::create('settoppgaver', function (Blueprint $table) {
-            $table->integer('oppgavesett_id')->unsigned();
-            $table->integer('oppgave_id')->unsigned();
-
-            $table->primary(['oppgavesett_id', 'oppgave_id']);
-
-            $table->foreign('oppgavesett_id')
-                ->references('id')->on('oppgavesett')
-                ->onDelete('cascade');
-
-            $table->foreign('oppgave_id')
-                ->references('id')->on('oppgaver')
-                ->onDelete('restrict');
-        });
     }
 
     /**
@@ -50,7 +35,6 @@ class CreateOppgavesettTable extends Migration
      */
     public function down()
     {
-        Schema::drop('settoppgaver');
         Schema::drop('oppgavesett');
     }
 

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
+use Pur\Besvarelse;
 use Pur\Bruker;
 use Pur\Oppgave;
 use Pur\Oppgavesett;
@@ -28,18 +29,21 @@ class DatabaseSeeder extends Seeder
         // Pur
         $this->call('BrukerTableSeeder');
         $this->call('OppgaveTableSeeder');
-
-        // Pur\Regnskap
-        $this->call('BilagssekvensTableSeeder');
-        $this->call('BilagsmalTableSeeder');
-        $this->call('KontoTableSeeder');
-        $this->call('PosteringsmalTableSeeder');
-        $this->call('BilagTableSeeder');
-        $this->call('PosteringTableSeeder');
         $this->call('OppgavesettTableSeeder');
         $this->call('SettoppgaveTableSeeder');
+        $this->call('BesvarelseTableSeeder');
+
+        // Pur\..\Regnskap
+        $this->call('BilagssekvensTableSeeder');
+        $this->call('BilagsmalTableSeeder');
+        $this->call('BilagTableSeeder');
+        $this->call('KontoTableSeeder');
+        $this->call('PosteringsmalTableSeeder');
+        $this->call('PosteringTableSeeder');
     }
 }
+
+// Pur
 
 class BrukerTableSeeder extends Seeder
 {
@@ -69,6 +73,14 @@ class BrukerTableSeeder extends Seeder
             'fornavn' => 'Sture',
             'etternavn' => 'Student',
             'epost' => 'sture@student.no',
+            'passord' => bcrypt('passord'),
+            'rolle' => 'student',
+        ]);
+
+        Bruker::create([
+            'fornavn' => 'Ellen',
+            'etternavn' => 'Elev',
+            'epost' => 'ellen@elev.no',
             'passord' => bcrypt('passord'),
             'rolle' => 'student',
         ]);
@@ -105,6 +117,101 @@ class OppgaveTableSeeder extends Seeder
     }
 }
 
+class OppgavesettTableSeeder extends Seeder
+{
+
+    public function run()
+    {
+        DB::table('oppgavesett')->delete();
+
+        Oppgavesett::create([
+            'beskrivelse' => 'Øvingsoppgavesett 1',
+            'tid_opprettet' => '2015-08-01 09:00:00',
+            'tid_endret' => '2015-08-05 09:00:00',
+            'tid_publisert' => '2015-08-05 10:00:00',
+            'tid_aapent' => '2015-08-10 10:00:00',
+            'tid_lukket' => '2015-09-10 10:00:00',
+            'bruker_id' => 1,
+        ]);
+
+        Oppgavesett::create([
+            'beskrivelse' => 'Obligatorisk oppgavesett 1',
+            'tid_opprettet' => '2015-09-01 09:00:00',
+            'tid_endret' => '2015-09-05 09:00:00',
+            'tid_publisert' => '2015-09-05 10:00:00',
+            'tid_aapent' => '2015-09-10 10:00:00',
+            'tid_lukket' => '2015-10-10 10:00:00',
+            'bruker_id' => 1,
+        ]);
+
+        Oppgavesett::create([
+            'beskrivelse' => 'Øvingsoppgavesett 2',
+            'tid_opprettet' => '2015-10-01 09:00:00',
+            'tid_endret' => '2015-10-05 09:00:00',
+            'tid_publisert' => '2015-10-05 10:00:00',
+            'tid_aapent' => '2015-10-10 10:00:00',
+            'tid_lukket' => '2015-11-10 10:00:00',
+            'bruker_id' => 1,
+        ]);
+
+        Oppgavesett::create([
+            'beskrivelse' => 'Obligatorisk oppgavesett 2',
+            'tid_opprettet' => '2015-11-01 09:00:00',
+            'tid_endret' => '2015-11-05 09:00:00',
+            'tid_publisert' => '2015-11-05 10:00:00',
+            'tid_aapent' => '2015-11-10 10:00:00',
+            'tid_lukket' => '2015-12-10 10:00:00',
+            'bruker_id' => 1,
+        ]);
+    }
+}
+
+class SettoppgaveTableSeeder extends Seeder
+{
+
+    public function run()
+    {
+        DB::table('settoppgaver')->delete();
+
+        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [1, 1]);
+        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [1, 2]);
+        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [1, 3]);
+        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [2, 1]);
+        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [2, 2]);
+        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [2, 3]);
+    }
+}
+
+class BesvarelseTableSeeder extends Seeder
+{
+
+    public function run()
+    {
+        DB::table('besvarelser')->delete();
+
+        Besvarelse::create([
+            'tid_opprettet' => '2015-08-10 11:00:00',
+            'tid_endret' => '2015-09-10 08:45:00',
+            'tid_levert' => '2015-09-10 09:00:00',
+            'kommentar' => 'Har vi lært dette?! :-O',
+            'bruker_id' => 3, // Sture Student
+            'oppgavesett_id' => 1,
+        ]);
+
+        Besvarelse::create([
+            'tid_opprettet' => '2015-08-10 12:00:00',
+            'tid_endret' => '2015-09-01 11:45:00',
+            'tid_levert' => '2015-09-01 12:00:00',
+            'kommentar' => 'Det var mye morsommere da vi gjorde dette på papir :-(',
+            'bruker_id' => 4, // Ellen Elev
+            'oppgavesett_id' => 1,
+        ]);
+    }
+}
+
+
+// Pur\..\Regnskap
+
 class BilagssekvensTableSeeder extends Seeder
 {
     public function run()
@@ -124,7 +231,6 @@ class BilagssekvensTableSeeder extends Seeder
         ]);
     }
 }
-
 
 class BilagsmalTableSeeder extends Seeder
 {
@@ -150,6 +256,55 @@ class BilagsmalTableSeeder extends Seeder
             'nr_i_sekvens' => 3,
             'bilagssekvens_id' => 1,
         ]);
+    }
+}
+
+class BilagTableSeeder extends Seeder
+{
+
+    public function run()
+    {
+        DB::table('bilag')->delete();
+
+        Bilag::create([
+            'nr_i_oppgsett' => 1,
+            'bilagsmal_id' => 1,
+            'besvarelse_id' => 1,
+        ]);
+
+        Bilag::create([
+            'nr_i_oppgsett' => 2,
+            'bilagsmal_id' => 2,
+            'besvarelse_id' => 1,
+
+        ]);
+
+        Bilag::create([
+            'nr_i_oppgsett' => 3,
+            'bilagsmal_id' => 3,
+            'besvarelse_id' => 1,
+        ]);
+    }
+}
+
+class KontoTableSeeder extends Seeder
+{
+    public function run()
+    {
+        DB::table('kontoer')->delete();
+
+        $csvFile = 'database/seeds/Kontoplan_NS-4102.csv';
+        $file_handle = fopen($csvFile, 'r');
+        while (!feof($file_handle))
+            $kontoer[] = fgetcsv($file_handle, 1024);
+        fclose($file_handle);
+
+        foreach ($kontoer as $konto) {
+            Konto::create([
+                'kontokode' => $konto[0],
+                'kontonavn' => $konto[1],
+            ]);
+        }
     }
 }
 
@@ -231,55 +386,6 @@ class PosteringsmalTableSeeder extends Seeder
             'formel' => 7,
             'bilagsmal_id' => 3,
             'kontokode' => 4300
-        ]);
-    }
-}
-
-class KontoTableSeeder extends Seeder
-{
-    public function run()
-    {
-        DB::table('kontoer')->delete();
-
-        $csvFile = 'database/seeds/Kontoplan_NS-4102.csv';
-        $file_handle = fopen($csvFile, 'r');
-        while (!feof($file_handle))
-            $kontoer[] = fgetcsv($file_handle, 1024);
-        fclose($file_handle);
-
-        foreach ($kontoer as $konto) {
-            Konto::create([
-                'kontokode' => $konto[0],
-                'kontonavn' => $konto[1],
-            ]);
-        }
-    }
-}
-
-class BilagTableSeeder extends Seeder
-{
-
-    public function run()
-    {
-        DB::table('bilag')->delete();
-
-        Bilag::create([
-            'nr_i_oppgsett' => 1,
-            'bilagsmal_id' => 1,
-            'besvarelse_id' => 1,
-        ]);
-
-        Bilag::create([
-            'nr_i_oppgsett' => 2,
-            'bilagsmal_id' => 2,
-            'besvarelse_id' => 1,
-
-        ]);
-
-        Bilag::create([
-            'nr_i_oppgsett' => 3,
-            'bilagsmal_id' => 3,
-            'besvarelse_id' => 1,
         ]);
     }
 }
@@ -503,70 +609,5 @@ class PosteringTableSeeder extends Seeder
             'bilag_id' => 3,
             'kontokode' => 4300
         ]);
-    }
-}
-
-class OppgavesettTableSeeder extends Seeder
-{
-
-    public function run()
-    {
-        DB::table('oppgavesett')->delete();
-
-        Oppgavesett::create([
-            'beskrivelse' => 'Øvingsoppgavesett 1',
-            'tid_opprettet' => '2015-08-01 09:00:00',
-            'tid_endret' => '2015-08-05 09:00:00',
-            'tid_publisert' => '2015-08-05 10:00:00',
-            'tid_aapent' => '2015-08-10 10:00:00',
-            'tid_lukket' => '2015-09-10 10:00:00',
-            'bruker_id' => 1,
-        ]);
-
-        Oppgavesett::create([
-            'beskrivelse' => 'Obligatorisk oppgavesett 1',
-            'tid_opprettet' => '2015-09-01 09:00:00',
-            'tid_endret' => '2015-09-05 09:00:00',
-            'tid_publisert' => '2015-09-05 10:00:00',
-            'tid_aapent' => '2015-09-10 10:00:00',
-            'tid_lukket' => '2015-10-10 10:00:00',
-            'bruker_id' => 1,
-        ]);
-
-        Oppgavesett::create([
-            'beskrivelse' => 'Øvingsoppgavesett 2',
-            'tid_opprettet' => '2015-10-01 09:00:00',
-            'tid_endret' => '2015-10-05 09:00:00',
-            'tid_publisert' => '2015-10-05 10:00:00',
-            'tid_aapent' => '2015-10-10 10:00:00',
-            'tid_lukket' => '2015-11-10 10:00:00',
-            'bruker_id' => 1,
-        ]);
-
-        Oppgavesett::create([
-            'beskrivelse' => 'Obligatorisk oppgavesett 2',
-            'tid_opprettet' => '2015-11-01 09:00:00',
-            'tid_endret' => '2015-11-05 09:00:00',
-            'tid_publisert' => '2015-11-05 10:00:00',
-            'tid_aapent' => '2015-11-10 10:00:00',
-            'tid_lukket' => '2015-12-10 10:00:00',
-            'bruker_id' => 1,
-        ]);
-    }
-}
-
-class SettoppgaveTableSeeder extends Seeder
-{
-
-    public function run()
-    {
-        DB::table('settoppgaver')->delete();
-
-        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [1, 1]);
-        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [1, 2]);
-        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [1, 3]);
-        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [2, 1]);
-        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [2, 2]);
-        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [2, 3]);
     }
 }

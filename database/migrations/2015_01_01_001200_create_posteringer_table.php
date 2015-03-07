@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePosteringTable extends Migration {
+class CreatePosteringerTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -25,6 +25,10 @@ class CreatePosteringTable extends Migration {
             $table->foreign('bilag_id')
                 ->references('id')->on('bilag')
                 ->onDelete('cascade');
+
+            $table->foreign('kontokode')
+                ->references('kontokode')->on('kontoer')
+                ->onDelete('restrict');
 
 		});
 	}

@@ -8,8 +8,6 @@ class Oppgavesett extends Model {
 
     protected $fillable = [
         'beskrivelse',
-        'tid_opprettet',
-        'tid_endret',
         'tid_publisert',
         'tid_aapent',
         'tid_lukket',

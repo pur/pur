@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreatePosteringsmalTable extends Migration
+class CreatePosteringsmalerTable extends Migration
 {
 
     /**
@@ -26,7 +26,7 @@ class CreatePosteringsmalTable extends Migration
 
             $table->foreign('kontokode')
                 ->references('kontokode')->on('kontoer')
-                ->onDelete('set null');
+                ->onDelete('restrict');
         });
     }
 
