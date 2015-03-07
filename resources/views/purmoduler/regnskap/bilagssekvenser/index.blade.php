@@ -1,6 +1,6 @@
 @extends('pur')
 @section('content')
-    <div class="container">
+
         <h1>Bilagssekvenser</h1>
 
         <div class="list-group panel panel-primary" id="accordion" role="tablist" aria-multiselectable="true">
@@ -70,7 +70,7 @@
             @endforeach
 
         </div>
-    </div>
+
 
 @section('scripts')
 

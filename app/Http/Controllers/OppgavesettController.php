@@ -5,6 +5,7 @@ use Pur\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Pur\Oppgavesett;
+use Pur\Purmoduler\Regnskap\Bilagssekvens;
 
 class OppgavesettController extends Controller {
 
@@ -17,7 +18,8 @@ class OppgavesettController extends Controller {
 	public function index(Oppgavesett $oppgavesett)
 	{
         $alleoppgavesett = $oppgavesett->get();
-        return view('oppgavesett.testing.list', compact('alleoppgavesett'));
+        //return view('oppgavesett.testing.list', compact('alleoppgavesett'));
+        return view('oppgavesett.list', compact('alleoppgavesett'));
     }
 
 	/**
@@ -48,7 +50,9 @@ class OppgavesettController extends Controller {
      */
 	public function show(Oppgavesett $oppgavesett)
 	{
-        return view('oppgavesett.testing.show', compact('oppgavesett'));
+        //return view('oppgavesett.testing.show', compact('oppgavesett'));
+        return view('oppgavesett.show', compact('oppgavesett'));
+
 	}
 
 	/**
@@ -57,9 +61,9 @@ class OppgavesettController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit(Oppgavesett $oppgavesett)
 	{
-		//
+        return view('oppgavesett.edit', compact('oppgavesett'));
 	}
 
 	/**
