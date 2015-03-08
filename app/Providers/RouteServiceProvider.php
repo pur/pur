@@ -24,7 +24,18 @@ class RouteServiceProvider extends ServiceProvider {
 	{
 		parent::boot($router);
 
-		//
+        // Pur:
+        $router->model('bruker', 'Pur\Bruker');
+        $router->model('oppgave', 'Pur\Oppgave');
+        $router->model('besvarelser', 'Pur\Besvarelse');
+        $router->model('oppgavesett', 'Pur\Oppgavesett');
+
+        // Purmoduler\Regnskap:
+        $router->model('bilagssekvens', 'Pur\Purmoduler\Regnskap\Bilagssekvens');
+        $router->model('bilagsmaler', 'Pur\Purmoduler\Regnskap\Bilagsmaler');
+        $router->model('posteringsmal', 'Pur\Purmoduler\Regnskap\Posteringsmal');
+        $router->model('bilag', 'Pur\Purmoduler\Regnskap\Bilag');
+
 	}
 
 	/**

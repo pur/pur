@@ -12,6 +12,7 @@
 */
 
 use Pur\Besvarelse;
+use Pur\Bruker;
 use Pur\Oppgavesett;
 use Pur\Purmoduler\Regnskap\Bilag;
 use Pur\Purmoduler\Regnskap\Bilagsmal;
@@ -28,35 +29,15 @@ Route::controllers([
 ]);
 
 
+// Pur:
 $router->resource('bruker', 'BrukerController');
 $router->resource('oppgave', 'OppgaveController');
 $router->resource('oppgavesett', 'OppgavesettController');
-$router->bind('oppgavesett', function ($id) {
-    return Oppgavesett::whereId($id)->first();
-});
-
 $router->resource('besvarelser', 'BesvarelseController');
-$router->bind('besvarelser', function ($id) {
-    return Besvarelse::whereId($id)->first();
-});
 
-// Purmoduler/Regnskap:
+// Purmoduler\Regnskap:
 $router->resource('bilagssekvens', 'Purmoduler\Regnskap\BilagssekvensController');
-$router->bind('bilagssekvens', function ($id) {
-    return Bilagssekvens::whereId($id)->first();
-});
-
 $router->resource('bilagsmaler', 'Purmoduler\Regnskap\BilagsmalerController');
-;$router->bind('bilagsmaler', function ($id) {
-    return Bilagsmal::whereId($id)->first();
-});
-
 $router->resource('posteringsmal', 'Purmoduler\Regnskap\PosteringsmalController');
-$router->bind('posteringsmal', function ($id) {
-    return Posteringsmal::whereId($id)->first();
-});
-
 $router->resource('bilag', 'Purmoduler\Regnskap\BilagController');
-$router->bind('bilag', function ($id) {
-    return Bilag::whereId($id)->first();
-});
+
