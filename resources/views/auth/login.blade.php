@@ -26,6 +26,7 @@
                         </div>
                     </div>
                 </div>
+
                 {{--
                 <div class="panel panel-default">
                     <div class="panel-heading">Logg inn med lokal bruker</div>
