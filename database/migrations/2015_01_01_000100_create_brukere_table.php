@@ -17,8 +17,10 @@ class CreateBrukereTable extends Migration {
 			$table->increments('id');
 			$table->string('fornavn');
 			$table->string('etternavn');
-			$table->string('epost')->unique();
-			$table->string('passord', 60);
+			// $table->string('epost')->unique();
+			// $table->string('passord', 60);
+			$table->string('email')->unique();
+			$table->string('password', 60);
 			$table->string('rolle');
 			$table->rememberToken();
             $table->timestamp('tid_opprettet');

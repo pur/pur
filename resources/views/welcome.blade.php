@@ -67,10 +67,10 @@
 	<body>
 		<div class="container">
 			<div class="content">
-				<div class="title">pur:Regnskap</div>
+				<div class="title">Pur</div>
 				<!--<div class="quote">{{ Inspiring::quote() }}</div> -->
-                <div class="quote">Tren på å føre regnskap - og bare det!</div>
-                <a href="bilagssekvens/1/edit/" class="button">Gå til testeksempel</a>
+                <div class="quote">Tren på essensen - ikke konteksten!</div>
+                <a href="/auth/login" class="button">Prøv!</a>
 			</div>
 		</div>
 	</body>

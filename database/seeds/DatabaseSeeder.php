@@ -53,10 +53,12 @@ class BrukerTableSeeder extends Seeder
         DB::table('brukere')->delete();
 
         Bruker::create([
-            'fornavn' => 'Lektor',
-            'etternavn' => 'Lerd',
-            'epost' => 'lektor@lur.no',
-            'passord' => bcrypt('passord'),
+            'fornavn' => 'Lærer',
+            'etternavn' => 'Lærd',
+            //'epost' => 'lektor@lerd.no',
+            'email' => 'laerer@laerd.no',
+            //'passord' => bcrypt('passord'),
+            'password' => bcrypt('passord'),
             'rolle' => 'faglærer'
         ]);
 
@@ -64,24 +66,30 @@ class BrukerTableSeeder extends Seeder
 
             'fornavn' => 'Professor',
             'etternavn' => 'Proff',
-            'epost' => 'professor@proff.no',
-            'passord' => bcrypt('passord'),
+            //'epost' => 'professor@proff.no',
+            'email' => 'professor@proff.no',
+            //'passord' => bcrypt('passord'),
+            'password' => bcrypt('passord'),
             'rolle' => 'faglærer'
         ]);
 
         Bruker::create([
             'fornavn' => 'Sture',
             'etternavn' => 'Student',
-            'epost' => 'sture@student.no',
-            'passord' => bcrypt('passord'),
+            //'epost' => 'sture@student.no',
+            'email' => 'sture@student.no',
+            //'passord' => bcrypt('passord'),
+            'password' => bcrypt('passord'),
             'rolle' => 'student',
         ]);
 
         Bruker::create([
             'fornavn' => 'Ellen',
             'etternavn' => 'Elev',
-            'epost' => 'ellen@elev.no',
-            'passord' => bcrypt('passord'),
+            //'epost' => 'ellen@elev.no',
+            'email' => 'ellen@elev.no',
+            //'passord' => bcrypt('passord'),
+            'password' => bcrypt('passord'),
             'rolle' => 'student',
         ]);
     }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <title>Pur regnskap</title>
+    <title>Pur</title>
     <meta charset="utf-8">
     <link href="{{ env('APPWEBPATH') }}/css/app.css" rel="stylesheet">
     <link href="{{ env('APPWEBPATH') }}/css/pur.css" rel="stylesheet">
@@ -19,7 +19,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">pur:Regnskap</a>
+            <a class="navbar-brand" href="#">Pur</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -30,12 +30,12 @@
             <ul class="nav navbar-nav navbar-right">
                 @if (Auth::guest())
                     <li><a href="/auth/login">Logg inn</a></li>
-                    <li><a href="/auth/register">Registrer</a></li>
+                    {{--<li><a href="/auth/register">Registrer</a></li>--}}
                 @else
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->fulltNavn() }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="/auth/logout">Logout</a></li>
+                            <li><a href="/auth/logout">Logg ut</a></li>
                         </ul>
                     </li>
                 @endif
