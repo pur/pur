@@ -47,9 +47,11 @@
 @yield('content')
 </div>
 
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-1.10.2.js"></script> -->
 <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
+<script src="{{ env('APPWEBPATH') }}/js/jquery-1.11.2.min.js"></script>
 <script src="{{ env('APPWEBPATH') }}/js/bootstrap.min.js"></script>
+
 
 
 @yield('scripts')
