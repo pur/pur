@@ -6,7 +6,8 @@
     <link href="{{ env('APPWEBPATH') }}/css/pur.css" rel="stylesheet">
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="{{ env('APPWEBPATH') }}/css/font-awesome.min.css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> -->
 
 </head>
 <body>
