@@ -21,50 +21,59 @@
         {!! Form::textarea( 'diverse-tekst', 'Kun til info for studentene. F.eks. Kontantrabatt ved betaling før 60 dager.', ['class' => 'form-control', 'style' => 'height: 75px;']) !!}
     </div>
 
-    <div class="form-group col-sm-12">
-        <div class="row">
-            <div class="col-sm-1">
-                {!!Form::label('tid_aapent', 'Åpen fra:') !!}
-            </div>
-            <div class="col-sm-4">
-                <div class="input-group">
-                    {!! Form::input('datetime-local', 'tid_aapent', null, ['class' => 'form-control']) !!}
-                    <div class="input-group-addon"><span class="fa fa-calendar"></span></div>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                {!!Form::label('tid_aapent', 'Åpne umiddelbart') !!}
-            </div>
-            <div class="col-sm-4">
 
 
-                {!! Form::checkbox('tid_aapent', '') !!}
-
-            </div>
+    <div class="form-group col-sm-12 form-inline">
+        Åpen fra:
+        <div class="input-group">
+            {!! Form::input('datetime-local', 'tid_aapent', null, ['class' => 'form-control']) !!}
+            <div class="input-group-addon"><span class="fa fa-calendar"></span></div>
         </div>
-        <div class="row">
-            <div class="col-sm-1">
-                {!!Form::label('tid_lukket', 'Åpent til:') !!}
-            </div>
-            <div class="col-sm-4">
-
-                <div class="input-group">
-                    {!! Form::input('datetime-local', 'tid_lukket', null, ['class' => 'form-control']) !!}
-                    <div class="input-group-addon"><span class="fa fa-calendar"></span></div>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                {!!Form::label('tid_lukket', 'Ingen stengetid:') !!}
-            </div>
-
-            <div class="col-sm-4">
-
-                <div class="checkbox-inline">
-                    {!! Form::checkbox('tid_lukket', '') !!}
-                </div>
-            </div>
+        <div class="checkbox">
+            <label>
+                {!! Form::checkbox('tid_aapent', '') !!} Åpne umiddelbart
+            </label>
         </div>
     </div>
+
+
+    <div class="form-group col-sm-12 form-inline">
+        {!!Form::label('tid_lukket', 'Åpent til: ') !!}
+        <div class="input-group">
+            {!! Form::input('datetime-local', 'tid_lukket', null, ['class' => 'form-control']) !!}
+            <div class="input-group-addon"><span class="fa fa-calendar"></span></div>
+        </div>
+        <div class="checkbox">
+            <label>
+                {!! Form::checkbox('tid_lukket', '') !!} Ingen stengetid
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group col-sm-12">
+        {!!Form::label('harpubliseringstid', 'Publiseringstid:') !!}
+
+<div class="form-inline">
+
+        {!! Form::radio('harpubliseringstid', '') !!} Lagre uten å publisere
+        {!! Form::radio('harpubliseringstid', '') !!} Sett publiseringstid
+</div>
+    </div>
+    <div class="form-group col-sm-12 form-inline">
+        <div class="input-group">
+            {!! Form::input('datetime-local', 'tid_lukket', null, ['class' => 'form-control']) !!}
+            <div class="input-group-addon"><span class="fa fa-calendar"></span></div>
+        </div>
+        <div class="checkbox">
+            <label>
+                {!! Form::checkbox('tid_lukket', '') !!} Publiser umiddelbart
+            </label>
+        </div>
+    </div>
+
+
+
+
     <div class="clearfix"></div>
 
 
