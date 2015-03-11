@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="alert alert-info alert-dismissible fade in" role="alert">
-        You are logged in!
+        Velkommen {{ Auth::user()->fulltNavn() }}!
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
