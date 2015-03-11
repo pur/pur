@@ -13,7 +13,8 @@
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle Navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -25,6 +26,23 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="/">Hjem</a></li>
+                <li class="dropdown">
+                    <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Utforsk <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>{!! link_to_route('bruker.show', 'Brukere', null) !!}</li>
+                        <li>{!! link_to_route('oppgavesett.show', 'Oppgavesett', null) !!}</li>
+                        <li>{!! link_to_route('bilagssekvens.show', 'Bilagssekvenser', null) !!}</li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mine
+                        oppgaver <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>{!! link_to_route('oppgavesett.show', 'Oppgavesett', null) !!}</li>
+                        <li>{!! link_to_route('bilagssekvens.show', 'Bilagssekvenser', null) !!}</li>
+                    </ul>
+                </li>
+
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -33,7 +51,8 @@
                     {{--<li><a href="/auth/register">Registrer</a></li>--}}
                 @else
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->fulltNavn() }} <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-expanded="false">{{ Auth::user()->fulltNavn() }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/auth/logout">Logg ut</a></li>
                         </ul>
@@ -44,7 +63,7 @@
     </div>
 </nav>
 <div class="container">
-@yield('content')
+    @yield('content')
 </div>
 
 <!-- <script src="https://code.jquery.com/jquery-1.10.2.js"></script> -->
