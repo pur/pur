@@ -44,4 +44,14 @@ class Bruker extends Model implements AuthenticatableContract, CanResetPasswordC
     {
         return $this->fornavn . " " . $this->etternavn;
     }
+
+    /**
+     * Returnerer alle brukerens besvarelser
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function besvarelser()
+    {
+        return $this->hasMany('Pur\Besvarelse');
+    }
 }

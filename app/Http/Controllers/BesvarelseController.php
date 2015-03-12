@@ -1,5 +1,6 @@
 <?php namespace Pur\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Pur\Besvarelse;
 use Pur\Http\Requests;
 use Pur\Http\Controllers\Controller;
@@ -8,15 +9,27 @@ use Illuminate\Http\Request;
 
 class BesvarelseController extends Controller {
 
+
+    private $innloggetBruker;
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->innloggetBruker = Auth::user();
+    }
+
     /**
      * Display a listing of the resource.
      *
-     * @param Besvarelse $besvarelse
      * @return Response
      */
-	public function index(Besvarelse $besvarelse)
+	public function index()
 	{
-		$besvarelser = $besvarelse->get();
+		$besvarelser = $this->innloggetBruker->besvarelser;
 
         return view('besvarelser.testing.list', compact('besvarelser'));
 	}
@@ -49,6 +62,9 @@ class BesvarelseController extends Controller {
      */
 	public function show(Besvarelse $besvarelse)
 	{
+        if($besvarelse->skaper->id != $this->innloggetBruker->id) {
+            return "Ikke din besvarelse!";
+        }
         return view('besvarelser.testing.show', compact('besvarelse'));
 	}
 
