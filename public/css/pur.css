@@ -22,7 +22,7 @@
     content: "\f065";
 }
 
-.input-group .form-control:last-child{
+.input-group .form-control{
     -webkit-appearance: none;
 }
 /*
@@ -39,6 +39,23 @@
 
 .row.list-group-item .form-group {
     margin-bottom: 5px;
+}
+
+
+.pur-dropdown select {
+    background: none;
+    border-top-right-radius: 4px!important;
+    border-bottom-right-radius: 4px!important;
+}
+.pur-dropdown .input-group-addon:last-child {
+    border: none;
+    position: absolute;
+    right: 18px;
+    z-index: 0;
+    top: 9px;
+    width: 0;
+    height: 0;
+    padding: 0;
 }
 
 @media (max-width: 992px) {
