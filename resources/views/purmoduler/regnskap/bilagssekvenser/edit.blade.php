@@ -42,21 +42,21 @@
             <div class="form-group col-sm-4">
                 <div class="input-group">
                     <div class="input-group-addon">kr</div>
-                    {!! Form::input('number', 'bruttobelop-min', null, ['class' => 'form-control']) !!}
+                    {!! Form::input('number', 'aMin', null, ['class' => 'form-control  localstorage', 'id' => 'aMin']) !!}
                     <div class="input-group-addon">Min</div>
                 </div>
             </div>
             <div class="form-group col-sm-4">
                 <div class="input-group">
                     <div class="input-group-addon">kr</div>
-                    {!! Form::input('number', 'bruttobelop-maks', null, ['class' => 'form-control']) !!}
+                    {!! Form::input('number', 'aMaks', null, ['class' => 'form-control  localstorage', 'id' => 'aMaks']) !!}
                     <div class="input-group-addon">Maks</div>
                 </div>
             </div>
             <div class="form-group col-sm-4">
                 <div class="input-group pur-dropdown">
                     <div class="input-group-addon pur-dropdown">Navn</div>
-                    <select class="form-control">
+                    <select class="form-control localstorage">
                         <option>Bruttobeløp</option>
                         <option>Annet beløp</option>
                     </select>
@@ -73,14 +73,14 @@
             <div class="form-group col-sm-4">
                 <div class="input-group">
                     <div class="input-group-addon">kr</div>
-                    {!! Form::input('number', 'bruttobelop-min', null, ['class' => 'form-control']) !!}
+                    {!! Form::input('number', 'bMin', null, ['class' => 'form-control localstorage', 'id' => 'bMin']) !!}
                     <div class="input-group-addon">Min</div>
                 </div>
             </div>
             <div class="form-group col-sm-4">
                 <div class="input-group">
                     <div class="input-group-addon">kr</div>
-                    {!! Form::input('number', 'bruttobelop-maks', null, ['class' => 'form-control']) !!}
+                    {!! Form::input('number', 'bMaks', null, ['class' => 'form-control localstorage', 'id' => 'bMaks']) !!}
                     <div class="input-group-addon">Maks</div>
                 </div>
             </div>
@@ -104,7 +104,7 @@
             <div class="form-group col-sm-4">
                 <div class="input-group">
                     <div class="input-group-addon">%</div>
-                    {!! Form::input('number', 'bruttobelop-min', null, ['class' => 'form-control']) !!}
+                    {!! Form::input('number', 'xSats', null, ['class' => 'form-control localstorage', 'id' => 'xSats']) !!}
                 </div>
             </div>
             <div class="form-group col-sm-4">
@@ -127,7 +127,7 @@
             <div class="form-group col-sm-4">
                 <div class="input-group">
                     <div class="input-group-addon">%</div>
-                    {!! Form::input('number', 'bruttobelop-min', null, ['class' => 'form-control']) !!}
+                    {!! Form::input('number', 'ySats', null, ['class' => 'form-control localstorage', 'id' => 'ySats']) !!}
                 </div>
             </div>
 
@@ -151,7 +151,7 @@
             <div class="form-group col-sm-4">
                 <div class="input-group">
                     <div class="input-group-addon"><span class="fa fa-user"></span></div>
-                    {!! Form::input('text', 'motpart', null, ['class' => 'form-control']) !!}
+                    {!! Form::input('text', 'motpart', null, ['class' => 'form-control localstorage', 'id' => 'motpart']) !!}
                 </div>
             </div>
         </div>
@@ -208,19 +208,19 @@
                             </div>
                         </div> -->
                         <div class="form-group col-sm-4">
-                        {!! Form::checkbox('false', '') !!} A: Bruttobeløp eks. 12.100,-
+                        {!! Form::checkbox('false', '') !!} A: Bruttobeløp eks. <span class="aEksempel"></span>
                         </div>
                         <div class="form-group col-sm-4">
-                        {!! Form::checkbox('false', '') !!} B: Annet beløp eks. 1.500,-
+                        {!! Form::checkbox('false', '') !!} B: Annet beløp eks. <span class="bEksempel"></span>
                         </div>
                         <div class="form-group col-sm-4">
-                            {!! Form::checkbox('false', '') !!} X: Rabattsats eks. 1.5%
+                            {!! Form::checkbox('false', '') !!} X: Rabattsats eks. <span class="xEksempel"></span>%
                         </div>
                         <div class="form-group col-sm-4">
-                            {!! Form::checkbox('false', '') !!} Y: Arbeidsgiveravgift eks. 12%
+                            {!! Form::checkbox('false', '') !!} Y: Arbeidsgiveravgift eks. <span class="yEksempel"></span>%
                         </div>
                         <div class="form-group col-sm-4">
-                            {!! Form::checkbox('false', '') !!} Motpart: Hansen & Co
+                            {!! Form::checkbox('false', '') !!} Motpart: <span class="motpartEksempel"></span>
                         </div>
                         <div class="form-group col-sm-12">
                             {!! Form::label('diverse-tekst', 'Diversetekst:') !!}
@@ -323,6 +323,56 @@
     </script>
 
     <script src="/js/ajaxformsubmit.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            function init() {
+                if (localStorage["aMin"]) {
+                    $('#aMin').val(localStorage["aMin"]);
+                }
+                if (localStorage["aMaks"]) {
+                    $('#aMaks').val(localStorage["aMaks"]);
+                }
+                if (localStorage["bMin"]) {
+                    $('#bMin').val(localStorage["bMin"]);
+                }
+                if (localStorage["bMaks"]) {
+                    $('#bMaks').val(localStorage["bMaks"]);
+                }
+                if (localStorage["xSats"]) {
+                    $('#xSats').val(localStorage["xSats"]);
+                }
+                if (localStorage["ySats"]) {
+                    $('#ySats').val(localStorage["ySats"]);
+                }
+                if (localStorage["motpart"]) {
+                    $('#motpart').val(localStorage["motpart"]);
+                }
+            }
+            init();
+        });
+
+        $('.localstorage').keyup(function () {
+            localStorage[$(this).attr('name')] = $(this).val();
+            if (localStorage["aMaks"] && localStorage["aMin"]) {
+                var aEksempel = (parseInt(localStorage["aMin"]) + parseInt(localStorage["aMaks"])) / 2;
+                $('.aEksempel').html(aEksempel);
+            }
+            if (localStorage["bMaks"] && localStorage["bMin"]) {
+                var bEksempel = (parseInt(localStorage["bMin"]) + parseInt(localStorage["bMaks"])) / 2;
+                $('.bEksempel').html(bEksempel);
+            }
+            if (localStorage["xSats"]) {
+                $('.xEksempel').html(localStorage["xSats"]);
+            }
+            if (localStorage["xSats"]) {
+                $('.yEksempel').html(localStorage["ySats"]);
+            }
+            if (localStorage["motpart"]) {
+                $('.motpartEksempel').html(localStorage["motpart"]);
+            }
+        });
+    </script>
 
 @endsection
 
