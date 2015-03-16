@@ -13,6 +13,16 @@ class Bilagsmal extends Model
 
 
     /**
+     * Tittel = Nummer i sekvens + bilagstype
+     *
+     * @return string
+     */
+    public function tittel()
+    {
+        return "Bilag nr. " . $this->nr_i_sekvens . " – " . $this->bilagstype;
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function bilagssekvens()

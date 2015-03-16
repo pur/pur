@@ -4,13 +4,13 @@ class Formel //extends Model
 {
 
     private static $navnAlleFormler = [
-        '1' => 'bruttobeløp - bruttobeløp',
-        '2' => 'bruttobeløp / 5',
-        '3' => 'bruttobeløp / 1,25',
-        '4' => 'brt.belA - brt.belB * (100-rabattA)',
-        '5' => '-(brt.belA - brt.belB * (100-rabattA))',
-        '6' => 'rabattbeløp / 5',
-        '7' => 'rabattbeløp / 1,25'
+        1 => 'Bruttobeløp som kreditt', //'bruttobeløp - bruttobeløp',
+        2 => 'Mva. fra bruttobeløp a', //'bruttobeløp / 5',
+        3 => 'Bruttobeløp a eks. mva.', //'bruttobeløp / 1,25',
+        4 => '', //'brt.belA - brt.belB * (100-rabattA)',
+        5 => '', //'-(brt.belA - brt.belB * (100-rabattA))',
+        6 => '', //'rabattbeløp / 5',
+        7 => '', //'rabattbeløp / 1,25'
     ];
 
 
@@ -39,15 +39,15 @@ class Formel //extends Model
             case 5 :
                 return self::formelE($verdi1, $verdi2, $verdi3);
             case 6 :
-                return self::formelA($verdi1);
-            case 7 :
                 return self::formelB($verdi1);
+            case 7 :
+                return self::formelC($verdi1);
         }
     }
 
     private static function formelA($verdi)
     {
-        return $verdi - $verdi;
+        return 0 - $verdi;
     }
 
     private static function formelB($verdi)

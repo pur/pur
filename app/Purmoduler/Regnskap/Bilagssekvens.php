@@ -20,7 +20,7 @@ class Bilagssekvens extends Oppgave
     public function selectBilagsmaler()
     {
         foreach ($this->bilagsmaler as $bilagsmal)
-            $kodeNavnTabell[$bilagsmal->nr_i_sekvens] = $bilagsmal->nr_i_sekvens . " – " . $bilagsmal->bilagstype;
+            $kodeNavnTabell[$bilagsmal->nr_i_sekvens] = $bilagsmal->tittel();
         return $kodeNavnTabell;
     }
 
@@ -34,6 +34,26 @@ class Bilagssekvens extends Oppgave
     public function skaper()
     {
         return $this->oppgave->skaper();
+    }
+
+    /**
+     * Tidspunkt for når bilagssekvensen ble opprettet
+     *
+     * @return mixed
+     */
+    public function tidOpprettet()
+    {
+        return $this->oppgave->tid_opprettet;
+    }
+
+    /**
+     * Tidspunkt for når bilagssekvensen ble endret
+     *
+     * @return mixed
+     */
+    public function tidEndret()
+    {
+        return $this->oppgave->tid_endret;
     }
 
     /**
