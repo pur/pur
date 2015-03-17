@@ -114,7 +114,7 @@
                     <div class="input-group-addon">Navn</div>
                     <select class="form-control" name="xNavn" id="xNavn">
                         <option value="Rabattsats">Rabattsats</option>
-                        <option value="Arbeidgiveravgift">Arbeidsgiveravgift</option>
+                        <option value="Arbeidsgiveravgift">Arbeidsgiveravgift</option>
                     </select>
 
                     <div class="input-group-addon"><span class="fa fa-caret-down"></span></div>
@@ -139,7 +139,7 @@
                     <div class="input-group-addon">Navn</div>
                     <select class="form-control" name="yNavn" id="yNavn">
                         <option value="Rabattsats">Rabattsats</option>
-                        <option value="Arbeidgiveravgift">Arbeidsgiveravgift</option>
+                        <option value="Arbeidsgiveravgift">Arbeidsgiveravgift</option>
                     </select>
 
                     <div class="input-group-addon"><span class="fa fa-caret-down"></span></div>
@@ -177,90 +177,170 @@
                 </div>
             </div>
             <div id="bilag{{ $bilagsmal->id }}" class="panel-collapse collapse in">
-                <div class="panel-body">
-                    {!! Form::model($bilagsmal, ['route' => ['bilagsmaler.update', $bilagsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
-                    <div class="row">
-                        <div class="form-group col-sm-4">
-                            {!! Form::checkbox('false', '') !!} A: <span class="aNavnEksempel"></span> eks. <span
-                                    class="aEksempel"></span>
+                <div role="tabpanel">
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#home{{ $bilagsmal->id }}" aria-controls="home"
+                                                                  role="tab"
+                                                                  data-toggle="tab">Lag bilag</a></li>
+                        <li role="presentation"><a href="#profile{{ $bilagsmal->id }}" aria-controls="profile"
+                                                   role="tab" data-toggle="tab">Vis
+                                bilag</a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="home{{ $bilagsmal->id }}">
+                            <div class="panel-body">
+                                {!! Form::model($bilagsmal, ['route' => ['bilagsmaler.update', $bilagsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
+                                <div class="row">
+                                    <div class="form-group col-sm-4">
+                                        {!! Form::checkbox('false', 'aVis' . $bilagsmal->id) !!} A: <span
+                                                class="aNavnEksempel"></span>
+                                        eks. <span
+                                                class="aEksempel"></span>
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        {!! Form::checkbox('false', 'bVis' . $bilagsmal->id) !!} B: <span
+                                                class="bNavnEksempel"></span>
+                                        eks.
+                                        <span class="bEksempel"></span>
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        {!! Form::checkbox('false', 'xVis' . $bilagsmal->id) !!} X: <span
+                                                class="xNavnEksempel"></span>
+                                        eks. <span
+                                                class="xEksempel"></span>%
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        {!! Form::checkbox('false', 'yVis' . $bilagsmal->id) !!} Y: <span
+                                                class="yNavnEksempel"></span>
+                                        eks. <span
+                                                class="yEksempel"></span>%
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        {!! Form::checkbox('false', 'motpartVis' . $bilagsmal->id) !!} Motpart: <span
+                                                class="motpartEksempel"></span>
+                                    </div>
+                                    <div class="form-group col-sm-12">
+                                        {!! Form::label('bilagstekst', 'Bilagstekst:') !!}
+                                        {!! Form::textarea( 'bilagstekst', 'Kontantrabatt ved betaling før 60 dager.', ['id' => 'bilagstekst' . $bilagsmal->id, 'class' => 'form-control localstorage', 'style' => 'height: 75px;']) !!}
+                                    </div>
+                                </div>
+                                {!! Form::close() !!}
+                            </div>
+                            <div class="postering list-group">
+                                @foreach($bilagsmal->posteringsmaler as $posteringsmal)
+                                    {!! Form::model($posteringsmal, ['route' => ['posteringsmal.update', $posteringsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
+                                    <div class="row list-group-item">
+                                        <div class="col-md-11">
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    <div class="input-group pur-dropdown">
+                                                        <div class="input-group-addon">Konto:</div>
+                                                        {!!Form::select('kontokode', $selectKontoer, $posteringsmal->konto->kontokode, ['class' => 'form-control']) !!}
+                                                        <div class="input-group-addon"><span class="fa fa-caret-down"></span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <div class="input-group pur-dropdown">
+                                                        <div class="input-group-addon">Beløp =</div>
+                                                        {!! Form::select('formel', $selectFormler, $posteringsmal->formel, ['class' => 'form-control formel-popover', 'data-container' => 'body', 'data-toggle' => 'popover', 'data-placement'=> 'bottom', 'data-content' => 'beløp = &fnof;(a,b) = -(bruttobeløp a - bruttobeløp b * (100 - rabattsats
+                                                        a))']) !!}
+                                                        <div class="input-group-addon"><span class="fa fa-caret-down"></span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-1">
+                                            <p><a class="slett-postering"><span class="fa fa-trash-o fa-2x"></span></a>
+                                            </p>
+                                            {{-- TODO Slett postering i DB --}}
+                                        </div>
+                                    </div>
+
+                                    {!! Form::close() !!}
+                                @endforeach
+                                <a class="ny-postering row list-group-item list-group-item-success text-center">
+                                    Legg til ny postering
+                                </a>
+                            </div>
                         </div>
-                        <div class="form-group col-sm-4">
-                            {!! Form::checkbox('false', '') !!} B: <span class="bNavnEksempel"></span> eks. <span class="bEksempel"></span>
-                        </div>
-                        <div class="form-group col-sm-4">
-                            {!! Form::checkbox('false', '') !!} X: <span class="xNavnEksempel"></span> eks. <span
-                                        class="xEksempel"></span>%
-                        </div>
-                        <div class="form-group col-sm-4">
-                            {!! Form::checkbox('false', '') !!} Y: <span class="yNavnEksempel"></span> eks. <span
-                                        class="yEksempel"></span>%
-                        </div>
-                        <div class="form-group col-sm-4">
-                            {!! Form::checkbox('false', '') !!} Motpart: <span class="motpartEksempel"></span>
-                        </div>
-                        <div class="form-group col-sm-12">
-                            {!! Form::label('diverse-tekst', 'Diversetekst:') !!}
-                            {!! Form::textarea( 'diverse-tekst', 'Kun til info for studentene. F.eks. Kontantrabatt ved betaling før 60 dager.', ['class' => 'form-control', 'style' => 'height: 75px;']) !!}
+
+                        <div role="tabpanel" class="tab-pane" id="profile{{ $bilagsmal->id }}">
+                            <div class="panel-body">
+
+                                <p id="bilagstekst{{ $bilagsmal->id }}Vis"></p>
+
+
+                                <dl class="dl-horizontal">
+                                    <span id="aVis{{ $bilagsmal->id }}" style="display: none;">
+                                        <dt>A =</dt><dd><span class="aEksempel"></span>,- (<span
+                                                    class="aNavnEksempel"></span>)
+                                        </dd>
+                                    </span>
+                                    <span id="bVis{{ $bilagsmal->id }}" style="display: none;">
+                                        <dt>B =</dt><dd><span class="bEksempel"></span>,- (<span
+                                                    class="bNavnEksempel"></span>)
+                                        </dd>
+
+                                    </span>
+                                    <span id="xVis{{ $bilagsmal->id }}" style="display: none;">
+                                        <dt>X =</dt><dd><span class="xEksempel"></span>% (<span
+                                                    class="xNavnEksempel"></span>)
+                                        </dd>
+                                    </span>
+                                    <span id="yVis{{ $bilagsmal->id }}" style="display: none;">
+                                        <dt>Y =</dt><dd><span class="yEksempel"></span>% (<span
+                                                    class="yNavnEksempel"></span>)
+                                        </dd>
+                                    </span>
+                                    <span id="motpartVis{{ $bilagsmal->id }}" style="display: none;">
+                                        <dt>Motpart:</dt><dd><span class="motpartEksempel"></span></dd>
+                                    </span>
+                                </dl>
+
+                            </div>
+
+                            <div class="postering list-group">
+                                @foreach($bilagsmal->posteringsmaler as $posteringsmal)
+                                    {!! Form::model($posteringsmal, ['route' => ['posteringsmal.update', $posteringsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
+                                    <div class="row list-group-item">
+                                        <div class="col-md-11">
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    <div class="input-group pur-dropdown">
+                                                        <div class="input-group-addon">Konto:</div>
+                                                        {!!Form::select('kontokode', $selectKontoer, $posteringsmal->konto->kontokode, ['class' => 'form-control']) !!}
+                                                        <div class="input-group-addon"><span
+                                                                    class="fa fa-caret-down"></span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <div class="input-group pur-dropdown">
+                                                        <div class="input-group-addon">Beløp =</div>
+                                                        {!! Form::select('formel', $selectFormler, $posteringsmal->formel, ['class' => 'form-control formel-popover', 'data-container' => 'body', 'data-toggle' => 'popover', 'data-placement'=> 'bottom', 'data-content' => 'beløp = &fnof;(a,b) = -(bruttobeløp a - bruttobeløp b * (100 - rabattsats
+                                                        a))']) !!}
+                                                        <div class="input-group-addon"><span
+                                                                    class="fa fa-caret-down"></span></div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-1">
+
+                                        </div>
+                                    </div>
+
+                                    {!! Form::close() !!}
+                                @endforeach
+                            </div>
+
                         </div>
                     </div>
-                    {!! Form::close() !!}
-                </div>
-                <div class="postering list-group">
-                    @foreach($bilagsmal->posteringsmaler as $posteringsmal)
-                        {!! Form::model($posteringsmal, ['route' => ['posteringsmal.update', $posteringsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
-                        <div class="row list-group-item">
-                            <div class="col-md-11">
-                                <div class="row">
-                                    <div class="form-group col-md-6">
-                                        <div class="input-group pur-dropdown">
-                                            <div class="input-group-addon">Konto:</div>
-                                            {!!Form::select('kontokode', $selectKontoer, $posteringsmal->konto->kontokode, ['class' => 'form-control']) !!}
-                                            <div class="input-group-addon"><span class="fa fa-caret-down"></span></div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <div class="input-group pur-dropdown">
-                                            <div class="input-group-addon">Beløp =</div>
-                                            {!! Form::select('formel', $selectFormler, $posteringsmal->formel, ['class' => 'form-control']) !!}
-                                            <div class="input-group-addon"><span class="fa fa-caret-down"></span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <!--
-                                    <div class="form-group col-md-3">
-                                        <div class="input-group">
-                                            <div class="input-group-addon">a =</div>
-                                            {!! Form::select('formelbilag_b', $bilagssekvens->selectBilagsmaler(), $posteringsmal->formel, ['class' => 'form-control']) !!}
 
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <div class="input-group">
-                                            <div class="input-group-addon">b =</div>
-                                            {!! Form::select('formelbilag_b', $bilagssekvens->selectBilagsmaler(), $posteringsmal->formel, ['class' => 'form-control']) !!}
-                                        </div>
-                                    </div>
-                                    -->
-                                    <div class="form-group col-md-6">
-                                        <div class="input-group">
-                                            beløp = &fnof;(a,b) = -(bruttobeløp a - bruttobeløp b * (100 - rabattsats
-                                            a))
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-1">
-                                <p><a class="slett-postering"><span class="fa fa-trash-o fa-2x"></span></a></p>
-                                {{-- TODO Slett postering i DB --}}
-                            </div>
-
-                        </div>
-                        {!! Form::close() !!}
-                    @endforeach
-                    <a class="ny-postering row list-group-item list-group-item-success text-center">
-                        Legg til ny postering
-                    </a>
                 </div>
             </div>
         </div>
@@ -353,12 +433,19 @@
                     $(".yNavnEksempel").text(localStorage["yNavn"]);
                 }
             }
+
             init();
         });
 
         // Oppdaterer checkbox tekst fra inputfelt med tekst/nummer
         $('.localstorage').keyup(function () {
             localStorage[$(this).attr('name')] = $(this).val();
+            if('input[type="text-area"]'){
+                localStorage[$(this).attr('id')] = $(this).val();
+                var idName = $(this).attr("id");
+                var str = $(this).val();
+                $("#" + idName + "Vis").text(str);
+            }
             if (localStorage["aMaks"] && localStorage["aMin"]) {
                 var aEksempel = (parseInt(localStorage["aMin"]) + parseInt(localStorage["aMaks"])) / 2;
                 $('.aEksempel').html(aEksempel);
@@ -400,6 +487,23 @@
             $(".yNavnEksempel").text(localStorage["yNavn"]);
         });
 
+    </script>
+
+    <script>
+        $(function () {
+            $(".formel-popover *").popover({trigger: 'hover'});
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        // Viser og skjuler variabel tekster basert på checkboxer
+        $(document).ready(function () {
+            $('input[type="checkbox"]').click(function () {
+                var idName = $(this).attr("value");
+                $("#" + idName).toggle();
+            });
+        });
     </script>
 
 @endsection
