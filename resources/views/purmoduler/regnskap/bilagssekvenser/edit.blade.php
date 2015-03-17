@@ -56,11 +56,12 @@
             <div class="form-group col-sm-4">
                 <div class="input-group pur-dropdown">
                     <div class="input-group-addon pur-dropdown">Navn</div>
-                    <select class="form-control localstorage">
-                        <option>Bruttobeløp</option>
-                        <option>Annet beløp</option>
+                    <select class="form-control localstorage" name="aNavn" id="aNavn">
+                        <option value="Bruttobeløp">Bruttobeløp</option>
+                        <option value="Annet beløp">Annet beløp</option>
                     </select>
-                    <div class="input-group-addon"><span class="fa fa-caret-down"></span> </div>
+
+                    <div class="input-group-addon"><span class="fa fa-caret-down"></span></div>
                 </div>
             </div>
         </div>
@@ -87,11 +88,12 @@
             <div class="form-group col-sm-4">
                 <div class="input-group pur-dropdown">
                     <div class="input-group-addon">Navn</div>
-                    <select class="form-control">
-                        <option>Bruttobeløp</option>
-                        <option>Annet beløp</option>
+                    <select class="form-control" name="bNavn" id="bNavn">
+                        <option value="Bruttobeløp">Bruttobeløp</option>
+                        <option value="Annet beløp">Annet beløp</option>
                     </select>
-                    <div class="input-group-addon"><span class="fa fa-caret-down"></span> </div>
+
+                    <div class="input-group-addon"><span class="fa fa-caret-down"></span></div>
                 </div>
             </div>
         </div>
@@ -110,11 +112,12 @@
             <div class="form-group col-sm-4">
                 <div class="input-group pur-dropdown">
                     <div class="input-group-addon">Navn</div>
-                    <select class="form-control">
-                        <option>Rabattsats</option>
-                        <option>Arbeidsgiveravgift</option>
+                    <select class="form-control" name="xNavn" id="xNavn">
+                        <option value="Rabattsats">Rabattsats</option>
+                        <option value="Arbeidgiveravgift">Arbeidsgiveravgift</option>
                     </select>
-                    <div class="input-group-addon"><span class="fa fa-caret-down"></span> </div>
+
+                    <div class="input-group-addon"><span class="fa fa-caret-down"></span></div>
                 </div>
             </div>
         </div>
@@ -134,11 +137,12 @@
             <div class="form-group col-sm-4">
                 <div class="input-group pur-dropdown">
                     <div class="input-group-addon">Navn</div>
-                    <select class="form-control">
-                        <option>Rabattsats</option>
-                        <option>Arbeidsgiveravgift</option>
+                    <select class="form-control" name="yNavn" id="yNavn">
+                        <option value="Rabattsats">Rabattsats</option>
+                        <option value="Arbeidgiveravgift">Arbeidsgiveravgift</option>
                     </select>
-                   <div class="input-group-addon"><span class="fa fa-caret-down"></span> </div>
+
+                    <div class="input-group-addon"><span class="fa fa-caret-down"></span></div>
                 </div>
             </div>
         </div>
@@ -176,48 +180,20 @@
                 <div class="panel-body">
                     {!! Form::model($bilagsmal, ['route' => ['bilagsmaler.update', $bilagsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
                     <div class="row">
-
-                       <!-- <div class="form-group col-sm-3">
-                            {!! Form::label('motpart', 'Motpart:') !!}
-                            <div class="input-group">
-                                <div class="input-group-addon"><span class="fa fa-user"></span></div>
-                                {!! Form::input('text', 'motpart', null, ['class' => 'form-control']) !!}
-                            </div>
-                        </div>
-
-                        <div class="form-group col-sm-3">
-                            {!! Form::label('rabattsats', 'Rabattsats:') !!}
-                            <div class="input-group">
-                                <div class="input-group-addon">%</div>
-                                {!! Form::input('number', 'rabattsats', null, ['class' => 'form-control']) !!}
-                            </div>
-                        </div>
-
-                        <div class="form-group col-sm-3">
-                            {!! Form::label('bruttobelop-min', 'Minimum bruttobeløp:') !!}
-                            <div class="input-group">
-                                <div class="input-group-addon">kr</div>
-                                {!! Form::input('number', 'bruttobelop-min', null, ['class' => 'form-control']) !!}
-                            </div>
-                        </div>
-                        <div class="form-group col-sm-3">
-                            {!! Form::label('bruttobelop-maks', 'Maksimum bruttobeløp:') !!}
-                            <div class="input-group">
-                                <div class="input-group-addon">kr</div>
-                                {!! Form::input('number', 'bruttobelop-maks', null, ['class' => 'form-control']) !!}
-                            </div>
-                        </div> -->
                         <div class="form-group col-sm-4">
-                        {!! Form::checkbox('false', '') !!} A: Bruttobeløp eks. <span class="aEksempel"></span>
+                            {!! Form::checkbox('false', '') !!} A: <span class="aNavnEksempel"></span> eks. <span
+                                    class="aEksempel"></span>
                         </div>
                         <div class="form-group col-sm-4">
-                        {!! Form::checkbox('false', '') !!} B: Annet beløp eks. <span class="bEksempel"></span>
+                            {!! Form::checkbox('false', '') !!} B: <span class="bNavnEksempel"></span> eks. <span class="bEksempel"></span>
                         </div>
                         <div class="form-group col-sm-4">
-                            {!! Form::checkbox('false', '') !!} X: Rabattsats eks. <span class="xEksempel"></span>%
+                            {!! Form::checkbox('false', '') !!} X: <span class="xNavnEksempel"></span> eks. <span
+                                        class="xEksempel"></span>%
                         </div>
                         <div class="form-group col-sm-4">
-                            {!! Form::checkbox('false', '') !!} Y: Arbeidsgiveravgift eks. <span class="yEksempel"></span>%
+                            {!! Form::checkbox('false', '') !!} Y: <span class="yNavnEksempel"></span> eks. <span
+                                        class="yEksempel"></span>%
                         </div>
                         <div class="form-group col-sm-4">
                             {!! Form::checkbox('false', '') !!} Motpart: <span class="motpartEksempel"></span>
@@ -239,14 +215,14 @@
                                         <div class="input-group pur-dropdown">
                                             <div class="input-group-addon">Konto:</div>
                                             {!!Form::select('kontokode', $selectKontoer, $posteringsmal->konto->kontokode, ['class' => 'form-control']) !!}
-                                            <div class="input-group-addon"><span class="fa fa-caret-down"></span> </div>
+                                            <div class="input-group-addon"><span class="fa fa-caret-down"></span></div>
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <div class="input-group pur-dropdown">
                                             <div class="input-group-addon">Beløp =</div>
                                             {!! Form::select('formel', $selectFormler, $posteringsmal->formel, ['class' => 'form-control']) !!}
-                                            <div class="input-group-addon"><span class="fa fa-caret-down"></span> </div>
+                                            <div class="input-group-addon"><span class="fa fa-caret-down"></span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -325,6 +301,7 @@
     <script src="/js/ajaxformsubmit.js"></script>
 
     <script>
+        // Fyller input felter og checkboxtekster med data fra localstorage
         $(document).ready(function () {
             function init() {
                 if (localStorage["aMin"]) {
@@ -333,25 +310,53 @@
                 if (localStorage["aMaks"]) {
                     $('#aMaks').val(localStorage["aMaks"]);
                 }
+                if (localStorage["aMaks"] && localStorage["aMin"]) {
+                    var aEksempel = (parseInt(localStorage["aMin"]) + parseInt(localStorage["aMaks"])) / 2;
+                    $('.aEksempel').html(aEksempel);
+                }
                 if (localStorage["bMin"]) {
                     $('#bMin').val(localStorage["bMin"]);
                 }
                 if (localStorage["bMaks"]) {
                     $('#bMaks').val(localStorage["bMaks"]);
                 }
+                if (localStorage["bMaks"] && localStorage["bMin"]) {
+                    var bEksempel = (parseInt(localStorage["bMin"]) + parseInt(localStorage["bMaks"])) / 2;
+                    $('.bEksempel').html(bEksempel);
+                }
                 if (localStorage["xSats"]) {
                     $('#xSats').val(localStorage["xSats"]);
+                    $('.xEksempel').html(localStorage["xSats"]);
                 }
                 if (localStorage["ySats"]) {
                     $('#ySats').val(localStorage["ySats"]);
+                    $('.yEksempel').html(localStorage["ySats"]);
                 }
                 if (localStorage["motpart"]) {
                     $('#motpart').val(localStorage["motpart"]);
+                    $('.motpartEksempel').html(localStorage["motpart"]);
+                }
+                if (localStorage["aNavn"]) {
+                    $('#aNavn').val(localStorage["aNavn"]);
+                    $(".aNavnEksempel").text(localStorage["aNavn"]);
+                }
+                if (localStorage["bNavn"]) {
+                    $('#bNavn').val(localStorage["bNavn"]);
+                    $(".bNavnEksempel").text(localStorage["bNavn"]);
+                }
+                if (localStorage["xNavn"]) {
+                    $('#xNavn').val(localStorage["xNavn"]);
+                    $(".xNavnEksempel").text(localStorage["xNavn"]);
+                }
+                if (localStorage["yNavn"]) {
+                    $('#yNavn').val(localStorage["yNavn"]);
+                    $(".yNavnEksempel").text(localStorage["yNavn"]);
                 }
             }
             init();
         });
 
+        // Oppdaterer checkbox tekst fra inputfelt med tekst/nummer
         $('.localstorage').keyup(function () {
             localStorage[$(this).attr('name')] = $(this).val();
             if (localStorage["aMaks"] && localStorage["aMin"]) {
@@ -365,13 +370,36 @@
             if (localStorage["xSats"]) {
                 $('.xEksempel').html(localStorage["xSats"]);
             }
-            if (localStorage["xSats"]) {
+            if (localStorage["ySats"]) {
                 $('.yEksempel').html(localStorage["ySats"]);
             }
             if (localStorage["motpart"]) {
                 $('.motpartEksempel').html(localStorage["motpart"]);
             }
         });
+
+        // Oppdaterer localstorage fra select felter
+        document.getElementById("aNavn").onchange = function () {
+            localStorage[$(this).attr('name')] = document.getElementById("aNavn").value;
+        }
+        document.getElementById("bNavn").onchange = function () {
+            localStorage[$(this).attr('name')] = document.getElementById("bNavn").value;
+        }
+        document.getElementById("xNavn").onchange = function () {
+            localStorage[$(this).attr('name')] = document.getElementById("xNavn").value;
+        }
+        document.getElementById("yNavn").onchange = function () {
+            localStorage[$(this).attr('name')] = document.getElementById("yNavn").value;
+        }
+
+        // Oppdaterer checkbox tekst fra select felter
+        $("select").change(function () {
+            $(".aNavnEksempel").text(localStorage["aNavn"]);
+            $(".bNavnEksempel").text(localStorage["bNavn"]);
+            $(".xNavnEksempel").text(localStorage["xNavn"]);
+            $(".yNavnEksempel").text(localStorage["yNavn"]);
+        });
+
     </script>
 
 @endsection
