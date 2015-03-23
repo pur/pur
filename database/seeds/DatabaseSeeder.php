@@ -9,6 +9,7 @@ use Pur\Oppgavesett;
 use Pur\Purmoduler\Regnskap\Bilag;
 use Pur\Purmoduler\Regnskap\Bilagsmal;
 use Pur\Purmoduler\Regnskap\Bilagsmalsekvens;
+use Pur\Purmoduler\Regnskap\BilagsmalsekvensVar;
 use Pur\Purmoduler\Regnskap\Bilagssekvens;
 use Pur\Purmoduler\Regnskap\Konto;
 use Pur\Purmoduler\Regnskap\Postering;
@@ -37,9 +38,11 @@ class DatabaseSeeder extends Seeder
         // Pur\..\Regnskap
         $this->call('KontoTableSeeder');
         $this->call('BilagsmalsekvensTableSeeder');
+        $this->call('BilagsmalsekvensVarTableSeeder');
         $this->call('BilagsmalTableSeeder');
         $this->call('PosteringsmalTableSeeder');
         $this->call('BilagssekvensTableSeeder');
+        //$this->call('BilagssekvensVarTableSeeder');
         $this->call('BilagTableSeeder');
         $this->call('PosteringTableSeeder');
     }
@@ -262,6 +265,38 @@ class BilagsmalsekvensTableSeeder extends Seeder
         Bilagsmalsekvens::create([
             'sekvenstype' => 'Lønnssekvens',
             'motpart' => 'Jensen & Jensen AS'
+        ]);
+    }
+}
+
+class BilagsmalsekvensVarTableSeeder extends Seeder
+{
+    public function run()
+    {
+        DB::table('bilagsmalsekvens_var')->delete();
+
+        BilagsmalsekvensVar::create([
+            'navn' => 'Bruttobeløp',
+            'tegn_i_formel' => 'a',
+            'verdi_min' => '30000',
+            'verdi_maks' => '50000',
+            'bilagsmalsekvens_id' => 1
+        ]);
+
+        BilagsmalsekvensVar::create([
+            'navn' => 'Bruttobeløp',
+            'tegn_i_formel' => 'b',
+            'verdi_min' => '2000',
+            'verdi_maks' => '4000',
+            'bilagsmalsekvens_id' => 1
+        ]);
+
+        BilagsmalsekvensVar::create([
+            'navn' => 'Rabattsats',
+            'tegn_i_formel' => 'x',
+            'verdi_min' => '10',
+            'verdi_maks' => '10',
+            'bilagsmalsekvens_id' => 1
         ]);
     }
 }

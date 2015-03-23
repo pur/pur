@@ -7,7 +7,8 @@
         <div class="col-sm-8">
             <div class="row">
                 <div class="form-group col-sm-6">
-                    <p>Laget av: {{ $bilagsmalsekvens->skaper->fulltNavn() . ', ' . $bilagsmalsekvens->tidOpprettet() }}</p>
+                    <p>Laget
+                        av: {{ $bilagsmalsekvens->skaper->fulltNavn() . ', ' . $bilagsmalsekvens->tidOpprettet() }}</p>
 
                     <p>Sist endret: {{ $bilagsmalsekvens->tidEndret() }}</p>
 
@@ -16,7 +17,7 @@
             </div>
             <div class="row">
                 <div class="form-group col-sm-12">
-                    {!!Form::label('beskrivelse', 'Beskrivelse:', ['class' => 'control-label']) !!}
+                    {!! Form::label('beskrivelse', 'Beskrivelse:', ['class' => 'control-label']) !!}
                     {!! Form::text('beskrivelse', $bilagsmalsekvens->oppgave->beskrivelse, ['class' => 'form-control']) !!}
                 </div>
             </div>
@@ -33,7 +34,56 @@
             </div>
         </div>
     </div>
-    <p>Variabler:</p>
+
+    <div class="row">
+        <div class="col-sm-1">
+            Motpart:
+        </div>
+        <div class="col-sm-11">
+            <div class="form-group col-sm-4">
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="fa fa-user"></span></div>
+                    {!! Form::input('text', 'motpart', null, ['class' => 'form-control localstorage', 'id' => 'motpart']) !!}
+                </div>
+            </div>
+        </div>
+    </div>
+    {!! Form::close() !!}
+
+    @foreach($bilagsmalsekvens->variabler as $variabel)
+        <div class="row">
+                <div class="col-sm-2">
+                    <div class="input-group pur-dropdown">
+                        <div class="input-group-addon">Variabel</div>
+                        {!! Form::select('tegn_i_formel', ['a'=>'a','b'=>'b','c'=>'c','x'=>'x','y'=>'y','z'=>'z'], $variabel->tegn_i_formel, ['class' => 'form-control']) !!}
+                        <div class="input-group-addon"><span class="fa fa-caret-down"></span></div>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <b> = </b>
+                </div>
+                <div class="form-group col-sm-3">
+                    <div class="input-group">
+                        <div class="input-group-addon">Verdi min.</div>
+                        {!! Form::input('number', 'aMin', $variabel->verdi_min, ['class' => 'form-control  localstorage', 'id' => 'aMin']) !!}
+                    </div>
+                </div>
+                <div class="form-group col-sm-3">
+                    <div class="input-group">
+                        <div class="input-group-addon">Verdi maks.</div>
+                        {!! Form::input('number', 'aMaks', $variabel->verdi_maks, ['class' => 'form-control  localstorage', 'id' => 'aMaks']) !!}
+                    </div>
+                </div>
+                <div class="form-group col-sm-3">
+                    <div class="input-group">
+                        <div class="input-group-addon">Navn</div>
+                        {!! Form::input('text', 'navn', $variabel->navn, ['class' => 'form-control  localstorage', 'id' => 'aMaks']) !!}
+                        <div class="input-group-addon"><span class="fa fa-pencil"></span></div>
+                    </div>
+                </div>
+        </div>
+    @endforeach
+    {{--
     <div class="row">
         <div class="col-sm-1">
             Beløp A:
@@ -147,21 +197,10 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-1">
-            Motpart:
-        </div>
-        <div class="col-sm-11">
-            <div class="form-group col-sm-4">
-                <div class="input-group">
-                    <div class="input-group-addon"><span class="fa fa-user"></span></div>
-                    {!! Form::input('text', 'motpart', null, ['class' => 'form-control localstorage', 'id' => 'motpart']) !!}
-                </div>
-            </div>
-        </div>
-    </div>
+    --}}
 
-    {!! Form::close() !!}
+
+
     <hr/>
 
     @foreach($bilagsmalsekvens->bilagsmaler as $bilagsmal)
@@ -240,7 +279,8 @@
                                                     <div class="input-group pur-dropdown">
                                                         <div class="input-group-addon">Konto:</div>
                                                         {!!Form::select('kontokode', $selectKontoer, $posteringsmal->konto->kontokode, ['class' => 'form-control']) !!}
-                                                        <div class="input-group-addon"><span class="fa fa-caret-down"></span></div>
+                                                        <div class="input-group-addon"><span
+                                                                    class="fa fa-caret-down"></span></div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
@@ -248,7 +288,8 @@
                                                         <div class="input-group-addon">Beløp =</div>
                                                         {!! Form::select('formel', $selectFormler, $posteringsmal->formel, ['class' => 'form-control formel-popover', 'data-container' => 'body', 'data-toggle' => 'popover', 'data-placement'=> 'bottom', 'data-content' => 'beløp = &fnof;(a,b) = -(bruttobeløp a - bruttobeløp b * (100 - rabattsats
                                                         a))']) !!}
-                                                        <div class="input-group-addon"><span class="fa fa-caret-down"></span></div>
+                                                        <div class="input-group-addon"><span
+                                                                    class="fa fa-caret-down"></span></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -440,7 +481,7 @@
         // Oppdaterer checkbox tekst fra inputfelt med tekst/nummer
         $('.localstorage').keyup(function () {
             localStorage[$(this).attr('name')] = $(this).val();
-            if('input[type="text-area"]'){
+            if ('input[type="text-area"]') {
                 localStorage[$(this).attr('id')] = $(this).val();
                 var idName = $(this).attr("id");
                 var str = $(this).val();

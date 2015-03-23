@@ -66,6 +66,17 @@ class Bilagsmalsekvens extends Oppgave
         return $this->morphOne('Pur\Oppgave', 'moduloppgave');
     }
 
+
+    /**
+     * Alle bilagsmalsekvensens variabler
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function variabler()
+    {
+        return $this->hasMany('\Pur\Purmoduler\Regnskap\BilagsmalsekvensVar');
+    }
+
     /**
      * Bilagsmalsekvensen sine bilagsmaler
      *

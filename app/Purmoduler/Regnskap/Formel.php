@@ -4,13 +4,13 @@ class Formel //extends Model
 {
 
     private static $navnAlleFormler = [
-        1 => 'Bruttobeløp som kreditt', //'bruttobeløp - bruttobeløp',
-        2 => 'Mva. fra bruttobeløp a', //'bruttobeløp / 5',
-        3 => 'Bruttobeløp a eks. mva.', //'bruttobeløp / 1,25',
-        4 => '', //'brt.belA - brt.belB * (100-rabattA)',
-        5 => '', //'-(brt.belA - brt.belB * (100-rabattA))',
-        6 => '', //'rabattbeløp / 5',
-        7 => '', //'rabattbeløp / 1,25'
+        1 => '- a',                   // 'bruttobeløp - bruttobeløp',                // 'Bruttobeløp som kreditt'
+        2 => 'a / 5',                 // 'bruttobeløp / 5',                          // 'Mva. fra bruttobeløp a'
+        3 => 'a / 1,25',              // 'bruttobeløp / 1,25',                       // 'Bruttobeløp a eks. mva.',
+        4 => 'a - b * (100 - x)',     // 'brt.belA - brt.belB * (100-rabattA)',
+        5 => '- (a - b * (100 - x))', // '-(brt.belA - brt.belB * (100-rabattA))',
+        6 => 'x / 5',                 // 'rabattbeløp / 5',
+        7 => 'x / 1,25',              // 'rabattbeløp / 1,25'
     ];
 
 

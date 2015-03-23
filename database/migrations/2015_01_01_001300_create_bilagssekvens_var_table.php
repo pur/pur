@@ -15,14 +15,9 @@ class CreateBilagssekvensVarTable extends Migration {
 		Schema::create('bilagssekvens_var', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->decimal('verdi_maks');
-            $table->integer('bilagsmalsekvens_var_id')->unsigned();
+            $table->string('navn');
+            $table->decimal('verdi');
             $table->integer('bilagssekvens_id')->unsigned();
-
-            $table->foreign('bilagsmalsekvens_var_id')
-                ->references('id')->on('bilagsmalsekvens_var')
-                ->onDelete('restrict');
-
 
             $table->foreign('bilagssekvens_id')
                 ->references('id')->on('bilagssekvenser')
