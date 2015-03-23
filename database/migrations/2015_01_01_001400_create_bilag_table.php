@@ -15,20 +15,12 @@ class CreateBilagTable extends Migration
     {
         Schema::create('bilag', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('bilagsmal_id')->unsigned();
             $table->integer('nr_i_oppgsett')->unsigned();
-            $table->integer('besvarelse_id')->unsigned();
+            $table->integer('bilagssekvens_id')->unsigned();
 
-            //$table->primary(['bilagsmal_id', 'sekvensposisjon']);
-
-            $table->foreign('bilagsmal_id')
-                ->references('id')->on('bilagsmaler')
+            $table->foreign('bilagssekvens_id')
+                ->references('id')->on('bilagssekvenser')
                 ->onDelete('cascade');
-
-            $table->foreign('besvarelse_id')
-                ->references('id')->on('besvarelser')
-                ->onDelete('cascade');
-
         });
     }
 

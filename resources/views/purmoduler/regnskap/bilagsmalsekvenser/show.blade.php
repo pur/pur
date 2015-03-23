@@ -1,7 +1,7 @@
 @extends('pur')
 @section('content')
 
-        <h1>Rediger bilagssekvens</h1>
+        <h1>Rediger bilagsmalsekvens</h1>
 
 
         <div class="row">
@@ -9,17 +9,17 @@
 
                 <div class="row">
                     <div class="col-sm-6">
-                        <p>Laget av: {!! $bilagssekvens->skaper->fulltNavn() !!}
-                            , {!! $bilagssekvens->oppgave->tid_opprettet !!}</p>
+                        <p>Laget av: {!! $bilagsmalsekvens->skaper->fulltNavn() !!}
+                            , {!! $bilagsmalsekvens->oppgave->tid_opprettet !!}</p>
 
-                        <p>Sist endret: {!! $bilagssekvens->oppgave->tid_endret !!}</p>
+                        <p>Sist endret: {!! $bilagsmalsekvens->oppgave->tid_endret !!}</p>
 
-                        <p>Sekvenstype: {!! $bilagssekvens->sekvenstype !!}</p>
+                        <p>Sekvenstype: {!! $bilagsmalsekvens->sekvenstype !!}</p>
                     </div>
 
                     <div class="col-sm-12">
 
-                      <p>Beskrivelse:   {!!$bilagssekvens->oppgave->beskrivelse !!} </p>
+                      <p>Beskrivelse:   {!!$bilagsmalsekvens->oppgave->beskrivelse !!} </p>
                     </div>
                 </div>
 
@@ -42,7 +42,7 @@
 
 
 
-        @foreach($bilagssekvens->bilagsmaler as $bilagsmal)
+        @foreach($bilagsmalsekvens->bilagsmaler as $bilagsmal)
 
             <div class="panel panel-primary">
                 <div class="panel-heading"><h3 class="panel-title">{{$bilagsmal->bilagstype}}</h3></div>

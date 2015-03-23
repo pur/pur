@@ -3,11 +3,11 @@
 
 @section('content')
 
-    <h1>Rediger bilagssekvens
+    <h1>Rediger bilagsmalsekvens
         <small>(test)</small>
     </h1>
 
-    {!! Form::model($bilagssekvens, ['route' => ['bilagssekvens.update', $bilagssekvens->id], 'method' => 'PATCH']) !!}
+    {!! Form::model($bilagsmalsekvens, ['route' => ['bilagsmalsekvens.update', $bilagsmalsekvens->id], 'method' => 'PATCH']) !!}
 
     {!! Form::label('sekvenstype', 'Sekvenstype') !!}
     <br/>
@@ -15,7 +15,7 @@
     <br/>
     {!! Form::label('beskrivelse', 'Beskrivelse') !!}
     <br/>
-    {!! Form::text('beskrivelse', $bilagssekvens->oppgave->beskrivelse, ['style' => 'width:300px']) !!}
+    {!! Form::text('beskrivelse', $bilagsmalsekvens->oppgave->beskrivelse, ['style' => 'width:300px']) !!}
     <br/>
     <br/>
     {!! Form::submit('Lagre') !!}
@@ -23,7 +23,7 @@
     {!! Form::close() !!}
 
     <h2>Bilagsmaler</h2>
-    @foreach($bilagssekvens->bilagsmaler as $bilagsmal)
+    @foreach($bilagsmalsekvens->bilagsmaler as $bilagsmal)
 
         {!! Form::model($bilagsmal, ['route' => ['bilagsmaler.update', $bilagsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
         <h3>Bilagsmal {{ $bilagsmal->id }}</h3>

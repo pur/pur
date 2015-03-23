@@ -15,13 +15,14 @@ class CreateOppgaverTable extends Migration {
 		Schema::create('oppgaver', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->text('beskrivelse');
-			$table->integer('bruker_id')->unsigned()->nullable();
-            $table->integer('moduloppgave_id');
-            $table->string('moduloppgave_type');
             $table->timestamp('tid_opprettet');
             $table->timestamp('tid_endret');
-			$table->foreign('bruker_id')
+			$table->text('beskrivelse');
+            $table->string('moduloppgave_type');
+            $table->integer('moduloppgave_id');
+			$table->integer('bruker_id')->unsigned()->nullable();
+
+            $table->foreign('bruker_id')
 				->references('id')->on('brukere')
 				->onDelete('set null');
 		});

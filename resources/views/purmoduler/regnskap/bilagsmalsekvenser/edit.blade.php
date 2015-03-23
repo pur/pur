@@ -1,23 +1,23 @@
 @extends('pur')
 @section('content')
 
-    <h1>Rediger bilagssekvens</h1>
-    {!! Form::model($bilagssekvens, ['route' => ['bilagssekvens.update', $bilagssekvens->id], 'method' => 'PATCH']) !!}
+    <h1>Rediger bilagsmalsekvens</h1>
+    {!! Form::model($bilagsmalsekvens, ['route' => ['bilagsmalsekvens.update', $bilagsmalsekvens->id], 'method' => 'PATCH']) !!}
     <div class="row">
         <div class="col-sm-8">
             <div class="row">
                 <div class="form-group col-sm-6">
-                    <p>Laget av: {{ $bilagssekvens->skaper->fulltNavn() . ', ' . $bilagssekvens->tidOpprettet() }}</p>
+                    <p>Laget av: {{ $bilagsmalsekvens->skaper->fulltNavn() . ', ' . $bilagsmalsekvens->tidOpprettet() }}</p>
 
-                    <p>Sist endret: {{ $bilagssekvens->tidEndret() }}</p>
+                    <p>Sist endret: {{ $bilagsmalsekvens->tidEndret() }}</p>
 
-                    <p>Sekvenstype: {{ $bilagssekvens->sekvenstype }}</p>
+                    <p>Sekvenstype: {{ $bilagsmalsekvens->sekvenstype }}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-sm-12">
                     {!!Form::label('beskrivelse', 'Beskrivelse:', ['class' => 'control-label']) !!}
-                    {!! Form::text('beskrivelse', $bilagssekvens->oppgave->beskrivelse, ['class' => 'form-control']) !!}
+                    {!! Form::text('beskrivelse', $bilagsmalsekvens->oppgave->beskrivelse, ['class' => 'form-control']) !!}
                 </div>
             </div>
         </div>
@@ -164,7 +164,7 @@
     {!! Form::close() !!}
     <hr/>
 
-    @foreach($bilagssekvens->bilagsmaler as $bilagsmal)
+    @foreach($bilagsmalsekvens->bilagsmaler as $bilagsmal)
 
         <div class="panel panel-primary">
             <div class="panel-heading">

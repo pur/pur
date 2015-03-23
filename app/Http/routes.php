@@ -11,12 +11,13 @@
 |
 */
 
+use Illuminate\Http\Request;
 use Pur\Besvarelse;
 use Pur\Bruker;
 use Pur\Oppgavesett;
 use Pur\Purmoduler\Regnskap\Bilag;
 use Pur\Purmoduler\Regnskap\Bilagsmal;
-use Pur\Purmoduler\Regnskap\Bilagssekvens;
+use Pur\Purmoduler\Regnskap\Bilagsmalsekvens;
 use Pur\Purmoduler\Regnskap\Posteringsmal;
 
 Route::get('/', 'WelcomeController@index');
@@ -36,7 +37,7 @@ $router->resource('oppgavesett', 'OppgavesettController');
 $router->resource('besvarelser', 'BesvarelseController');
 
 // Purmoduler\Regnskap:
-$router->resource('bilagssekvens', 'Purmoduler\Regnskap\BilagssekvensController');
+$router->resource('bilagsmalsekvens', 'Purmoduler\Regnskap\BilagsmalsekvensController');
 $router->resource('bilagsmaler', 'Purmoduler\Regnskap\BilagsmalerController');
 $router->resource('posteringsmal', 'Purmoduler\Regnskap\PosteringsmalController');
 $router->resource('bilag', 'Purmoduler\Regnskap\BilagController');

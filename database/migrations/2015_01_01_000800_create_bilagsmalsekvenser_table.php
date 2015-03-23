@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBilagssekvenserTable extends Migration {
+class CreateBilagsmalsekvenserTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,11 @@ class CreateBilagssekvenserTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('bilagssekvenser', function(Blueprint $table)
+		Schema::create('bilagsmalsekvenser', function(Blueprint $table)
 		{
 			$table->increments('id');
             $table->string('sekvenstype');
+            $table->string('motpart');
 		});
 	}
 
@@ -26,7 +27,7 @@ class CreateBilagssekvenserTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('bilagssekvenser');
+		Schema::drop('bilagsmalsekvenser');
 	}
 
 }

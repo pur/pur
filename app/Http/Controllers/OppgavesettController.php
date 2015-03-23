@@ -5,7 +5,7 @@ use Pur\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Pur\Oppgavesett;
-use Pur\Purmoduler\Regnskap\Bilagssekvens;
+use Pur\Purmoduler\Regnskap\Bilagsmalsekvens;
 
 class OppgavesettController extends Controller {
 

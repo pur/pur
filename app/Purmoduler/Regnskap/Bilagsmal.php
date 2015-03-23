@@ -23,14 +23,18 @@ class Bilagsmal extends Model
     }
 
     /**
+     * Bilagsmalsekvensen som bilagsmalen inngår i
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function bilagssekvens()
+    public function bilagsmalsekvens()
     {
-        return $this->belongsTo('Pur\Purmoduler\Regnskap\Bilagssekvens');
+        return $this->belongsTo('Pur\Purmoduler\Regnskap\Bilagsmalsekvens');
     }
 
     /**
+     * Alle bilagsmalens posteringsmaler
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function posteringsmaler()

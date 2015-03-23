@@ -32,7 +32,7 @@
                     <ul class="dropdown-menu" role="menu">
                         <li>{!! link_to_route('bruker.show', 'Brukere', null) !!}</li>
                         <li>{!! link_to_route('oppgavesett.show', 'Oppgavesett', null) !!}</li>
-                        <li>{!! link_to_route('bilagssekvens.show', 'Bilagssekvenser', null) !!}</li>
+                        <li>{!! link_to_route('bilagsmalsekvens.show', 'bilagsmalsekvenser', null) !!}</li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -40,7 +40,7 @@
                         oppgaver <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li>{!! link_to_route('oppgavesett.show', 'Oppgavesett', null) !!}</li>
-                        <li>{!! link_to_route('bilagssekvens.show', 'Bilagssekvenser', null) !!}</li>
+                        <li>{!! link_to_route('bilagsmalsekvens.show', 'bilagsmalsekvenser', null) !!}</li>
                     </ul>
                 </li>
 

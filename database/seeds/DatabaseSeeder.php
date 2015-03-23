@@ -8,6 +8,7 @@ use Pur\Oppgave;
 use Pur\Oppgavesett;
 use Pur\Purmoduler\Regnskap\Bilag;
 use Pur\Purmoduler\Regnskap\Bilagsmal;
+use Pur\Purmoduler\Regnskap\Bilagsmalsekvens;
 use Pur\Purmoduler\Regnskap\Bilagssekvens;
 use Pur\Purmoduler\Regnskap\Konto;
 use Pur\Purmoduler\Regnskap\Postering;
@@ -34,11 +35,12 @@ class DatabaseSeeder extends Seeder
         $this->call('BesvarelseTableSeeder');
 
         // Pur\..\Regnskap
-        $this->call('BilagssekvensTableSeeder');
-        $this->call('BilagsmalTableSeeder');
-        $this->call('BilagTableSeeder');
         $this->call('KontoTableSeeder');
+        $this->call('BilagsmalsekvensTableSeeder');
+        $this->call('BilagsmalTableSeeder');
         $this->call('PosteringsmalTableSeeder');
+        $this->call('BilagssekvensTableSeeder');
+        $this->call('BilagTableSeeder');
         $this->call('PosteringTableSeeder');
     }
 }
@@ -106,21 +108,21 @@ class OppgaveTableSeeder extends Seeder
             'beskrivelse' => 'Varekjøp med 3 bilag: Faktura for varekjøp, kreditnota for del av kjøpesum, og utbetaling.',
             'bruker_id' => 1,
             'moduloppgave_id' => 1,
-            'moduloppgave_type' => 'Pur\Purmoduler\Regnskap\Bilagssekvens'
+            'moduloppgave_type' => 'Pur\Purmoduler\Regnskap\bilagsmalsekvens'
         ]);
 
         Oppgave::create([
             'beskrivelse' => 'En annen oppgave...',
             'bruker_id' => 1,
             'moduloppgave_id' => 2,
-            'moduloppgave_type' => 'Pur\Purmoduler\Regnskap\Bilagssekvens'
+            'moduloppgave_type' => 'Pur\Purmoduler\Regnskap\bilagsmalsekvens'
         ]);
 
         Oppgave::create([
             'beskrivelse' => 'Nok en oppgave...',
             'bruker_id' => 2,
             'moduloppgave_id' => 3,
-            'moduloppgave_type' => 'Pur\Purmoduler\Regnskap\Bilagssekvens'
+            'moduloppgave_type' => 'Pur\Purmoduler\Regnskap\bilagsmalsekvens'
         ]);
     }
 }
@@ -220,81 +222,6 @@ class BesvarelseTableSeeder extends Seeder
 
 // Pur\..\Regnskap
 
-class BilagssekvensTableSeeder extends Seeder
-{
-    public function run()
-    {
-        DB::table('bilagssekvenser')->delete();
-
-        Bilagssekvens::create([
-            'sekvenstype' => 'Fakturasekvens (inng.)',
-        ]);
-
-        Bilagssekvens::create([
-            'sekvenstype' => 'Fakturasekvens (utg.)',
-        ]);
-
-        Bilagssekvens::create([
-            'sekvenstype' => 'Lønnssekvens',
-        ]);
-    }
-}
-
-class BilagsmalTableSeeder extends Seeder
-{
-
-    public function run()
-    {
-        DB::table('bilagsmaler')->delete();
-
-        Bilagsmal::create([
-            'bilagstype' => 'Inngående faktura',
-            'nr_i_sekvens' => 1,
-            'bilagssekvens_id' => 1,
-        ]);
-
-        Bilagsmal::create([
-            'bilagstype' => 'Inngående kreditnota',
-            'nr_i_sekvens' => 2,
-            'bilagssekvens_id' => 1,
-        ]);
-
-        Bilagsmal::create([
-            'bilagstype' => 'Utbetaling',
-            'nr_i_sekvens' => 3,
-            'bilagssekvens_id' => 1,
-        ]);
-    }
-}
-
-class BilagTableSeeder extends Seeder
-{
-
-    public function run()
-    {
-        DB::table('bilag')->delete();
-
-        Bilag::create([
-            'nr_i_oppgsett' => 1,
-            'bilagsmal_id' => 1,
-            'besvarelse_id' => 1,
-        ]);
-
-        Bilag::create([
-            'nr_i_oppgsett' => 2,
-            'bilagsmal_id' => 2,
-            'besvarelse_id' => 1,
-
-        ]);
-
-        Bilag::create([
-            'nr_i_oppgsett' => 3,
-            'bilagsmal_id' => 3,
-            'besvarelse_id' => 1,
-        ]);
-    }
-}
-
 class KontoTableSeeder extends Seeder
 {
     public function run()
@@ -313,6 +240,56 @@ class KontoTableSeeder extends Seeder
                 'kontonavn' => $konto[1],
             ]);
         }
+    }
+}
+
+class BilagsmalsekvensTableSeeder extends Seeder
+{
+    public function run()
+    {
+        DB::table('bilagsmalsekvenser')->delete();
+
+        Bilagsmalsekvens::create([
+            'sekvenstype' => 'Fakturasekvens (inng.)',
+            'motpart' => 'Hansen & Hansen AS'
+        ]);
+
+        Bilagsmalsekvens::create([
+            'sekvenstype' => 'Fakturasekvens (utg.)',
+            'motpart' => 'Monsen & Monsen AS'
+        ]);
+
+        Bilagsmalsekvens::create([
+            'sekvenstype' => 'Lønnssekvens',
+            'motpart' => 'Jensen & Jensen AS'
+        ]);
+    }
+}
+
+class BilagsmalTableSeeder extends Seeder
+{
+
+    public function run()
+    {
+        DB::table('bilagsmaler')->delete();
+
+        Bilagsmal::create([
+            'bilagstype' => 'Inngående faktura',
+            'nr_i_sekvens' => 1,
+            'bilagsmalsekvens_id' => 1
+        ]);
+
+        Bilagsmal::create([
+            'bilagstype' => 'Inngående kreditnota',
+            'nr_i_sekvens' => 2,
+            'bilagsmalsekvens_id' => 1
+        ]);
+
+        Bilagsmal::create([
+            'bilagstype' => 'Utbetaling',
+            'nr_i_sekvens' => 3,
+            'bilagsmalsekvens_id' => 1
+        ]);
     }
 }
 
@@ -394,6 +371,54 @@ class PosteringsmalTableSeeder extends Seeder
             'formel' => 7,
             'bilagsmal_id' => 3,
             'kontokode' => 4300
+        ]);
+    }
+}
+
+class BilagssekvensTableSeeder extends Seeder
+{
+    public function run()
+    {
+        DB::table('bilagssekvenser')->delete();
+
+        Bilagssekvens::create([
+            'bilagsmalsekvens_id' => 1,
+            'besvarelse_id' => 1
+        ]);
+
+        Bilagssekvens::create([
+            'bilagsmalsekvens_id' => 1,
+            'besvarelse_id' => 1
+        ]);
+
+        Bilagssekvens::create([
+            'bilagsmalsekvens_id' => 1,
+            'besvarelse_id' => 1
+        ]);
+    }
+}
+
+
+class BilagTableSeeder extends Seeder
+{
+
+    public function run()
+    {
+        DB::table('bilag')->delete();
+
+        Bilag::create([
+            'nr_i_oppgsett' => 1,
+            'bilagssekvens_id' => 1
+        ]);
+
+        Bilag::create([
+            'nr_i_oppgsett' => 2,
+            'bilagssekvens_id' => 1
+        ]);
+
+        Bilag::create([
+            'nr_i_oppgsett' => 3,
+            'bilagssekvens_id' => 1
         ]);
     }
 }

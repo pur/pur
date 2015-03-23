@@ -5,7 +5,7 @@ use Pur\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Pur\Purmoduler\Regnskap\Bilagsmal;
-use Pur\Purmoduler\Regnskap\Bilagssekvens;
+use Pur\Purmoduler\Regnskap\Bilagsmalsekvens;
 
 class BilagsmalerController extends Controller {
 

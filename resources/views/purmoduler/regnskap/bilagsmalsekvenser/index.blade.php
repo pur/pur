@@ -1,7 +1,7 @@
 @extends('pur')
 @section('content')
 
-    <h1>Bilagssekvenser</h1>
+    <h1>bilagsmalsekvenser</h1>
     <div class="list-group panel panel-primary">
         <div class="panel-heading">
             <div class="row">
@@ -19,28 +19,28 @@
                 </div>
             </div>
         </div>
-        @foreach($bilagssekvenser as $bilagssekvens)
+        @foreach($bilagsmalsekvenser as $bilagsmalsekvens)
             <div class="list-group-item">
                 <div class="row">
                     <div class="col-sm-5">
-                        <a href="{!! URL::route('bilagssekvens.show', $bilagssekvens->id) !!}">
-                            {{ $bilagssekvens->oppgave->beskrivelse }}
+                        <a href="{!! URL::route('bilagsmalsekvens.show', $bilagsmalsekvens->id) !!}">
+                            {{ $bilagsmalsekvens->oppgave->beskrivelse }}
                         </a>
                     </div>
                     <div class="col-sm-2">
-                        {{ $bilagssekvens->sekvenstype }}
+                        {{ $bilagsmalsekvens->sekvenstype }}
                     </div>
                     <div class="col-sm-2">
-                        {{ $bilagssekvens->oppgave->tid_opprettet }}
+                        {{ $bilagsmalsekvens->oppgave->tid_opprettet }}
                     </div>
                     <div class="col-sm-1">
-                        {{ $bilagssekvens->oppgave->skaper->etternavn }}
+                        {{ $bilagsmalsekvens->oppgave->skaper->etternavn }}
                     </div>
                     <div class="col-sm-2">
                         <div class="btn-group">
-                            <a href="{!! URL::route('bilagssekvens.show', $bilagssekvens->id) !!}"
+                            <a href="{!! URL::route('bilagsmalsekvens.show', $bilagsmalsekvens->id) !!}"
                                class="btn btn-default">Vis</a>
-                            <a href="{!! URL::route('bilagssekvens.show', $bilagssekvens->id . '/edit') !!}"
+                            <a href="{!! URL::route('bilagsmalsekvens.show', $bilagsmalsekvens->id . '/edit') !!}"
                                class="btn btn-default"><span class="fa fa-edit"></span> Rediger</a>
                         </div>
                     </div>
