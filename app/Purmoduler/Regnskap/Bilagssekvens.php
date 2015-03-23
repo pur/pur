@@ -1,76 +1,34 @@
 <?php namespace Pur\Purmoduler\Regnskap;
 
-use Pur\Oppgave;
+use Illuminate\Database\Eloquent\Model;
 
-class Bilagssekvens extends Oppgave
-{
+class Bilagssekvens extends Model {
+
     protected $table = 'bilagssekvenser';
 
-    protected $fillable = ['sekvenstype'];
+    protected $fillable = ['bilagsmalsekvens_id', 'besvarelse_id'];
 
     public $timestamps = false;
 
 
-
     /**
-     * Returnerer nøkkel-verdi-par egnet til nedtrekksliste
+     * Bilagsmalsekvensen som bilagssekvensen er basert på
      *
-     * @return mixed
-     */
-    public function selectBilagsmaler()
-    {
-        foreach ($this->bilagsmaler as $bilagsmal)
-            $kodeNavnTabell[$bilagsmal->nr_i_sekvens] = $bilagsmal->tittel();
-        return $kodeNavnTabell;
-    }
-
-
-    /**
-     * Den som har laget bilagssekvensen
-     *
-     * @Override
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function skaper()
+    public function bilagsmalsekvens()
     {
-        return $this->oppgave->skaper();
+        return  $this->belongsTo('\Pur\Purmoduler\Regnskap\Bilagsmalsekvens');
     }
 
     /**
-     * Tidspunkt for når bilagssekvensen ble opprettet
-     *
-     * @return mixed
-     */
-    public function tidOpprettet()
-    {
-        return $this->oppgave->tid_opprettet;
-    }
-
-    /**
-     * Tidspunkt for når bilagssekvensen ble endret
-     *
-     * @return mixed
-     */
-    public function tidEndret()
-    {
-        return $this->oppgave->tid_endret;
-    }
-
-    /**
-     * Bilagssekvensen sine bilagsmaler
+     * Bilagssekvensen sine bilag
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function bilagsmaler()
+    public function bilag()
     {
-        return $this->hasMany('\Pur\Purmoduler\Regnskap\Bilagsmal');
+        return $this->hasMany('\Pur\Purmoduler\Regnskap\Bilag');
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
-     */
-    public function oppgave()
-    {
-        return $this->morphOne('Pur\Oppgave', 'moduloppgave');
-    }
 }
