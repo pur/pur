@@ -17,6 +17,8 @@ use Pur\Bruker;
 use Pur\Oppgavesett;
 use Pur\Purmoduler\Regnskap\Bilag;
 use Pur\Purmoduler\Regnskap\Bilagsmal;
+use Pur\Purmoduler\Regnskap\Bilagssekvens;
+use Pur\Purmoduler\Regnskap\Formel;
 use Pur\Purmoduler\Regnskap\Bilagsmalsekvens;
 use Pur\Purmoduler\Regnskap\Posteringsmal;
 
@@ -41,4 +43,18 @@ $router->resource('bilagsmalsekvens', 'Purmoduler\Regnskap\BilagsmalsekvensContr
 $router->resource('bilagsmaler', 'Purmoduler\Regnskap\BilagsmalerController');
 $router->resource('posteringsmal', 'Purmoduler\Regnskap\PosteringsmalController');
 $router->resource('bilag', 'Purmoduler\Regnskap\BilagController');
+
+Route::get('formel', function(Request $request){
+    //return "Retur fra formel nr. $nr $verdi1 $verdi2  ";
+    //return "test";
+    //return $request->all();
+    //return Formel::brukFormel($request->formelid, $request->verdi1, $request->verdi2, $request->verdi3 );
+   // return $request->all();
+    // $retur = $request->formelid . $request->verdi1 . $request->verdi2 . $request->verdi3;
+    //$retur = json_encode($request->all());
+
+    $retur = Formel::brukFormel($request->formelid, $request->verdi1, $request->verdi2, $request->verdi3);
+    //$retur = \Pur\Purmoduler\Regnskap\Formel::brukFormel(2, 12, 32, 100);
+    return $retur;
+});
 
