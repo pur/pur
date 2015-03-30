@@ -75,10 +75,9 @@
 <script>
 
     $('a:not(.dropdown-toggle):not([href*=javascript]):not([href^=#])').click(function() {
-        //$('a:not(.dropdown-toggle) nav-tabs').click(function() {
-
-        // Animate loader off screen
-        $(".loading").fadeIn("slow");;
+        if($(this).attr('href') != undefined) {
+            $(".loading").fadeIn("slow");;
+        }
     });
 
     $(window).load(function() {
