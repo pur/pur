@@ -6,7 +6,7 @@
         <div class="list-group">
             @foreach($brukere as $bruker)
                 <div class="list-group-item">
-                {!! link_to_route('bruker.show',  $bruker->fornavn . ' ' . $bruker->etternavn , [$bruker->id]) !!}
+                {!! link_to_route('brukere.show',  $bruker->fornavn . ' ' . $bruker->etternavn , [$bruker->id]) !!}
                 </div>
             @endforeach
         </div>

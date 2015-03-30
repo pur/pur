@@ -48,7 +48,7 @@
 
     <div class="postering list-group">
         @foreach($bilagsmal->posteringsmaler as $posteringsmal)
-            {!! Form::model($posteringsmal, ['route' => ['posteringsmal.update', $posteringsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
+            {!! Form::model($posteringsmal, ['route' => ['posteringsmaler.update', $posteringsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
             <div class="row list-group-item">
                 <div class="col-md-11">
                     <div class="row">

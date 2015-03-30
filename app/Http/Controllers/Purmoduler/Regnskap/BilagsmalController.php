@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Pur\Purmoduler\Regnskap\Bilagsmal;
 use Pur\Purmoduler\Regnskap\Bilagsmalsekvens;
 
-class BilagsmalerController extends Controller {
+class BilagsmalController extends Controller {
 
     /**
      * Display a listing of the resource.

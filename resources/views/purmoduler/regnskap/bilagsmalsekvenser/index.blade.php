@@ -23,7 +23,7 @@
             <div class="list-group-item">
                 <div class="row">
                     <div class="col-sm-5">
-                        <a href="{!! URL::route('bilagsmalsekvens.show', $bilagsmalsekvens->id) !!}">
+                        <a href="{!! URL::route('bilagsmalsekvenser.show', $bilagsmalsekvens) !!}">
                             {{ $bilagsmalsekvens->oppgave->beskrivelse }}
                         </a>
                     </div>
@@ -38,9 +38,10 @@
                     </div>
                     <div class="col-sm-2">
                         <div class="btn-group">
-                            <a href="{!! URL::route('bilagsmalsekvens.show', $bilagsmalsekvens->id) !!}" class="btn btn-default">
-                                <span class="fa fa-eye"></span> Vis</a>
-                            <a href="{!! URL::route('bilagsmalsekvens.show', $bilagsmalsekvens->id . '/edit') !!}" class="btn btn-default"><span class="fa fa-edit"></span> Rediger</a>
+                            <a href="{!! URL::route('bilagsmalsekvenser.show', $bilagsmalsekvens) !!}"
+                               class="btn btn-default">Vis</a>
+                            <a href="{!! URL::route('bilagsmalsekvenser.edit', $bilagsmalsekvens) !!}"
+                               class="btn btn-default"><span class="fa fa-edit"></span> Rediger</a>
                         </div>
                     </div>
                 </div>

@@ -17,7 +17,7 @@ class BrukerController extends Controller {
 	{
 		$brukere = $bruker->get();
         //dd($brukere);
-        return view('bruker.index', compact('brukere'));
+        return view('brukere.index', compact('brukere'));
 
 	}
 
@@ -28,7 +28,7 @@ class BrukerController extends Controller {
 	 */
 	public function create()
 	{
-		return view('bruker.create');
+		return view('brukere.create');
 	}
 
 	/**

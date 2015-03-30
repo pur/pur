@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         {!! Form::open(['url' => 'bruker']) !!}
-        @include('bruker.form')
+        @include('brukere.form')
         {!! Form::close() !!}
     </div>
 

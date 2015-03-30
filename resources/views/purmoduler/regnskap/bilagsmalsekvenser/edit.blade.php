@@ -4,7 +4,7 @@
 
     <div class="container content">
         <h1>Rediger bilagsmalsekvens</h1>
-        {!! Form::model($bilagsmalsekvens, ['route' => ['bilagsmalsekvens.update', $bilagsmalsekvens->id], 'method' => 'PATCH']) !!}
+        {!! Form::model($bilagsmalsekvens, ['route' => ['bilagsmalsekvenser.update', $bilagsmalsekvens->id], 'method' => 'PATCH']) !!}
         <div class="row">
             <div class="col-sm-12">
                 <div class="row">

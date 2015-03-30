@@ -11,37 +11,47 @@
 |
 */
 
-use Illuminate\Http\Request;
-use Pur\Besvarelse;
-use Pur\Bruker;
-use Pur\Oppgavesett;
-use Pur\Purmoduler\Regnskap\Bilag;
-use Pur\Purmoduler\Regnskap\Bilagsmal;
-use Pur\Purmoduler\Regnskap\Bilagssekvens;
-use Pur\Purmoduler\Regnskap\Formel;
-use Pur\Purmoduler\Regnskap\Bilagsmalsekvens;
-use Pur\Purmoduler\Regnskap\Posteringsmal;
-
 Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
 Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
 ]);
 
 
 // Pur:
-$router->resource('bruker', 'BrukerController');
-$router->resource('oppgave', 'OppgaveController');
+$router->resource('brukere', 'BrukerController');
+$router->resource('oppgaver', 'OppgaveController');
 $router->resource('oppgavesett', 'OppgavesettController');
 $router->resource('besvarelser', 'BesvarelseController');
 
 // Purmoduler\Regnskap:
-$router->resource('bilagsmalsekvens', 'Purmoduler\Regnskap\BilagsmalsekvensController');
-$router->resource('bilagsmaler', 'Purmoduler\Regnskap\BilagsmalerController');
-$router->resource('posteringsmal', 'Purmoduler\Regnskap\PosteringsmalController');
+
+Route::get('regnskap/bilagsmalsekvenser',
+    [
+        'as' => 'bilagsmalsekvenser.index',
+        'uses' => 'Purmoduler\Regnskap\BilagsmalsekvensController@index'
+    ]);
+Route::get('regnskap/bilagsmalsekvenser/{bilagsmalsekvenser}',
+    [
+        'as' => 'bilagsmalsekvenser.show',
+        'uses' => 'Purmoduler\Regnskap\BilagsmalsekvensController@show'
+    ]);
+Route::get('regnskap/bilagsmalsekvenser/{bilagsmalsekvenser}/rediger',
+    [
+        'as' => 'bilagsmalsekvenser.edit',
+        'uses' => 'Purmoduler\Regnskap\BilagsmalsekvensController@edit'
+    ]);
+Route::get('regnskap/bilagsmalsekvenser/{bilagsmalsekvenser}/update',
+    [
+        'as' => 'bilagsmalsekvenser.update',
+        'uses' => 'Purmoduler\Regnskap\BilagsmalsekvensController@update'
+    ]);
+
+$router->resource('bilagsmaler', 'Purmoduler\Regnskap\BilagsmalController');
+$router->resource('posteringsmaler', 'Purmoduler\Regnskap\PosteringsmalController');
 $router->resource('bilag', 'Purmoduler\Regnskap\BilagController');
 
 Route::get('formel', function(Request $request){
@@ -49,7 +59,7 @@ Route::get('formel', function(Request $request){
     //return "test";
     //return $request->all();
     //return Formel::brukFormel($request->formelid, $request->verdi1, $request->verdi2, $request->verdi3 );
-   // return $request->all();
+    // return $request->all();
     // $retur = $request->formelid . $request->verdi1 . $request->verdi2 . $request->verdi3;
     //$retur = json_encode($request->all());
 
@@ -57,4 +67,3 @@ Route::get('formel', function(Request $request){
     //$retur = \Pur\Purmoduler\Regnskap\Formel::brukFormel(2, 12, 32, 100);
     return $retur;
 });
-
