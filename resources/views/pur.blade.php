@@ -11,6 +11,7 @@
 
 </head>
 <body>
+<div class="loading"></div>
 <nav class="navbar navbar-inverse">
     <div class="container">
         <div class="navbar-header">
@@ -72,6 +73,20 @@
 <script src="{{ env('APPWEBPATH') }}/js/jquery-1.11.2.min.js"></script>
 <script src="{{ env('APPWEBPATH') }}/js/bootstrap.min.js"></script>
 <script>
+
+    $('a:not(.dropdown-toggle):not([href*=javascript]):not([href^=#])').click(function() {
+        //$('a:not(.dropdown-toggle) nav-tabs').click(function() {
+
+        // Animate loader off screen
+        $(".loading").fadeIn("slow");;
+    });
+
+    $(window).load(function() {
+        // Animate loader off screen
+        $(".loading").fadeOut("slow");;
+    });
+
+
   /*  $('.submenu').affix({
         offset: {
             top: 100

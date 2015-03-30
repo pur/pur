@@ -22,7 +22,7 @@
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><span class="text-success">Lagret</span></li>
+                <li><span class="successelement text-success">Lagret</span></li>
             </ul>
         </div>
     </div>

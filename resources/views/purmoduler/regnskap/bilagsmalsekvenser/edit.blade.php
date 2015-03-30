@@ -87,7 +87,7 @@
                         <a><span class="fa fa-close"></span></a>
                     </div>
                 </div>
-                <div id="bilag{{ $bilagsmal->id }}" class="panel-collapse collapse in">
+                <div id="bilag{{ $bilagsmal->id }}" class="bilag panel-collapse collapse in">
                     <div role="tabpanel">
 
                         <!-- Nav tabs -->
@@ -110,7 +110,6 @@
                             @include('purmoduler.regnskap.bilagsmalsekvenser._visBilag')
 
 
-
                         </div>
                     </div>
                 </div>
@@ -127,11 +126,6 @@
         });
     </script>
 
-    <script>
-
-    </script>
-
-
 
     <script>
         // Viser og skjuler variabel tekster basert på checkboxer
@@ -140,49 +134,79 @@
             $("#" + idName).toggle();
         });
 
+        hentVerdier()
 
-        // Henter ut verdier fra tekstfelt
-        var aMaks = parseInt($('#aMaks').val());
-        var aMin = parseInt($('#aMin').val());
-        var bMaks = parseInt($('#bMaks').val());
-        var bMin = parseInt($('#bMin').val());
-        var xMaks = parseInt($('#xMaks').val());
-        var xMin = parseInt($('#xMin').val());
-        var aSnitt = (aMin + aMaks) / 2;
-        var bSnitt = (bMin + bMaks) / 2;
-        var xSnitt = (xMin + xMaks) / 2;
+        function hentVerdier() {
+            // Henter ut verdier fra tekstfelt
+            var aMaks = parseInt($('#aMaks').val());
+            var aMin = parseInt($('#aMin').val());
+            var bMaks = parseInt($('#bMaks').val());
+            var bMin = parseInt($('#bMin').val());
+            var xMaks = parseInt($('#xMaks').val());
+            var xMin = parseInt($('#xMin').val());
+            var aSnitt = (aMin + aMaks) / 2;
+            var bSnitt = (bMin + bMaks) / 2;
+            var xSnitt = (xMin + xMaks) / 2;
 
-        $('select.kontoliste').each(function () {
-            if ('input[type="select"]') {
-                var idName = $(this).attr("id");
-                var str = $(this).find('option:selected').text();
-                $("#" + idName + "Vis").text(str);
-            }
-        });
+            // Henter ut verdier fra kontolister
+            $('select.kontoliste').each(function () {
+                if ('input[type="select"]') {
+                    var idName = $(this).attr("id");
+                    var str = $(this).find('option:selected').text();
+                    $("#" + idName + "Vis").text(str);
+                }
+            });
 
-        $('select.formelliste').each(function () {
-            if ('input[type="select"]') {
-                var idName = $(this).attr("id");
-                var str = $(this).find('option:selected').text();
-                $("#" + idName + "Vis").text(str);
-            }
-        });
 
-        $('.' + idBilag + '-formel').each(function () {
+            $('select.formelliste').each(function () {
+                if ('input[type="select"]') {
+                    var idName = $(this).attr("id");
+                    var str = $(this).find('option:selected').text();
+                    $("#" + idName + "Vis").text(str);
 
-            if (parseFloat($(this).text()) != '') {
-                console.log('.' + idBilag + '-formel');
-                sumBilag += parseFloat($(this).text());
-                console.log(sumBilag);
-            } else {
-                sumBilag += 0;
-            }
-        });
-        $("#" + idBilag + "Resultat").text(sumBilag);
+                    var formelnr = $(this).val();
+                    var verdia = aSnitt;
+                    var verdib = bSnitt;
+                    var verdix = xSnitt;
+                    var idBilag = $(this).closest(".panel-collapse").attr("id");
+                    //var sumBilag = parseInt($('#' + idBilag + '-formel').text());
+                    var sumBilag = 0;
+
+                    var resultat = brukFormel(formelnr, verdia, verdib, verdix);
+
+                    $("#" + idName + "ResultatVis").text(resultat);
+                    $('.' + idBilag + '-formel').each(function () {
+                        if (parseFloat($(this).text()) != '') {
+                            sumBilag += parseFloat($(this).text());
+                        } else {
+                            sumBilag += 0;
+                        }
+                    });
+                    $("#" + idBilag + "Resultat").text(sumBilag);
+
+                }
+            });
+
+            $('.bilag').each(function () {
+                var idBilag = $(this).attr('id');
+                var sumBilag = 0;
+                $('.' + idBilag + '-formel').each(function () {
+                    if (parseFloat($(this).text()) != '') {
+                        sumBilag += parseFloat($(this).text());
+                    } else {
+                        sumBilag += 0;
+                    }
+                });
+                $("#" + idBilag + "Resultat").text(sumBilag);
+            });
+
+        }
 
 
         // Oppdaterer checkbox tekst fra inputfelt med variabler
         $('input.variabel').keyup(function () {
+
+            hentVerdier();
             var idName = $(this).attr("id");
             var str = $(this).val();
 
@@ -217,7 +241,6 @@
             } else {
                 $('.' + idName + 'Eksempel').text(str);
             }
-
         });
 
 
@@ -231,52 +254,28 @@
         });
 
 
+        // Legg til valgt formel i vis bilag
         $("select.formelliste").change(function () {
-            if ('input[type="select"]') {
-                var idName = $(this).attr("id");
-                var str = $(this).find('option:selected').text();
-                $("#" + idName + "Vis").text(str);
-            }
-
-            var formelnr = $(this).val();
-            var verdia = $(".aEksempel").first().text();
-            var verdib = $(".bEksempel").first().text();
-            var verdix = $(".xEksempel").first().text();
-            var verdiy = $(".yEksempel").first().text();
-            var idName = $(this).attr("id");
-            var idBilag = $(this).closest(".panel-collapse").attr("id");
-            //var sumBilag = parseInt($('#' + idBilag + '-formel').text());
-            var sumBilag = 0;
-
-            var request = $.ajax({
-                type: "GET",
-                url: '/formel',
-                dataType: 'json',
-                data: {
-                    formelid: formelnr, verdi1: verdia, verdi2: verdib, verdi3: verdix
-                }
-            });
-
-            request.done(function (msg) {
-                $("#" + idName + "ResultatVis").text(msg);
-
-
-                $('.' + idBilag + '-formel').each(function () {
-                    if (parseFloat($(this).text()) != '') {
-                        console.log('.' + idBilag + '-formel');
-                        sumBilag += parseFloat($(this).text());
-                        console.log(sumBilag);
-                    } else {
-                        sumBilag += 0;
-                    }
-                });
-                $("#" + idBilag + "Resultat").text(sumBilag);
-            });
-            request.fail(function (jqXHR, textStatus) {
-                alert("Request failed: " + textStatus);
-            });
+            hentVerdier();
         });
 
+        function brukFormel($formelNr, $verdi1, $verdi2, $verdi3) {
+            if ($formelNr == 1) {
+                return 0 - $verdi1;
+            } else if ($formelNr == 2) {
+                return $verdi1 / 5;
+            } else if ($formelNr == 3) {
+                return $verdi1 / 1.25;
+            } else if ($formelNr == 4) {
+                return ($verdi1 - $verdi2) * (100 - $verdi3);
+            } else if ($formelNr == 5) {
+                return 0 - ($verdi1 - $verdi2) * (100 - $verdi3);
+            } else if ($formelNr == 6) {
+                return $verdi3 / 5;
+            } else if ($formelNr == 7) {
+                return $verdi3 / 1.25;
+            }
+        }
 
     </script>
 

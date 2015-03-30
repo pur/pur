@@ -14,8 +14,10 @@
 }
 
 #navbar-submenu {
-    background-color: #fff;
+    background-color: #FBFBFB;
+    border-top: 1px solid #FFF;
     border-bottom: 1px solid #E7E7E7;
+   /* -webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52); */
 }
 
 #navbar-submenu li>span {
@@ -45,8 +47,7 @@
     color: #eee;
 }
 
-.ajax-success {
-    color: green;
+.successelement {
     visibility: hidden;
 }
 
@@ -136,4 +137,16 @@
     }
 }
 
-
+.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.loading {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: .5;
+    z-index: 9999;
+    background: url(http://pur.app/images/loading-animation.gif) center no-repeat #fff;
+   /* background: url(http://loadergenerator.com/gif-load) center no-repeat #fff; */
+}
