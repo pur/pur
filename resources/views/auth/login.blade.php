@@ -1,7 +1,8 @@
 @extends('pur')
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container">
+        <h1>Logg inn</h1>
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">

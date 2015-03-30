@@ -1,6 +1,6 @@
 @extends('pur')
 @section('content')
-
+<div class="container">
     <h1>bilagsmalsekvenser</h1>
     <div class="list-group panel panel-primary">
         <div class="panel-heading">
@@ -38,18 +38,18 @@
                     </div>
                     <div class="col-sm-2">
                         <div class="btn-group">
-                            <a href="{!! URL::route('bilagsmalsekvens.show', $bilagsmalsekvens->id) !!}"
-                               class="btn btn-default">Vis</a>
-                            <a href="{!! URL::route('bilagsmalsekvens.show', $bilagsmalsekvens->id . '/edit') !!}"
-                               class="btn btn-default"><span class="fa fa-edit"></span> Rediger</a>
+                            <a href="{!! URL::route('bilagsmalsekvens.show', $bilagsmalsekvens->id) !!}" class="btn btn-default">
+                                <span class="fa fa-eye"></span> Vis</a>
+                            <a href="{!! URL::route('bilagsmalsekvens.show', $bilagsmalsekvens->id . '/edit') !!}" class="btn btn-default"><span class="fa fa-edit"></span> Rediger</a>
                         </div>
                     </div>
                 </div>
             </div>
         @endforeach
     </div>
+</div>
+@endsection
 @section('scripts')
 
 
-@endsection
 @endsection

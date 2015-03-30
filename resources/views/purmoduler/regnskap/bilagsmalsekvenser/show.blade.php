@@ -1,6 +1,7 @@
 @extends('pur')
 @section('content')
-
+    @include('purmoduler.regnskap.bilagsmalsekvenser._showSubmenu')
+<div class="container">
         <h1>Rediger bilagsmalsekvens</h1>
 
 
@@ -23,18 +24,6 @@
                     </div>
                 </div>
 
-            </div>
-            <div class="col-sm-4">
-                <div class="btn-group">
-                    <a href="../" class="btn btn-danger">Tilbake</a>
-                    <a href="edit/" class="btn btn-primary">Rediger</a>
-                    <button type="reset" class="btn btn-info">Skriv ut</button>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" checked disabled> Delt med andre faglærere
-                    </label>
-                </div>
             </div>
         </div>
 
@@ -121,7 +110,8 @@
             </div>
 
         @endforeach
-
+</div>
+@endsection
 
 @section('scripts')
 
@@ -131,4 +121,3 @@
 
 @endsection
 
-@endsection

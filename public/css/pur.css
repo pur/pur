@@ -1,3 +1,49 @@
+.navbar {
+    margin-bottom: 0px;
+    border: none;
+    border-radius: 0;
+}
+
+.navbar-inverse {
+    background-color: #337AB7;
+    border-color: #226AA7;
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: #226AA7;
+}
+
+#navbar-submenu {
+    background-color: #fff;
+    border-bottom: 1px solid #E7E7E7;
+}
+
+#navbar-submenu li>span {
+    display: block;
+    padding: 15px 15px 10px;
+}
+
+#navbar-submenu li a:hover{
+    background-color: #eee;
+}
+
+#navbar-submenu.affix{
+    z-index: 10;
+    top: 0;
+    width: 100%;
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus{
+    background-color: #226AA7;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: #226AA7;
+}
+
+.navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
+    color: #eee;
+}
 
 .ajax-success {
     color: green;
@@ -41,11 +87,13 @@
     margin-bottom: 5px;
 }
 
+.postering.list-group {
+    margin-bottom: 0;
+}
+
 
 .pur-dropdown select {
     background: none;
-    border-top-right-radius: 4px!important;
-    border-bottom-right-radius: 4px!important;
 }
 .pur-dropdown .input-group-addon:last-child {
     border: none;
@@ -58,8 +106,34 @@
     padding: 0;
 }
 
+
+.panel-heading,
+.panel,
+.form-control,
+.input-group-addon,
+.list-group-item:last-child,
+.nav-tabs > li > a,
+.input-group .form-control:last-child,
+.input-group-addon:last-child,
+.input-group-btn:last-child > .btn,
+.input-group-btn:last-child > .btn-group > .btn,
+.input-group-btn:last-child > .dropdown-toggle,
+.input-group-btn:first-child > .btn:not(:first-child),
+.input-group-btn:first-child > .btn-group:not(:first-child) > .btn,
+.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle),
+.btn-group > .btn:last-child:not(:first-child),
+.btn-group > .dropdown-toggle:not(:first-child)  {
+    border-radius: 0;
+}
+
+.row.list-group-item {
+    margin-top: -1px;
+}
+
 @media (max-width: 992px) {
     .row.list-group-item .form-group {
         margin-bottom: 10px;
     }
 }
+
+
