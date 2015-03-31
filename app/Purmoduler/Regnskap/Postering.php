@@ -6,10 +6,10 @@ class Postering extends Model {
 
     protected $table = 'posteringer';
 
-    protected $fillable = ['belop', 'tid_lagret', 'ant_lagringer', 'er_fasit', 'bilag_id', 'kontokode'];
+    protected $fillable = ['belop', 'tid_opprettet', 'tid_endret', 'ant_lagringer', 'er_fasit', 'bilag_id', 'kontokode'];
 
-    public $timestamps = false;
-
+    const CREATED_AT = 'tid_opprettet';
+    const UPDATED_AT = 'tid_endret';
 
     /**
      * Begrenser spørreresultatet til rader der kolonnen 'er_fasit' = 'false'

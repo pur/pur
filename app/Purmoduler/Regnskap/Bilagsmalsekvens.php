@@ -43,7 +43,7 @@ class Bilagsmalsekvens extends Oppgave
      */
     public function tidOpprettet()
     {
-        return $this->oppgave->tid_opprettet;
+        return $this->oppgave->tid_opprettet->format('d.m.y H:i');
     }
 
     /**
@@ -53,7 +53,7 @@ class Bilagsmalsekvens extends Oppgave
      */
     public function tidEndret()
     {
-        return $this->oppgave->tid_endret;
+        return $this->oppgave->tid_endret->format('d.m.y H:i');
     }
 
     /**

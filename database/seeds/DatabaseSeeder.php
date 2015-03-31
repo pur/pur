@@ -468,7 +468,7 @@ class PosteringTableSeeder extends Seeder
         // Bilag 1 - fasit:
 
         Postering::create([
-            'tid_lagret' => '2015-01-01 00:00:00',
+//            'tid_endret' => '2015-01-01 00:00:00',
             'belop' => -12000,
             'ant_lagringer' => 1,
             'er_fasit' => true,
@@ -477,7 +477,7 @@ class PosteringTableSeeder extends Seeder
         ]);
 
         Postering::create([
-            'tid_lagret' => '2015-01-01 00:00:01',
+//            'tid_endret' => '2015-01-01 00:00:01',
             'belop' => 2424,
             'ant_lagringer' => 1,
             'er_fasit' => true,
@@ -486,7 +486,7 @@ class PosteringTableSeeder extends Seeder
         ]);
 
         Postering::create([
-            'tid_lagret' => '2015-01-01 00:00:02',
+//            'tid_endret' => '2015-01-01 00:00:02',
             'belop' => 9696,
             'ant_lagringer' => 1,
             'er_fasit' => true,
@@ -497,7 +497,7 @@ class PosteringTableSeeder extends Seeder
         // Bilag 1 - besvarelse:
 
         Postering::create([
-            'tid_lagret' => '2015-01-01 00:01:00',
+//            'tid_endret' => '2015-01-01 00:01:00',
             'belop' => -12000,
             'ant_lagringer' => 1,
             'er_fasit' => false,
@@ -506,7 +506,7 @@ class PosteringTableSeeder extends Seeder
         ]);
 
         Postering::create([
-            'tid_lagret' => '2015-01-01 00:01:01',
+//            'tid_endret' => '2015-01-01 00:01:01',
             'belop' => 2424,
             'ant_lagringer' => 1,
             'er_fasit' => false,
@@ -515,7 +515,7 @@ class PosteringTableSeeder extends Seeder
         ]);
 
         Postering::create([
-            'tid_lagret' => '2015-01-01 00:01:03',
+//            'tid_endret' => '2015-01-01 00:01:03',
             'belop' => 9696,
             'ant_lagringer' => 1,
             'er_fasit' => false,
@@ -527,7 +527,7 @@ class PosteringTableSeeder extends Seeder
         // Bilag 2 - fasit:
 
         Postering::create([
-            'tid_lagret' => '2015-01-01 00:00:04',
+//            'tid_endret' => '2015-01-01 00:00:04',
             'belop' => 1500,
             'ant_lagringer' => 1,
             'er_fasit' => true,
@@ -536,7 +536,7 @@ class PosteringTableSeeder extends Seeder
         ]);
 
         Postering::create([
-            'tid_lagret' => '2015-01-01 00:00:05',
+//            'tid_endret' => '2015-01-01 00:00:05',
             'belop' => -300,
             'ant_lagringer' => 1,
             'er_fasit' => true,
@@ -545,7 +545,7 @@ class PosteringTableSeeder extends Seeder
         ]);
 
         Postering::create([
-            'tid_lagret' => '2015-01-01 00:00:06',
+//            'tid_endret' => '2015-01-01 00:00:06',
             'belop' => -1200,
             'ant_lagringer' => 1,
             'er_fasit' => true,
@@ -557,7 +557,7 @@ class PosteringTableSeeder extends Seeder
         // Bilag 2 - besvarelse:
 
         Postering::create([
-            'tid_lagret' => '2015-01-01 00:01:04',
+//            'tid_endret' => '2015-01-01 00:01:04',
             'belop' => 1500,
             'ant_lagringer' => 1,
             'er_fasit' => false,
@@ -566,7 +566,7 @@ class PosteringTableSeeder extends Seeder
         ]);
 
         Postering::create([
-            'tid_lagret' => '2015-01-01 00:01:05',
+//            'tid_endret' => '2015-01-01 00:01:05',
             'belop' => -300,
             'ant_lagringer' => 1,
             'er_fasit' => false,
@@ -575,7 +575,7 @@ class PosteringTableSeeder extends Seeder
         ]);
 
         Postering::create([
-            'tid_lagret' => '2015-01-01 00:01:06',
+//            'tid_endret' => '2015-01-01 00:01:06',
             'belop' => -1200,
             'ant_lagringer' => 1,
             'er_fasit' => false,
@@ -587,7 +587,7 @@ class PosteringTableSeeder extends Seeder
         // Bilag 3 - fasit:
 
         Postering::create([
-            'tid_lagret' => '2015-01-01 00:00:07',
+//            'tid_endret' => '2015-01-01 00:00:07',
             'belop' => 10460.70,
             'ant_lagringer' => 1,
             'er_fasit' => true,
@@ -596,7 +596,7 @@ class PosteringTableSeeder extends Seeder
         ]);
 
         Postering::create([
-            'tid_lagret' => '2015-01-01 00:00:08',
+//            'tid_endret' => '2015-01-01 00:00:08',
             'belop' => -10460.70,
             'ant_lagringer' => 1,
             'er_fasit' => true,
@@ -605,7 +605,7 @@ class PosteringTableSeeder extends Seeder
         ]);
 
         Postering::create([
-            'tid_lagret' => '2015-01-01 00:00:09',
+//            'tid_endret' => '2015-01-01 00:00:09',
             'belop' => 159.30,
             'ant_lagringer' => 1,
             'er_fasit' => true,
@@ -614,7 +614,7 @@ class PosteringTableSeeder extends Seeder
         ]);
 
         Postering::create([
-            'tid_lagret' => '2015-01-01 00:00:10',
+//            'tid_endret' => '2015-01-01 00:00:10',
             'belop' => -31.86,
             'ant_lagringer' => 1,
             'er_fasit' => true,
@@ -623,7 +623,7 @@ class PosteringTableSeeder extends Seeder
         ]);
 
         Postering::create([
-            'tid_lagret' => '2015-01-01 00:00:11',
+//            'tid_endret' => '2015-01-01 00:00:11',
             'belop' => -127.44,
             'ant_lagringer' => 1,
             'er_fasit' => true,
@@ -634,7 +634,7 @@ class PosteringTableSeeder extends Seeder
         // Bilag 3 - besvarelse:
 
         Postering::create([
-            'tid_lagret' => '2015-01-01 00:01:07',
+//            'tid_endret' => '2015-01-01 00:01:07',
             'belop' => 10460.70,
             'ant_lagringer' => 1,
             'er_fasit' => false,
@@ -643,7 +643,7 @@ class PosteringTableSeeder extends Seeder
         ]);
 
         Postering::create([
-            'tid_lagret' => '2015-01-01 00:01:08',
+//            'tid_endret' => '2015-01-01 00:01:08',
             'belop' => -10460.70,
             'ant_lagringer' => 1,
             'er_fasit' => false,
@@ -652,7 +652,7 @@ class PosteringTableSeeder extends Seeder
         ]);
 
         Postering::create([
-            'tid_lagret' => '2015-01-01 00:01:09',
+//            'tid_endret' => '2015-01-01 00:01:09',
             'belop' => 159.30,
             'ant_lagringer' => 1,
             'er_fasit' => false,
@@ -661,7 +661,7 @@ class PosteringTableSeeder extends Seeder
         ]);
 
         Postering::create([
-            'tid_lagret' => '2015-01-01 00:01:10',
+//            'tid_endret' => '2015-01-01 00:01:10',
             'belop' => -31.86,
             'ant_lagringer' => 1,
             'er_fasit' => false,
@@ -670,7 +670,7 @@ class PosteringTableSeeder extends Seeder
         ]);
 
         Postering::create([
-            'tid_lagret' => '2015-01-01 00:01:11',
+//            'tid_endret' => '2015-01-01 00:01:11',
             'belop' => -127.44,
             'ant_lagringer' => 1,
             'er_fasit' => false,

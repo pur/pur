@@ -15,7 +15,8 @@ class CreatePosteringerTable extends Migration {
 		Schema::create('posteringer', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->timestamp('tid_lagret');
+			$table->timestamp('tid_opprettet');
+			$table->timestamp('tid_endret');
             $table->decimal('belop');
             $table->integer('ant_lagringer');
             $table->boolean('er_fasit');

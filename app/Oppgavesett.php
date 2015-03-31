@@ -17,6 +17,8 @@ class Oppgavesett extends Model {
     const CREATED_AT = 'tid_opprettet';
     const UPDATED_AT = 'tid_endret';
 
+    protected $dates = ['tid_publisert', 'tid_aapent', 'tid_lukket'];
+
     /**
      * Den brukeren som har laget oppgavesettet
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

@@ -16,6 +16,7 @@ class Besvarelse extends Model {
     const CREATED_AT = 'tid_opprettet';
     const UPDATED_AT = 'tid_endret';
 
+    protected $dates = ['tid_levert'];
 
     /**
      * Den brukeren som har laget besvarelsen
