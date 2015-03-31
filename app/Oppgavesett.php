@@ -1,5 +1,6 @@
 <?php namespace Pur;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Oppgavesett extends Model {
@@ -18,6 +19,57 @@ class Oppgavesett extends Model {
     const UPDATED_AT = 'tid_endret';
 
     protected $dates = ['tid_publisert', 'tid_aapent', 'tid_lukket'];
+
+
+    /**
+     * Formattert tidspunkt for da oppgavesettet ble opprettet
+     *
+     * @return mixed
+     */
+    public function tidOpprettet()
+    {
+        return $this->tid_opprettet->format('d.m.y H:i');
+    }
+
+    /**
+     * Formattert tidspunkt for da oppgavesettet sist ble endret
+     *
+     * @return mixed
+     */
+    public function tidEndret()
+    {
+        return $this->tid_endret->format('d.m.y H:i');
+    }
+
+    /**
+     * Formattert tidspunkt for da/når oppgavesettet ble/blir publisert
+     *
+     * @return mixed
+     */
+    public function tidPublisert()
+    {
+        return $this->tid_publisert->format('d.m.y H:i');
+    }
+
+    /**
+     * Formattert tidspunkt for da/når oppgavesettet ble/blir åpnet
+     *
+     * @return mixed
+     */
+    public function tidAapent()
+    {
+        return $this->tid_aapent->format('d.m.y H:i');
+    }
+
+    /**
+     * Formattert tidspunkt for da/når oppgavesettet ble/blir lukket
+     *
+     * @return mixed
+     */
+    public function tidLukket()
+    {
+        return $this->tid_lukket->format('d.m.y H:i');
+    }
 
     /**
      * Den brukeren som har laget oppgavesettet

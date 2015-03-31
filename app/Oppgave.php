@@ -13,6 +13,26 @@ class Oppgave extends Model
     const UPDATED_AT = 'tid_endret';
 
     /**
+     * Formattert tidspunkt for da oppgaven ble opprettet
+     *
+     * @return mixed
+     */
+    public function tidOpprettet()
+    {
+        return $this->tid_opprettet->format('d.m.y H:i');
+    }
+
+    /**
+     * Formattert tidspunkt for da oppgaven sist ble endret
+     *
+     * @return mixed
+     */
+    public function tidEndret()
+    {
+        return $this->tid_endret->format('d.m.y H:i');
+    }
+
+    /**
      * Den brukeren som har laget oppgaven
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
