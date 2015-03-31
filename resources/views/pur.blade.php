@@ -68,27 +68,11 @@
 
 <script src="{{ env('APPWEBPATH') }}/js/jquery-1.11.2.min.js"></script>
 <script src="{{ env('APPWEBPATH') }}/js/bootstrap.min.js"></script>
-<script>
-
-    $('a:not(.dropdown-toggle):not([href*=javascript]):not([href^=#])').click(function() {
-        if($(this).attr('href') != undefined) {
-            $(".loading").fadeIn("slow");;
-        }
-    });
-
-    $(document).ready(function() {
-        // Animate loader off screen
-        $(".loading").fadeOut("slow");;
-    });
-
-
-    $('#navbar-submenu-wrapper').height($("#navbar-submenu").height());
-    $('#navbar-submenu').affix({
-        offset: $('#navbar-submenu').position()
-    });
-</script>
+<script src="{{ env('APPWEBPATH') }}/js/globalScripts.js"></script>
 
 @yield('scripts')
+
+
 
 </body>
 </html>

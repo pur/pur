@@ -47,10 +47,10 @@
                     </div>
                     <div class="col-sm-2">
                         <div class="btn-group pull-right">
-                            <a href="{!! URL::route('bilagsmalsekvenser.show', $bilagsmalsekvens) !!}" class="btn btn-default" data-toggle="tooltip" data-placement="top" container="body" title="Vis bilag">
+                            <a href="{{ URL::route('bilagsmalsekvenser.show', $bilagsmalsekvens) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Vis bilag">
                                 <span class="fa fa-eye"></span>
                             </a>
-                            <a href="{!! URL::route('bilagsmalsekvenser.edit', $bilagsmalsekvens) !!}" class="btn btn-default" data-toggle="tooltip" data-placement="top" container="body" title="Rediger bilag">
+                            <a href="{{ URL::route('bilagsmalsekvenser.edit', $bilagsmalsekvens) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Rediger bilag">
                                 <span class="fa fa-edit"></span>
                             </a>
                         </div>
@@ -62,6 +62,7 @@
 </div>
 @endsection
 @section('scripts')
+
 
 
 @endsection

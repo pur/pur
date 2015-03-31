@@ -30,9 +30,11 @@
 
                         <div class="col-sm-2">
                             <div class="btn-group pull-right">
-                                <a href="{!! URL::route('brukere.show', $bruker->id) !!}" class="btn btn-default">
+                                <a href="{{ URL::route('brukere.show', $bruker) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Vis info om {{ $bruker->fornavn  }} {{$bruker->etternavn }}">
                                     <span class="fa fa-eye"></span></a>
-                                <a href="{!! URL::route('brukere.show', $bruker->id . '/edit') !!}" class="btn btn-default"><span class="fa fa-edit"></span></a>
+                                <a href="{{ URL::route('brukere.edit', $bruker) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Rediger {{ $bruker->fornavn  }} {{$bruker->etternavn }}">
+                                    <span class="fa fa-edit"></span>
+                                </a>
                             </div>
                         </div>
                     </div>

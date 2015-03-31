@@ -17,7 +17,7 @@
                     @if(URL::previous() != URL::current())
                         <li><a href="{{ URL::previous() }}"><span class="fa fa-level-up fa-rotate-270"></span> Tilbake</a></li>
                     @endif
-                    <li><a href="/"><span class="fa fa-plus"></span> Legg til oppgavesett</a></li>
+                    <li><a href="{{ URL::route('oppgavesett.create') }}"><span class="fa fa-plus"></span> Legg til oppgavesett</a></li>
                     <li><a href="/"><span class="fa fa-trash"></span> Slett valgte oppgavesett</a></li>
 
                 </ul>

@@ -49,7 +49,9 @@
                     </div>
                 </div>
                 <div class="form-group col-md-1">
-                    <p><a class="slett-postering"><span class="fa fa-trash-o fa-2x"></span></a>
+                    <p><a class="slett-postering" data-toggle="tooltip" data-placement="top" data-container="body" title="Slett postering">
+                            <span class="fa fa-trash-o fa-2x"></span>
+                        </a>
                     </p>
                     {{-- TODO Slett postering i DB --}}
                 </div>
