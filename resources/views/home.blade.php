@@ -2,12 +2,11 @@
 
 @section('content')
     <div class="container">
-        <div class="alert alert-info alert-dismissible fade in" role="alert">
-            Velkommen {{ Auth::user()->fulltNavn() }}!
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
+
+        <h1>Velkommen {{ Auth::user()->fulltNavn() }}!</h1>
+
+        <p class="lead">Velg fagmodul:</p>
+
 
         <div class="row">
             <div class="col-xs-6 col-sm-4 col-md-3">
