@@ -7,7 +7,6 @@
 
     <!-- Fonts -->
     <link href="{{ env('APPWEBPATH') }}/css/font-awesome.min.css" rel="stylesheet">
-    <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> -->
 
 </head>
 <body>
@@ -33,7 +32,7 @@
                     <ul class="dropdown-menu" role="menu">
                         <li>{!! link_to_route('brukere.show', 'Brukere', null) !!}</li>
                         <li>{!! link_to_route('oppgavesett.show', 'Oppgavesett', null) !!}</li>
-                        <li>{!! link_to_route('bilagsmalsekvenser.show', 'bilagsmalsekvenser', null) !!}</li>
+                        <li>{!! link_to_route('bilagsmalsekvenser.show', 'Bilagsmalsekvenser', null) !!}</li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -41,7 +40,7 @@
                         oppgaver <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li>{!! link_to_route('oppgavesett.show', 'Oppgavesett', null) !!}</li>
-                        <li>{!! link_to_route('bilagsmalsekvenser.show', 'bilagsmalsekvenser', null) !!}</li>
+                        <li>{!! link_to_route('bilagsmalsekvenser.show', 'Bilagsmalsekvenser', null) !!}</li>
                     </ul>
                 </li>
 
@@ -67,9 +66,6 @@
 
     @yield('content')
 
-
-<!-- <script src="https://code.jquery.com/jquery-1.10.2.js"></script> -->
-<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
 <script src="{{ env('APPWEBPATH') }}/js/jquery-1.11.2.min.js"></script>
 <script src="{{ env('APPWEBPATH') }}/js/bootstrap.min.js"></script>
 <script>
@@ -80,24 +76,17 @@
         }
     });
 
-    $(window).load(function() {
+    $(document).ready(function() {
         // Animate loader off screen
         $(".loading").fadeOut("slow");;
     });
 
 
-  /*  $('.submenu').affix({
-        offset: {
-            top: 100
-        }
-    });*/
     $('#navbar-submenu-wrapper').height($("#navbar-submenu").height());
     $('#navbar-submenu').affix({
         offset: $('#navbar-submenu').position()
     });
 </script>
-
-
 
 @yield('scripts')
 

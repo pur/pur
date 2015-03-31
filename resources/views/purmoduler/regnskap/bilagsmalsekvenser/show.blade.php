@@ -2,7 +2,7 @@
 @section('content')
     @include('purmoduler.regnskap.bilagsmalsekvenser._showSubmenu')
 <div class="container">
-        <h1>Rediger bilagsmalsekvens</h1>
+        <h1>Bilagsmalsekvens</h1>
 
 
         <div class="row">
@@ -35,7 +35,8 @@
 
             <div class="panel panel-primary">
                 <div class="panel-heading"><h3 class="panel-title">{{$bilagsmal->bilagstype}}</h3></div>
-                <div class="panel-body">
+                @include('purmoduler.regnskap.bilagsmalsekvenser._visBilag')
+            <!--    <div class="panel-body">
 
                     <div class="row">
 
@@ -104,7 +105,7 @@
 
                         @endforeach
 
-                    </div>
+                    </div>-->
 
 
             </div>

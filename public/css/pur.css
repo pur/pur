@@ -95,7 +95,9 @@
 
 .pur-dropdown select {
     background: none;
+    -moz-appearance: none;
 }
+
 .pur-dropdown .input-group-addon:last-child {
     border: none;
     position: absolute;
@@ -110,6 +112,8 @@
 
 .panel-heading,
 .panel,
+.btn,
+.alert,
 .form-control,
 .input-group-addon,
 .list-group-item:last-child,
@@ -131,6 +135,10 @@
     margin-top: -1px;
 }
 
+.bilag .alert {
+    display: none;
+}
+
 @media (max-width: 992px) {
     .row.list-group-item .form-group {
         margin-bottom: 10px;
@@ -148,5 +156,4 @@
     opacity: .5;
     z-index: 9999;
     background: url(http://pur.app/images/loading-animation.gif) center no-repeat #fff;
-   /* background: url(http://loadergenerator.com/gif-load) center no-repeat #fff; */
 }

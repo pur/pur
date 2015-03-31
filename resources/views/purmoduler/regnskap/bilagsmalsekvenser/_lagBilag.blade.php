@@ -1,11 +1,14 @@
 <div role="tabpanel" class="tab-pane active" id="lagBilag{{ $bilagsmal->id }}">
     <div class="panel-body">
+        <p>Felter som skal vises:</p>
         {!! Form::model($bilagsmal, ['route' => ['bilagsmaler.update', $bilagsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
+
         <div class="row">
             <div class="form-group col-sm-4">
                 {!! Form::checkbox('false', 'motpartEksempel' . $bilagsmal->id) !!} Motpart:
                 <span class="motpartEksempel">{{$bilagsmalsekvens->motpart}}</span>
             </div>
+
             @foreach($bilagsmalsekvens->variabler as $variabel)
                 <div class="form-group col-sm-4">
                     {!! Form::checkbox('false', $variabel->tegn_i_formel . 'Eksempel' . $bilagsmal->id) !!}

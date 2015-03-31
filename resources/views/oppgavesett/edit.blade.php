@@ -7,14 +7,18 @@
         {!! Form::model($oppgavesett, ['route' => ['oppgavesett.update', $oppgavesett->id], 'method' => 'PATCH']) !!}
         <p>Av: {{ $oppgavesett->skaper->fulltnavn() }}</p>
 
-        <div class="form-group col-sm-12">
-            {!!Form::label('beskrivelse', 'Beskrivelse:', ['class' => 'control-label']) !!}
-            {!! Form::text('beskrivelse', $oppgavesett->beskrivelse, ['class' => 'form-control']) !!}
+        <div class="form-group col-sm-8">
+            <div class="input-group">
+                <div class="input-group-addon">Beskrivelse:</div>
+                {!! Form::text('beskrivelse', $oppgavesett->beskrivelse, ['class' => 'form-control']) !!}
+            </div>
         </div>
-        <div class="form-group col-md-12">
-
-            {!!Form::select('oppgavetype', array('1' => 'Obligatorisk oppgave', '2' => 'Øvingsoppgave'), null, ['class' => 'form-control']) !!}
-
+        <div class="form-group col-md-4">
+            <div class="input-group pur-dropdown">
+                <div class="input-group-addon">Oppgavetype:</div>
+                {!!Form::select('oppgavetype', array('1' => 'Obligatorisk oppgave', '2' => 'Øvingsoppgave'), null, ['class' => 'form-control']) !!}
+                <div class="input-group-addon"><span class="fa fa-caret-down"></span></div>
+            </div>
         </div>
 
         <div class="form-group col-sm-12">
@@ -125,8 +129,6 @@
                     </div>
                 </div>
             @endforeach
-
-            {!! link_to_route('oppgavesett.index', 'Alle oppgavesett') !!}
         </div>
     </div>
 @endsection
