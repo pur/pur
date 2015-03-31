@@ -29,7 +29,7 @@ class OppgavesettController extends Controller {
 	 */
 	public function create()
 	{
-		//
+        return view('oppgavesett.create');
 	}
 
 	/**
