@@ -20,3 +20,20 @@ $('#navbar-submenu').affix({
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 })
+
+
+// Select all checkbox
+$(document).ready(function() {
+    $('.panel-heading input[type="checkbox"]').click(function(event) {
+        if(this.checked) {
+            $('.list-group-item input[type="checkbox"]').each(function() {
+                this.checked = true;
+            });
+        }else{
+            $('.list-group-item input[type="checkbox"]').each(function() {
+                this.checked = false;
+            });
+        }
+    });
+
+});
