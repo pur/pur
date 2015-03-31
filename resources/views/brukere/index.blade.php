@@ -1,6 +1,6 @@
 @extends('pur')
-
 @section('content')
+    @include('brukere._listSubmenu')
     <div class="container">
         <h1>Brukere</h1>
 
