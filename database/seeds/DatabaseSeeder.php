@@ -262,17 +262,26 @@ class KontoTableSeeder extends Seeder
     {
         DB::table('kontoer')->delete();
 
-        $csvFile = 'database/seeds/Kontoplan_NS-4102.csv';
-        $file_handle = fopen($csvFile, 'r');
-        while (!feof($file_handle))
-            $kontoer[] = fgetcsv($file_handle, 1024);
-        fclose($file_handle);
+        try
+        {
+            $csvFile = 'database/seeds/Kontoplan_NS-4102.csv';
+            $file_handle = fopen($csvFile, 'r');
 
-        foreach ($kontoer as $konto) {
-            Konto::create([
-                'kontokode' => $konto[0],
-                'kontonavn' => $konto[1],
-            ]);
+            $kontoer = array();
+            while (!feof($file_handle))
+                $kontoer[] = fgetcsv($file_handle, 1024);
+            fclose($file_handle);
+
+            foreach ($kontoer as $konto) {
+                Konto::create([
+                    'kontokode' => $konto[0],
+                    'kontonavn' => $konto[1],
+                ]);
+            }
+        }
+        catch (Exception $e)
+        {
+            $this->command->info('Seeding av kontotabell feilet: ' . $e->getMessage());
         }
     }
 }
