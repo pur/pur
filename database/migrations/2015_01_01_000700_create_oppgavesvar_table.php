@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBilagssekvenserTable extends Migration {
+class CreateOppgavesvarTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,20 +12,20 @@ class CreateBilagssekvenserTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('bilagssekvenser', function(Blueprint $table)
+		Schema::create('oppgavesvar', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->integer('bilagsmalsekvens_id')->unsigned();
-            $table->integer('besvarelse_id')->unsigned();
-
-            $table->foreign('bilagsmalsekvens_id')
-                ->references('id')->on('bilagsmalsekvenser')
-                ->onDelete('restrict');
+			$table->timestamp('tid_opprettet');
+			$table->timestamp('tid_endret');
+			$table->text('kommentar');
+			$table->string('moduloppgavesvar_type');
+			$table->integer('moduloppgavesvar_id');
+			$table->integer('besvarelse_id')->unsigned();
 
             $table->foreign('besvarelse_id')
                 ->references('id')->on('besvarelser')
                 ->onDelete('cascade');
-        });
+		});
 	}
 
 	/**
@@ -35,7 +35,7 @@ class CreateBilagssekvenserTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('bilagssekvenser');
+		Schema::drop('oppgavesvar');
 	}
 
 }

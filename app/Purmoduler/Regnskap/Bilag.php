@@ -2,13 +2,25 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Bilag extends Model {
+class Bilag extends Model
+{
 
     protected $table = 'bilag';
 
     protected $fillable = ['nr_i_oppgsett', 'bilagsmal_id', 'besvarelse_id'];
 
     public $timestamps = false;
+
+
+    /**
+     * Bilagssekvensen som bilaget inngår i
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function bilagssekvens()
+    {
+        return $this->belongsTo('Pur\Purmoduler\Regnskap\Bilagssekvens');
+    }
 
 
     /**
@@ -30,28 +42,6 @@ class Bilag extends Model {
     {
         return $this->posteringer()->fasit();
     }
-
-    /**
-     * Malen som bilaget er basert på
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function bilagsmal()
-    {
-        return $this->belongsTo('Pur\Purmoduler\Regnskap\Bilagsmal');
-    }
-
-
-    /**
-     * Besvarelsen som bilaget inngår i
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function besvarelse()
-    {
-        return $this->belongsTo('Pur\Besvarelse');
-    }
-
 
     /**
      * Alle bilagets posteringer

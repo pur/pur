@@ -31,4 +31,33 @@ class Bilagssekvens extends Model {
         return $this->hasMany('\Pur\Purmoduler\Regnskap\Bilag');
     }
 
+    /**
+     * Oppgavesvaret som bilagssekvensen henger sammen med
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
+    public function oppgavesvar()
+    {
+        return $this->morphOne('Pur\Oppgavesvar', 'moduloppgavesvar');
+    }
+
+    /**
+     * Elevens kommentar på oppgavesvaret/bilagssekvensen
+     *
+     * @return mixed
+     */
+    public function kommentar()
+    {
+        return $this->oppgavesvar->kommentar;
+    }
+
+    /**
+     * Besvarelsen som bilagssekvensen inngår i
+     *
+     * @return mixed
+     */
+    public function besvarelse()
+    {
+        return $this->oppgavesvar->besvarelse();
+    }
 }

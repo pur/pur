@@ -69,12 +69,12 @@ class Besvarelse extends Model {
     }
 
     /**
-     * Alle besvarelsens bilag
+     * Alle besvarelsens oppgavesvar
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function bilag() // TODO: Gjør morfologisk
+    public function oppgavesvar()
     {
-        return $this->hasMany('\Pur\Purmoduler\Regnskap\Bilag');
+        return $this->hasMany('Pur\Oppgavesvar');
     }
 }

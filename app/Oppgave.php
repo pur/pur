@@ -53,7 +53,7 @@ class Oppgave extends Model
     }
 
     /**
-     * Purmodul-spesifikk oppgave som arver fra denne klassen
+     * Purmodul-spesifikk oppgave som henger sammen med denne oppgaven
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */

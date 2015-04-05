@@ -6,6 +6,7 @@ use Pur\Besvarelse;
 use Pur\Bruker;
 use Pur\Oppgave;
 use Pur\Oppgavesett;
+use Pur\Oppgavesvar;
 use Pur\Purmoduler\Regnskap\Bilag;
 use Pur\Purmoduler\Regnskap\Bilagsmal;
 use Pur\Purmoduler\Regnskap\Bilagsmalsekvens;
@@ -30,10 +31,11 @@ class DatabaseSeeder extends Seeder
 
         // Pur
         $this->call('BrukerTableSeeder');
-        $this->call('OppgaveTableSeeder');
         $this->call('OppgavesettTableSeeder');
+        $this->call('OppgaveTableSeeder');
         $this->call('SettoppgaveTableSeeder');
         $this->call('BesvarelseTableSeeder');
+        $this->call('OppgavesvarTableSeeder');
 
         // Pur\..\Regnskap
         $this->call('KontoTableSeeder');
@@ -110,22 +112,22 @@ class OppgaveTableSeeder extends Seeder
         Oppgave::create([
             'beskrivelse' => 'Varekjøp med 3 bilag: Faktura for varekjøp, kreditnota for del av kjøpesum, og utbetaling.',
             'bruker_id' => 1,
-            'moduloppgave_id' => 1,
-            'moduloppgave_type' => 'Pur\Purmoduler\Regnskap\bilagsmalsekvens'
+            'moduloppgave_type' => 'Pur\Purmoduler\Regnskap\Bilagsmalsekvens',
+            'moduloppgave_id' => 1
         ]);
 
         Oppgave::create([
             'beskrivelse' => 'En annen oppgave...',
             'bruker_id' => 1,
-            'moduloppgave_id' => 2,
-            'moduloppgave_type' => 'Pur\Purmoduler\Regnskap\bilagsmalsekvens'
+            'moduloppgave_type' => 'Pur\Purmoduler\Regnskap\Bilagsmalsekvens',
+            'moduloppgave_id' => 2
         ]);
 
         Oppgave::create([
             'beskrivelse' => 'Nok en oppgave...',
             'bruker_id' => 2,
-            'moduloppgave_id' => 3,
-            'moduloppgave_type' => 'Pur\Purmoduler\Regnskap\bilagsmalsekvens'
+            'moduloppgave_type' => 'Pur\Purmoduler\Regnskap\Bilagsmalsekvens',
+            'moduloppgave_id' => 3
         ]);
     }
 }
@@ -222,6 +224,35 @@ class BesvarelseTableSeeder extends Seeder
     }
 }
 
+class OppgavesvarTableSeeder extends Seeder
+{
+
+    public function run()
+    {
+        DB::table('oppgavesvar')->delete();
+
+        Oppgavesvar::create([
+            'kommentar' => 'Jeg gjorde så godt jeg kunne',
+            'moduloppgavesvar_type' => 'Pur\Purmoduler\Regnskap\Bilagssekvens',
+            'moduloppgavesvar_id' => 1,
+            'besvarelse_id' => 1,
+        ]);
+
+        Oppgavesvar::create([
+            'kommentar' => 'Jeg ble ikke helt ferdig',
+            'moduloppgavesvar_type' => 'Pur\Purmoduler\Regnskap\Bilagssekvens',
+            'moduloppgavesvar_id' => 2,
+            'besvarelse_id' => 1,
+        ]);
+
+        Oppgavesvar::create([
+            'kommentar' => 'Belkagrel ale skrevifilene!',
+            'moduloppgavesvar_type' => 'Pur\Purmoduler\Regnskap\Bilagssekvens',
+            'moduloppgavesvar_id' => 3,
+            'besvarelse_id' => 1,
+        ]);
+    }
+}
 
 // Pur\..\Regnskap
 
@@ -418,17 +449,14 @@ class BilagssekvensTableSeeder extends Seeder
 
         Bilagssekvens::create([
             'bilagsmalsekvens_id' => 1,
-            'besvarelse_id' => 1
         ]);
 
         Bilagssekvens::create([
             'bilagsmalsekvens_id' => 1,
-            'besvarelse_id' => 1
         ]);
 
         Bilagssekvens::create([
             'bilagsmalsekvens_id' => 1,
-            'besvarelse_id' => 1
         ]);
     }
 }
