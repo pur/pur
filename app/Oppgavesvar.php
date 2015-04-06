@@ -38,4 +38,14 @@ class Oppgavesvar extends Model
         return $this->morphTo();
     }
 
+    /**
+     * Er sant hvis eleven har startet å arbeide med oppgavesvaret
+     *
+     * @return bool
+     */
+    public function erPaabegynt()
+    {
+        return $this->moduloppgavesvar->erPaabegynt();
+    }
+
 }

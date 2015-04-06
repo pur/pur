@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Bilagssekvens extends Model {
+class Bilagssekvens extends Model
+{
 
     protected $table = 'bilagssekvenser';
 
@@ -18,7 +19,7 @@ class Bilagssekvens extends Model {
      */
     public function bilagsmalsekvens()
     {
-        return  $this->belongsTo('\Pur\Purmoduler\Regnskap\Bilagsmalsekvens');
+        return $this->belongsTo('\Pur\Purmoduler\Regnskap\Bilagsmalsekvens');
     }
 
     /**
@@ -59,5 +60,19 @@ class Bilagssekvens extends Model {
     public function besvarelse()
     {
         return $this->oppgavesvar->besvarelse();
+    }
+
+    /**
+     * Er sant hvis eleven har startet å arbeide med bilagssekvensen
+     *
+     * @return bool
+     */
+    public function erPaabegynt()
+    {
+        foreach ($this->bilag()->get() as $bilag)
+            if ($bilag->erPaabegynt())
+                return true;
+
+        return false;
     }
 }

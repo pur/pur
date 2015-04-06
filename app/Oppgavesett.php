@@ -3,7 +3,8 @@
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-class Oppgavesett extends Model {
+class Oppgavesett extends Model
+{
 
     protected $table = 'oppgavesett';
 
@@ -72,6 +73,16 @@ class Oppgavesett extends Model {
     }
 
     /**
+     * Er sant hvis oppgavesettet er åpent
+     *
+     * @return bool
+     */
+    public function erAapent()
+    {
+        return $this->tid_aapent < Carbon::now() && $this->tid_lukket > Carbon::now();
+    }
+
+    /**
      * Den brukeren som har laget oppgavesettet
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -88,7 +99,7 @@ class Oppgavesett extends Model {
      */
     public function oppgaver()
     {
-       return $this->belongsToMany('Pur\Oppgave', 'settoppgaver');
+        return $this->belongsToMany('Pur\Oppgave', 'settoppgaver');
     }
 
 

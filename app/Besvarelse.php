@@ -1,8 +1,10 @@
 <?php namespace Pur;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-class Besvarelse extends Model {
+class Besvarelse extends Model
+{
 
     protected $table = 'besvarelser';
 
@@ -49,6 +51,16 @@ class Besvarelse extends Model {
     }
 
     /**
+     * Er sant hvis besvarelsen kan endres
+     *
+     * @return bool
+     */
+    public function kanEndres()
+    {
+        return Carbon::now() < $this->tid_levert && $this->oppgavesett->erAapent();
+    }
+
+    /**
      * Den brukeren som har laget besvarelsen
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -76,5 +88,41 @@ class Besvarelse extends Model {
     public function oppgavesvar()
     {
         return $this->hasMany('Pur\Oppgavesvar');
+    }
+
+    /**
+     * Antallet oppgavesvar besvarelsen skal inneholde ved levering
+     *
+     * @return mixed
+     */
+    public function antKrevdeSvar()
+    {
+        return $this->oppgavesett->oppgaver()->count();
+    }
+
+    /**
+     * Antallet oppgavesvar eleven har startet å arbeide med
+     *
+     * @return int
+     */
+    public function antPaabegynteSvar()
+    {
+        $antPaabegynteOppgavesvar = 0;
+
+        foreach ($this->oppgavesvar as $oppgavesvar)
+            if ($oppgavesvar->erPaabegynt())
+                $antPaabegynteOppgavesvar++;
+
+        return $antPaabegynteOppgavesvar;
+    }
+
+    /**
+     * Prosentandelen av antall krevde svar som er påbegynt av eleven
+     *
+     * @return float
+     */
+    public function prosentPaabegynt()
+    {
+        return round($this->antPaabegynteSvar() / $this->antKrevdeSvar() * 100, 0);
     }
 }

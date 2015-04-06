@@ -53,4 +53,15 @@ class Bilag extends Model
         return $this->hasMany('Pur\Purmoduler\Regnskap\Postering');
     }
 
+    /**
+     * Er sant hvis eleven har startet å arbeide med bilaget,
+     * dvs. har utført posteringer for bilaget
+     *
+     * @return bool
+     */
+    public function erPaabegynt()
+    {
+        return $this->elevposteringer()->count() > 0;
+    }
+
 }
