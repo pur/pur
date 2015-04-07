@@ -2,6 +2,7 @@
 <head>
     <title>Pur</title>
     <meta charset="utf-8">
+    <link href="{{ env('APPWEBPATH') }}/css/bootstrap-datetime.css" rel="stylesheet">
     <link href="{{ env('APPWEBPATH') }}/css/app.css" rel="stylesheet">
     <link href="{{ env('APPWEBPATH') }}/css/pur.css" rel="stylesheet">
 
@@ -67,8 +68,14 @@
 
 <script src="{{ env('APPWEBPATH') }}/js/jquery-1.11.2.min.js"></script>
 <script src="{{ env('APPWEBPATH') }}/js/bootstrap.min.js"></script>
-<script src="{{ env('APPWEBPATH') }}/js/globalScripts.js"></script>
+<script src="{{ env('APPWEBPATH') }}/js/moment-with-locales.js"></script>
+<script src="{{ env('APPWEBPATH') }}/js/bootstrap-datetime.js"></script>
 
+<script src="{{ env('APPWEBPATH') }}/js/globalScripts.js"></script>
+<script>
+
+
+</script>
 @yield('scripts')
 
 

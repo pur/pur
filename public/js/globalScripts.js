@@ -1,3 +1,7 @@
+
+
+
+
 // Loading animation:
 $('a:not(.dropdown-toggle):not([href*=javascript]):not([href^=#])').click(function () {
     if ($(this).attr('href') != undefined) {
@@ -69,5 +73,16 @@ $(document).ready(function () {
             });
         }
     });
+});
 
+
+// Datetime picker
+$('.date').each(function () {
+    var id = $(this).attr('id');
+    $(function () {
+        $('#' + id).datetimepicker({
+            locale: 'nb',
+            sideBySide: true
+        });
+    });
 });

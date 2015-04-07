@@ -28,11 +28,14 @@
 
 
         <div class="form-group col-sm-12 form-inline">
-            Åpen fra:
-            <div class="input-group">
-                {!! Form::input('datetime-local', 'tid_aapent', null, ['class' => 'form-control']) !!}
-                <div class="input-group-addon"><span class="fa fa-calendar"></span></div>
+            Åpent fra:
+            <div class='input-group date' id='datetimepicker1'>
+                {!! Form::input('text', 'tid_aapent', $oppgavesett->tid_aapent->format('d.m.y h:i'), ['class' => 'form-control']) !!}
+                <span class="input-group-addon">
+                        <span class="fa fa-calendar"></span>
+                    </span>
             </div>
+
             <div class="checkbox">
                 <label>
                     {!! Form::checkbox('tid_aapent', '') !!} Åpne umiddelbart
@@ -42,10 +45,14 @@
 
 
         <div class="form-group col-sm-12 form-inline">
+
+
             {!!Form::label('tid_lukket', 'Åpent til: ') !!}
-            <div class="input-group">
-                {!! Form::input('datetime-local', 'tid_lukket', null, ['class' => 'form-control']) !!}
-                <div class="input-group-addon"><span class="fa fa-calendar"></span></div>
+            <div class='input-group date' id='datetimepicker2'>
+                {!! Form::input('text', 'tid_aapent', $oppgavesett->tid_aapent->format('d.m.y h:i'), ['class' => 'form-control']) !!}
+                <span class="input-group-addon">
+                        <span class="fa fa-calendar"></span>
+                    </span>
             </div>
             <div class="checkbox">
                 <label>
@@ -121,7 +128,7 @@
                             Sekvenstype
                         </div>
                         <div class="col-sm-2">
-                            {!! $oppgave->tid_endret !!}
+                            {!! $oppgave->tidEndret() !!}
                         </div>
                         <div class="col-sm-1">
                             <p><a class="slett-postering"><span class="fa fa-trash-o fa-2x"></span></a></p>
@@ -131,4 +138,7 @@
             @endforeach
         </div>
     </div>
+
+
 @endsection
+
