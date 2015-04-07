@@ -23,7 +23,7 @@
                         <a id="submenuitem2" href="/" data-toggle="tooltip" data-placement="bottom" data-container="body" title="Legg til bilag"><span class="fa fa-plus"></span> Legg til bilag</a>
                     </li>
                     <li>
-                        <a id="submenuitem3" href="/" data-toggle="tooltip" data-placement="bottom" data-container="body" title="Sellbilagssekvens"><span class="fa fa-trash"></span> Slett bilagssekvens</a>
+                        <a id="submenuitem3" href="/" data-toggle="tooltip" data-placement="bottom" data-container="body" title="Slett bilagssekvens"><span class="fa fa-trash"></span> Slett bilagssekvens</a>
                     </li>
 
                 </ul>

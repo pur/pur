@@ -47,32 +47,6 @@
     color: #eee;
 }
 
-@media (max-width: 767px) {
-    #submenu{
-        display: block !important;
-        visibility: visible!important;
-        position: absolute;
-        top: -1px;
-    }
-    #navbar-submenu .navbar-nav {
-        float: left;
-        margin: 0;
-    }
-    #navbar-submenu .collapse:before, #navbar-submenu .nav:before {
-        content: none;
-    }
-    #navbar-submenu li, #navbar-submenu li a {
-        display: inline-block;
-    }
-    #navbar-submenu li a{
-        padding-top: 15px;
-        padding-bottom: 15px;
-    }
-    #navbar-submenu .navbar-toggle {
-        display: none;
-    }
-}
-
 .successelement {
     visibility: hidden;
 }
