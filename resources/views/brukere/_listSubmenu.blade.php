@@ -15,7 +15,9 @@
                 <ul class="nav navbar-nav">
 
                     @if(URL::previous() != URL::current())
-                        <li><a href="{{ URL::previous() }}"><span class="fa fa-level-up fa-rotate-270"></span> Tilbake</a></li>
+                        <li>
+                            <a id="submenuitem1" href="{{ URL::previous() }}" data-toggle="tooltip" data-placement="bottom" data-container="body" title="Tilbake"><span class="fa fa-level-up fa-rotate-270"></span> Tilbake</a>
+                        </li>
                     @endif
 
 

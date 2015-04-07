@@ -15,10 +15,16 @@
                 <ul class="nav navbar-nav">
 
                     @if(URL::previous() != URL::current())
-                        <li><a href="{{ URL::previous() }}"><span class="fa fa-level-up fa-rotate-270"></span> Tilbake</a></li>
+                        <li>
+                            <a id="submenuitem1" href="{{ URL::previous() }}" data-toggle="tooltip" data-placement="bottom" data-container="body" title="Tilbake"><span class="fa fa-level-up fa-rotate-270"></span> Tilbake</a>
+                        </li>
                     @endif
-                    <li><a href="/"><span class="fa fa-plus"></span> Legg til bilagssekvens</a></li>
-                    <li><a href="/"><span class="fa fa-trash"></span> Slett oppgavesett</a></li>
+                    <li>
+                        <a id="submenuitem2" href="/" data-toggle="tooltip" data-placement="bottom" data-container="body" title="Legg til bilagssekvens"><span class="fa fa-plus"></span> Legg til bilagssekvens</a>
+                    </li>
+                    <li>
+                        <a id="submenuitem3" href="/" data-toggle="tooltip" data-placement="bottom" data-container="body" title="Slett oppgavesett"><span class="fa fa-trash"></span> Slett oppgavesett</a>
+                    </li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

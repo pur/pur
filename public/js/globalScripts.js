@@ -1,12 +1,14 @@
 // Loading animation:
-$('a:not(.dropdown-toggle):not([href*=javascript]):not([href^=#])').click(function() {
-    if($(this).attr('href') != undefined) {
-        $(".loading").fadeIn("slow");;
+$('a:not(.dropdown-toggle):not([href*=javascript]):not([href^=#])').click(function () {
+    if ($(this).attr('href') != undefined) {
+        $(".loading").fadeIn("slow");
+        ;
     }
 });
-$(document).ready(function() {
+$(document).ready(function () {
     // Animate loader off screen
-    $(".loading").fadeOut("slow");;
+    $(".loading").fadeOut("slow");
+    ;
 });
 
 // Fixed submenu:
@@ -22,15 +24,47 @@ $(function () {
 })
 
 
+// Responsive submenu with tooltip
+$(document).ready(function () {
+    var menuitem = [];
+    $('#submenu li a').each(function () {
+        menuitem[$(this).attr('id')] = $(this).text();
+    });
+
+    function responsiveSubmenu() {
+        if ($(window).width() < 676) {
+            $('#submenu li a').each(function () {
+                var icon = $(this).children('span').attr('class');
+                $(this).html('<span class="' + icon + '"></span>');
+                $(this).tooltip('enable')
+            });
+        } else {
+            $('#submenu li a').each(function () {
+                var icon = $(this).children('span').attr('class');
+                var text = menuitem[$(this).attr('id')];
+                $(this).html('<span class="' + icon + '"></span>' + text);
+                $(this).tooltip('disable')
+            });
+        }
+    }
+
+    responsiveSubmenu();
+
+    $(window).resize(function () {
+        responsiveSubmenu();
+    });
+});
+
+
 // Select all checkbox
-$(document).ready(function() {
-    $('.panel-heading input[type="checkbox"]').click(function(event) {
-        if(this.checked) {
-            $('.list-group-item input[type="checkbox"]').each(function() {
+$(document).ready(function () {
+    $('.panel-heading input[type="checkbox"]').click(function (event) {
+        if (this.checked) {
+            $('.list-group-item input[type="checkbox"]').each(function () {
                 this.checked = true;
             });
-        }else{
-            $('.list-group-item input[type="checkbox"]').each(function() {
+        } else {
+            $('.list-group-item input[type="checkbox"]').each(function () {
                 this.checked = false;
             });
         }
