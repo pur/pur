@@ -1,5 +1,6 @@
 <?php namespace Pur\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Pur\Http\Requests;
 use Pur\Http\Controllers\Controller;
 
@@ -9,17 +10,40 @@ use Pur\Purmoduler\Regnskap\Bilagsmalsekvens;
 
 class OppgavesettController extends Controller {
 
+    private $bruker;
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->bruker = Auth::user();
+    }
+
     /**
-     * Display a listing of the resource.
+     * Vis oppgavesettene som er gjort tilgjengelige for innlogget student
+     * og besvarelsene til studenten
      *
      * @param Oppgavesett $oppgavesett
      * @return Response
      */
-	public function index(Oppgavesett $oppgavesett)
+	public function listOppForStudent(Oppgavesett $oppgavesett)
 	{
-        $alleoppgavesett = $oppgavesett->get();
-        //return view('oppgavesett.testing.list', compact('alleoppgavesett'));
-        return view('oppgavesett.list', compact('alleoppgavesett'));
+        $oppgavesettsamling = $oppgavesett->publiserte()->get();
+
+        $besvarelser = $this->bruker->besvarelser;
+
+        return view('oppgavesett.list', compact('oppgavesettsamling', 'besvarelser'));
+    }
+
+    /**
+     * Vis oppgavesettene som er tilhører innlogget lærer
+     *
+     * @return \Illuminate\View\View
+     */
+    public function listOppForLaerer()
+	{
+        $oppgavesettsamling = $this->bruker->oppgavesett;
+
+        return view('oppgavesett.list', compact('oppgavesettsamling'));
     }
 
 	/**

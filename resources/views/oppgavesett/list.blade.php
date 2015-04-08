@@ -38,7 +38,7 @@
                 </div>
             </div>
 
-            @foreach($alleoppgavesett as $oppgavesett)
+            @foreach($oppgavesettsamling as $oppgavesett)
                 <div class="list-group-item">
                     <div class="row">
                         <div class="col-sm-2">

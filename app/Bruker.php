@@ -46,12 +46,42 @@ class Bruker extends Model implements AuthenticatableContract, CanResetPasswordC
     }
 
     /**
-     * Returnerer alle brukerens besvarelser
+     * Brukerens oppgavesett
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function oppgavesett()
+    {
+        return $this->hasMany('Pur\Oppgavesett');
+    }
+
+    /**
+     * Brukerens besvarelser
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function besvarelser()
     {
         return $this->hasMany('Pur\Besvarelse');
+    }
+
+    /**
+     * Sant hvis bruker er en lærer
+     *
+     * @return bool
+     */
+    public function erLaerer()
+    {
+        return $this->rolle == 'faglærer';
+    }
+
+    /**
+     * Sant hvis bruker er en student
+     *
+     * @return bool
+     */
+    public function erStudent()
+    {
+        return $this->rolle == 'student';
     }
 }

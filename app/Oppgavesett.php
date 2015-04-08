@@ -23,6 +23,16 @@ class Oppgavesett extends Model
 
 
     /**
+     * Kun publiserte oppgavesett
+     *
+     * @param $query
+     */
+    public function scopePubliserte($query)
+    {
+        $query->where('tid_publisert', '<', Carbon::now());
+    }
+
+    /**
      * Formattert tidspunkt for da oppgavesettet ble opprettet
      *
      * @return mixed

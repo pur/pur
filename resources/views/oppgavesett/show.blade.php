@@ -5,7 +5,7 @@
 
         <h1>{{ $oppgavesett->beskrivelse }}</h1>
         <p>Av: {{ $oppgavesett->skaper->fulltnavn() }}</p>
-        {!! link_to_route('oppgavesett.index', 'Alle oppgavesett') !!}
+        {!! link_to_route('oppgavesett.listOppForLaerer', 'Alle mine oppgavesett') !!}
         <div class="form-group col-sm-8">
 
                 Beskrivelse:

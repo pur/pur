@@ -140,42 +140,42 @@ class OppgavesettTableSeeder extends Seeder
         DB::table('oppgavesett')->delete();
 
         Oppgavesett::create([
-            'beskrivelse' => 'Øvingsoppgavesett 1',
-            'tid_opprettet' => '2015-08-01 09:00:00',
-            'tid_endret' => '2015-08-05 09:00:00',
-            'tid_publisert' => '2015-08-05 10:00:00',
-            'tid_aapent' => '2015-08-10 10:00:00',
-            'tid_lukket' => '2015-09-10 10:00:00',
+            'beskrivelse' => 'Oppgavesett 1',
+            'tid_opprettet' => '2015-01-01 09:00:00',
+            'tid_endret' => '2015-01-05 09:00:00',
+            'tid_publisert' => '2015-01-10 10:00:00',
+            'tid_aapent' => '2015-01-15 10:00:00',
+            'tid_lukket' => '2015-01-20 10:00:00',
+            'bruker_id' => 1
+        ]);
+
+        Oppgavesett::create([
+            'beskrivelse' => 'Oppgavesett 2',
+            'tid_opprettet' => '2015-02-01 09:00:00',
+            'tid_endret' => '2015-02-05 09:00:00',
+            'tid_publisert' => '2015-02-10 10:00:00',
+            'tid_aapent' => '2015-02-15 10:00:00',
+            'tid_lukket' => '2015-06-15 10:00:00',
             'bruker_id' => 1,
         ]);
 
         Oppgavesett::create([
-            'beskrivelse' => 'Obligatorisk oppgavesett 1',
-            'tid_opprettet' => '2015-09-01 09:00:00',
-            'tid_endret' => '2015-09-05 09:00:00',
-            'tid_publisert' => '2015-09-05 10:00:00',
-            'tid_aapent' => '2015-09-10 10:00:00',
-            'tid_lukket' => '2015-10-10 10:00:00',
+            'beskrivelse' => 'Oppgavesett 3',
+            'tid_opprettet' => '2015-03-01 09:00:00',
+            'tid_endret' => '2015-03-05 09:00:00',
+            'tid_publisert' => '2015-03-15 10:00:00',
+            'tid_aapent' => '2015-05-20 10:00:00',
+            'tid_lukket' => '2015-06-20 10:00:00',
             'bruker_id' => 1,
         ]);
 
         Oppgavesett::create([
-            'beskrivelse' => 'Øvingsoppgavesett 2',
-            'tid_opprettet' => '2015-10-01 09:00:00',
-            'tid_endret' => '2015-10-05 09:00:00',
-            'tid_publisert' => '2015-10-05 10:00:00',
-            'tid_aapent' => '2015-10-10 10:00:00',
-            'tid_lukket' => '2015-11-10 10:00:00',
-            'bruker_id' => 1,
-        ]);
-
-        Oppgavesett::create([
-            'beskrivelse' => 'Obligatorisk oppgavesett 2',
-            'tid_opprettet' => '2015-11-01 09:00:00',
-            'tid_endret' => '2015-11-05 09:00:00',
-            'tid_publisert' => '2015-11-05 10:00:00',
-            'tid_aapent' => '2015-11-10 10:00:00',
-            'tid_lukket' => '2015-12-10 10:00:00',
+            'beskrivelse' => 'Oppgavesett 4',
+            'tid_opprettet' => '2015-04-01 09:00:00',
+            'tid_endret' => '2015-04-05 09:00:00',
+            'tid_publisert' => '2015-05-15 10:00:00',
+            'tid_aapent' => '2015-05-15 10:00:00',
+            'tid_lukket' => '2015-06-15 10:00:00',
             'bruker_id' => 1,
         ]);
     }

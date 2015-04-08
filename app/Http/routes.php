@@ -25,6 +25,43 @@ Route::controllers([
 $router->resource('brukere', 'BrukerController');
 $router->resource('oppgaver', 'OppgaveController');
 $router->resource('oppgavesett', 'OppgavesettController');
+
+Route::get('regnskap/laerer/oppgavesett',
+    [
+        'as' => 'oppgavesett.listOppForLaerer',
+        'uses' => 'OppgavesettController@listOppForLaerer',
+        'middleware' => 'laerer'
+    ]);
+
+Route::get('regnskap/student/oppgavesett',
+    [
+        'as' => 'oppgavesett.listOppForStudent',
+        'uses' => 'OppgavesettController@listOppForStudent'
+    ]);
+
+// Venter med dette så ikke GUI krasjer helt:
+
+//Route::get('regnskap/laerer/oppgavesett/{oppgavesett}',
+//    [
+//        'as' => 'oppgavesett.visForLaerer',
+//        'uses' => 'OppgavesettController@vis',
+//    ]);
+//Route::get('regnskap/student/oppgavesett/{oppgavesett}',
+//    [
+//        'as' => 'oppgavesett.visForStudent',
+//        'uses' => 'OppgavesettController@vis',
+//    ]);
+//Route::get('regnskap/laerer/oppgavesett/{oppgavesett}/rediger',
+//    [
+//        'as' => 'oppgavesett.rediger',
+//        'uses' => 'OppgavesettController@rediger',
+//    ]);
+//Route::get('regnskap/student/oppgavesett/{oppgavesett}/rediger',
+//    [
+//        'as' => 'oppgavesett.rediger',
+//        'uses' => 'OppgavesettController@rediger',
+//    ]);
+
 $router->resource('besvarelser', 'BesvarelseController');
 
 // Purmoduler\Regnskap:
