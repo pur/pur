@@ -1,13 +1,13 @@
 /*$('.slett-bilag').click(function(){
-    var bilagsId = $(this).closest('.panel').attr('id');
-    console.log(bilagsId);
-   // $('#' + bilagsId).children('.alert').show();
-});
+ var bilagsId = $(this).closest('.panel').attr('id');
+ console.log(bilagsId);
+ // $('#' + bilagsId).children('.alert').show();
+ });
 
-$('.bekreft-slett-bilag').click(function(){
-    alert('Slett ' + $(this).closest('.panel').text() + '?');
-    $(this).closest('.panel').remove();
-}); */
+ $('.bekreft-slett-bilag').click(function(){
+ alert('Slett ' + $(this).closest('.panel').text() + '?');
+ $(this).closest('.panel').remove();
+ }); */
 
 // Viser og skjuler variabel tekster basert på checkboxer
 $('input[type="checkbox"]').click(function () {
@@ -123,6 +123,13 @@ $('input.variabel').keyup(function () {
     }
 });
 
+
+// Oppdaterer bilagstittel
+$('input.bilagstittel').keyup(function () {
+    var idTittel = $(this).attr('id');
+    $("#" + idTittel + "HeadingVis").text($(this).val());
+    $("#" + idTittel + "Vis").text($(this).val());
+});
 
 // Legge til valgt konto i vis bilag
 $('select.kontoliste').change(function () {
