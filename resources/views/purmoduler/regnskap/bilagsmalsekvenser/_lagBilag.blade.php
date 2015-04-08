@@ -1,7 +1,19 @@
 <div role="tabpanel" class="tab-pane active" id="lagBilag{{ $bilagsmal->id }}">
     <div class="panel-body">
-        <p>Felter som skal vises:</p>
+
+
         {!! Form::model($bilagsmal, ['route' => ['bilagsmaler.update', $bilagsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
+        <div class="row">
+            <div class="form-group col-md-12">
+                <div class="input-group">
+                    <div class="input-group-addon">Tittel:</div>
+                    {!! Form::text('bilagstittel', $bilagsmal->tittel(), ['class' => 'form-control bilagstittel', 'id' => 'bilagstittel' . $bilagsmal->id]) !!}
+                </div>
+            </div>
+        </div>
+
+
+        <p class="lead">Felter som skal vises:</p>
 
         <div class="row">
             <div class="form-group col-sm-4">
@@ -49,10 +61,11 @@
                     </div>
                 </div>
                 <div class="form-group col-md-1">
-                    <p><a class="slett-postering" data-toggle="tooltip" data-placement="top" data-container="body" title="Slett postering">
-                            <span class="fa fa-trash-o fa-2x"></span>
+                    <div class="btn-group pull-right">
+                        <a class="btn btn-default slett-postering" data-toggle="tooltip" data-placement="top" data-container="body" title="Slett postering">
+                            <span class="fa fa-trash-o"></span>
                         </a>
-                    </p>
+                    </div>
                     {{-- TODO Slett postering i DB --}}
                 </div>
             </div>

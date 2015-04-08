@@ -27,7 +27,7 @@
                 </div>
             </div>
         </div>
-        @foreach($bilagsmalsekvenser as $bilagsmalsekvens)
+        @foreach($oppgavesett->oppgaver as $oppgave)
             <div class="list-group-item">
                 <div class="row">
 
@@ -38,28 +38,28 @@
                             </div>
                             <div class="col-sm-11">
                                 <span class="visible-xs-inline">Beskrivelse: </span>
-                                {{ $bilagsmalsekvens->oppgave->beskrivelse }}
+                                {{ $oppgave->beskrivelse }}
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <span class="visible-xs-inline">Sekvenstype: </span>
-                        {{ $bilagsmalsekvens->sekvenstype }}
+
                     </div>
                     <div class="col-sm-2">
                         <span class="visible-xs-inline">Opprettet: </span>
-                        {{ $bilagsmalsekvens->oppgave->tid_opprettet }}
+                        {{ $oppgave->tidOpprettet }}
                     </div>
                     <div class="col-sm-2">
                         <span class="visible-xs-inline">Laget av: </span>
-                        {{ $bilagsmalsekvens->oppgave->skaper->fornavn }} {{ $bilagsmalsekvens->oppgave->skaper->etternavn }}
+                        {{ $oppgave->skaper() }}
                     </div>
                     <div class="col-sm-2">
                         <div class="btn-group pull-right">
-                            <a href="{{ URL::route('bilagsmalsekvenser.show', $bilagsmalsekvens) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Vis bilag">
+                            <a href="{{ URL::route('bilagsmalsekvenser.show', $oppgave) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Vis bilag">
                                 <span class="fa fa-eye"></span>
                             </a>
-                            <a href="{{ URL::route('bilagsmalsekvenser.edit', $bilagsmalsekvens) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Rediger bilag">
+                            <a href="{{ URL::route('bilagsmalsekvenser.edit', $oppgave) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Rediger bilag">
                                 <span class="fa fa-edit"></span>
                             </a>
                         </div>
