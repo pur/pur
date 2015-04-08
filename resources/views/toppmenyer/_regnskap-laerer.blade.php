@@ -1,17 +1,30 @@
 <li class="dropdown">
     <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-        Utforsk<span class="caret"></span>
+        Oppgaver<span class="caret"></span>
     </a>
     <ul class="dropdown-menu" role="menu">
-        <li>{!! link_to_route('brukere.show', 'Brukere', null) !!}</li>
-        <li>{!! link_to_route('oppgavesett.show', 'Oppgavesett', null) !!}</li>
-        <li>{!! link_to_route('oppgaver.show', 'Oppgaver (Bilagsmalsekvenser)', null) !!}</li>
+        <li>
+            <a href="{{ URL::route('oppgaver.show', null) }}">
+                <span class="fa fa-list"></span> Oppgaver
+            </a>
+        </li>
+        <li>
+            <a>
+                <span class="fa fa-plus"></span> Legg til oppgave
+            </a>
+        </li>
     </ul>
 </li>
 <li class="dropdown">
-    <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mine
-        oppgaver <span class="caret"></span></a>
+    <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+        Oppgavesett<span class="caret"></span>
+    </a>
     <ul class="dropdown-menu" role="menu">
-        <li>{!! link_to_route('besvarelser.show', 'Mine oppgavesett', null) !!}</li>
+        <li>
+            <a href="{{ URL::route('oppgavesett.listOppForLaerer') }}">
+                <span class="fa fa-list"></span> Oppgavesett
+            </a>
+        </li>
+        <li><a><span class="fa fa-plus"></span> Legg til oppgavesett</a></li>
     </ul>
 </li>
