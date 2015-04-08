@@ -49,9 +49,9 @@ class BrukerController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show(Bruker $bruker)
 	{
-		//
+        return view('brukere.show', compact('bruker'));
 	}
 
 	/**
@@ -71,10 +71,11 @@ class BrukerController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
-	{
-		//
-	}
+    public function update(Bruker $bruker, Request $request)
+    {
+        $bruker->fill($request->all())->save();
+        return view('brukere.show', compact('bruker'));
+    }
 
 	/**
 	 * Remove the specified resource from storage.
