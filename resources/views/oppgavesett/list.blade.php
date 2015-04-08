@@ -21,7 +21,7 @@
                         <b>Opprettet:</b>
                     </div>
                     <div class="col-sm-1">
-                        <b>Fullførte:</b>
+                        <b>Påbegynte:</b>
                     </div>
                     <div class="col-sm-1">
                         <b>Status:</b>
@@ -46,29 +46,25 @@
                                 <div class="col-sm-2">
                                     {!! Form::checkbox('', '') !!}
                                 </div>
-
                                 <div class="col-sm-10">
-                                    <span class="visible-xs-inline">Beskrivelse: </span>{!! link_to_route('oppgavesett.show', $oppgavesett->beskrivelse, [$oppgavesett->id]) !!}
+                                    <span class="visible-xs-inline">Beskrivelse: </span>{{ $oppgavesett->beskrivelse }}
                                 </div>
-
                             </div>
                         </div>
-
                         <div class="col-sm-2">
-                            <span class="visible-xs-inline">Opprettet: </span>{{ $oppgavesett->tid_opprettet }}
+                            <span class="visible-xs-inline">Opprettet: </span>{{ $oppgavesett->tidOpprettet() }}
                         </div>
-
                         <div class="col-sm-1">
-                            <span class="visible-xs-inline">Fullførte: </span>56/100
+                            <span class="visible-xs-inline">Påbegynte: </span>{{$oppgavesett->besvarelser->count()}}
                         </div>
                         <div class="col-sm-1">
                             <span class="visible-xs-inline">Status: </span>Åpen
                         </div>
                         <div class="col-sm-2">
-                            <span class="visible-xs-inline">Åpent fra: </span>{{ $oppgavesett->tid_aapent->format('d.m.y H:i') }}
+                            <span class="visible-xs-inline">Åpent fra: </span>{{ $oppgavesett->tidAapent() }}
                         </div>
                         <div class="col-sm-2">
-                            <span class="visible-xs-inline">Åpent til: </span>{{ $oppgavesett->tid_lukket->format('d.m.y H:i') }}
+                            <span class="visible-xs-inline">Åpent til: </span>{{ $oppgavesett->tidLukket() }}
                         </div>
                         <div class="col-sm-2">
 
@@ -82,12 +78,10 @@
                                 <a href="{{ URL::route('oppgavesett.edit', $oppgavesett) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Rediger oppgavesett">
                                     <span class="fa fa-edit"></span>
                                 </a>
-
                             </div>
                         </div>
                     </div>
                 </div>
-
             @endforeach
         </div>
     </div>

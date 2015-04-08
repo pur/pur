@@ -3,7 +3,7 @@
     @include('purmoduler.regnskap.bilagsmalsekvenser._editSubmenu')
 
     <div class="container content">
-        <h1>Rediger bilagsmalsekvens</h1>
+        <h1>Rediger oppgave</h1>
         {!! Form::model($bilagsmalsekvens, ['route' => ['bilagsmalsekvenser.update', $bilagsmalsekvens->id], 'method' => 'PATCH']) !!}
         <div class="row">
             <div class="col-sm-12">
