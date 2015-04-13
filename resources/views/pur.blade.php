@@ -8,7 +8,7 @@
 
     <!-- Fonts -->
     <link href="{{ env('APPWEBPATH') }}/css/font-awesome.min.css" rel="stylesheet">
-
+    <link href='http://fonts.googleapis.com/css?family=Lato:100&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <div class="loading"></div>
@@ -22,8 +22,42 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Pur</a>
+            <li class="nav navbar-nav dropdown">
+            <a href="/" class="navbar-brand dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">pur:Regnskap <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <a href="{{ URL::route('oppgaver.show', null) }}">
+                            <span class="fa fa-list"></span> Alle fagmoduler
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <span class="fa fa-toggle-on"></span> Regnskap
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <span class="fa fa-toggle-off"></span> SQL
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <span class="fa fa-toggle-off"></span> Java
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <span class="fa fa-toggle-off"></span> Statistikk
+                        </a>
+                    </li>
+                </ul>
+            </li>
         </div>
+
+
+
+
+
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             @if (!Auth::guest())

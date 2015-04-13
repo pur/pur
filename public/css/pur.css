@@ -2,6 +2,7 @@
     margin-bottom: 0px;
     border: none;
     border-radius: 0;
+    z-index: 500;
 }
 
 .navbar-inverse {
@@ -17,11 +18,15 @@
     background-color: #FBFBFB;
     border-top: 1px solid #FFF;
     border-bottom: 1px solid #E7E7E7;
+    z-index: 300;
    /* -webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52); */
 }
 
-
-
+.navbar-brand {
+    font-family: 'Lato', sans-serif;
+    font-size: 23px;
+    height: 47px;
+}
 
 #navbar-submenu li>span {
     display: block;
@@ -123,6 +128,8 @@
 .list-group-item:last-child,
 .list-group-item:first-child,
 .nav-tabs > li > a,
+.navbar-nav > li > .dropdown-menu,
+.dropdown-menu,
 .input-group .form-control:last-child,
 .input-group-addon:last-child,
 .input-group-btn:last-child > .btn,
@@ -150,6 +157,10 @@ footer {
     padding-top: 20px;
     padding-bottom: 20px;
 
+}
+
+.btn.disabled {
+    pointer-events: stroke;
 }
 
 @media (max-width: 992px) {
@@ -211,7 +222,7 @@ footer {
     top: 0px;
     width: 100%;
     height: 100%;
-    opacity: .7;
-    z-index: 9999;
+    opacity: .8;
+    z-index: 400;
     background: url(http://pur.app/images/loading-animation.gif) center no-repeat #fff;
 }

@@ -77,13 +77,7 @@
                 </label>
             </div>
         </div>
-
-
-
-
-
         <div class="clearfix"></div>
-
 
         {!! Form::close() !!}
         @include('oppgaver._listOppgaver', ['oppgaver' => $oppgavesett->oppgaver, 'kanOpprette' => true])

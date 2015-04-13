@@ -68,16 +68,23 @@
                         </div>
                         <div class="col-sm-2">
 
+
                             <div class="btn-group pull-right">
                                 <a href="{{ URL::route('oppgavesett.show', $oppgavesett) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Vis statistikk">
                                     <span class="fa fa-bar-chart"></span>
                                 </a>
-                               <!-- <a href="{{ URL::route('oppgavesett.show', $oppgavesett) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Vis oppgavesett">
-                                    <span class="fa fa-eye"></span> -->
-                                </a>
+                                <!--TODO lag metoden 'kanEndres()' for oppgavesett-->
+                                @if(!1 == 0)
+                                    <a class="btn btn-default disabled" data-toggle="tooltip" data-placement="top" data-container="body" title="Kan ikke endres. Oppgavesett er pulbisert">
+                                        <span class="fa fa-edit"></span>
+                                    </a>
+                                @endif
+                                @if(1 == 0)
                                 <a href="{{ URL::route('oppgavesett.edit', $oppgavesett) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Rediger oppgavesett">
                                     <span class="fa fa-edit"></span>
                                 </a>
+                                @endif
+
                             </div>
                         </div>
                     </div>

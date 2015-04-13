@@ -123,3 +123,4 @@ class Oppgavesett extends Model
         return $this->hasMany('Pur\Besvarelse');
     }
 }
+

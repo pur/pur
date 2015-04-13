@@ -1,6 +1,6 @@
 <li class="dropdown">
     <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-        Oppgaver<span class="caret"></span>
+        Oppgaver <span class="caret"></span>
     </a>
     <ul class="dropdown-menu" role="menu">
         <li>
@@ -17,7 +17,7 @@
 </li>
 <li class="dropdown">
     <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-        Oppgavesett<span class="caret"></span>
+        Oppgavesett <span class="caret"></span>
     </a>
     <ul class="dropdown-menu" role="menu">
         <li>

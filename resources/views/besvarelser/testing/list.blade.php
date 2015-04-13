@@ -53,17 +53,21 @@
                         </div>
                         <div class="col-sm-2">
                             <div class="btn-group pull-right">
-                                @if($besvarelse->kanEndres())
-                                    <a href="" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Fortsett oppgave">
-                                        <span class="fa fa-play-circle"></span>
-                                    </a>
-                                @endif
-                                <a href="" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Vis besvarelse">
+
+                                <a href="{{-- URL::route('besvarelse.show', $besvarelse) --}}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Vis besvarelse">
                                     <span class="fa fa-eye"></span>
                                 </a>
-                                <a href="" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Rediger besvarelse">
+                                @if(!$besvarelse->kanEndres())
+                                <a class="btn btn-default disabled " data-toggle="tooltip" data-placement="top" data-container="body" title="Kan ikke endres. Frist utløpt">
                                     <span class="fa fa-edit"></span>
                                 </a>
+                                @endif
+                                @if($besvarelse->kanEndres())
+                                    <a href="{{-- URL::route('besvarelse.edit', $besvarelse) --}}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Fortsett oppgave">
+                                        <span class="fa fa-edit"></span>
+                                    </a>
+                                @endif
+
                             </div>
                         </div>
                     </div>
