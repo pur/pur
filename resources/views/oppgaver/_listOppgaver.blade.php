@@ -55,12 +55,32 @@
                 </div>
                 <div class="col-sm-2">
                     <div class="btn-group pull-right">
-                        <a href="{{ URL::route('bilagsmalsekvenser.show', $oppgave) }}" class="btn btn-default"><span class="fa fa-eye"></span></a>
-                        <a href="{{ URL::route('bilagsmalsekvenser.edit', $oppgave) }}" class="btn btn-default"><span class="fa fa-pencil-square-o"></span></a>
+                        <a href="{{ URL::route('bilagsmalsekvenser.show', $oppgave) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Vis oppgavesett">
+                            <span class="fa fa-eye"></span>
+                        </a>
+                        <a href="{{ URL::route('bilagsmalsekvenser.edit', $oppgave) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Rediger oppgavesett">
+                            <span class="fa fa-pencil-square-o"></span>
+                        </a>
                     </div>
 
                 </div>
             </div>
         </div>
     @endforeach
+    @if(isset($kanOpprette) && $kanOpprette == true)
+        <div class="list-group-item list-group-item-info ">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="btn-group pull-right">
+                        <a class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Legg til ny sekvens">
+                            <span class="fa fa-plus"></span>
+                        </a>
+                        <a class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Importer eksisterende sekvens">
+                            <span class="fa fa-upload"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 </div>

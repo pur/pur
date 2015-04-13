@@ -93,7 +93,8 @@
 
 
         {!! Form::close() !!}
-        @include('oppgaver._listOppgaver', ['oppgaver' => $oppgavesett->oppgaver])
+        @include('oppgaver._listOppgaver', ['oppgaver' => $oppgavesett->oppgaver, 'kanOpprette' => true])
+
     </div>
 
 
