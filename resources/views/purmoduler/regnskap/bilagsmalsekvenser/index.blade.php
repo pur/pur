@@ -1,6 +1,6 @@
 @extends('pur')
 @section('content')
-    @include('purmoduler.regnskap.bilagsmalsekvenser._listSubmenu')
+    @include('oppgaver._listSubmenu')
 <div class="container">
     <h1>Bilagsmalsekvenser</h1>
     <div class="list-group panel panel-primary">

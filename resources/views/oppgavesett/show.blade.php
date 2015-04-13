@@ -1,6 +1,6 @@
 @extends('pur')
 @section('content')
-    @include('oppgavesett._editSubmenu')
+    @include('oppgavesett._showSubmenu', [])
     <div class="container">
 
         <h1>{{ $oppgavesett->beskrivelse }}</h1>

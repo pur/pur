@@ -55,8 +55,8 @@
                 </div>
                 <div class="col-sm-2">
                     <div class="btn-group pull-right">
-                        <a href="{{ URL::route('bilagsmalsekvenser.show', $oppgave) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Vis oppgavesett">
-                            <span class="fa fa-eye"></span>
+                       <!-- <a href="{{ URL::route('bilagsmalsekvenser.show', $oppgave) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Vis oppgavesett">
+                            <span class="fa fa-eye"></span> -->
                         </a>
                         <a href="{{ URL::route('bilagsmalsekvenser.edit', $oppgave) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Rediger oppgavesett">
                             <span class="fa fa-pencil-square-o"></span>

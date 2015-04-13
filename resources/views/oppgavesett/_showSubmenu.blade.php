@@ -10,15 +10,15 @@
                         </li>
                     @endif
                     <li>
-                        <a id="submenuitem2" href="/"><span class="fa fa-plus" data-toggle="tooltip" data-placement="bottom" data-container="body" title="Legg til bilagssekvens"></span> Legg til bilagssekvens</a>
+                        <a id="submenuitem2" href="{{ URL::route('oppgavesett.edit', $oppgavesett) }}" data-toggle="tooltip" data-placement="bottom" data-container="body" title="Rediger oppgavesett"><span class="fa fa-plus"></span> Rediger oppgavesett</a>
                     </li>
                     <li>
-                        <a id="submenuitem3" href="/"><span class="fa fa-trash" data-toggle="tooltip" data-placement="bottom" data-container="body" title="Slett valgte bilagssekvenser"></span> Slett valgte bilagssekvenser</a>
+                        <a id="submenuitem4" href="/" data-toggle="tooltip" data-placement="bottom" data-container="body" title="Slett oppgavesett"><span class="fa fa-trash"></span> Slett oppgavesett</a>
                     </li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><span class="successelement text-success">Lagret</span></li>
+                    <li><span class="text-success">Lagret</span></li>
                 </ul>
             </div>
         </div>

@@ -20,6 +20,9 @@
    /* -webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52); */
 }
 
+
+
+
 #navbar-submenu li>span {
     display: block;
     padding: 15px 15px 10px;
@@ -178,6 +181,15 @@ footer {
     }
     #navbar-submenu .navbar-toggle {
         display: none;
+    }
+    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+        color: #EEE;
+    }
+    .dropdown-menu > li > a {
+        font-weight: 300;
+    }
+    .navbar-nav .open .dropdown-menu{
+        background-color: rgba(0, 0, 0, 0.05);
     }
 }
 

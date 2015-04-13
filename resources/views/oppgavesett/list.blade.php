@@ -72,8 +72,8 @@
                                 <a href="{{ URL::route('oppgavesett.show', $oppgavesett) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Vis statistikk">
                                     <span class="fa fa-bar-chart"></span>
                                 </a>
-                                <a href="{{ URL::route('oppgavesett.show', $oppgavesett) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Vis oppgavesett">
-                                    <span class="fa fa-eye"></span>
+                               <!-- <a href="{{ URL::route('oppgavesett.show', $oppgavesett) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Vis oppgavesett">
+                                    <span class="fa fa-eye"></span> -->
                                 </a>
                                 <a href="{{ URL::route('oppgavesett.edit', $oppgavesett) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Rediger oppgavesett">
                                     <span class="fa fa-edit"></span>

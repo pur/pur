@@ -3,11 +3,8 @@
     @include('purmoduler.regnskap.bilagsmalsekvenser._showSubmenu')
 <div class="container">
         <h1>Bilagsmalsekvens</h1>
-
-
         <div class="row">
             <div class="col-sm-8">
-
                 <div class="row">
                     <div class="col-sm-6">
                         <p>Laget av: {!! $bilagsmalsekvens->skaper->fulltNavn() !!}
@@ -17,22 +14,15 @@
 
                         <p>Sekvenstype: {!! $bilagsmalsekvens->sekvenstype !!}</p>
                     </div>
-
                     <div class="col-sm-12">
-
                       <p>Beskrivelse:   {!!$bilagsmalsekvens->oppgave->beskrivelse !!} </p>
                     </div>
                 </div>
 
             </div>
         </div>
-
         <hr/>
-
-
-
         @foreach($bilagsmalsekvens->bilagsmaler as $bilagsmal)
-
             <div class="panel panel-primary">
                 <div class="panel-heading"><h3 class="panel-title">{{$bilagsmal->bilagstype}}</h3></div>
                 @include('purmoduler.regnskap.bilagsmalsekvenser._visBilag')
