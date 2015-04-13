@@ -1,91 +1,112 @@
 <?php namespace Pur\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Pur\Http\Requests;
-use Pur\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
 use Pur\Oppgave;
 
-class OppgaveController extends Controller {
+class OppgaveController extends Controller
+{
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @param Oppgave $oppgave
-	 * @return Response
-	 */
-	public function index(Oppgave $oppgave)
-	{
-		$oppgaver = $oppgave->get();
-		return view('oppgaver.index', compact('oppgaver'));
-	}
+    private $bruker;
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		return view("oppgaver.create");
-	}
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('laerer', ['except' => ['opplist', 'vis']]);
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @param Oppgave $oppgave
-	 * @return Response
-	 */
-	public function store(Oppgave $oppgave)
-	{
-		//
-	}
+        $this->bruker = Auth::user();
+    }
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param Oppgave $oppgave
-	 * @return Response
-	 * @internal param int $id
-	 */
-	public function show(Oppgave $oppgave)
-	{
-		//
-	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param Oppgave $oppgave
-	 * @return Response
-	 * @internal param int $id
-	 */
-	public function edit(Oppgave $oppgave)
-	{
-		//
-	}
+    /**
+     * List opp oppgaver.
+     *
+     * For lærer: Alle lærerens oppgaver.
+     * For student: Alle publiserte oppgaver (Purmodul-avhengig).
+     *
+     * @param Oppgave $oppgave
+     * @param null $rolle Ev. overstyring av rolle
+     * @return \Illuminate\View\View
+     */
+    public function opplist(Oppgave $oppgave, $rolle = null)
+    {
+        $oppgaver = $oppgave->get();
+        return view('oppgaver.opplist', compact('oppgaver'));
+    }
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param Oppgave $oppgave
-	 * @return Response
-	 * @internal param int $id
-	 */
-	public function update(Oppgave $oppgave)
-	{
-		//
-	}
+    /**
+     * Vis skjermbilde for opprettelse av ny oppgave.
+     *
+     * @return Response
+     */
+    public function opprett()
+    {
+        // TODO: implementér
+        return "<i>Vis skjermbilde for opprettelse av purmodul-spesifikk oppgave</i>";
+    }
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param Oppgave $oppgave
-	 * @return Response
-	 * @internal param int $id
-	 */
-	public function destroy(Oppgave $oppgave)
-	{
-		//
-	}
+    /**
+     * Lagre oppgave.
+     *
+     * @param Oppgave $oppgave
+     * @return Response
+     */
+    public function lagre(Oppgave $oppgave)
+    {
+        // TODO: implementér
+        return "<i>Lagre ny purmodul-spesifikk oppgave</i>";
+    }
+
+    /**
+     * Vis oppgave.
+     *
+     * @param Oppgave $oppgave
+     * @param null $rolle Ev. overstyring av rolle
+     * @return string
+     */
+    public function vis(Oppgave $oppgave, $rolle = null)
+    {
+        // TODO: implementér
+        return "<i>Vis purmodul-spesifikk oppgave med id " . $oppgave->id . "<br />
+                <small>(Noen purmoduler viser kun deloppgaver)</small></i>";
+    }
+
+    /**
+     * Åpne oppgave for redigering.
+     *
+     * @param Oppgave $oppgave
+     * @return Response
+     * @internal param int $id
+     */
+    public function rediger(Oppgave $oppgave)
+    {
+        // TODO: implementér
+        return "<i>Rediger purmodul-spesifikk oppgave med id " . $oppgave->id . "</i>";
+    }
+
+    /**
+     * Lagre endringer i oppgave.
+     *
+     * @param Oppgave $oppgave
+     * @return Response
+     * @internal param int $id
+     */
+    public function oppdater(Oppgave $oppgave)
+    {
+        // TODO: implementér
+        return "<i>Oppdater purmodul-spesifikk oppgave med id " . $oppgave->id . "</i>";
+    }
+
+    /**
+     * Slett oppgave.
+     *
+     * @param Oppgave $oppgave
+     * @return Response
+     * @internal param int $id
+     */
+    public function slett(Oppgave $oppgave)
+    {
+        // TODO: implementér
+        return "<i>Slett purmodul-spesifikk oppgave med id " . $oppgave->id . "</i>";
+    }
 }

@@ -1,10 +1,10 @@
 @extends('pur')
 @section('content')
-    @include('oppgavesett._editSubmenu')
+    @include('oppgavesett._rediger-undermeny')
     <div class="container">
 
         <h1>{{ $oppgavesett->beskrivelse }}</h1>
-        {!! Form::model($oppgavesett, ['route' => ['oppgavesett.update', $oppgavesett->id], 'method' => 'PATCH']) !!}
+        {!! Form::model($oppgavesett, ['route' => ['oppgavesett.oppdater', $oppgavesett->id], 'method' => 'PATCH']) !!}
         <p>Av: {{ $oppgavesett->skaper->fulltnavn() }}</p>
 
         <div class="form-group col-sm-12">
@@ -16,7 +16,7 @@
 
         <div class="form-group col-sm-12">
             {!!Form::label('diverse-tekst', 'Tekst:') !!}
-            {!! Form::textarea( 'diverse-tekst', 'Kun til info for studentene. F.eks. Kontantrabatt ved betaling før 60 dager.', ['class' => 'form-control', 'style' => 'height: 75px;']) !!}
+            {!! Form::textarea( 'diverse-tekst', 'Kontantrabatt ved betaling før 60 dager.', ['class' => 'form-control', 'style' => 'height: 75px;']) !!}
         </div>
 
         <div class="form-group col-sm-12">
@@ -80,10 +80,8 @@
         <div class="clearfix"></div>
 
         {!! Form::close() !!}
-        @include('oppgaver._listOppgaver', ['oppgaver' => $oppgavesett->oppgaver, 'kanOpprette' => true])
-
+        @include('oppgaver._liste', ['oppgaver' => $oppgavesett->oppgaver, 'kanOpprette' => true])
     </div>
-
 
 @endsection
 

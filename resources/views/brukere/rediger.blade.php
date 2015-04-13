@@ -5,7 +5,7 @@
         <p>Rolle: {{$bruker->rolle}}</p>
         <p>ID: {{$bruker->id}}</p>
         Besvarelser: {{$bruker->besvarelser->count()}}
-        {!! Form::model($bruker, ['route' => ['brukere.update', $bruker->id], 'method' => 'PATCH']) !!}
+        {!! Form::model($bruker, ['route' => ['brukere.oppdater', $bruker->id], 'method' => 'PATCH']) !!}
 
         <div class="row">
             <div class="col-sm-12">

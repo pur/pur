@@ -66,7 +66,7 @@ class BrukerTableSeeder extends Seeder
             'email' => 'laerer@laerd.no',
             //'passord' => bcrypt('passord'),
             'password' => bcrypt('passord'),
-            'rolle' => 'faglærer'
+            'rolle' => 'laerer'
         ]);
 
         Bruker::create([
@@ -77,7 +77,7 @@ class BrukerTableSeeder extends Seeder
             'email' => 'professor@proff.no',
             //'passord' => bcrypt('passord'),
             'password' => bcrypt('passord'),
-            'rolle' => 'faglærer'
+            'rolle' => 'laerer'
         ]);
 
         Bruker::create([

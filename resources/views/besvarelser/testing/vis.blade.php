@@ -10,5 +10,5 @@
             <li>Kommentar til oppgavesvar <b>{{ $oppgavesvar->moduloppgavesvar_id }}</b> : {{ $oppgavesvar->kommentar }}</li>
         @endforeach
     </ul>
-    {!! link_to_route('besvarelser.index', 'Alle besvarelser') !!}
+    {!! link_to_route('besvarelser.opplist', 'Alle besvarelser') !!}
 @endsection

@@ -20,51 +20,96 @@ Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);
 
+// -- PUR --
 
-// Pur:
-$router->resource('brukere', 'BrukerController');
-$router->resource('oppgaver', 'OppgaveController');
-$router->resource('oppgavesett', 'OppgavesettController');
+// Hvilke roller en bruker kan overstyre sin egen med:
+$router->pattern('rolle', 'student');
 
-Route::get('regnskap/laerer/oppgavesett',
-    [
-        'as' => 'oppgavesett.listOppForLaerer',
-        'uses' => 'OppgavesettController@listOppForLaerer',
-        'middleware' => 'laerer'
-    ]);
+// Brukere
 
-Route::get('regnskap/student/oppgavesett',
-    [
-        'as' => 'oppgavesett.listOppForStudent',
-        'uses' => 'OppgavesettController@listOppForStudent'
-    ]);
+Route::get('brukere',
+    ['as' => 'brukere.opplist', 'uses' => 'BrukerController@opplist']);
 
-// Venter med dette så ikke GUI krasjer helt:
+Route::get('brukere/opprett',
+    ['as' => 'brukere.opprett', 'uses' => 'BrukerController@opprett']);
 
-//Route::get('regnskap/laerer/oppgavesett/{oppgavesett}',
-//    [
-//        'as' => 'oppgavesett.visForLaerer',
-//        'uses' => 'OppgavesettController@vis',
-//    ]);
-//Route::get('regnskap/student/oppgavesett/{oppgavesett}',
-//    [
-//        'as' => 'oppgavesett.visForStudent',
-//        'uses' => 'OppgavesettController@vis',
-//    ]);
-//Route::get('regnskap/laerer/oppgavesett/{oppgavesett}/rediger',
-//    [
-//        'as' => 'oppgavesett.rediger',
-//        'uses' => 'OppgavesettController@rediger',
-//    ]);
-//Route::get('regnskap/student/oppgavesett/{oppgavesett}/rediger',
-//    [
-//        'as' => 'oppgavesett.rediger',
-//        'uses' => 'OppgavesettController@rediger',
-//    ]);
+Route::post('brukere',
+    ['as' => 'brukere.lagre', 'uses' => 'BrukerController@lagre']);
+
+Route::get('brukere/{bruker}',
+    ['as' => 'brukere.vis', function ($bruker) {
+        return redirect()->route('brukere.rediger', [$bruker]);
+    }]);
+
+Route::get('brukere/{bruker}/rediger',
+    ['as' => 'brukere.rediger', 'uses' => 'BrukerController@rediger']);
+
+Route::put('brukere/{bruker}',
+    ['as' => 'brukere.oppdater', 'uses' => 'BrukerController@oppdater']);
+
+Route::patch('brukere/{bruker}',
+    ['uses' => 'BrukerController@oppdater']);
+
+Route::delete('brukere/{bruker}',
+    ['as' => 'oppgaver.slett', 'uses' => 'BrukerController@slett']);
+
+
+// Oppgaver
+
+Route::get('regnskap/oppgaver/{rolle?}',
+    ['as' => 'oppgaver.opplist', 'uses' => 'OppgaveController@opplist']);
+
+Route::get('regnskap/oppgaver/opprett',
+    ['as' => 'oppgaver.opprett', 'uses' => 'OppgaveController@opprett']);
+
+Route::post('regnskap/oppgaver',
+    ['as' => 'oppgaver.lagre', 'uses' => 'OppgaveController@lagre']);
+
+Route::get('regnskap/oppgaver/{oppgave}/{rolle?}',
+    ['as' => 'oppgaver.vis', 'uses' => 'OppgaveController@vis']);
+
+Route::get('regnskap/oppgaver/{oppgave}/rediger',
+    ['as' => 'oppgaver.rediger', 'uses' => 'OppgaveController@rediger']);
+
+Route::put('regnskap/oppgaver/{oppgave}',
+    ['as' => 'oppgaver.oppdater', 'uses' => 'OppgaveController@oppdater']);
+
+Route::patch('regnskap/oppgaver/{oppgave}',
+    ['uses' => 'OppgaveController@oppdater']);
+
+Route::delete('regnskap/oppgaver/{oppgave}',
+    ['as' => 'oppgaver.slett', 'uses' => 'OppgaveController@slett']);
+
+
+// Oppgavesett
+
+Route::get('regnskap/oppgavesett/{rolle?}',
+    ['as' => 'oppgavesett.opplist', 'uses' => 'OppgavesettController@opplist']);
+
+Route::get('regnskap/oppgavesett/opprett',
+    ['as' => 'oppgavesett.opprett', 'uses' => 'OppgavesettController@opprett']);
+
+Route::post('regnskap/oppgavesett',
+    ['as' => 'oppgavesett.lagre', 'uses' => 'OppgavesettController@lagre']);
+
+Route::get('regnskap/oppgavesett/{oppgavesett}/{rolle?}',
+    ['as' => 'oppgavesett.vis', 'uses' => 'OppgavesettController@vis']);
+
+Route::get('regnskap/oppgavesett/{oppgavesett}/rediger',
+    ['as' => 'oppgavesett.rediger', 'uses' => 'OppgavesettController@rediger']);
+
+Route::put('regnskap/oppgavesett/{oppgavesett}',
+    ['as' => 'oppgavesett.oppdater', 'uses' => 'OppgavesettController@oppdater']);
+
+Route::patch('regnskap/oppgavesett/{oppgavesett}',
+    ['uses' => 'OppgavesettController@oppdater']);
+
+Route::delete('regnskap/oppgavesett/{oppgavesett}',
+    ['as' => 'oppgavesett.slett', 'uses' => 'OppgavesettController@slett']);
 
 $router->resource('besvarelser', 'BesvarelseController');
 
-// Purmoduler\Regnskap:
+// PURMODULER - REGNSKAP:
 
 Route::get('regnskap/bilagsmalsekvenser',
     [
@@ -91,7 +136,7 @@ $router->resource('bilagsmaler', 'Purmoduler\Regnskap\BilagsmalController');
 $router->resource('posteringsmaler', 'Purmoduler\Regnskap\PosteringsmalController');
 $router->resource('bilag', 'Purmoduler\Regnskap\BilagController');
 
-Route::get('formel', function(Request $request){
+Route::get('formel', function (Request $request) {
     //return "Retur fra formel nr. $nr $verdi1 $verdi2  ";
     //return "test";
     //return $request->all();

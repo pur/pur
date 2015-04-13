@@ -4,7 +4,7 @@
     </a>
     <ul class="dropdown-menu" role="menu">
         <li>
-            <a href="{{ URL::route('oppgaver.show', null) }}">
+            <a href="{{ URL::route('oppgaver.vis', null) }}">
                 <span class="fa fa-list"></span> Oppgaver
             </a>
         </li>
@@ -21,7 +21,7 @@
     </a>
     <ul class="dropdown-menu" role="menu">
         <li>
-            <a href="{{ URL::route('oppgavesett.listOppForLaerer') }}">
+            <a href="{{ URL::route('oppgavesett.opplist') }}">
                 <span class="fa fa-list"></span> Oppgavesett
             </a>
         </li>

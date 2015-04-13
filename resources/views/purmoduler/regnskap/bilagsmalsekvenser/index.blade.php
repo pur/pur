@@ -1,6 +1,6 @@
 @extends('pur')
 @section('content')
-    @include('oppgaver._listSubmenu')
+    @include('oppgaver._opplist-undermeny')
 <div class="container">
     <h1>Bilagsmalsekvenser</h1>
     <div class="list-group panel panel-primary">

@@ -15,7 +15,7 @@ class RedirigerHvisIkkeLaerer {
 	{
         if( ! $request->user()->erLaerer())
         {
-            return redirect('/home')->withFlash('Ingen tilgang!'); //response('Unauthorized.', 401);
+            return redirect('/home'); // TODO: Rediriger til modulens hjemmeside + Lag 'flash' med 'Ingen tilgang e.l.
         }
 
         return $next($request);

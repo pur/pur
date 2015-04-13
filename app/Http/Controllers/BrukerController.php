@@ -2,90 +2,78 @@
 
 use Pur\Bruker;
 use Pur\Http\Requests;
-use Pur\Http\Controllers\Controller;
-
 use Request;
 
-class BrukerController extends Controller {
-
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index(Bruker $bruker)
-	{
-		$brukere = $bruker->get();
+class BrukerController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function opplist(Bruker $bruker)
+    {
+        $brukere = $bruker->get();
         //dd($brukere);
-        return view('brukere.index', compact('brukere'));
+        return view('brukere.opplist', compact('brukere'));
 
-	}
+    }
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		return view('brukere.create');
-	}
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Response
+     */
+    public function opprett()
+    {
+        // TODO: implementér
+        return "<i>Opprett ny bruker</i>";
+    }
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store(Bruker $bruker)
-	{
-        $input = Request::all();
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return Response
+     */
+    public function lagre(Bruker $bruker)
+    {
+        // TODO: implementér
+        return "<i>Lagre ny bruker</i>";
+    }
 
-        return $input;
-	}
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function rediger(Bruker $bruker)
+    {
+        return view('brukere.rediger', compact('bruker'));
+    }
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show(Bruker $bruker)
-	{
-        return view('brukere.show', compact('bruker'));
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-    public function update(Bruker $bruker, Request $request)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function oppdater(Bruker $bruker, Request $request)
     {
         $bruker->fill($request->all())->save();
         return view('brukere.show', compact('bruker'));
     }
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function slett(Bruker $bruker)
+    {
+        // TODO: implementér
+        return "<i>Slett bruker med id " . $bruker->id . "</i>";
+    }
 
 }

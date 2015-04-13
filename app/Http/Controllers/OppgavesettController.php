@@ -2,114 +2,112 @@
 
 use Illuminate\Support\Facades\Auth;
 use Pur\Http\Requests;
-use Pur\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
 use Pur\Oppgavesett;
-use Pur\Purmoduler\Regnskap\Bilagsmalsekvens;
 
-class OppgavesettController extends Controller {
-
+class OppgavesettController extends Controller
+{
     private $bruker;
 
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('laerer', ['except' => ['opplist', 'vis']]);
         $this->bruker = Auth::user();
     }
 
     /**
-     * Vis oppgavesettene som er gjort tilgjengelige for innlogget student
-     * og besvarelsene til studenten
+     * List opp oppgavesett.
+     *
+     * For lærer: Alle lærerens oppgavesett.
+     * For student: Alle publiserte oppgavesett og alle studentens besvarelser.
      *
      * @param Oppgavesett $oppgavesett
-     * @return Response
-     */
-	public function listOppForStudent(Oppgavesett $oppgavesett)
-	{
-        $oppgavesettsamling = $oppgavesett->publiserte()->get();
-
-        $besvarelser = $this->bruker->besvarelser;
-
-        return view('oppgavesett.list', compact('oppgavesettsamling', 'besvarelser'));
-    }
-
-    /**
-     * Vis oppgavesettene som er tilhører innlogget lærer
-     *
+     * @param null $rolle Ev. overstyring av rolle
      * @return \Illuminate\View\View
      */
-    public function listOppForLaerer()
-	{
-        $oppgavesettsamling = $this->bruker->oppgavesett;
+    public function opplist(Oppgavesett $oppgavesett, $rolle = null)
+    {
+        // Ev. overstyring av rolle:
+        $rolle = ($rolle) ? $rolle : $this->bruker->rolle;
 
-        return view('oppgavesett.list', compact('oppgavesettsamling'));
+        if ($rolle == 'laerer') $oppgavesettsamling = $this->bruker->oppgavesett;
+        else { // Student
+            $oppgavesettsamling = $oppgavesett->publiserte()->get();
+            $besvarelser = $this->bruker->besvarelser;
+        }
+        return view('oppgavesett.opplist', compact('oppgavesettsamling', 'besvarelser'));
     }
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-        return view('oppgavesett.create');
-	}
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
-
     /**
-     * Display the specified resource.
+     * Vis skjermbilde for opprettelse av nytt oppgavesett.
      *
-     * @param Oppgavesett $oppgavesett
      * @return Response
      */
-	public function show(Oppgavesett $oppgavesett)
-	{
-        //return view('oppgavesett.testing.show', compact('oppgavesett'));
-        return view('oppgavesett.show', compact('oppgavesett'));
+    public function opprett()
+    {
+        return view('oppgavesett.opprett');
+    }
 
-	}
+    /**
+     * Lagre oppgavesett.
+     *
+     * @return Response
+     */
+    public function lagre(Oppgavesett $oppgavesett)
+    {
+        // TODO: implementér
+        return "<i>Lagre nytt oppgavesett</i>";
+    }
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit(Oppgavesett $oppgavesett)
-	{
-        return view('oppgavesett.edit', compact('oppgavesett'));
-	}
+    /**
+     * Vis oppgavesett (view er rolleavhengig)
+     *
+     * @param Oppgavesett $oppgavesett
+     * @param null $rolle Ev. overstyring av rolle
+     * @return \Illuminate\View\View
+     */
+    public function vis(Oppgavesett $oppgavesett, $rolle = null)
+    {
+        $rolle = ($rolle) ? $rolle : $this->bruker->rolle;
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
+        $view = $rolle == 'laerer' ? 'oppgavesett.visForLaerer' : 'oppgavesett.visForStudent';
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
+        return view($view, compact('oppgavesett'));
+    }
+
+    /**
+     * Åpne oppgavesett for redigering.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function rediger(Oppgavesett $oppgavesett)
+    {
+        return view('oppgavesett.rediger', compact('oppgavesett'));
+    }
+
+    /**
+     * Lagre endringer i oppgavesett.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function oppdater(Oppgavesett $oppgavesett)
+    {
+        // TODO: implementér
+        return "<i>Oppdater oppgavesett med id " . $oppgavesett->id . "</i>";
+    }
+
+    /**
+     * Slett oppgavesett.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function slett(Oppgavesett $oppgavesett)
+    {
+        // TODO: implementér
+        return "<i>Slett oppgavesett med id " . $oppgavesett->id . "</i>";
+    }
 
 }

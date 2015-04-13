@@ -72,7 +72,7 @@ class Bruker extends Model implements AuthenticatableContract, CanResetPasswordC
      */
     public function erLaerer()
     {
-        return $this->rolle == 'faglærer';
+        return $this->harRolle('laerer');
     }
 
     /**
@@ -82,6 +82,17 @@ class Bruker extends Model implements AuthenticatableContract, CanResetPasswordC
      */
     public function erStudent()
     {
-        return $this->rolle == 'student';
+        return $this->harRolle('student');
+    }
+
+    /**
+     * Sant hvis bruker har rollen oppgitt med parameter
+     *
+     * @param $rolle
+     * @return bool
+     */
+    public function harRolle($rolle)
+    {
+        return $this->rolle == $rolle;
     }
 }

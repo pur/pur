@@ -1,6 +1,6 @@
 @extends('pur')
 @section('content')
-    @include('brukere._listSubmenu')
+    @include('brukere._opplist-undermeny')
     <div class="container">
         <h1>Brukere</h1>
 
@@ -42,9 +42,9 @@
 
                         <div class="col-sm-2 pull-right">
                             <div class="btn-group pull-right">
-                                <a href="{{ URL::route('brukere.show', $bruker) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Vis info om {{ $bruker->fornavn  }} {{$bruker->etternavn }}">
+                                <a href="{{ URL::route('brukere.vis', $bruker) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Vis info om {{ $bruker->fornavn  }} {{$bruker->etternavn }}">
                                     <span class="fa fa-eye"></span></a>
-                                <a href="{{ URL::route('brukere.edit', $bruker) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Rediger {{ $bruker->fornavn  }} {{$bruker->etternavn }}">
+                                <a href="{{ URL::route('brukere.rediger', $bruker) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Rediger {{ $bruker->fornavn  }} {{$bruker->etternavn }}">
                                     <span class="fa fa-edit"></span>
                                 </a>
                             </div>

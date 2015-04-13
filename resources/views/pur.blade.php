@@ -26,7 +26,7 @@
             <a href="/" class="navbar-brand dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">pur:Regnskap <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                     <li>
-                        <a href="{{ URL::route('oppgaver.show', null) }}">
+                        <a href="{{ URL::route('oppgaver.vis', null) }}">
                             <span class="fa fa-list"></span> Alle fagmoduler
                         </a>
                     </li>
@@ -82,7 +82,7 @@
                            aria-expanded="false">{{ Auth::user()->fulltNavn() }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
 
-                            <li><a href="{{ URL::route('brukere.show', Auth::user()->id) }}">
+                            <li><a href="{{ URL::route('brukere.vis', Auth::user()->id) }}">
                                     <span class="fa fa-user"></span> Min konto</a></li>
                             <li><a href="/auth/logout"><span class="fa fa-sign-in"></span> Logg ut</a></li>
                         </ul>

@@ -1,11 +1,11 @@
 @extends('pur')
 @section('content')
-    @include('oppgavesett._showSubmenu', [])
+    @include('oppgavesett._rediger-undermeny')
     <div class="container">
 
         <h1>{{ $oppgavesett->beskrivelse }}</h1>
         <p>Av: {{ $oppgavesett->skaper->fulltnavn() }}</p>
-        {!! link_to_route('oppgavesett.listOppForLaerer', 'Alle mine oppgavesett') !!}
+        {!! link_to_route('oppgavesett.opplist', 'Alle mine oppgavesett') !!}
         <div class="form-group col-sm-8">
 
                 Beskrivelse:
@@ -22,7 +22,7 @@
 
         <div class="form-group col-sm-12">
             {!!Form::label('diverse-tekst', 'Tekst:') !!}
-            {!! Form::textarea( 'diverse-tekst', 'Kun til info for studentene. F.eks. Kontantrabatt ved betaling før 60 dager.', ['class' => 'form-control', 'style' => 'height: 75px;']) !!}
+            {!! Form::textarea( 'diverse-tekst', 'Kontantrabatt ved betaling før 60 dager.', ['class' => 'form-control', 'style' => 'height: 75px;']) !!}
         </div>
 
 
