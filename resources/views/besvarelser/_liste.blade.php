@@ -1,84 +1,75 @@
-<h2>Besvarelser</h2>
-<div class="list-group panel panel-primary" id="accordion" role="tablist" aria-multiselectable="true">
-    <div class="panel-heading hidden-xs">
-        <div class="row">
-            <div class="col-sm-2">
-                <div class="row">
-                    <div class="col-sm-2">
-                        {!! Form::checkbox('', '') !!}
-                    </div>
-                    <div class="col-sm-10">
-                        <b>Beskrivelse:</b>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <b>Opprettet:</b>
-            </div>
-            <div class="col-sm-1">
-                <b>Påbegynte:</b>
-            </div>
-            <div class="col-sm-1">
-                <b>Status:</b>
-            </div>
-            <div class="col-sm-2">
-                <b>Åpen fra:</b>
-            </div>
-            <div class="col-sm-2">
-                <b>Åpen til:</b>
-            </div>
-            <div class="col-sm-2">
 
-            </div>
-        </div>
-    </div>
 
-    @foreach($besvarelser as $besvarelse)
-        <div class="list-group-item">
+    <div class="list-group panel panel-primary" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel-heading hidden-xs">
             <div class="row">
                 <div class="col-sm-2">
-                    <div class="row">
-                        <div class="col-sm-2">
-                            {!! Form::checkbox('', '') !!}
-                        </div>
-                        <div class="col-sm-10">
-                            <span class="visible-xs-inline">Beskrivelse: </span>{{ $oppgavesett->beskrivelse }}
-                        </div>
-                    </div>
+                    <b>Oppgavesett:</b>
                 </div>
                 <div class="col-sm-2">
-                    <span class="visible-xs-inline">Opprettet: </span>{{ $oppgavesett->tidOpprettet() }}
-                </div>
-                <div class="col-sm-1">
-                    <span class="visible-xs-inline">Påbegynte: </span>{{$oppgavesett->besvarelser->count()}}
-                </div>
-                <div class="col-sm-1">
-                    <span class="visible-xs-inline">Status: </span>Åpen
+                    <b>Påbegynte svar:</b>
                 </div>
                 <div class="col-sm-2">
-                    <span class="visible-xs-inline">Åpent fra: </span>{{ $oppgavesett->tidAapent() }}
+                    <b>Status:</b>
                 </div>
                 <div class="col-sm-2">
-                    <span class="visible-xs-inline">Åpent til: </span>{{ $oppgavesett->tidLukket() }}
+                    <b>Frist:</b>
                 </div>
                 <div class="col-sm-2">
-
-                    <div class="btn-group pull-right">
-                        <a href="#" class="btn btn-default" data-toggle="tooltip" data-placement="top"
-                           data-container="body" title="Vis statistikk">
-                            <span class="fa fa-bar-chart"></span>
-                        </a>
-                        <a href="{{ URL::route('oppgavesett.vis', $oppgavesett) }}" class="btn btn-default"
-                           data-toggle="tooltip" data-placement="top" data-container="body" title="Vis oppgavesett">
-                            <span class="fa fa-eye"></span>
-                        </a>
-                        <a href="{{ URL::route('oppgavesett.rediger', $oppgavesett) }}" class="btn btn-default"
-                           data-toggle="tooltip" data-placement="top" data-container="body" title="Rediger oppgavesett">
-                            <span class="fa fa-edit"></span>
-                        </a>
-                    </div>
+                    <b>Tid levert:</b>
                 </div>
             </div>
         </div>
-    @endforeach
+
+        @foreach($besvarelser as $besvarelse)
+            <div class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <span class="visible-xs-inline">Beskrivelse: </span>{{ $besvarelse->oppgavesett->beskrivelse }}
+                    </div>
+
+                    <div class="col-sm-2">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar"
+                                 aria-valuenow="{{ $besvarelse->antPaabegynteSvar() }}"
+                                 aria-valuemin="0" aria-valuemax="{{ $besvarelse->antKrevdeSvar() }}"
+                                 style="{{ "width:" . $besvarelse->prosentPaabegynt() . "%" }}">
+                                {{ $besvarelse->antPaabegynteSvar() }}/{{ $besvarelse->antKrevdeSvar() }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <span class="visible-xs-inline">Status: </span>
+                    </div>
+                    <div class="col-sm-2">
+                        <span class="visible-xs-inline">Frist: </span>{{ $besvarelse->oppgavesett->tidLukket() }}
+                    </div>
+                    <div class="col-sm-2">
+                        <span class="visible-xs-inline">Tid levert: </span>{{ $besvarelse->tidLevert() }}
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="btn-group pull-right">
+
+                            <a href="{{-- URL::route('besvarelse.show', $besvarelse) --}}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Vis besvarelse">
+                                <span class="fa fa-eye"></span>
+                            </a>
+                            @if(!$besvarelse->kanEndres())
+                                <a class="btn btn-default disabled " data-toggle="tooltip" data-placement="top" data-container="body" title="Kan ikke endres. Frist utløpt">
+                                    <span class="fa fa-edit"></span>
+                                </a>
+                            @endif
+                            @if($besvarelse->kanEndres())
+                                <a href="{{-- URL::route('besvarelse.edit', $besvarelse) --}}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Fortsett oppgave">
+                                    <span class="fa fa-edit"></span>
+                                </a>
+                            @endif
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        @endforeach
+
+    </div>
 </div>

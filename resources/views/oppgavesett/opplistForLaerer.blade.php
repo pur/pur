@@ -69,19 +69,24 @@
                         <div class="col-sm-2">
 
                             <div class="btn-group pull-right">
-                                <a href="{{ URL::route('oppgavesett.vis', $oppgavesett) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Vis statistikk">
+                                <a href="{{ URL::route('oppgavesett.vis', $oppgavesett) }}" class="btn btn-default"
+                                   data-toggle="tooltip" data-placement="top" data-container="body"
+                                   title="Vis statistikk">
                                     <span class="fa fa-bar-chart"></span>
                                 </a>
                                 <!--TODO lag metoden 'kanEndres()' for oppgavesett-->
                                 @if(!1 == 0)
-                                    <a class="btn btn-default disabled" data-toggle="tooltip" data-placement="top" data-container="body" title="Kan ikke endres. Oppgavesettet er publisert">
+                                    <a class="btn btn-default disabled" data-toggle="tooltip" data-placement="top"
+                                       data-container="body" title="Kan ikke endres. Oppgavesettet er publisert">
                                         <span class="fa fa-edit"></span>
                                     </a>
                                 @endif
                                 @if(1 == 0)
-                                <a href="{{ URL::route('oppgavesett.rediger', $oppgavesett) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Rediger oppgavesett">
-                                    <span class="fa fa-edit"></span>
-                                </a>
+                                    <a href="{{ URL::route('oppgavesett.rediger', $oppgavesett) }}"
+                                       class="btn btn-default" data-toggle="tooltip" data-placement="top"
+                                       data-container="body" title="Rediger oppgavesett">
+                                        <span class="fa fa-edit"></span>
+                                    </a>
                                 @endif
 
                             </div>
@@ -89,9 +94,6 @@
                     </div>
                 </div>
             @endforeach
-
-            @if(isset($besvarelser))  @include('besvarelser._liste', $besvarelser)  @endif
-
         </div>
     </div>
 @endsection

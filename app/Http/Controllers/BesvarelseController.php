@@ -31,7 +31,7 @@ class BesvarelseController extends Controller {
 	{
 		$besvarelser = $this->innloggetBruker->besvarelser;
 
-        return view('besvarelser.testing.list', compact('besvarelser'));
+        return view('besvarelser.testing.opplist', compact('besvarelser'));
 	}
 
 	/**

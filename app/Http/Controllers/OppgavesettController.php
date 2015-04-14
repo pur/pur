@@ -27,15 +27,23 @@ class OppgavesettController extends Controller
      */
     public function opplist(Oppgavesett $oppgavesett, $rolle = null)
     {
-        // Ev. overstyring av rolle:
         $rolle = ($rolle) ? $rolle : $this->bruker->rolle;
 
-        if ($rolle == 'laerer') $oppgavesettsamling = $this->bruker->oppgavesett;
-        else { // Student
-            $oppgavesettsamling = $oppgavesett->publiserte()->get();
-            $besvarelser = $this->bruker->besvarelser;
+        switch ($rolle) {
+            case 'laerer' :
+                $oppgavesettsamling = $this->bruker->oppgavesett;
+                $retur = view('oppgavesett.opplistForLaerer', compact('oppgavesettsamling'));
+                break;
+            case 'student' :
+                $oppgavesettsamling = $oppgavesett->forStudenter();
+                $besvarelser = $this->bruker->besvarelser; // TODO : JOIN/Merge oppgavesett og besvarelser, og vis i én liste(?)
+                $retur = view('oppgavesett.opplistForStudent', compact('oppgavesettsamling', 'besvarelser'));
+                break;
+            default :
+                $retur = redirect('/home');
         }
-        return view('oppgavesett.opplist', compact('oppgavesettsamling', 'besvarelser'));
+
+        return $retur;
     }
 
     /**
