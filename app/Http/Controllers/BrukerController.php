@@ -1,11 +1,21 @@
 <?php namespace Pur\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Pur\Bruker;
 use Pur\Http\Requests;
 use Request;
 
 class BrukerController extends Controller
 {
+    private $bruker;
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin', ['except' => ['redigerInnlogget']]);
+        $this->bruker = Auth::user();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -49,6 +59,18 @@ class BrukerController extends Controller
      */
     public function rediger(Bruker $bruker)
     {
+        return view('brukere.rediger', compact('bruker'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function redigerInnlogget()
+    {
+        $bruker = $this->bruker;
         return view('brukere.rediger', compact('bruker'));
     }
 

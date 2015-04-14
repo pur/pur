@@ -82,8 +82,8 @@
                            aria-expanded="false">{{ Auth::user()->fulltNavn() }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
 
-                            <li><a href="{{ URL::route('brukere.vis', Auth::user()->id) }}">
-                                    <span class="fa fa-user"></span> Min konto</a></li>
+                            <li><a href="{{ URL::route('brukere.vis.innlogget') }}">
+                                    <span class="fa fa-user"></span> Min brukerprofil</a></li>
                             <li><a href="/auth/logout"><span class="fa fa-sign-in"></span> Logg ut</a></li>
                         </ul>
                     </li>

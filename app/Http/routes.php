@@ -44,6 +44,14 @@ Route::get('brukere/{bruker}',
 Route::get('brukere/{bruker}/rediger',
     ['as' => 'brukere.rediger', 'uses' => 'BrukerController@rediger']);
 
+Route::get('bruker',
+    ['as' => 'brukere.vis.innlogget', function () {
+        return redirect()->route('brukere.rediger.innlogget');
+    }]);
+
+Route::get('bruker/rediger',
+    ['as' => 'brukere.rediger.innlogget', 'uses' => 'BrukerController@redigerInnlogget']);
+
 Route::put('brukere/{bruker}',
     ['as' => 'brukere.oppdater', 'uses' => 'BrukerController@oppdater']);
 

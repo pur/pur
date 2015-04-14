@@ -86,6 +86,16 @@ class Bruker extends Model implements AuthenticatableContract, CanResetPasswordC
     }
 
     /**
+     * Sant hvis bruker er en administrator
+     *
+     * @return bool
+     */
+    public function erAdmin()
+    {
+        return $this->harRolle('admin');
+    }
+
+    /**
      * Sant hvis bruker har rollen oppgitt med parameter
      *
      * @param $rolle
