@@ -19,16 +19,16 @@ class CreateBesvarelserTable extends Migration {
             $table->timestamp('tid_endret');
             $table->timestamp('tid_levert');
             $table->text('kommentar');
-            $table->integer('bruker_id')->unsigned()->nullable();
-            $table->integer('oppgavesett_id')->unsigned()->nullable();
+            $table->integer('bruker_id')->unsigned();
+            $table->integer('oppgavesett_id')->unsigned();
 
             $table->foreign('bruker_id')
                 ->references('id')->on('brukere')
-                ->onDelete('set null');
+                ->onDelete('cascade'); // Besvarelser slettes hvis eieren slettes
 
             $table->foreign('oppgavesett_id')
                 ->references('id')->on('oppgavesett')
-                ->onDelete('cascade');
+                ->onDelete('restrict'); // Oppgavesett med besvarelser kan ikke slettes
 		});
 	}
 
