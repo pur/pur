@@ -235,6 +235,7 @@ class OppgavesvarTableSeeder extends Seeder
             'kommentar' => 'Jeg gjorde så godt jeg kunne',
             'moduloppgavesvar_type' => 'Pur\Purmoduler\Regnskap\Bilagssekvens',
             'moduloppgavesvar_id' => 1,
+            'oppgave_id' => 1,
             'besvarelse_id' => 1,
         ]);
 
@@ -242,6 +243,7 @@ class OppgavesvarTableSeeder extends Seeder
             'kommentar' => 'Jeg ble ikke helt ferdig',
             'moduloppgavesvar_type' => 'Pur\Purmoduler\Regnskap\Bilagssekvens',
             'moduloppgavesvar_id' => 2,
+            'oppgave_id' => 1,
             'besvarelse_id' => 1,
         ]);
 
@@ -249,6 +251,7 @@ class OppgavesvarTableSeeder extends Seeder
             'kommentar' => 'Belkagrel ale skrevifilene!',
             'moduloppgavesvar_type' => 'Pur\Purmoduler\Regnskap\Bilagssekvens',
             'moduloppgavesvar_id' => 3,
+            'oppgave_id' => 1,
             'besvarelse_id' => 1,
         ]);
     }

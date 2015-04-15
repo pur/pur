@@ -20,7 +20,17 @@ class BesvarelseTjeneste
     {
         $besvarelse = new Besvarelse();
 
-        $besvarelse->skaper()->associate($bruker);
         $besvarelse->oppgavesett()->associate($oppgavesett);
+        $besvarelse->skaper()->associate($bruker)->save();
+
+        $oppgavesvarsett = array();
+        foreach ($oppgavesett->oppgaver as $oppgave) {
+            $oppgavesvar = new Oppgavesvar();
+            $oppgavesvar->oppgave()->associate($oppgave);
+            $oppgavesvarsett[] = $oppgavesvar;
+        }
+
+        $besvarelse->oppgavesvar()->saveMany($oppgavesvarsett);
+
     }
 }

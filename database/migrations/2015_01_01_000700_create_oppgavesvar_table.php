@@ -20,11 +20,16 @@ class CreateOppgavesvarTable extends Migration {
 			$table->text('kommentar');
 			$table->string('moduloppgavesvar_type');
 			$table->integer('moduloppgavesvar_id');
+			$table->integer('oppgave_id')->unsigned();
 			$table->integer('besvarelse_id')->unsigned();
+
+            $table->foreign('oppgave_id')
+                ->references('id')->on('oppgaver')
+                ->onDelete('restrict'); // Oppgaver med oppgavesvar kan ikke slettes
 
             $table->foreign('besvarelse_id')
                 ->references('id')->on('besvarelser')
-                ->onDelete('cascade');
+                ->onDelete('cascade'); // Et oppgavesvar slettes hvis besvarelsen den inngår i slettes
 		});
 	}
 

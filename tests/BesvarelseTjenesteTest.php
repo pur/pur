@@ -15,6 +15,11 @@ class BesvarelseTjenesteTest extends TestCase {
         $besvarelseTjeneste = new BesvarelseTjeneste();
         $besvarelseTjeneste->opprett($bruker, $oppgavesett);
 
-        $this->assertTrue($bruker->besvarelser->count() > 0);
+        $nyBesvarelse = $bruker->besvarelser->last();
+        $antallOppgavesvar = $nyBesvarelse->oppgavesvar->count();
+        $antallOppgaver = $oppgavesett->oppgaver->count();
+
+        $feilmld = 'Feil antall oppgavesvar i forhold til oppgaver';
+        $this->assertEquals($antallOppgaver, $antallOppgavesvar, $feilmld);
     }
 }

@@ -11,12 +11,23 @@ class Oppgavesvar extends Model
         'kommentar',
         'moduloppgavesvar_type',
         'moduloppgavesvar_id',
+        'oppgave_id',
         'besvarelse_id'
     ];
 
     const CREATED_AT = 'tid_opprettet';
     const UPDATED_AT = 'tid_endret';
 
+
+    /**
+     * Oppgaven som svaret hører til
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function oppgave()
+    {
+        return $this->belongsTo('Pur\Oppgave');
+    }
 
     /**
      * Besvarelsen som oppgavesvaret inngår i
