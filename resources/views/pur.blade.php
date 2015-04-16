@@ -27,7 +27,7 @@
                 <ul class="dropdown-menu" role="menu">
                     <li>
                         <a href="{{ URL::route('oppgaver.vis', null) }}">
-                            <span class="fa fa-list"></span> Alle fagmoduler
+                            <span class="fa fa-list"></span> Alle Pur-moduler
                         </a>
                     </li>
                     <li>
@@ -37,17 +37,17 @@
                     </li>
                     <li>
                         <a>
-                            <span class="fa fa-toggle-off"></span> SQL
+                            <span class="fa fa-toggle-off"></span> Purmodul
                         </a>
                     </li>
                     <li>
                         <a>
-                            <span class="fa fa-toggle-off"></span> Java
+                            <span class="fa fa-toggle-off"></span> Purmodul
                         </a>
                     </li>
                     <li>
                         <a>
-                            <span class="fa fa-toggle-off"></span> Statistikk
+                            <span class="fa fa-toggle-off"></span> Purmodul
                         </a>
                     </li>
                 </ul>
@@ -74,7 +74,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                 @if (Auth::guest())
-                    <li><a href="/auth/login"><span class="fa fa-sign-in"></span> Logg inn</a></li>
+                    <li><a href="{{ env('APPWEBPATH') }}/auth/login"><span class="fa fa-sign-in"></span> Logg inn</a></li>
                     {{--<li><a href="/auth/register">Registrer</a></li>--}}
                 @else
                     <li class="dropdown">
@@ -84,7 +84,7 @@
 
                             <li><a href="{{ URL::route('brukere.vis.innlogget') }}">
                                     <span class="fa fa-user"></span> Min brukerprofil</a></li>
-                            <li><a href="/auth/logout"><span class="fa fa-sign-in"></span> Logg ut</a></li>
+                            <li><a href="{{ env('APPWEBPATH') }}/auth/logout"><span class="fa fa-sign-in"></span> Logg ut</a></li>
                         </ul>
                     </li>
                 @endif

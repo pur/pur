@@ -70,7 +70,7 @@
 				<div class="title">Pur</div>
 				<!--<div class="quote">{{ Inspiring::quote() }}</div> -->
                 <div class="quote">Tren på essensen - ikke konteksten!</div>
-                <a href="/auth/login" class="button">Prøv!</a>
+                <a href="{{ env('APPWEBPATH') }}/auth/login" class="button">Prøv!</a>
 			</div>
 		</div>
 	</body>
