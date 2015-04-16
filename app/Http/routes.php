@@ -25,6 +25,9 @@ Route::controllers([
 // Hvilke roller en bruker kan overstyre sin egen med:
 $router->pattern('rolle', 'student');
 
+Route::get('/regnskap', function(){
+    return view('purmoduler.regnskap.opplistForLaerer');
+});
 // Brukere
 
 Route::get('brukere',

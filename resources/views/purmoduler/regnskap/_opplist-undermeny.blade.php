@@ -1,8 +1,10 @@
 @extends('_undermeny')
 @section('menuleft')
-    <li>
+    @if(URL::previous() != URL::current())
+        <li>
 
-    </li>
+        </li>
+    @endif
 @endsection
 @section('menuright')
 @endsection

@@ -18,7 +18,7 @@
 
                         <p>Tren på å føre regnskap<br /> - og bare det!</p>
 
-                        <p><a href="#" class="btn btn-primary" role="button">Velg</a>
+                        <p><a href="/regnskap" class="btn btn-primary" role="button">Velg</a>
                             <a href="#" class="btn btn-default" role="button">Info</a></p>
                     </div>
                 </div>
