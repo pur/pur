@@ -71,12 +71,12 @@ class BesvarelseController extends Controller {
 	/**
 	 * Show the form for editing the specified resource.
 	 *
-	 * @param  int  $id
+	 * @param  Besvarelse  $besvarelse
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit(Besvarelse $besvarelse)
 	{
-		//
+        return view('besvarelser.rediger', compact('besvarelse'));
 	}
 
 	/**

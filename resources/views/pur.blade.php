@@ -15,15 +15,15 @@
 <nav class="navbar navbar-inverse">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle Navigation</span>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Vis meny</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
             <li class="nav navbar-nav dropdown">
-            <a href="/" class="navbar-brand dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">pur:Regnskap <span class="caret"></span></a>
+                <a href="/" class="navbar-brand dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">pur:Regnskap
+                    <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                     <li>
                         <a href="{{ URL::route('oppgaver.vis', null) }}">
@@ -53,10 +53,6 @@
                 </ul>
             </li>
         </div>
-
-
-
-
 
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
