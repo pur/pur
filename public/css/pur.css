@@ -5,6 +5,10 @@
     z-index: 500;
 }
 
+.navbar-nav {
+    margin: 0;
+}
+
 .navbar-inverse {
     background-color: #337AB7;
     border-color: #226AA7;
@@ -49,6 +53,7 @@
 
 .navbar-inverse .navbar-toggle {
     border-color: #226AA7;
+    z-index: 4000;
 }
 
 .navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
@@ -205,6 +210,13 @@ footer {
     }
     .navbar-nav .open .dropdown-menu{
         background-color: rgba(0, 0, 0, 0.05);
+    }
+    .open > .dropdown-menu{
+        margin: 0;
+    }
+    .dropdown-menu > li > a {
+        font-size: 1.2em;
+        padding: 5px 20px;
     }
 }
 

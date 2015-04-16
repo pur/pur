@@ -21,9 +21,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <li class="nav navbar-nav dropdown">
+            <div class="nav navbar-nav dropdown">
+
+
                 <a href="/" class="navbar-brand dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">pur:Regnskap
                     <span class="caret"></span></a>
+
                 <ul class="dropdown-menu" role="menu">
                     <li>
                         <a href="{{ URL::route('oppgaver.vis', null) }}">
@@ -51,7 +54,8 @@
                         </a>
                     </li>
                 </ul>
-            </li>
+
+            </div>
         </div>
 
 
