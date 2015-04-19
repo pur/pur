@@ -7,7 +7,7 @@ class Bilag extends Model
 
     protected $table = 'bilag';
 
-    protected $fillable = ['nr_i_oppgsett', 'bilagsmal_id', 'besvarelse_id'];
+    protected $fillable = ['nr_i_besvarelse', 'bilagssekvens_id'];
 
     public $timestamps = false;
 

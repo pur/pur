@@ -15,11 +15,6 @@ class CreateBilagssekvenserTable extends Migration {
 		Schema::create('bilagssekvenser', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->integer('bilagsmalsekvens_id')->unsigned();
-
-            $table->foreign('bilagsmalsekvens_id')
-                ->references('id')->on('bilagsmalsekvenser')
-                ->onDelete('restrict');
         });
 	}
 

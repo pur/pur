@@ -34,8 +34,8 @@ class DatabaseSeeder extends Seeder
         $this->call('OppgavesettTableSeeder');
         $this->call('OppgaveTableSeeder');
         $this->call('SettoppgaveTableSeeder');
-        $this->call('BesvarelseTableSeeder');
-        $this->call('OppgavesvarTableSeeder');
+        //$this->call('BesvarelseTableSeeder');
+        //$this->call('OppgavesvarTableSeeder');
 
         // Pur\..\Regnskap
         $this->call('KontoTableSeeder');
@@ -43,10 +43,10 @@ class DatabaseSeeder extends Seeder
         $this->call('BilagsmalsekvensVarTableSeeder');
         $this->call('BilagsmalTableSeeder');
         $this->call('PosteringsmalTableSeeder');
-        $this->call('BilagssekvensTableSeeder');
+        //$this->call('BilagssekvensTableSeeder');
         //$this->call('BilagssekvensVarTableSeeder');
-        $this->call('BilagTableSeeder');
-        $this->call('PosteringTableSeeder');
+        //$this->call('BilagTableSeeder');
+        //$this->call('PosteringTableSeeder');
     }
 }
 
@@ -368,6 +368,29 @@ class BilagsmalTableSeeder extends Seeder
             'nr_i_sekvens' => 3,
             'bilagsmalsekvens_id' => 1
         ]);
+        Bilagsmal::create([
+            'bilagstype' => 'Utgående faktura',
+            'nr_i_sekvens' => 1,
+            'bilagsmalsekvens_id' => 2
+        ]);
+
+        Bilagsmal::create([
+            'bilagstype' => 'Utgående kreditnota',
+            'nr_i_sekvens' => 2,
+            'bilagsmalsekvens_id' => 2
+        ]);
+
+        Bilagsmal::create([
+            'bilagstype' => 'Innbetaling',
+            'nr_i_sekvens' => 3,
+            'bilagsmalsekvens_id' => 2
+        ]);
+
+        Bilagsmal::create([
+            'bilagstype' => 'Lønn',
+            'nr_i_sekvens' => 1,
+            'bilagsmalsekvens_id' => 3
+        ]);
     }
 }
 
@@ -459,17 +482,11 @@ class BilagssekvensTableSeeder extends Seeder
     {
         DB::table('bilagssekvenser')->delete();
 
-        Bilagssekvens::create([
-            'bilagsmalsekvens_id' => 1,
-        ]);
+        Bilagssekvens::create([]);
 
-        Bilagssekvens::create([
-            'bilagsmalsekvens_id' => 1,
-        ]);
+        Bilagssekvens::create([]);
 
-        Bilagssekvens::create([
-            'bilagsmalsekvens_id' => 1,
-        ]);
+        Bilagssekvens::create([]);
     }
 }
 
@@ -482,17 +499,17 @@ class BilagTableSeeder extends Seeder
         DB::table('bilag')->delete();
 
         Bilag::create([
-            'nr_i_oppgsett' => 1,
+            'nr_i_besvarelse' => 1,
             'bilagssekvens_id' => 1
         ]);
 
         Bilag::create([
-            'nr_i_oppgsett' => 2,
+            'nr_i_besvarelse' => 2,
             'bilagssekvens_id' => 1
         ]);
 
         Bilag::create([
-            'nr_i_oppgsett' => 3,
+            'nr_i_besvarelse' => 3,
             'bilagssekvens_id' => 1
         ]);
     }

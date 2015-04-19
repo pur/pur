@@ -26,7 +26,8 @@ class CreateOppgaverTable extends Migration {
 				->references('id')->on('brukere')
 				->onDelete('set null');
 		});
-	}
+        // TODO: moduloppgaver bør slettes når oppgaver slettes
+    }
 
 	/**
 	 * Reverse the migrations.

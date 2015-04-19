@@ -50,4 +50,14 @@ class Postering extends Model {
     {
         $query->whereErFasit(true);
     }
+
+    /**
+     * Bilaget som posteringen tilhører
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function bilag()
+    {
+        return $this->belongsTo('Pur\Purmoduler\Regnskap\Bilag');
+    }
 }

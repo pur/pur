@@ -7,20 +7,10 @@ class Bilagssekvens extends Model
 
     protected $table = 'bilagssekvenser';
 
-    protected $fillable = ['bilagsmalsekvens_id', 'besvarelse_id'];
+    //protected $fillable = ['bilagsmalsekvens_id', 'besvarelse_id'];
 
     public $timestamps = false;
 
-
-    /**
-     * Bilagsmalsekvensen som bilagssekvensen er basert på
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function bilagsmalsekvens()
-    {
-        return $this->belongsTo('\Pur\Purmoduler\Regnskap\Bilagsmalsekvens');
-    }
 
     /**
      * Bilagssekvensen sine bilag
@@ -52,15 +42,6 @@ class Bilagssekvens extends Model
         return $this->oppgavesvar->kommentar;
     }
 
-    /**
-     * Besvarelsen som bilagssekvensen inngår i
-     *
-     * @return mixed
-     */
-    public function besvarelse()
-    {
-        return $this->oppgavesvar->besvarelse();
-    }
 
     /**
      * Er sant hvis eleven har startet å arbeide med bilagssekvensen

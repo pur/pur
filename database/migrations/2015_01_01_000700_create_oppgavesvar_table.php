@@ -30,6 +30,9 @@ class CreateOppgavesvarTable extends Migration {
             $table->foreign('besvarelse_id')
                 ->references('id')->on('besvarelser')
                 ->onDelete('cascade'); // Et oppgavesvar slettes hvis besvarelsen den inngår i slettes
+
+            // TODO: moduloppgavesvar bør slettes når oppgavesvar slettes
+
 		});
 	}
 

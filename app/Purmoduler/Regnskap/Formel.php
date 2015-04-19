@@ -25,7 +25,7 @@ class Formel //extends Model
     }
 
 
-    public static function brukFormel($formelNr, $verdi1, $verdi2, $verdi3)
+    public static function brukFormel($formelNr, $verdi1 = 0, $verdi2 = 0, $verdi3 = 0)
     {
         switch ($formelNr) {
             case 1 :

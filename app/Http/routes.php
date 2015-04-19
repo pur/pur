@@ -11,6 +11,10 @@
 |
 */
 
+use Pur\Bruker;
+use Pur\Oppgavesett;
+use Pur\Services\BesvarelseTjeneste;
+
 Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
@@ -25,7 +29,7 @@ Route::controllers([
 // Hvilke roller en bruker kan overstyre sin egen med:
 $router->pattern('rolle', 'student');
 
-Route::get('/regnskap', function(){
+Route::get('/regnskap', function () {
     return view('purmoduler.regnskap.opplistForLaerer');
 });
 // Brukere
@@ -159,4 +163,11 @@ Route::get('formel', function (Request $request) {
     $retur = Formel::brukFormel($request->formelid, $request->verdi1, $request->verdi2, $request->verdi3);
     //$retur = \Pur\Purmoduler\Regnskap\Formel::brukFormel(2, 12, 32, 100);
     return $retur;
+});
+
+Route::get('testOpprettBesvarelse', function () {
+    $besvarelseTjeneste = new BesvarelseTjeneste();
+    $oppgavesett = Oppgavesett::find(1);
+    $bruker = Bruker::find(1);
+    $besvarelseTjeneste->opprett($bruker, $oppgavesett);
 });
