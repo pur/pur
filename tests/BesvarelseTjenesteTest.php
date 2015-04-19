@@ -2,23 +2,28 @@
 
 use Pur\Bruker;
 use Pur\Oppgavesett;
+use Pur\Oppgavesvar;
+use Pur\Purmoduler\Regnskap\Bilagsmal;
+use Pur\Purmoduler\Regnskap\Posteringsmal;
 use Pur\Services\BesvarelseTjeneste;
 
-class BesvarelseTjenesteTest extends TestCase {
-
-
+class BesvarelseTjenesteTest extends TestCase
+{
     public function testOpprett()
     {
+        $besvarelseTjeneste = new BesvarelseTjeneste();
         $oppgavesett = Oppgavesett::find(1);
         $bruker = Bruker::find(1);
 
-        $besvarelseTjeneste = new BesvarelseTjeneste();
+        // Opprett ny besvarelse
         $besvarelseTjeneste->opprett($bruker, $oppgavesett);
 
+        // Hent den nye besvarelsen
         $nyBesvarelse = $bruker->besvarelser->last();
-        $antallOppgavesvar = $nyBesvarelse->oppgavesvar->count();
-        $antallOppgaver = $oppgavesett->oppgaver->count();
 
+        // Test om rett antall oppgavesvar er blitt generert:
+        $antallOppgavesvar = $nyBesvarelse->oppgavesvar->count();
+        $antallOppgaver = $this->oppgavesett->oppgaver->count();
         $feilmld = 'Feil antall oppgavesvar i forhold til oppgaver';
         $this->assertEquals($antallOppgaver, $antallOppgavesvar, $feilmld);
     }
