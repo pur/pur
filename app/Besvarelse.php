@@ -123,6 +123,9 @@ class Besvarelse extends Model
      */
     public function prosentPaabegynt()
     {
-        return round($this->antPaabegynteSvar() / $this->antKrevdeSvar() * 100, 0);
+        $antKrevdeSvar = $this->antKrevdeSvar();
+
+        return ($antKrevdeSvar == 0) ? 0 :
+            round($this->antPaabegynteSvar() / $antKrevdeSvar * 100, 0);
     }
 }

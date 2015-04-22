@@ -122,7 +122,32 @@ Route::patch('regnskap/oppgavesett/{oppgavesett}',
 Route::delete('regnskap/oppgavesett/{oppgavesett}',
     ['as' => 'oppgavesett.slett', 'uses' => 'OppgavesettController@slett']);
 
-$router->resource('besvarelser', 'BesvarelseController');
+
+// Besvarelser
+
+Route::get('regnskap/besvarelser/{rolle?}',
+    ['as' => 'besvarelser.opplist', 'uses' => 'BesvarelseController@opplist']);
+
+Route::get('regnskap/besvarelser/opprett',
+    ['as' => 'besvarelser.opprett', 'uses' => 'BesvarelseController@opprett']);
+
+Route::post('regnskap/besvarelser/{oppgavesett}',
+    ['as' => 'besvarelser.lagre', 'uses' => 'BesvarelseController@lagre']);
+
+Route::get('regnskap/besvarelser/{besvarelse}/{rolle?}',
+    ['as' => 'besvarelser.vis', 'uses' => 'BesvarelseController@vis']);
+
+Route::get('regnskap/besvarelser/{besvarelse}/rediger',
+    ['as' => 'besvarelser.rediger', 'uses' => 'BesvarelseController@rediger']);
+
+Route::put('regnskap/besvarelser/{besvarelse}',
+    ['as' => 'besvarelser.oppdater', 'uses' => 'BesvarelseController@oppdater']);
+
+Route::patch('regnskap/besvarelser/{besvarelse}',
+    ['uses' => 'BesvarelseController@oppdater']);
+
+Route::delete('regnskap/besvarelser/{besvarelse}',
+    ['as' => 'besvarelser.slett', 'uses' => 'BesvarelseController@slett']);
 
 // PURMODULER - REGNSKAP:
 
@@ -163,11 +188,4 @@ Route::get('formel', function (Request $request) {
     $retur = Formel::brukFormel($request->formelid, $request->verdi1, $request->verdi2, $request->verdi3);
     //$retur = \Pur\Purmoduler\Regnskap\Formel::brukFormel(2, 12, 32, 100);
     return $retur;
-});
-
-Route::get('testOpprettBesvarelse', function () {
-    $besvarelseTjeneste = new BesvarelseTjeneste();
-    $oppgavesett = Oppgavesett::find(1);
-    $bruker = Bruker::find(1);
-    $besvarelseTjeneste->opprett($bruker, $oppgavesett);
 });

@@ -35,6 +35,7 @@ class BesvarelseTjeneste
             $oppgavesvar->besvarelse()->associate($besvarelse);
             $this->opprettModuloppgavesvar($oppgavesvar);
         }
+        return $besvarelse;
     }
 
 

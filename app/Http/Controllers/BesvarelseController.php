@@ -1,104 +1,106 @@
 <?php namespace Pur\Http\Controllers;
 
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Pur\Besvarelse;
 use Pur\Http\Requests;
-use Pur\Http\Controllers\Controller;
+use Pur\Oppgavesett;
+use Pur\Services\BesvarelseTjeneste;
 
-use Illuminate\Http\Request;
+class BesvarelseController extends Controller
+{
 
-class BesvarelseController extends Controller {
+    private $bruker;
 
-
-    private $innloggetBruker;
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
-        $this->innloggetBruker = Auth::user();
+        $this->bruker = Auth::user();
     }
 
     /**
-     * Display a listing of the resource.
+     * List opp besvarelser
      *
      * @return Response
      */
-	public function index()
-	{
-		$besvarelser = $this->innloggetBruker->besvarelser;
+    public function opplist()
+    {
+        $besvarelser = $this->bruker->besvarelser;
 
         return view('besvarelser.testing.opplist', compact('besvarelser'));
-	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
+    }
 
     /**
-     * Display the specified resource.
+     * Vis skjermbilde for opprettelse av ny besvarelse.
+     *
+     * @return Response
+     */
+    public function opprett(Oppgavesett $oppgavesett)
+    {
+        $oppgavesettsamling = $oppgavesett->forStudenter();
+        return view('besvarelser.testopprett', compact('oppgavesettsamling'));
+    }
+
+    /**
+     * Opprett og lagre besvarelse.
+     *
+     * @return Response
+     */
+    public function lagre(Oppgavesett $oppgavesett)
+    {
+        $besvarelseTjeneste = new BesvarelseTjeneste();
+        $besvarelse = $besvarelseTjeneste->opprett($this->bruker, $oppgavesett);
+
+        return redirect()->route('besvarelser.vis', $besvarelse);
+    }
+
+    /**
+     * Vis besvarelse.
      *
      * @param Besvarelse $besvarelse
      * @return Response
      */
-	public function show(Besvarelse $besvarelse)
-	{
-        if($besvarelse->skaper->id != $this->innloggetBruker->id) {
-            return "Ikke din besvarelse!";
-        }
-        return view('besvarelser.testing.show', compact('besvarelse'));
-	}
+    public function vis(Besvarelse $besvarelse)
+    {
+        if ($besvarelse->skaper != $this->bruker)
+            return redirect()->route('besvarelser.opplist');
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  Besvarelse  $besvarelse
-	 * @return Response
-	 */
-	public function edit(Besvarelse $besvarelse)
-	{
+        return view('besvarelser.testing.vis', compact('besvarelse'));
+    }
+
+    /**
+     * Åpne besvarelse for redigering.
+     *
+     * @param  Besvarelse $besvarelse
+     * @return Response
+     */
+    public function rediger(Besvarelse $besvarelse)
+    {
         return view('besvarelser.rediger', compact('besvarelse'));
-	}
+    }
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
+    /**
+     * Lagre endringer i besvarelse.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function oppdater(Besvarelse $besvarelse)
+    {
+        // TODO: implementér
+        return "<i>Oppdater besvarelse med id " . $besvarelse->id . "</i>";
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
+    }
 
+    /**
+     * Slett besvarelse
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function slett(Besvarelse $besvarelse)
+    {
+        // TODO: implementér
+        return "<i>Slett besvarelse med id " . $besvarelse->id . "</i>";
+    }
 }
