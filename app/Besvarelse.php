@@ -40,6 +40,11 @@ class Besvarelse extends Model
         return $this->tid_endret->format('d.m.y H:i');
     }
 
+    public function erLevert()
+    {
+        return $this->tidLevert() != null && Carbon::now() > $this->tidLevert();
+    }
+
     /**
      * Formattert tidspunkt for da besvarelsen ble levert
      *
@@ -47,7 +52,8 @@ class Besvarelse extends Model
      */
     public function tidLevert()
     {
-        return $this->tid_levert->format('d.m.y H:i');
+        return (starts_with($this->tid_levert, '-')) ? null :
+            $this->tid_levert->format('d.m.y H:i');
     }
 
     /**
@@ -57,7 +63,7 @@ class Besvarelse extends Model
      */
     public function kanEndres()
     {
-        return Carbon::now() < $this->tid_levert && $this->oppgavesett->erAapent();
+        return (!$this->erLevert()) && $this->oppgavesett->erAapent();
     }
 
     /**
