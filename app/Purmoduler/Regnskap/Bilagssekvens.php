@@ -42,18 +42,21 @@ class Bilagssekvens extends Model
         return $this->oppgavesvar->kommentar;
     }
 
-
     /**
-     * Er sant hvis eleven har startet å arbeide med bilagssekvensen
+     * Prosentandelen av bilagssekvensen som er påbegynt av studenten
      *
-     * @return bool
+     * @return float|int
      */
-    public function erPaabegynt()
+    public function prosentPaabegynt()
     {
-        foreach ($this->bilag()->get() as $bilag)
-            if ($bilag->erPaabegynt())
-                return true;
+        $antPaabegynteBilag = 0;
 
-        return false;
+        foreach ($this->bilag as $bilag)
+            if ($bilag->erPaabegynt())
+                $antPaabegynteBilag++;
+
+        $antBilag = $this->oppgavesvar->oppgave->moduloppgave->bilagsmaler->count();
+
+        return ($antBilag == 0) ? 0 : round($antPaabegynteBilag / $antBilag * 100, 0);
     }
 }

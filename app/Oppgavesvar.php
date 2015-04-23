@@ -50,13 +50,13 @@ class Oppgavesvar extends Model
     }
 
     /**
-     * Er sant hvis eleven har startet å arbeide med oppgavesvaret
+     * Prosentandelen av oppgaven som er påbegynt av studenten
      *
-     * @return bool
+     * @return mixed
      */
-    public function erPaabegynt()
+    public function prosentPaabegynt()
     {
-        return $this->moduloppgavesvar->erPaabegynt();
+        return $this->moduloppgavesvar->prosentPaabegynt();
     }
 
 }

@@ -101,23 +101,7 @@ class Besvarelse extends Model
     }
 
     /**
-     * Antallet oppgavesvar eleven har startet å arbeide med
-     *
-     * @return int
-     */
-    public function antPaabegynteSvar()
-    {
-        $antPaabegynteOppgavesvar = 0;
-
-        foreach ($this->oppgavesvar as $oppgavesvar)
-            if ($oppgavesvar->erPaabegynt())
-                $antPaabegynteOppgavesvar++;
-
-        return $antPaabegynteOppgavesvar;
-    }
-
-    /**
-     * Prosentandelen av antall krevde svar som er påbegynt av eleven
+     * Prosentandelen av oppgavesettet som er påbegynt av studenten
      *
      * @return float
      */
@@ -125,7 +109,10 @@ class Besvarelse extends Model
     {
         $antKrevdeSvar = $this->antKrevdeSvar();
 
-        return ($antKrevdeSvar == 0) ? 0 :
-            round($this->antPaabegynteSvar() / $antKrevdeSvar * 100, 0);
+        $prosentPaabegynt = 0;
+        foreach ($this->oppgavesvar as $oppgavesvar)
+            $prosentPaabegynt += $oppgavesvar->prosentPaabegynt() / $antKrevdeSvar;
+
+        return ($antKrevdeSvar == 0) ? 0 : round($prosentPaabegynt, 0);
     }
 }
