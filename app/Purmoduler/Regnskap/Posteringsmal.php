@@ -13,6 +13,8 @@ class Posteringsmal extends Model
 
 
     /**
+     * Bilagsmalen som posteringsmalen tilhører
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function bilagsmal()
@@ -22,6 +24,8 @@ class Posteringsmal extends Model
 
 
     /**
+     * Kontoen som brukes i posteringsmalen
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function konto()

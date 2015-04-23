@@ -40,6 +40,11 @@ class Besvarelse extends Model
         return $this->tid_endret->format('d.m.y H:i');
     }
 
+    /**
+     * Er sant hvis besvarelsen er levert
+     *
+     * @return bool
+     */
     public function erLevert()
     {
         return $this->tidLevert() != null && Carbon::now() > $this->tidLevert();

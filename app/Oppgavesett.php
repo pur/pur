@@ -22,6 +22,11 @@ class Oppgavesett extends Model
     protected $dates = ['tid_publisert', 'tid_aapent', 'tid_lukket'];
 
 
+    /**
+     * Oppgavesett som er tilgjengelige for studenter
+     *
+     * @return mixed
+     */
     public function forStudenter()
     {
         return $this->publiserte()->get();

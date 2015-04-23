@@ -7,8 +7,6 @@ class Bilagssekvens extends Model
 
     protected $table = 'bilagssekvenser';
 
-    //protected $fillable = ['bilagsmalsekvens_id', 'besvarelse_id'];
-
     public $timestamps = false;
 
 
