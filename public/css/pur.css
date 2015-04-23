@@ -1,3 +1,12 @@
+body {
+    background-color: #EEE;
+}
+
+main {
+    background-color: #F9F9F9;
+    padding-bottom: 40px;
+}
+
 .navbar {
     margin-bottom: 0px;
     border: none;
@@ -14,16 +23,21 @@
     border-color: #226AA7;
 }
 
-.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
     border-color: #226AA7;
 }
 
+#navbar-submenu-wrapper {
+    height: 50px;
+    margin-bottom: 30px;
+}
 #navbar-submenu {
     background-color: #FBFBFB;
     border-top: 1px solid #FFF;
     border-bottom: 1px solid #E7E7E7;
     z-index: 300;
-   /* -webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52); */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
 }
 
 .navbar-brand {
@@ -47,7 +61,12 @@
     width: 100%;
 }
 
-.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus{
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus,
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus{
     background-color: #226AA7;
 }
 
@@ -56,7 +75,8 @@
     z-index: 4000;
 }
 
-.navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
+.navbar-inverse .navbar-nav > li > a,
+.navbar-inverse .navbar-brand {
     color: #eee;
 }
 
@@ -85,11 +105,6 @@
 .input-group .form-control{
     -webkit-appearance: none;
 }
-/*
-.input-group-addon, .form-control {
-    padding: 6px 6px;
-    font-size: 12px;
-}*/
 
 .row.list-group-item {
     margin-left: 0;
@@ -148,7 +163,8 @@
 .pagination > li:first-child > a,
 .pagination > li:first-child > span,
 .pagination > li:last-child > a,
-.pagination > li:last-child > span{
+.pagination > li:last-child > span,
+.tooltip div{
     border-radius: 0;
 }
 
@@ -161,7 +177,6 @@
 }
 
 footer {
-    margin-top: 20px;
     border-top: 1px solid #E7E7E7;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -189,7 +204,8 @@ footer {
         float: left;
         margin: 0;
     }
-    #navbar-submenu .collapse:before, #navbar-submenu .nav:before {
+    #navbar-submenu .collapse:before,
+    #navbar-submenu .nav:before {
         content: none;
     }
     #navbar-submenu li, #navbar-submenu li a {

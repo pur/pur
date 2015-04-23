@@ -92,9 +92,9 @@
         </div>
     </div>
 </nav>
-
+<main>
 @yield('content')
-
+</main>
 
 <footer class="footer">
     <div class="container">

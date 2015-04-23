@@ -1,12 +1,12 @@
 @extends('pur')
 @section('content')
-    @include('oppgavesett._opplist-undermeny')
+    @include('_undermeny')
     <div class="container">
         <h1>Oppgavesett</h1>
 
-                    <!-- TODO: Tilpass kolonner til visning for student -->
+        <!-- TODO: Tilpass kolonner til visning for student -->
 
-          <div class="list-group panel panel-primary" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="list-group panel panel-primary" id="accordion" role="tablist" aria-multiselectable="true">
             <div class="panel-heading hidden-xs">
                 <div class="row">
                     <div class="col-sm-2">
@@ -41,6 +41,9 @@
             </div>
 
             @foreach($oppgavesettsamling as $oppgavesett)
+                {!! Form::model($oppgavesett, ['route' => ['besvarelser.lagre', $oppgavesett], 'method' => 'POST']) !!}
+
+
                 <div class="list-group-item">
                     <div class="row">
                         <div class="col-sm-2">
@@ -76,25 +79,16 @@
                                    title="Vis statistikk">
                                     <span class="fa fa-bar-chart"></span>
                                 </a>
-                                <!--TODO lag metoden 'kanEndres()' for oppgavesett-->
-                                @if(!1 == 0)
-                                    <a class="btn btn-default disabled" data-toggle="tooltip" data-placement="top"
-                                       data-container="body" title="Kan ikke endres. Oppgavesettet er publisert">
-                                        <span class="fa fa-edit"></span>
-                                    </a>
-                                @endif
-                                @if(1 == 0)
-                                    <a href="{{ URL::route('oppgavesett.rediger', $oppgavesett) }}"
-                                       class="btn btn-default" data-toggle="tooltip" data-placement="top"
-                                       data-container="body" title="Rediger oppgavesett">
-                                        <span class="fa fa-edit"></span>
-                                    </a>
-                                @endif
 
+                                <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Opprett besvarelse">
+                                    <span class="fa fa-play"></span>
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                {!! Form::close() !!}
             @endforeach
         </div>
     </div>
