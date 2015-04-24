@@ -8,7 +8,7 @@
 
     <!-- Fonts -->
     <link href="{{ env('APPWEBPATH') }}/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Lato:100&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='{{ env('APPWEBPATH') }}/css/lato.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <div class="loading"></div>

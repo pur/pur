@@ -274,7 +274,7 @@ footer {
         font-weight: 300;
     }
 
-    .navbar-nav .open .dropdown-menu {
+    .navbar-nav .open .dropdown-menu li:hover {
         background-color: rgba(0, 0, 0, 0.05);
     }
 
@@ -283,7 +283,6 @@ footer {
     }
 
     .dropdown-menu > li > a {
-        font-size: 1.2em;
         padding: 5px 20px;
     }
 }
