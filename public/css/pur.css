@@ -32,12 +32,13 @@ main {
     height: 50px;
     margin-bottom: 30px;
 }
+
 #navbar-submenu {
     background-color: #FBFBFB;
     border-top: 1px solid #FFF;
     border-bottom: 1px solid #E7E7E7;
     z-index: 300;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+
 }
 
 .navbar-brand {
@@ -46,19 +47,20 @@ main {
     height: 47px;
 }
 
-#navbar-submenu li>span {
+#navbar-submenu li > span {
     display: block;
     padding: 15px 15px 10px;
 }
 
-#navbar-submenu li a:hover{
+#navbar-submenu li a:hover {
     background-color: #eee;
 }
 
-#navbar-submenu.affix{
+#navbar-submenu.affix {
     z-index: 10;
     top: 0;
     width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
 }
 
 .navbar-inverse .navbar-nav > .open > a,
@@ -66,7 +68,7 @@ main {
 .navbar-inverse .navbar-nav > .open > a:hover,
 .navbar-inverse .navbar-nav > .open > a:focus,
 .navbar-inverse .navbar-toggle:hover,
-.navbar-inverse .navbar-toggle:focus{
+.navbar-inverse .navbar-toggle:focus {
     background-color: #226AA7;
 }
 
@@ -97,20 +99,20 @@ main {
     top: -19px;
 }
 
-.panel-action-bar a{
+.panel-action-bar a {
     color: #FFF;
 }
 
-.panel-action-bar a .fa{
+.panel-action-bar a .fa {
     font-size: 1.5em;
     margin-left: 8px;
 }
 
-.panel-action-bar .collapsed .fa-compress:before{
+.panel-action-bar .collapsed .fa-compress:before {
     content: "\f065";
 }
 
-.input-group .form-control{
+.input-group .form-control {
     -webkit-appearance: none;
 }
 
@@ -124,10 +126,27 @@ main {
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.26);
 }
 
+.btn-default {
+    color: #337AB7;
+    border-color: #337AB7;
+}
+
+.btn-default:hover {
+    color: #226AA7;
+    border-color: #226AA7;
+}
+
+.btn.disabled {
+    color: #CCC;
+}
+
 .btn-group .btn:hover {
     box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.26);
 }
 
+.btn-group .btn.disabled:hover{
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.26);
+}
 
 .row.list-group-item .form-group {
     margin-bottom: 5px;
@@ -136,7 +155,6 @@ main {
 .postering.list-group {
     margin-bottom: 0;
 }
-
 
 .pur-dropdown select {
     background: none;
@@ -153,7 +171,6 @@ main {
     height: 0;
     padding: 0;
 }
-
 
 .panel-heading,
 .panel,
@@ -181,7 +198,7 @@ main {
 .pagination > li:first-child > span,
 .pagination > li:last-child > a,
 .pagination > li:last-child > span,
-.tooltip div{
+.tooltip div {
     border-radius: 0;
 }
 
@@ -191,6 +208,14 @@ main {
 
 .bilag .alert {
     display: none;
+}
+
+blockquote.bq-info {
+    color: #31708F;
+    border: 1px solid #EEE;
+    border-left:5px solid #337AB7;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
 }
 
 footer {
@@ -211,42 +236,52 @@ footer {
 }
 
 @media (max-width: 767px) {
-    #submenu{
+    #submenu {
         display: block !important;
-        visibility: visible!important;
+        visibility: visible !important;
         position: absolute;
         top: -1px;
     }
+
     #navbar-submenu .navbar-nav {
         float: left;
         margin: 0;
     }
+
     #navbar-submenu .collapse:before,
     #navbar-submenu .nav:before {
         content: none;
     }
+
     #navbar-submenu li, #navbar-submenu li a {
         display: inline-block;
     }
-    #navbar-submenu li a{
+
+    #navbar-submenu li a {
         padding-top: 15px;
         padding-bottom: 15px;
     }
+
     #navbar-submenu .navbar-toggle {
         display: none;
     }
+
     .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
         color: #EEE;
     }
+
     .dropdown-menu > li > a {
         font-weight: 300;
     }
-    .navbar-nav .open .dropdown-menu{
+
+    .navbar-nav .open .dropdown-menu {
         background-color: rgba(0, 0, 0, 0.05);
     }
-    .open > .dropdown-menu{
+
+    .open > .dropdown-menu {
         margin: 0;
     }
+
     .dropdown-menu > li > a {
         font-size: 1.2em;
         padding: 5px 20px;
@@ -254,7 +289,7 @@ footer {
 }
 
 @media (max-width: 675px) {
-    #navbar-submenu li a{
+    #navbar-submenu li a {
         padding-top: 9px;
         padding-bottom: 9px;
         margin-top: 3px;
@@ -263,8 +298,17 @@ footer {
     }
 }
 
-.no-js #loader { display: none;  }
-.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.no-js #loader {
+    display: none;
+}
+
+.js #loader {
+    display: block;
+    position: absolute;
+    left: 100px;
+    top: 0;
+}
+
 .loading {
     position: fixed;
     left: 0px;
