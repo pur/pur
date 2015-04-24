@@ -30,7 +30,7 @@ class Oppgavesett extends Model
      */
     public function status()
     {
-        return $this->erAapent() ? 'Åpent' : $this->erLukket() ? 'Lukket' : 'Ikke åpnet';
+        return $this->erAapent() ? 'Åpent' : ($this->erLukket() ? 'Lukket' : 'Ikke åpnet');
     }
 
     /**
