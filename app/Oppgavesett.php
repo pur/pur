@@ -23,6 +23,37 @@ class Oppgavesett extends Model
 
 
     /**
+     * Oppgavesettets status, slik studenten skal se den
+     * (Ikke åpnet / Åpent / Lukket)
+     *
+     * @return string
+     */
+    public function status()
+    {
+        return $this->erAapent() ? 'Åpent' : $this->erLukket() ? 'Lukket' : 'Ikke åpnet';
+    }
+
+    /**
+     * Sant hvis oppgavesettet er lukket
+     *
+     * @return bool
+     */
+    public function erLukket()
+    {
+        return Carbon::now() > $this->tidLukket();
+    }
+
+    /**
+     * Sant hvis oppgavesettet er publisert
+     *
+     * @return bool
+     */
+    public function erPublisert()
+    {
+        return Carbon::now() > $this->tidPublisert();
+    }
+
+    /**
      * Oppgavesett som er tilgjengelige for studenter
      *
      * @return mixed
