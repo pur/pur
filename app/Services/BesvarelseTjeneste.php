@@ -111,4 +111,21 @@ class BesvarelseTjeneste
         $belop = Formel::brukFormel($formel, $verdi1, $verdi2, $verdi3);
         return $belop;
     }
+
+    /**
+     * Alle bilag som inngår i oppgitt besvarelse
+     *
+     * @param $besvarelse
+     * @return array
+     */
+    public function besvarelseBilag($besvarelse)
+    {
+        $bilagssamling = array();
+        foreach ($besvarelse->oppgavesvar as $oppgavesvar) {
+            $bilagssekvens = $oppgavesvar->moduloppgavesvar;
+            foreach ($bilagssekvens->bilag as $bilag)
+                $bilagssamling[] = $bilag;
+        }
+        return $bilagssamling;
+    }
 }

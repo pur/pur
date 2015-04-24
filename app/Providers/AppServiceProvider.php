@@ -1,7 +1,7 @@
 <?php namespace Pur\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Pur\Purmoduler\Regnskap\Bilag;
+
 
 class AppServiceProvider extends ServiceProvider {
 
@@ -12,10 +12,7 @@ class AppServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-        // TODO : Implementer ferdig og flytt til egen service provider for regnskapsmodulen:
-		view()->composer('purmoduler.regnskap.besvarelser._rediger', function($view){
-            $view->with('bilagssamling', Bilag::all());
-        });
+        //
 	}
 
 	/**

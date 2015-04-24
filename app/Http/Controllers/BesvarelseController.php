@@ -76,7 +76,11 @@ class BesvarelseController extends Controller
      */
     public function rediger(Besvarelse $besvarelse)
     {
-        return view('besvarelser.rediger', compact('besvarelse'));
+        // TODO : Gjør Purmodul-uavhengig:
+        $besvarelseTjeneste = new BesvarelseTjeneste();
+        $bilagssamling = $besvarelseTjeneste->besvarelseBilag($besvarelse);
+
+        return view('besvarelser.rediger', compact('besvarelse', 'bilagssamling'));
     }
 
     /**
