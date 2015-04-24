@@ -40,7 +40,7 @@ class Oppgavesett extends Model
      */
     public function erLukket()
     {
-        return Carbon::now() > $this->tidLukket();
+        return Carbon::now()->gt($this->tid_lukket);
     }
 
     /**
@@ -50,7 +50,7 @@ class Oppgavesett extends Model
      */
     public function erPublisert()
     {
-        return Carbon::now() > $this->tidPublisert();
+        return Carbon::now()->gt($this->tid_publisert);
     }
 
     /**
@@ -130,7 +130,7 @@ class Oppgavesett extends Model
      */
     public function erAapent()
     {
-        return $this->tid_aapent < Carbon::now() && $this->tid_lukket > Carbon::now();
+        return $this->tid_aapent->lt(Carbon::now()) && $this->tid_lukket->gt(Carbon::now());
     }
 
     /**
