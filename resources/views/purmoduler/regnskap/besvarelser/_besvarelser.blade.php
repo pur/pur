@@ -24,7 +24,7 @@
                 </div>
                 <div class="panel-body">
                 </div>
-                    @include('purmoduler.regnskap.besvarelser._besvarelsePostering')
+               {{--  @include('purmoduler.regnskap.besvarelser._besvarelsePostering') --}}
 
 
             </div>
