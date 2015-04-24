@@ -42,7 +42,7 @@ main {
 }
 
 .navbar-brand {
-    font-family: 'Lato', sans-serif;
+    font-family: 'LatoThin', sans-serif;
     font-size: 23px;
     height: 47px;
 }
@@ -122,29 +122,29 @@ main {
     padding: 8px 0;
 }
 
-.btn-group .btn {
+.actions .btn {
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.26);
 }
 
 .btn-default {
     color: #337AB7;
-    border-color: #337AB7;
+    border-color: #73BAF7;
 }
 
 .btn-default:hover {
-    color: #226AA7;
-    border-color: #226AA7;
+    color: #236AA7;
+    border-color: #438AC7;
 }
 
 .btn.disabled {
     color: #CCC;
 }
 
-.btn-group .btn:hover {
+.actions .btn:hover {
     box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.26);
 }
 
-.btn-group .btn.disabled:hover{
+.actions .btn.disabled:hover{
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.26);
 }
 
@@ -204,6 +204,22 @@ main {
 
 .row.list-group-item {
     margin-top: -1px;
+}
+
+.list-group-item {
+ /*   padding: 0px 15px; */
+}
+
+.list-group-item .row div {
+
+}
+
+.list-group-item .actions{
+    border-left: 1px solid #DDD;
+}
+
+.panel-heading .actions{
+    border-left: 1px solid #135A97;
 }
 
 .bilag .alert {
@@ -317,4 +333,12 @@ footer {
     opacity: .8;
     z-index: 400;
     background: url(http://pur.app/images/loading-animation.gif) center no-repeat #fff;
+}
+
+.panel.collapse .list-group{
+    visibility: hidden;
+}
+
+.panel.collapse.in .list-group {
+    visibility: visible;
 }
