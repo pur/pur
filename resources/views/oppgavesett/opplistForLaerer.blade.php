@@ -32,8 +32,8 @@
                     <div class="col-sm-2">
                         <b>Åpen til:</b>
                     </div>
-                    <div class="col-sm-2">
-
+                    <div class="col-sm-2 actions">
+                        <b>Handlinger:</b>
                     </div>
                 </div>
             </div>
@@ -72,9 +72,9 @@
                         <div class="col-sm-2">
                             <span class="visible-xs-inline">Åpent til: </span>{{ $oppgavesett->tidLukket() }}
                         </div>
-                        <div class="col-sm-2">
+                        <div class="col-sm-2 actions">
 
-                            <div class="btn-group pull-right">
+                            <div class="pull-right">
                                 <!-- <a href="{{ URL::route('oppgavesett.vis', $oppgavesett) }}" class="btn btn-default"
                                    data-toggle="tooltip" data-placement="top" data-container="body"
                                    title="Vis statistikk">

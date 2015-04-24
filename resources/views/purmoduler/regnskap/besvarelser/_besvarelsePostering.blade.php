@@ -1,15 +1,15 @@
 <div class="postering list-group">
-    @foreach($besvarelse->oppgavesvar->bilag->postering as $postering)
-        {!! Form::model($postering, ['route' => ['posteringsmaler.update', $postering->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}--}}
+    @foreach($bilag->elevposteringer as $postering)
+        {!! Form::model($postering, ['route' => ['posteringsmaler.update', $postering->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
         <div class="row list-group-item">
             <div class="col-md-11">
                 <div class="row">
                     <div class="form-group col-md-6">
                         <div class="input-group pur-dropdown">
                             <div class="input-group-addon">Konto:</div>
-                            {{--
-                           {!!Form::select('kontokode', $selectKontoer, $posteringsmal->konto->kontokode, ['class' => 'form-control kontoliste', 'id' => 'kontokode-' . $posteringsmal->id]) !!}
-                           --}}
+{{--
+                           {!!Form::select('kontokode', $selectKontoer, $postering->konto->kontokode, ['class' => 'form-control kontoliste', 'id' => 'kontokode-' . $postering->id]) !!}
+--}}
                             <div class="input-group-addon"><span class="fa fa-caret-down"></span></div>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                {{-- TODO Slett postering i DB --}}
             </div>
         </div>
-    {{ Form::close() }}
+    {!! Form::close() !!}
     @endforeach
 
     <div class="list-group-item list-group-item-info ">

@@ -16,6 +16,9 @@
             <div class="col-sm-2">
                 <b>Levert:</b>
             </div>
+            <div class="col-sm-2 actions">
+                <b>Handlinger:</b>
+            </div>
         </div>
     </div>
     @foreach($besvarelser as $besvarelse)
@@ -30,7 +33,7 @@
                              aria-valuenow="{{ $besvarelse->prosentPaabegynt() }}"
                              aria-valuemin="0" aria-valuemax="{{ $besvarelse->antKrevdeSvar() }}"
                              style="{{ "width: " . $besvarelse->prosentPaabegynt() . "%" }}; @if($besvarelse->prosentPaabegynt() > 0)min-width: 2em;@endif">
-                            {{ $besvarelse->prosentPaabegynt() }}% }}
+                            {{ $besvarelse->prosentPaabegynt() }}%
                         </div>
                     </div>
                 </div>
@@ -43,8 +46,8 @@
                 <div class="col-sm-2">
                     <span class="visible-xs-inline">Levert: </span>{{ $besvarelse->tidLevert() }}
                 </div>
-                <div class="col-sm-2">
-                    <div class="btn-group pull-right">
+                <div class="col-sm-2 actions">
+                    <div class="pull-right">
                         <a href="{{ URL::route('besvarelser.vis', $besvarelse) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Vis besvarelse">
                             <span class="fa fa-eye"></span>
                         </a>

@@ -1,3 +1,4 @@
+@if($oppgaver->count() > 0)
 <div class="list-group panel panel-primary" role="tablist" aria-multiselectable="true">
     <div class="panel-heading">
         <div class=" row">
@@ -20,8 +21,8 @@
             <div class="col-sm-2">
                 <b>Sist endret:</b>
             </div>
-            <div class="col-sm-1">
-
+            <div class="col-sm-2 actions">
+                <b>Handlinger:</b>
             </div>
         </div>
     </div>
@@ -53,8 +54,8 @@
                     <span class="visible-xs-inline">Sist endret: </span>
                     {{ $oppgave->tidEndret() }}
                 </div>
-                <div class="col-sm-2">
-                    <div class="btn-group pull-right">
+                <div class="col-sm-2 actions">
+                    <div class="pull-right">
                        <!-- <a href="{{ URL::route('bilagsmalsekvenser.show', $oppgave) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Vis oppgavesett">
                             <span class="fa fa-eye"></span> -->
                         </a>
@@ -71,7 +72,7 @@
         <div class="list-group-item list-group-item-info ">
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="btn-group pull-right">
+                    <div class="pull-right">
                         <a class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Legg til ny sekvens">
                             <span class="fa fa-plus"></span>
                         </a>
@@ -84,3 +85,4 @@
         </div>
     @endif
 </div>
+@endif

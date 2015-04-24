@@ -14,20 +14,74 @@
 
         <div class="row">
             <div class="col-md-12">
-                <p class="lead">Felter som skal vises:</p>
+                <p class="lead">Oppgavevariabler:</p>
+                <blockquote class="bq-info">
+                    <p>Velg hvilke variabler som skal vises i oppgavetekst.</p>
+                </blockquote>
 
-                <div class="checkbox-inline">
-                    {!! Form::checkbox('false', 'motpartEksempel' . $bilagsmal->id) !!} Motpart:
-                    <span class="motpartEksempel">{{$bilagsmalsekvens->motpart}}</span>
-                </div>
-                @foreach($bilagsmalsekvens->variabler as $variabel)
-                    <div class="checkbox-inline">
-                        {!! Form::checkbox('false', $variabel->tegn_i_formel . 'Eksempel' . $bilagsmal->id) !!}
-                        {{$variabel->tegn_i_formel}}:
-                        <span class="{{$variabel->tegn_i_formel}}NavnEksempel">{{$variabel->navn}}:</span>
-                        <span class="{{$variabel->tegn_i_formel}}Eksempel">{{($variabel->verdi_min +$variabel->verdi_min)/2}}</span>
+                <div class="list-group">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="row">
+                                    <div class="col-sm-1">
+
+                                    </div>
+                                    <div class="col-sm-11">
+                                        <b>Variabel:</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <b>Navn:</b>
+                            </div>
+                            <div class="col-sm-4">
+                                <b>Verdi</b>
+                            </div>
+
+                        </div>
                     </div>
-                @endforeach
+                    <div class="row list-group-item">
+                        <div class="col-sm-4">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    {!! Form::checkbox('false', 'motpartEksempel' . $bilagsmal->id) !!}
+                                </div>
+                                <div class="col-sm-11">
+                                    <span class="visible-xs-inline">Variabel: </span>  Motpart
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="visible-xs-inline">Navn: </span> Motpart
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="visible-xs-inline">Verdi: </span>  <span class="motpartEksempel">{{$bilagsmalsekvens->motpart}}</span>
+                        </div>
+
+                    </div>
+                    @foreach($bilagsmalsekvens->variabler as $variabel)
+                        <div class="row list-group-item">
+                            <div class="col-sm-4">
+                                <div class="row">
+                                    <div class="col-sm-1">
+                                        {!! Form::checkbox('false', $variabel->tegn_i_formel . 'Eksempel' . $bilagsmal->id) !!}
+                                    </div>
+                                    <div class="col-sm-11">
+                                        <span class="visible-xs-inline">Variabel: </span>  Variabel {{$variabel->tegn_i_formel}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <span class="visible-xs-inline">Navn: </span>  <span class="{{$variabel->tegn_i_formel}}NavnEksempel">{{$variabel->navn}}</span>
+                            </div>
+                            <div class="col-sm-4">
+                                <span class="visible-xs-inline">Verdi: </span>  <span class="{{$variabel->tegn_i_formel}}Eksempel">{{($variabel->verdi_min +$variabel->verdi_min)/2}}</span>
+                            </div>
+                        </div>
+
+                    @endforeach
+                </div>
             </div>
         </div>
         <hr>
@@ -79,16 +133,16 @@
             </div>
             {!! Form::close() !!}
         @endforeach
-            <div class="list-group-item list-group-item-info ">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="btn-group pull-right">
-                            <a class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Legg til postering">
-                                <span class="fa fa-plus"></span>
-                            </a>
-                        </div>
+        <div class="list-group-item list-group-item-info ">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="btn-group pull-right">
+                        <a class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Legg til postering">
+                            <span class="fa fa-plus"></span>
+                        </a>
                     </div>
                 </div>
             </div>
+        </div>
     </div>
 </div>

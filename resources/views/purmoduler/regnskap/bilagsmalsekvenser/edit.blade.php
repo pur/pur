@@ -12,8 +12,6 @@
                         <p>Laget av: {{ $bilagsmalsekvens->skaper->fulltNavn() . ', ' . $bilagsmalsekvens->tidOpprettet() }}</p>
 
                         <p>Sist endret: {{ $bilagsmalsekvens->tidEndret() }}</p>
-
-                        <p>Sekvenstype: {{ $bilagsmalsekvens->sekvenstype }}</p>
                     </div>
                 </div>
                 <div class="row">
@@ -38,10 +36,15 @@
         <hr/>
 
         <h2>Variabler</h2>
-        <p class="lead">Variabler som skal brukes i bilagssekvens</p>
+
+        <blockquote class="bq-info">
+            <p>Legg til variabler som skal brukes i bilagssekvens.</p>
+
+            <p>Elevoppgavene får tilfeldige variabelverdier mellom minimumsverdi og maksimumsverdi.</p>
+        </blockquote>
         @foreach($bilagsmalsekvens->variabler as $variabel)
             <div class="row">
-                <div class="col-sm-2">
+                <div class="form-group col-sm-2">
                     <div class="input-group pur-dropdown">
                         <div class="input-group-addon">Variabel</div>
                         {!! Form::select('tegn_i_formel', ['a'=>'a','b'=>'b','c'=>'c','x'=>'x','y'=>'y','z'=>'z'], $variabel->tegn_i_formel, ['class' => 'form-control', 'id' => $variabel->tegn_i_formel . 'Tegn']) !!}
@@ -50,13 +53,13 @@
                 </div>
                 <div class="form-group col-sm-3">
                     <div class="input-group">
-                        <div class="input-group-addon">Verdi min.</div>
+                        <div class="input-group-addon">Minimumsverdi</div>
                         {!! Form::input('number', $variabel->tegn_i_formel . 'Min', $variabel->verdi_min, ['class' => 'form-control variabel', 'id' => $variabel->tegn_i_formel . 'Min']) !!}
                     </div>
                 </div>
                 <div class="form-group col-sm-3">
                     <div class="input-group">
-                        <div class="input-group-addon">Verdi maks.</div>
+                        <div class="input-group-addon">Maksimumsverdi</div>
                         {!! Form::input('number', $variabel->tegn_i_formel . 'Maks', $variabel->verdi_maks, ['class' => 'form-control variabel', 'id' => $variabel->tegn_i_formel . 'Maks']) !!}
                     </div>
                 </div>
@@ -72,8 +75,13 @@
         <hr/>
 
         <h2>Bilag</h2>
-        <p class="lead">Bilag som skal vises i bilagssekvens</p>
-    @foreach($bilagsmalsekvens->bilagsmaler as $bilagsmal)
+
+        <p class="lead"></p>
+        <blockquote class="bq-info">
+            <p>Legg til bilag som skal vises i bilagssekvens.</p>
+            <p>Klikk på vis bilag fanen for å se resultat av utregning.</p>
+        </blockquote>
+        @foreach($bilagsmalsekvens->bilagsmaler as $bilagsmal)
 
             <div class="panel panel-primary">
                 <div class="panel-heading">
@@ -87,12 +95,18 @@
 
                 <div id="bilag{{ $bilagsmal->id }}" class="bilag panel-collapse collapse in">
                     <div class="alert alert-danger alert-dismissible fade in" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        <h4 id="oh-snap!-you-got-an-error!">Slett bilag<a class="anchorjs-link" href="#oh-snap!-you-got-an-error!"><span class="anchorjs-icon"></span></a></h4>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span></button>
+                        <h4 id="oh-snap!-you-got-an-error!">Slett bilag<a class="anchorjs-link" href="#oh-snap!-you-got-an-error!"><span class="anchorjs-icon"></span></a>
+                        </h4>
+
                         <p>Er du sikker på at du vil slette {{ $bilagsmal->tittel() }}?</p>
+
                         <p>
-                            <button type="button" class="btn btn-danger bekreft-slett-bilag"><span class="fa fa-trash"></span> Slett</button>
-                            <button type="button" data-dismiss="alert"  class="btn btn-default">Avbryt</button>
+                            <button type="button" class="btn btn-danger bekreft-slett-bilag">
+                                <span class="fa fa-trash"></span> Slett
+                            </button>
+                            <button type="button" data-dismiss="alert" class="btn btn-default">Avbryt</button>
                         </p>
                     </div>
                     <div role="tabpanel">
@@ -134,7 +148,7 @@
     </script>
 
 
-<script src="/js/bilagsmalsekvens.js"></script>
+    <script src="/js/bilagsmalsekvens.js"></script>
 
 
     <script src="/js/ajaxformsubmit.js"></script>
