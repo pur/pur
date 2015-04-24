@@ -2,13 +2,16 @@
 <head>
     <title>Pur</title>
     <meta charset="utf-8">
+
+    <!-- Fonts -->
+    <link href="{{ env('APPWEBPATH') }}/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ env('APPWEBPATH') }}/css/lato.css" rel="stylesheet">
+
     <link href="{{ env('APPWEBPATH') }}/css/bootstrap-datetime.css" rel="stylesheet">
     <link href="{{ env('APPWEBPATH') }}/css/app.css" rel="stylesheet">
     <link href="{{ env('APPWEBPATH') }}/css/pur.css" rel="stylesheet">
 
-    <!-- Fonts -->
-    <link href="{{ env('APPWEBPATH') }}/css/font-awesome.min.css" rel="stylesheet">
-    <link href='{{ env('APPWEBPATH') }}/css/lato.css' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
 <div class="loading"></div>
