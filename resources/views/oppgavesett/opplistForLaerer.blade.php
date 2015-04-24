@@ -17,14 +17,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-2">
-                        <b>Opprettet:</b>
-                    </div>
                     <div class="col-sm-1">
                         <b>Påbegynte:</b>
                     </div>
                     <div class="col-sm-1">
                         <b>Status:</b>
+                    </div>
+                    <div class="col-sm-2">
+                        <b>Publiseringstid:</b>
                     </div>
                     <div class="col-sm-2">
                         <b>Åpen fra:</b>
@@ -51,15 +51,21 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-2">
-                            <span class="visible-xs-inline">Opprettet: </span>{{ $oppgavesett->tidOpprettet() }}
-                        </div>
                         <div class="col-sm-1">
                             <span class="visible-xs-inline">Påbegynte: </span>{{$oppgavesett->besvarelser->count()}}
                         </div>
                         <div class="col-sm-1">
-                            <span class="visible-xs-inline">Status: </span>Åpen
+                            <span class="visible-xs-inline">Status: </span>
+                            {{$oppgavesett->status()}}
+
                         </div>
+                        <div class="col-sm-2">
+                            <span class="visible-xs-inline">Publiseringstid: </span>{{ $oppgavesett->tidPublisert() }}
+                            @if($oppgavesett->erPublisert())
+                                (Publisert)
+                            @endif
+                        </div>
+
                         <div class="col-sm-2">
                             <span class="visible-xs-inline">Åpent fra: </span>{{ $oppgavesett->tidAapent() }}
                         </div>
@@ -69,22 +75,21 @@
                         <div class="col-sm-2">
 
                             <div class="btn-group pull-right">
-                                <a href="{{ URL::route('oppgavesett.vis', $oppgavesett) }}" class="btn btn-default"
+                                <!-- <a href="{{ URL::route('oppgavesett.vis', $oppgavesett) }}" class="btn btn-default"
                                    data-toggle="tooltip" data-placement="top" data-container="body"
                                    title="Vis statistikk">
                                     <span class="fa fa-bar-chart"></span>
+                                </a> -->
+                                <a href="{{ URL::route('oppgavesett.vis', $oppgavesett) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Vis oppgavesett">
+                                    <span class="fa fa-eye"></span>
                                 </a>
-                                <!--TODO lag metoden 'kanEndres()' for oppgavesett-->
-                                @if(!1 == 0)
-                                    <a class="btn btn-default disabled" data-toggle="tooltip" data-placement="top"
-                                       data-container="body" title="Kan ikke endres. Oppgavesettet er publisert">
+                                @if($oppgavesett->erPublisert())
+                                    <a class="btn btn-default disabled" data-toggle="tooltip" data-placement="top" data-container="body" title="Kan ikke endres. Oppgavesettet er publisert">
                                         <span class="fa fa-edit"></span>
                                     </a>
-                                @endif
-                                @if(1 == 0)
+                                @else
                                     <a href="{{ URL::route('oppgavesett.rediger', $oppgavesett) }}"
-                                       class="btn btn-default" data-toggle="tooltip" data-placement="top"
-                                       data-container="body" title="Rediger oppgavesett">
+                                       class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Rediger oppgavesett">
                                         <span class="fa fa-edit"></span>
                                     </a>
                                 @endif
