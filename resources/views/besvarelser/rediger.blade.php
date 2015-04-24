@@ -15,7 +15,7 @@
             {!! Form::input('text', 'kommentar',  $besvarelse->kommentar, ['class' => 'form-control variabel', 'id' => 'kommentar']) !!}
         </div>
 
-        @include('purmoduler.regnskap.besvarelser._besvarelser')
+        @include('purmoduler.regnskap.besvarelser._rediger')
 
         <hr/>
         <div class="row">

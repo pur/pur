@@ -32,3 +32,8 @@
     </div>
 
 </div>
+
+<!-- Test av view-composer-data: -->
+@foreach($bilagssamling as $bilag)
+    {{ $bilag->id }} |
+@endforeach
