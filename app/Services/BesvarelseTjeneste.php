@@ -67,10 +67,26 @@ class BesvarelseTjeneste
     {
         $bilag = new Bilag();
         $bilag->bilagssekvens()->associate($bilagssekvens);
+        $bilag->nr_i_besvarelse = $this->giNummerIBesvarelse();
         $bilag->save();
 
         foreach ($bilagsmal->posteringsmaler as $posteringsmal)
             $this->opprettPosteringFraMal($posteringsmal, $bilag);
+    }
+
+    public function giNummerIBesvarelse()
+    {
+        // TODO: implementer
+        //
+        // Mulig framgangsmåte:
+        //
+        // Finn antall bilag i en besvarelse
+        // Lag en collection med alle tall mellom 0 og antallet av bilag
+        // Shuffle tall-collectionen
+        // Løp systematisk gjennom alle bilagene og gi hvert av dem det neste tallet i collectionen
+        // Sørg for at bilagene beholder opprinnelig rekkefølge i sin bilagssekvens...
+
+        return 1;
     }
 
     private function opprettPosteringFraMal($posteringsmal, $bilag)

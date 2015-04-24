@@ -2,9 +2,6 @@
 
 use Pur\Bruker;
 use Pur\Oppgavesett;
-use Pur\Oppgavesvar;
-use Pur\Purmoduler\Regnskap\Bilagsmal;
-use Pur\Purmoduler\Regnskap\Posteringsmal;
 use Pur\Services\BesvarelseTjeneste;
 
 class BesvarelseTjenesteTest extends TestCase
@@ -23,8 +20,16 @@ class BesvarelseTjenesteTest extends TestCase
 
         // Test om rett antall oppgavesvar er blitt generert:
         $antallOppgavesvar = $nyBesvarelse->oppgavesvar->count();
-        $antallOppgaver = $this->oppgavesett->oppgaver->count();
+        $antallOppgaver = $oppgavesett->oppgaver->count();
         $feilmld = 'Feil antall oppgavesvar i forhold til oppgaver';
         $this->assertEquals($antallOppgaver, $antallOppgavesvar, $feilmld);
+    }
+
+    public function testGiNrIBesvarelse()
+    {
+        $besvarelseTjeneste = new BesvarelseTjeneste();
+        $nr = $besvarelseTjeneste->giNummerIBesvarelse();
+        $feilmld = 'Gitt nummer kan ikke brukes';
+        $this->assertEquals(1, $nr, $feilmld);
     }
 }
