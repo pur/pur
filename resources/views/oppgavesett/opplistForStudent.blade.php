@@ -13,9 +13,6 @@
                         <b>Beskrivelse:</b>
                     </div>
                     <div class="col-sm-2">
-                        <b>Opprettet:</b>
-                    </div>
-                    <div class="col-sm-2">
                         <b>Status:</b>
                     </div>
                     <div class="col-sm-2">
@@ -23,6 +20,9 @@
                     </div>
                     <div class="col-sm-2">
                         <b>Åpen til:</b>
+                    </div>
+                    <div class="col-sm-2">
+
                     </div>
                     <div class="col-sm-2 actions">
                         <b>Handlinger:</b>
@@ -40,9 +40,6 @@
                             <span class="visible-xs-inline">Beskrivelse: </span>{{ $oppgavesett->beskrivelse }}
                         </div>
                         <div class="col-sm-2">
-                            <span class="visible-xs-inline">Opprettet: </span>{{ $oppgavesett->tidOpprettet() }}
-                        </div>
-                        <div class="col-sm-2">
                             <span class="visible-xs-inline">Status: </span>{{$oppgavesett->status()}}
                         </div>
                         <div class="col-sm-2">
@@ -50,6 +47,8 @@
                         </div>
                         <div class="col-sm-2">
                             <span class="visible-xs-inline">Åpen til: </span>{{ $oppgavesett->tidLukket() }}
+                        </div>
+                        <div class="col-sm-2">
                         </div>
 
                         <div class="col-sm-2 actions">

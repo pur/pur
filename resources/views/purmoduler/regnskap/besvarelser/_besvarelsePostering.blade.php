@@ -7,6 +7,8 @@
                     <div class="form-group col-md-6">
                         <div class="input-group pur-dropdown">
                             <div class="input-group-addon">Konto:</div>
+                            {{$postering->kontokode}}
+                            {{$postering->belop}}
 {{--
                            {!!Form::select('kontokode', $selectKontoer, $postering->konto->kontokode, ['class' => 'form-control kontoliste', 'id' => 'kontokode-' . $postering->id]) !!}
 --}}
@@ -16,9 +18,8 @@
                     <div class="form-group col-md-6">
                         <div class="input-group pur-dropdown">
                             <div class="input-group-addon">Beløp =</div>
-                            {{--
-                           {!! Form::select('formel', $selectFormler, $posteringsmal->formel, ['id' => 'formel-' . $posteringsmal->id, 'class' => 'form-control formelliste']) !!}
-                            --}}
+
+                           {!! Form::input('text',  $postering->belop, $postering->belop,['id' => 'formel-' . $postering->id, 'class' => 'form-control formelliste']) !!}
                            <div class="input-group-addon">
                                <span class="fa fa-caret-down"></span>
                            </div>

@@ -2,7 +2,7 @@
     <div class="panel-heading hidden-xs">
         <div class="row">
             <div class="col-sm-2">
-                <b>Oppgavesett:</b>
+                <b>Beskrivelse:</b>
             </div>
             <div class="col-sm-2">
                 <b>Påbegynte svar:</b>
@@ -11,7 +11,7 @@
                 <b>Påbegynt:</b>
             </div>
             <div class="col-sm-2">
-                <b>Frist:</b>
+                <b>Åpen til:</b>
             </div>
             <div class="col-sm-2">
                 <b>Levert:</b>
@@ -41,7 +41,7 @@
                     <span class="visible-xs-inline">Påbegynt: </span>{{ $besvarelse->oppgavesett->tidOpprettet() }}
                 </div>
                 <div class="col-sm-2">
-                    <span class="visible-xs-inline">Frist: </span>{{ $besvarelse->oppgavesett->tidLukket() }}
+                    <span class="visible-xs-inline">Åpen til: </span>{{ $besvarelse->oppgavesett->tidLukket() }}
                 </div>
                 <div class="col-sm-2">
                     <span class="visible-xs-inline">Levert: </span>{{ $besvarelse->tidLevert() }}
@@ -52,18 +52,17 @@
                             <span class="fa fa-eye"></span>
                         </a>
                         @if(!$besvarelse->kanEndres())
-                             @if($besvarelse->erLevert())
+                            @if($besvarelse->erLevert())
                                 <a class="btn btn-default disabled " data-toggle="tooltip" data-placement="top" data-container="body" title="Kan ikke endres. Besvarelse levert">
                                     <span class="fa fa-edit"></span>
                                 </a>
                             @else
-                                <a class="btn btn-default disabled " data-toggle="tooltip" data-placement="top" data-container="body" title="Kan ikke endres. Frist utløpt">
-                                    <span class="fa fa-edit"></span>
-                                </a>
+                            <a class="btn btn-default disabled " data-toggle="tooltip" data-placement="top" data-container="body" title="Kan ikke endres. Frist utløpt">
+                                <span class="fa fa-edit"></span>
+                            </a>
                             @endif
-                        @endif
-                        @if($besvarelse->kanEndres())
-                            <a href="{{-- URL::route('besvarelse.edit', $besvarelse) --}}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Fortsett oppgave">
+                        @else
+                            <a href="{{ URL::route('besvarelser.rediger', $besvarelse) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Fortsett oppgave">
                                 <span class="fa fa-edit"></span>
                             </a>
                         @endif

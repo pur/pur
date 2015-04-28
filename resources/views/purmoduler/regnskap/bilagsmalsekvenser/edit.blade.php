@@ -9,8 +9,6 @@
             <div class="col-sm-12">
                 <div class="row">
                     <div class="form-group col-sm-8">
-                        <p>Laget av: {{ $bilagsmalsekvens->skaper->fulltNavn() . ', ' . $bilagsmalsekvens->tidOpprettet() }}</p>
-
                         <p>Sist endret: {{ $bilagsmalsekvens->tidEndret() }}</p>
                     </div>
                 </div>
