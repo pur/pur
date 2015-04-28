@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Pur\Besvarelse;
 use Pur\Http\Requests;
 use Pur\Oppgavesett;
+use Pur\Purmoduler\Regnskap\Konto;
 use Pur\Services\BesvarelseTjeneste;
 
 class BesvarelseController extends Controller
@@ -51,7 +52,7 @@ class BesvarelseController extends Controller
         $besvarelseTjeneste = new BesvarelseTjeneste();
         $besvarelse = $besvarelseTjeneste->opprett($this->bruker, $oppgavesett);
 
-        return redirect()->route('besvarelser.vis', $besvarelse);
+        return redirect()->route('besvarelser.rediger', $besvarelse);
     }
 
     /**
@@ -79,8 +80,9 @@ class BesvarelseController extends Controller
         // TODO : Gjør Purmodul-uavhengig:
         $besvarelseTjeneste = new BesvarelseTjeneste();
         $bilagssamling = $besvarelseTjeneste->besvarelseBilag($besvarelse);
+        $selectKontoer = Konto::alleSomKodeNavnTabell();
 
-        return view('besvarelser.rediger', compact('besvarelse', 'bilagssamling'));
+        return view('besvarelser.rediger', compact('besvarelse', 'bilagssamling', 'selectKontoer'));
     }
 
     /**
