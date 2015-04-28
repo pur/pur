@@ -2,7 +2,7 @@
     <div class="panel-heading hidden-xs">
         <div class="row">
             <div class="col-sm-2">
-                <b>Beskrivelse:</b>
+                <b>Navn:</b>
             </div>
             <div class="col-sm-2">
                 <b>Påbegynte svar:</b>
@@ -25,7 +25,7 @@
         <div class="list-group-item">
             <div class="row">
                 <div class="col-sm-2">
-                    <span class="visible-xs-inline">Beskrivelse: </span>{{ $besvarelse->oppgavesett->beskrivelse }}
+                    <span class="visible-xs-inline">Navn: </span>{{ $besvarelse->oppgavesett->beskrivelse }}
                 </div>
                 <div class="col-sm-2">
                     <div class="progress">

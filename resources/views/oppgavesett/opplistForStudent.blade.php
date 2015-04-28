@@ -10,7 +10,7 @@
             <div class="panel-heading hidden-xs">
                 <div class="row">
                     <div class="col-sm-2">
-                        <b>Beskrivelse:</b>
+                        <b>Navn:</b>
                     </div>
                     <div class="col-sm-2">
                         <b>Status:</b>
@@ -37,7 +37,7 @@
                 <div class="list-group-item">
                     <div class="row">
                         <div class="col-sm-2">
-                            <span class="visible-xs-inline">Beskrivelse: </span>{{ $oppgavesett->beskrivelse }}
+                            <span class="visible-xs-inline">Navn: </span>{{ $oppgavesett->beskrivelse }}
                         </div>
                         <div class="col-sm-2">
                             <span class="visible-xs-inline">Status: </span>{{$oppgavesett->status()}}

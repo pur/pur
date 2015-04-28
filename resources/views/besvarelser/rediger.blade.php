@@ -3,7 +3,7 @@
     @include('purmoduler.regnskap.besvarelser._editSubmenu')
 
     <div class="container">
-        <h1>Besvarelse på '{{ $besvarelse->oppgavesett->beskrivelse }}'</h1>
+        <h1>Besvarelse på {{ $besvarelse->oppgavesett->beskrivelse }}</h1>
 
         <p>Av: {{ $besvarelse->skaper->fulltnavn() }}</p>
 
