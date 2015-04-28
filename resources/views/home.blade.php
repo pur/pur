@@ -5,7 +5,7 @@
 
         <h1>Velkommen {{ Auth::user()->fulltNavn() }}!</h1>
 
-        <p class="lead">Velg fagmodul:</p>
+        <p class="lead">Velg modul:</p>
 
 
         <div class="row">

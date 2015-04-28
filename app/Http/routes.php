@@ -30,7 +30,7 @@ Route::controllers([
 $router->pattern('rolle', 'student');
 
 Route::get('/regnskap', function () {
-    return view('purmoduler.regnskap.opplistForLaerer');
+    return view('purmoduler.regnskap.modulstartside');
 });
 // Brukere
 

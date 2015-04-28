@@ -32,7 +32,7 @@
 
                 <ul class="dropdown-menu" role="menu">
                     <li>
-                        <a href="{{ URL::route('oppgaver.vis', null) }}">
+                        <a href="{{ URL::route('oppgaver.opplist') }}">
                             <span class="fa fa-list"></span> Alle Pur-moduler
                         </a>
                     </li>
@@ -101,16 +101,17 @@
 
 <footer class="footer">
     <div class="container">
-        <p class="text-center text-muted">pur Regnskap</p>
+        <p class="text-center text-muted"></p>
 
-        <p class="text-center text-muted">Laget av
+        <p class="text-center text-muted">Pur er laget av
             <a href="http://syntax-error.no/">SyntaxError</a> for Høgskolen i Telemark</p>
 
-        <p class="text-center text-muted">Kode lisensiert under
-            <a href="https://github.com/HiT-SyntaxError/pur/blob/master/LICENSE">GNU General Public License</a></p>
+        <p class="text-center text-muted">som fri programvare lisensiert under
+            <a href="https://github.com/HiT-SyntaxError/pur/blob/master/LICENSE" target="_blank">GNU General Public License</a></p>
         </p>
     </div>
 </footer>
+
 <script src="{{ env('APPWEBPATH') }}/js/jquery-1.11.2.min.js"></script>
 <script src="{{ env('APPWEBPATH') }}/js/bootstrap.min.js"></script>
 <script src="{{ env('APPWEBPATH') }}/js/moment-with-locales.js"></script>
