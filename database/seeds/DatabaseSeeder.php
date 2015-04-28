@@ -232,7 +232,6 @@ class OppgavesvarTableSeeder extends Seeder
         DB::table('oppgavesvar')->delete();
 
         Oppgavesvar::create([
-            'kommentar' => 'Jeg gjorde så godt jeg kunne',
             'moduloppgavesvar_type' => 'Pur\Purmoduler\Regnskap\Bilagssekvens',
             'moduloppgavesvar_id' => 1,
             'oppgave_id' => 1,
@@ -240,7 +239,6 @@ class OppgavesvarTableSeeder extends Seeder
         ]);
 
         Oppgavesvar::create([
-            'kommentar' => 'Jeg ble ikke helt ferdig',
             'moduloppgavesvar_type' => 'Pur\Purmoduler\Regnskap\Bilagssekvens',
             'moduloppgavesvar_id' => 2,
             'oppgave_id' => 1,
@@ -248,7 +246,6 @@ class OppgavesvarTableSeeder extends Seeder
         ]);
 
         Oppgavesvar::create([
-            'kommentar' => 'Belkagrel ale skrevifilene!',
             'moduloppgavesvar_type' => 'Pur\Purmoduler\Regnskap\Bilagssekvens',
             'moduloppgavesvar_id' => 3,
             'oppgave_id' => 1,

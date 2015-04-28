@@ -17,7 +17,6 @@ class CreateOppgavesvarTable extends Migration {
 			$table->increments('id');
 			$table->timestamp('tid_opprettet');
 			$table->timestamp('tid_endret');
-			$table->text('kommentar');
 			$table->string('moduloppgavesvar_type');
 			$table->integer('moduloppgavesvar_id');
 			$table->integer('oppgave_id')->unsigned();
