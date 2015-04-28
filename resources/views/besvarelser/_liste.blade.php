@@ -62,7 +62,7 @@
                             </a>
                             @endif
                         @else
-                            <a href="{{ URL::route('besvarelser.rediger', $besvarelse) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Fortsett oppgave">
+                            <a href="{{ URL::route('besvarelser.rediger', $besvarelse) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Rediger oppgave">
                                 <span class="fa fa-edit"></span>
                             </a>
                         @endif

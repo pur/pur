@@ -23,6 +23,7 @@
                     </div>
                 </div>
                 <div class="panel-body">
+                    <p>Oppgavetekst</p>
                 </div>
                  @include('purmoduler.regnskap.besvarelser._besvarelsePostering')
 

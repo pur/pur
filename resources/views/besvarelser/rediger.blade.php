@@ -9,7 +9,6 @@
 
         <p>Opprettet: {{$besvarelse->tidOpprettet()}}</p>
 
-
         <div class="input-group">
             <div class="input-group-addon"><span class="fa fa-comment"></span> Kommentar</div>
             {!! Form::input('text', 'kommentar',  $besvarelse->kommentar, ['class' => 'form-control variabel', 'id' => 'kommentar']) !!}
