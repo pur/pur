@@ -47,7 +47,7 @@ class Besvarelse extends Model
      */
     public function erLevert()
     {
-        return $this->tidLevert() != null && Carbon::now() > $this->tidLevert();
+        return !starts_with($this->tid_levert, '-') && $this->tid_levert->isPast();
     }
 
     /**
@@ -57,8 +57,7 @@ class Besvarelse extends Model
      */
     public function tidLevert()
     {
-        return (starts_with($this->tid_levert, '-')) ? null :
-            $this->tid_levert->format('d.m.y H:i');
+        return $this->erLevert() ? $this->tid_levert->format('d.m.y H:i') : null;
     }
 
     /**
