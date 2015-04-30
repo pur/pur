@@ -13,23 +13,45 @@
     <div class="tab-content">
 
         @foreach($bilagssamling as $bilag)
-            <div id="bilag{{ $bilag->id }}" class="tab-pane panel-collapse in panel panel-primary @if($bilag->id == 1) active @endif" role="tabpanel">
+            <div id="bilag{{ $bilag->id }}" class="tab-pane panel panel-primary @if($bilag->id == 1) active @endif" role="tabpanel">
                 <div class="panel-heading">
-                    <h3 id="bilagstittel{{ $bilag->id }}HeadingVis" class="panel-title">Bilag {{ $bilag->id }}</h3>
-
-                    <div class="panel-action-bar pull-right">
-                        <a data-toggle="collapse" href="#bilag{{ $bilag->id }}"><span class="fa fa-compress"></span></a>
-                        <a><span class="fa fa-close slett-bilag"></span></a>
-                    </div>
+                    <h3 id="bilagstittel{{ $bilag->id }}HeadingVis" class="panel-title">Bilag {{ $bilag->id }} - {{ $bilag->bilagsmal->bilagstype}}</h3>
                 </div>
                 <div class="panel-body">
-                    <p>Oppgavetekst</p>
+                    {{ $bilag->bilagsmal->infotekst}}
                 </div>
-                 @include('purmoduler.regnskap.besvarelser._besvarelsePostering')
+                @include('purmoduler.regnskap.besvarelser._besvarelsePostering')
 
 
             </div>
         @endforeach
+        <div class="postering list-group">
+            <div class="list-group-item ">
+                <div class="row">
+                    <div class="col-sm-11">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <p>
+
+                                </p>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon"> Kontrollsum:</div>
+
+                                    <input class="form-control" readonly value="234.54,-">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-1">
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>

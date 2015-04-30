@@ -52,13 +52,13 @@
                 <div class="form-group col-sm-3">
                     <div class="input-group">
                         <div class="input-group-addon">Minimumsverdi</div>
-                        {!! Form::input('number', $variabel->tegn_i_formel . 'Min', $variabel->verdi_min, ['class' => 'form-control variabel', 'id' => $variabel->tegn_i_formel . 'Min']) !!}
+                        {!! Form::input('number', $variabel->tegn_i_formel . 'Min', $variabel->verdi_min, ['min'=>'0', 'class' => 'form-control variabel', 'id' => $variabel->tegn_i_formel . 'Min']) !!}
                     </div>
                 </div>
                 <div class="form-group col-sm-3">
                     <div class="input-group">
                         <div class="input-group-addon">Maksimumsverdi</div>
-                        {!! Form::input('number', $variabel->tegn_i_formel . 'Maks', $variabel->verdi_maks, ['class' => 'form-control variabel', 'id' => $variabel->tegn_i_formel . 'Maks']) !!}
+                        {!! Form::input('number', $variabel->tegn_i_formel . 'Maks', $variabel->verdi_maks, ['min'=>'0', 'class' => 'form-control variabel', 'id' => $variabel->tegn_i_formel . 'Maks']) !!}
                     </div>
                 </div>
                 <div class="form-group col-sm-4">
