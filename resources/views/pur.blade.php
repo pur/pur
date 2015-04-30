@@ -14,7 +14,7 @@
 
 </head>
 <body>
-<div class="loading"></div>
+<div class="loading" style="background: url({{ env('APPWEBPATH') }}/images/loading-animation.gif) center no-repeat #fff;"></div>
 <nav class="navbar navbar-inverse">
     <div class="container">
         <div class="navbar-header">
