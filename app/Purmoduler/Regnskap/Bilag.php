@@ -7,7 +7,7 @@ class Bilag extends Model
 
     protected $table = 'bilag';
 
-    protected $fillable = ['nr_i_besvarelse', 'bilagssekvens_id'];
+    protected $fillable = ['nr_i_besvarelse', 'bilagssekvens_id', 'bilagsmal_id'];
 
     public $timestamps = false;
 
@@ -20,6 +20,16 @@ class Bilag extends Model
     public function bilagssekvens()
     {
         return $this->belongsTo('Pur\Purmoduler\Regnskap\Bilagssekvens');
+    }
+
+    /**
+     * Bilagsmalen som bilaget er basert på
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function bilagsmal()
+    {
+        return $this->belongsTo('Pur\Purmoduler\Regnskap\Bilagsmal');
     }
 
 

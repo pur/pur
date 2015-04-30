@@ -67,6 +67,7 @@ class BesvarelseTjeneste
     {
         $bilag = new Bilag();
         $bilag->bilagssekvens()->associate($bilagssekvens);
+        $bilag->bilagsmal()->associate($bilagsmal);
         $bilag->nr_i_besvarelse = $this->giNummerIBesvarelse();
         $bilag->save();
 

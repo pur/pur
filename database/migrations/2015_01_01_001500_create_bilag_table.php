@@ -17,10 +17,15 @@ class CreateBilagTable extends Migration
             $table->increments('id');
             $table->integer('nr_i_besvarelse')->unsigned();
             $table->integer('bilagssekvens_id')->unsigned();
+            $table->integer('bilagsmal_id')->unsigned();
 
             $table->foreign('bilagssekvens_id')
                 ->references('id')->on('bilagssekvenser')
-                ->onDelete('cascade');
+                ->onDelete('cascade'); // Et bilag slettes hvis bilagssekvensen den inngår i slettes
+
+            $table->foreign('bilagsmal_id')
+                ->references('id')->on('bilagsmaler')
+                ->onDelete('restrict'); // Bilagsmaler med bilag kan ikke slettes
         });
     }
 

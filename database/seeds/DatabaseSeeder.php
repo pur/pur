@@ -351,41 +351,49 @@ class BilagsmalTableSeeder extends Seeder
         Bilagsmal::create([
             'bilagstype' => 'Inngående faktura',
             'nr_i_sekvens' => 1,
+            'infotekst' => 'Faktura for varekjøp...',
             'bilagsmalsekvens_id' => 1
         ]);
 
         Bilagsmal::create([
             'bilagstype' => 'Inngående kreditnota',
             'nr_i_sekvens' => 2,
+            'infotekst' => '',
             'bilagsmalsekvens_id' => 1
         ]);
 
         Bilagsmal::create([
             'bilagstype' => 'Utbetaling',
             'nr_i_sekvens' => 3,
+            'infotekst' => '',
             'bilagsmalsekvens_id' => 1
         ]);
+
         Bilagsmal::create([
             'bilagstype' => 'Utgående faktura',
             'nr_i_sekvens' => 1,
+            'infotekst' => '',
             'bilagsmalsekvens_id' => 2
         ]);
 
         Bilagsmal::create([
             'bilagstype' => 'Utgående kreditnota',
             'nr_i_sekvens' => 2,
+            'infotekst' => '',
             'bilagsmalsekvens_id' => 2
         ]);
 
         Bilagsmal::create([
             'bilagstype' => 'Innbetaling',
             'nr_i_sekvens' => 3,
+            'infotekst' => '',
             'bilagsmalsekvens_id' => 2
         ]);
 
         Bilagsmal::create([
             'bilagstype' => 'Lønn',
             'nr_i_sekvens' => 1,
+            'infotekst' => '',
             'bilagsmalsekvens_id' => 3
         ]);
     }
