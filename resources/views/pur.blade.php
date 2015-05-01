@@ -118,7 +118,6 @@
 <script src="{{ env('APPWEBPATH') }}/js/bootstrap-datetime.js"></script>
 
 <script src="{{ env('APPWEBPATH') }}/js/globalScripts.js"></script>
-<script src="{{ env('APPWEBPATH') }}/js/usabilla-feedback.js"></script>
 
 
 @yield('scripts')
