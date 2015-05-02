@@ -3,14 +3,7 @@
         <div class="panel-heading">
             <div class=" row">
                 <div class="col-sm-4">
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <input type="checkbox">
-                        </div>
-                        <div class="col-sm-11">
-                            <b>Beskrivelse:</b>
-                        </div>
-                    </div>
+                    <b>Beskrivelse:</b>
                 </div>
                 <div class="col-sm-2">
                     <b>Laget av:</b>
@@ -32,15 +25,8 @@
             <div class="list-group-item">
                 <div class="row">
                     <div class="col-sm-4">
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <input type="checkbox">
-                            </div>
-                            <div class="col-sm-11">
                                 <span class="visible-xs-inline">Beskrivelse: </span>
                                 {{ $oppgave->beskrivelse }}
-                            </div>
-                        </div>
                     </div>
                     <div class="col-sm-2">
                         <span class="visible-xs-inline">Laget av: </span>
@@ -62,6 +48,10 @@
                             @if(isset($kanOpprette) && $kanOpprette == true)
                                 <a href="#" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Fjern oppgave fra oppgavesett">
                                     <span class="fa fa-eraser"></span>
+                                </a>
+                                @else
+                                <a href="#" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Slett oppgave">
+                                    <span class="fa fa-trash"></span>
                                 </a>
                             @endif
                         </div>

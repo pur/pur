@@ -73,11 +73,7 @@
                             <div class="col-sm-2 actions">
 
                                 <div class="pull-right">
-                                    <!-- <a href="{{ URL::route('oppgavesett.vis', $oppgavesett) }}" class="btn btn-default"
-                                   data-toggle="tooltip" data-placement="top" data-container="body"
-                                   title="Vis statistikk">
-                                    <span class="fa fa-bar-chart"></span>
-                                </a> -->
+
                                     <a href="{{ URL::route('oppgavesett.vis', $oppgavesett) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Vis oppgavesett">
                                         <span class="fa fa-eye"></span>
                                     </a>
@@ -85,10 +81,16 @@
                                         <a class="btn btn-default disabled" data-toggle="tooltip" data-placement="top" data-container="body" title="Kan ikke endres. Oppgavesettet er publisert">
                                             <span class="fa fa-edit"></span>
                                         </a>
+                                        <a class="btn btn-default disabled" data-toggle="tooltip" data-placement="top" data-container="body" title="Kan ikke slettes. Oppgavesettet er publisert">
+                                            <span class="fa fa-trash"></span>
+                                        </a>
                                     @else
                                         <a href="{{ URL::route('oppgavesett.rediger', $oppgavesett) }}"
                                            class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Rediger oppgavesett">
                                             <span class="fa fa-edit"></span>
+                                        </a>
+                                        <a href="#" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Slett oppgavesett">
+                                            <span class="fa fa-trash"></span>
                                         </a>
                                     @endif
 
