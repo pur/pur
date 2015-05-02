@@ -93,7 +93,7 @@ section{
     border-bottom-color: #CCC;
 }
 
-.successelement {
+.ajax-success {
     visibility: hidden;
 }
 

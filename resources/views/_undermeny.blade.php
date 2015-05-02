@@ -11,7 +11,7 @@
                     @yield('menuleft')
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><span class="successelement text-success">Lagret</span></li>
+                    <li><span class="ajax-success text-success">Lagret</span></li>
                     @yield('menuright')
                 </ul>
             </div>

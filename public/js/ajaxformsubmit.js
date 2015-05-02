@@ -38,7 +38,7 @@
             url: url,
             data: data,
             success: function () {
-                form.closest('.row').remove(); // TODO : Html-elementet som skal fjernes bør ha css-klassen 'postering' så det kan stå closest(.postering).remove() i stedet for closest(.row).remove(). Den klassen som nå heter 'postering' omslutter flere posteringer og bør hete 'posteringer'
+                form.closest('.postering').remove(); // TODO : Html-elementet som skal fjernes bør ha css-klassen 'postering' så det kan stå closest(.postering).remove() i stedet for closest(.row).remove(). Den klassen som nå heter 'postering' omslutter flere posteringer og bør hete 'posteringer'
             }
         });
 

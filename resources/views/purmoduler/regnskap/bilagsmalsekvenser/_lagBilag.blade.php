@@ -98,9 +98,9 @@
 
         {!! Form::close() !!}
     </div>
-    <div class="postering list-group">
+    <div class="posteringer list-group">
         @foreach($bilagsmal->posteringsmaler as $posteringsmal)
-            <div class="row list-group-item">
+            <div class="row postering list-group-item">
                 <div class="form-group col-md-11">
                     {!! Form::model($posteringsmal, ['route' => ['posteringsmaler.update', $posteringsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
                         <div class="col-md-6">
