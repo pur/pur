@@ -100,18 +100,17 @@
     </div>
     <div class="postering list-group">
         @foreach($bilagsmal->posteringsmaler as $posteringsmal)
-            {!! Form::model($posteringsmal, ['route' => ['posteringsmaler.update', $posteringsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
             <div class="row list-group-item">
-                <div class="col-md-11">
-                    <div class="row">
-                        <div class="form-group col-md-6">
+                <div class="form-group col-md-11">
+                    {!! Form::model($posteringsmal, ['route' => ['posteringsmaler.update', $posteringsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
+                        <div class="col-md-6">
                             <div class="input-group pur-dropdown">
                                 <div class="input-group-addon">Konto:</div>
-                                {!!Form::select('kontokode', $selectKontoer, $posteringsmal->konto->kontokode, ['class' => 'form-control kontoliste', 'id' => 'kontokode-' . $posteringsmal->id]) !!}
+                                {!! Form::select('kontokode', $selectKontoer, $posteringsmal->konto->kontokode, ['class' => 'form-control kontoliste', 'id' => 'kontokode-' . $posteringsmal->id]) !!}
                                 <div class="input-group-addon"><span class="fa fa-caret-down"></span></div>
                             </div>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="col-md-6">
                             <div class="input-group pur-dropdown">
                                 <div class="input-group-addon">Beløp =</div>
                                 {!! Form::select('formel', $selectFormler, $posteringsmal->formel, ['id' => 'formel-' . $posteringsmal->id, 'class' => 'form-control formelliste']) !!}
@@ -120,18 +119,18 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    {!! Form::close() !!}
                 </div>
                 <div class="form-group col-md-1">
                     <div class="btn-group pull-right">
-                        <a class="btn btn-default slett-postering" data-toggle="tooltip" data-placement="top" data-container="body" title="Slett postering">
+                        {!! Form::open(['route' => ['posteringsmaler.destroy', $posteringsmal->id], 'method' => 'DELETE', 'slett-asynk' => 'true']) !!}
+                        <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Slett postering">
                             <span class="fa fa-trash-o"></span>
-                        </a>
+                        </button>
+                        {!! Form::close() !!}
                     </div>
-                    {{-- TODO Slett postering i DB --}}
                 </div>
             </div>
-            {!! Form::close() !!}
         @endforeach
         <div class="list-group-item list-group-item-info ">
             <div class="row">

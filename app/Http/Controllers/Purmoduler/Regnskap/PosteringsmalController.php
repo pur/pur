@@ -82,7 +82,7 @@ class PosteringsmalController extends Controller {
      */
 	public function destroy(Posteringsmal $posteringsmal)
 	{
-		//
+        $posteringsmal->delete();
 	}
 
 }
