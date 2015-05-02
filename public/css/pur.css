@@ -83,6 +83,16 @@ main {
     color: #eee;
 }
 
+section{
+    padding: 4px 20px;
+    margin: 20px 0;
+    background-color: #FFF;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    border: 1px solid #DDD;
+    border-top-color: #EEE;
+    border-bottom-color: #CCC;
+}
+
 .successelement {
     visibility: hidden;
 }
@@ -124,24 +134,30 @@ main {
 }
 
 .btn {
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.26);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 2px;
 }
 
 .btn-default {
-    color: #337AB7;
+    /*color: #337AB7;
     border-color: #337AB7;
     border-top-color: #438AC7;
-    border-bottom-color: #236AA7;
+    border-bottom-color: #236AA7;*/
+    background-color: #F8F8F8;
+    border-color: #D3D3D3;
 }
 
 .btn-default:hover {
-    background-color: #337AB7;
+   /* background-color: #337AB7;
     background-color: #D3EAFF;
     color: #FFF;
     color: #236AA7;
     border-color: #236AA7;
     border-top-color: #337AB7;
-    border-bottom-color: #135A97;
+    border-bottom-color: #135A97;*/
+    border-color: #C6C6C6;
+    background: #F0F0F0;
+
 }
 
 .btn.disabled {
@@ -149,7 +165,7 @@ main {
 }
 
 .btn:hover {
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.26);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .btn.disabled:hover{
@@ -183,7 +199,6 @@ main {
 .panel-heading,
 .panel,
 .navbar-toggle,
-.btn,
 .alert,
 .form-control,
 .input-group-addon,
@@ -240,6 +255,7 @@ blockquote.bq-info {
     border-left:5px solid #337AB7;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
+    background-color: #FFF;
 }
 
 footer {

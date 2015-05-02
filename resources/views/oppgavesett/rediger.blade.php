@@ -80,7 +80,10 @@
         <div class="clearfix"></div>
 
         {!! Form::close() !!}
+        <section>
+            <h2>Oppgaver</h2>
         @include('oppgaver._liste', ['oppgaver' => $oppgavesett->oppgaver, 'kanOpprette' => true])
+        </section>
     </div>
 
 @endsection

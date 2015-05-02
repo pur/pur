@@ -13,16 +13,15 @@
             <div class="input-group-addon"><span class="fa fa-comment"></span> Kommentar</div>
             {!! Form::input('text', 'kommentar',  $besvarelse->kommentar, ['class' => 'form-control variabel', 'id' => 'kommentar']) !!}
         </div>
-
-        @include('purmoduler.regnskap.besvarelser._rediger')
-
+        <section>
+            <h2>Oppgaver</h2>
+            @include('purmoduler.regnskap.besvarelser._rediger')
+        </section>
         <hr/>
-        <div class="row">
-            <div class="col-md-12">
-                <p class="lead">Saldoballanse</p>
-                @include('purmoduler.regnskap.besvarelser._besvarelseSaldobalanse')
-            </div>
-        </div>
+        <section>
+            <h2>Saldoballanse</h2>
+            @include('purmoduler.regnskap.besvarelser._besvarelseSaldobalanse')
+        </section>
 
     </div>
 @endsection

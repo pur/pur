@@ -3,7 +3,11 @@
     @include('oppgavesett._opplist-undermeny')
     <div class="container">
         <h1>Oppgavesett</h1>
-
+        <blockquote class="bq-info">
+            <p>Info om oppgavesett</p>
+        </blockquote>
+        <section>
+<h2>Mine oppgavesett</h2>
         <div class="list-group panel panel-primary" id="accordion" role="tablist" aria-multiselectable="true">
             <div class="panel-heading hidden-xs">
                 <div class="row">
@@ -100,5 +104,6 @@
                 </div>
             @endforeach
         </div>
+        </section>
     </div>
 @endsection
