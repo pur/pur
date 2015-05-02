@@ -150,11 +150,7 @@
 
 @section('scripts')
 
-    <script>
-        $('.slett-postering').click(function () {
-            $(this).closest('.list-group-item').remove();
-        });
-    </script>
+
 
 
     <script src="/js/bilagsmalsekvens.js"></script>
