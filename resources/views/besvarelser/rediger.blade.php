@@ -5,8 +5,6 @@
     <div class="container">
         <h1>Besvarelse på {{ $besvarelse->oppgavesett->beskrivelse }}</h1>
 
-        <p>Av: {{ $besvarelse->skaper->fulltnavn() }}</p>
-
         <p>Opprettet: {{$besvarelse->tidOpprettet()}}</p>
 
         <div class="input-group">
@@ -17,7 +15,7 @@
             <h2>Oppgaver</h2>
             @include('purmoduler.regnskap.besvarelser._rediger')
         </section>
-        <hr/>
+
         <section>
             <h2>Saldoballanse</h2>
             @include('purmoduler.regnskap.besvarelser._besvarelseSaldobalanse')

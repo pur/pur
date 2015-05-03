@@ -5,18 +5,16 @@
 
         <h1>{{ $oppgavesett->beskrivelse }}</h1>
         {!! Form::model($oppgavesett, ['route' => ['oppgavesett.oppdater', $oppgavesett->id], 'method' => 'PATCH']) !!}
-        <p>Av: {{ $oppgavesett->skaper->fulltnavn() }}</p>
-
         <div class="form-group col-sm-12">
             <div class="input-group">
-                <div class="input-group-addon">Beskrivelse:</div>
-                {!! Form::text('beskrivelse', $oppgavesett->beskrivelse, ['class' => 'form-control']) !!}
+                <div class="input-group-addon">Tittel:</div>
+                {!! Form::text('beskrivelse', $oppgavesett->tittel, ['class' => 'form-control']) !!}
             </div>
         </div>
 
         <div class="form-group col-sm-12">
-            {!!Form::label('diverse-tekst', 'Tekst:') !!}
-            {!! Form::textarea( 'diverse-tekst', 'Kontantrabatt ved betaling før 60 dager.', ['class' => 'form-control', 'style' => 'height: 75px;']) !!}
+            {!!Form::label('beskrivelse', 'Beskrivelse:') !!}
+            {!! Form::textarea( 'beskrivelse', $oppgavesett->beskrivelse, ['class' => 'form-control', 'style' => 'height: 75px;']) !!}
         </div>
 
         <div class="form-group col-sm-12">

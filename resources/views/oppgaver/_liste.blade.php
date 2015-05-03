@@ -1,6 +1,6 @@
 @if($oppgaver->count() > 0)
     <div class="list-group panel panel-primary" role="tablist" aria-multiselectable="true">
-        <div class="panel-heading">
+        <div class="panel-heading hidden-xs">
             <div class=" row">
                 <div class="col-sm-4">
                     <b>Beskrivelse:</b>

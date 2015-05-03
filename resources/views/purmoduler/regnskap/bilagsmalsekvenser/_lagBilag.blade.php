@@ -3,6 +3,9 @@
 
 
         {!! Form::model($bilagsmal, ['route' => ['bilagsmaler.update', $bilagsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
+
+<div class="row">
+    <div class="col-md-8">
         <div class="row">
             <div class="form-group col-md-12">
                 <div class="input-group">
@@ -10,8 +13,6 @@
                     {!! Form::text('bilagstittel', $bilagsmal->tittel(), ['class' => 'form-control bilagstittel', 'id' => 'bilagstittel' . $bilagsmal->id]) !!}
                 </div>
             </div>
-        </div>
-        <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
                     <div class="input-group">
@@ -21,7 +22,8 @@
                 </div>
             </div>
         </div>
-        <hr/>
+    </div>
+    <div class="col-md-4">
         <div class="row">
             <div class="col-md-12">
                 <blockquote class="bq-info">
@@ -35,7 +37,6 @@
                     </label>
                 </div>
                 @foreach($bilagsmalsekvens->variabler as $variabel)
-
                     <div class="checkbox">
                         <label>
                             {!! Form::checkbox('false', $variabel->tegn_i_formel . 'Eksempel' . $bilagsmal->id) !!} {{$variabel->tegn_i_formel}}:
@@ -43,12 +44,11 @@
                             <span class="{{$variabel->tegn_i_formel}}Eksempel">{{($variabel->verdi_min +$variabel->verdi_min)/2}}</span>
                         </label>
                     </div>
-
-
                 @endforeach
-
             </div>
         </div>
+</div>
+</div>
 
 
         {!! Form::close() !!}
@@ -56,19 +56,24 @@
         <blockquote class="bq-info">
             <p>Legg til posteringer</p>
         </blockquote>
-        <div class="posteringer list-group">
+        <div class="posteringer panel-default list-group">
+            <div class="panel-heading hidden-xs">
+
+                        <b>Posteringer:</b>
+
+            </div>
             @foreach($bilagsmal->posteringsmaler as $posteringsmal)
                 <div class="row postering list-group-item">
-                    <div class="form-group col-md-11">
+                    <div class="col-md-11">
                         {!! Form::model($posteringsmal, ['route' => ['posteringsmaler.update', $posteringsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
-                        <div class="col-md-6">
+                        <div class="form-group col-md-6">
                             <div class="input-group pur-dropdown">
                                 <div class="input-group-addon">Konto:</div>
                                 {!! Form::select('kontokode', $selectKontoer, $posteringsmal->konto->kontokode, ['class' => 'form-control kontoliste', 'id' => 'kontokode-' . $posteringsmal->id]) !!}
                                 <div class="input-group-addon"><span class="fa fa-caret-down"></span></div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="form-group col-md-6">
                             <div class="input-group pur-dropdown">
                                 <div class="input-group-addon">Beløp =</div>
                                 {!! Form::select('formel', $selectFormler, $posteringsmal->formel, ['id' => 'formel-' . $posteringsmal->id, 'class' => 'form-control formelliste']) !!}
