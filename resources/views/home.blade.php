@@ -34,8 +34,8 @@
 
                             <p>Lag meg!<br/><a href="#">Hvordan?</a></p>
 
-                            <p><a href="#" class="btn btn-default disabled" role="button">Velg</a>
-                                <a href="#" class="btn btn-default disabled" role="button">Info</a></p>
+                            <p><a class="btn btn-default disabled" role="button">Velg</a>
+                                <a class="btn btn-default disabled" role="button">Info</a></p>
                         </div>
                     </div>
                 </div>
@@ -48,8 +48,8 @@
 
                             <p>Lag meg!<br/><a href="#">Hvordan?</a></p>
 
-                            <p><a href="#" class="btn btn-default disabled" role="button">Velg</a>
-                                <a href="#" class="btn btn-default disabled" role="button">Info</a></p>
+                            <p><a class="btn btn-default disabled" role="button">Velg</a>
+                                <a class="btn btn-default disabled" role="button">Info</a></p>
                         </div>
                     </div>
                 </div>
@@ -62,8 +62,8 @@
 
                             <p>Lag meg!<br/><a href="#">Hvordan?</a></p>
 
-                            <p><a href="#" class="btn btn-default disabled" role="button">Velg</a>
-                                <a href="#" class="btn btn-default disabled" role="button">Info</a></p>
+                            <p><a class="btn btn-default disabled" role="button">Velg</a>
+                                <a class="btn btn-default disabled" role="button">Info</a></p>
                         </div>
                     </div>
                 </div>

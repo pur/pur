@@ -2,6 +2,7 @@
     <div class="panel-body">
 
         <p id="bilagstittel{{ $bilagsmal->id }}Vis" class="lead">{{ $bilagsmal->tittel() }}</p>
+
         <p id="bilagstekst{{ $bilagsmal->id }}Vis">{{ $bilagsmal->bilagstekst }}</p>
 
         <div id="motpartEksempel{{$bilagsmal->id}}" style="display: none;">
@@ -44,41 +45,19 @@
             </span>
         </dl>
 
-    </div>
 
-    <div class="postering list-group">
-        <div class="row list-group-item">
-            <div class="col-md-11">
-                <div class="row">
-                    <div class="form-group col-md-7">
-                        <b>Konto:</b>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <b>Formel:</b>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <b>Resultat</b>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group col-md-1">
-
-            </div>
-        </div>
-
-        @foreach($bilagsmal->posteringsmaler as $posteringsmal)
-            {!! Form::model($posteringsmal, ['route' => ['posteringsmaler.update', $posteringsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
+        <div class="postering list-group">
             <div class="row list-group-item">
                 <div class="col-md-11">
                     <div class="row">
                         <div class="form-group col-md-7">
-                            <span id="kontokode-{{ $posteringsmal->id }}Vis">{{$posteringsmal->konto->kontokode}} </span>
+                            <b>Konto:</b>
                         </div>
                         <div class="form-group col-md-3">
-                            <span id="formel-{{ $posteringsmal->id }}Vis">{{ $posteringsmal->formel }}</span>
+                            <b>Formel:</b>
                         </div>
                         <div class="form-group col-md-2">
-                            <span class="bilag{{ $bilagsmal->id }}-formel" id="formel-{{ $posteringsmal->id }}ResultatVis"></span>
+                            <b>Resultat</b>
                         </div>
                     </div>
                 </div>
@@ -87,24 +66,46 @@
                 </div>
             </div>
 
-            {!! Form::close() !!}
-        @endforeach
-        <div class="row list-group-item">
-            <div class="col-md-11">
-                <div class="row">
-                    <div class="form-group col-md-5">
-                        <span>Resultat:</span>
+            @foreach($bilagsmal->posteringsmaler as $posteringsmal)
+                {!! Form::model($posteringsmal, ['route' => ['posteringsmaler.update', $posteringsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
+                <div class="row list-group-item">
+                    <div class="col-md-11">
+                        <div class="row">
+                            <div class="form-group col-md-7">
+                                <span id="kontokode-{{ $posteringsmal->id }}Vis">{{$posteringsmal->konto->kontokode}} </span>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <span id="formel-{{ $posteringsmal->id }}Vis">{{ $posteringsmal->formel }}</span>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <span class="bilag{{ $bilagsmal->id }}-formel" id="formel-{{ $posteringsmal->id }}ResultatVis"></span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group col-md-5">
-                        <span></span>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <span id="bilag{{ $bilagsmal->id }}Resultat"></span>
+                    <div class="form-group col-md-1">
+
                     </div>
                 </div>
-            </div>
-            <div class="form-group col-md-1">
 
+                {!! Form::close() !!}
+            @endforeach
+            <div class="row list-group-item">
+                <div class="col-md-11">
+                    <div class="row">
+                        <div class="form-group col-md-5">
+                            <span>Resultat:</span>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <span></span>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <span id="bilag{{ $bilagsmal->id }}Resultat"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-1">
+
+                </div>
             </div>
         </div>
     </div>

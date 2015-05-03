@@ -41,10 +41,10 @@
                 <p>Elevoppgavene får tilfeldige variabelverdier mellom minimumsverdi og maksimumsverdi.</p>
             </blockquote>
             <div class="list-group">
-                <div class="panel-heading">
+                <div class="panel-heading hidden-xs">
                     <div class="row">
-                        <div class="col-sm-1">
-                            <b>Variabel:</b>
+                        <div class="col-sm-4">
+                            <b>Variabelnavn:</b>
                         </div>
                         <div class="col-sm-4">
                             <b>Minimumsverdi:</b>
@@ -52,16 +52,16 @@
                         <div class="col-sm-4">
                             <b>Maksimumsverdi:</b>
                         </div>
-                        <div class="col-sm-3">
-                            <b>Variabelnavn:</b>
-                        </div>
                     </div>
                 </div>
                 @foreach($bilagsmalsekvens->variabler as $variabel)
                     <div class="list-group-item row">
-                        <div class="form-group col-sm-1">
-                            <!-- <b>{{$variabel->tegn_i_formel}}:</b> -->
-                            {!! Form::input('text', $variabel->tegn_i_formel . 'Tegn', $variabel->tegn_i_formel, ['disabled', 'class' => 'form-control variabel', 'id' => $variabel->tegn_i_formel . 'Tegn']) !!}
+                        <div class="form-group col-sm-4">
+                            <span class="visible-xs-inline">Variabelnavn: </span>
+                            <div class="input-group">
+                                <div class="input-group-addon">{{$variabel->tegn_i_formel}}: </div>
+                                {!! Form::input('text', $variabel->tegn_i_formel . 'navn', $variabel->navn, ['class' => 'form-control variabel', 'id' => $variabel->tegn_i_formel . 'Navn']) !!}
+                            </div>
                         </div>
                         <div class="form-group col-sm-4">
                             <span class="visible-xs-inline">Minimumsverdi: </span>
@@ -71,10 +71,7 @@
                             <span class="visible-xs-inline">Maksimumsverdi: </span>
                             {!! Form::input('number', $variabel->tegn_i_formel . 'Maks', $variabel->verdi_maks, ['min'=>'0', 'class' => 'form-control variabel', 'id' => $variabel->tegn_i_formel . 'Maks']) !!}
                         </div>
-                        <div class="form-group col-sm-3">
-                            <span class="visible-xs-inline">Navn: </span>
-                            {!! Form::input('text', $variabel->tegn_i_formel . 'navn', $variabel->navn, ['class' => 'form-control variabel', 'id' => $variabel->tegn_i_formel . 'Navn']) !!}
-                        </div>
+
                     </div>
                 @endforeach
             </div>
