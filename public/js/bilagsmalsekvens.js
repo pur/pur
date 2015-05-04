@@ -131,6 +131,12 @@ $('input.bilagstittel').keyup(function () {
     $("#" + idTittel + "Vis").text($(this).val());
 });
 
+// Oppdaterer infotekst
+$('textarea.bilagstekst').keyup(function () {
+    var idTittel = $(this).attr('id');
+    $("#" + idTittel + "Vis").text($(this).val());
+});
+
 // Legge til valgt konto i vis bilag
 $('select.kontoliste').change(function () {
     if ('input[type="select"]') {
