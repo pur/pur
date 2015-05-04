@@ -62,46 +62,29 @@
                         <b>Posteringer:</b>
 
             </div>
-            @foreach($bilagsmal->posteringsmaler as $posteringsmal)
-                <div class="row postering list-group-item">
-                    <div class="col-md-11">
-                        {!! Form::model($posteringsmal, ['route' => ['posteringsmaler.update', $posteringsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
-                        <div class="form-group col-md-6">
-                            <div class="input-group pur-dropdown">
-                                <div class="input-group-addon">Konto:</div>
-                                {!! Form::select('kontokode', $selectKontoer, $posteringsmal->konto->kontokode, ['class' => 'form-control kontoliste', 'id' => 'kontokode-' . $posteringsmal->id]) !!}
-                                <div class="input-group-addon"><span class="fa fa-caret-down"></span></div>
-                            </div>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <div class="input-group pur-dropdown">
-                                <div class="input-group-addon">Beløp =</div>
-                                {!! Form::select('formel', $selectFormler, $posteringsmal->formel, ['id' => 'formel-' . $posteringsmal->id, 'class' => 'form-control formelliste']) !!}
-                                <div class="input-group-addon">
-                                    <span class="fa fa-caret-down"></span>
-                                </div>
-                            </div>
-                        </div>
-                        {!! Form::close() !!}
-                    </div>
-                    <div class="form-group col-md-1">
-                        <div class="btn-group pull-right">
-                            {!! Form::open(['route' => ['posteringsmaler.destroy', $posteringsmal->id], 'method' => 'DELETE', 'slett-asynk' => 'true']) !!}
-                            <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Slett postering">
-                                <span class="fa fa-trash-o"></span>
-                            </button>
-                            {!! Form::close() !!}
-                        </div>
-                    </div>
-                </div>
-            @endforeach
+
+            <div id="posteringsmaler-{{ $bilagsmal->id }}">
+                @foreach($bilagsmal->posteringsmaler as $posteringsmal)
+
+                    @include('purmoduler.regnskap.bilagsmalsekvenser._posteringsmal', ['posteringsmal' => $posteringsmal, 'cssclass' => ''])
+
+                @endforeach
+            </div>
+
+            <div id="tomposteringsmal-{{ $bilagsmal->id }}">
+                @include('purmoduler.regnskap.bilagsmalsekvenser._posteringsmal', ['posteringsmal' => null, 'cssclass' => 'hidden'])
+            </div>
+
             <div class="list-group-item list-group-item-info ">
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="btn-group pull-right">
-                            <a class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Legg til postering">
+                            {!! Form::open(['route' => ['posteringsmaler.store'], 'leggtil-asynk' => 'true']) !!}
+                            {!! Form::hidden('bilagsmalId', $bilagsmal->id) !!}
+                            <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Legg til postering">
                                 <span class="fa fa-plus"></span>
-                            </a>
+                            </button>
+                            {!! Form::close() !!}
                         </div>
                     </div>
                 </div>

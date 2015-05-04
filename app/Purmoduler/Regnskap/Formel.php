@@ -4,6 +4,7 @@ class Formel //extends Model
 {
 
     private static $navnAlleFormler = [
+        0 => 'Velg formel',
         1 => '- a',                   // 'bruttobeløp - bruttobeløp',                // 'Bruttobeløp som kreditt'
         2 => 'a / 5',                 // 'bruttobeløp / 5',                          // 'Mva. fra bruttobeløp a'
         3 => 'a / 1,25',              // 'bruttobeløp / 1,25',                       // 'Bruttobeløp a eks. mva.',

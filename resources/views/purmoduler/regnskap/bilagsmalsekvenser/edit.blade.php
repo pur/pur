@@ -77,7 +77,7 @@
             </div>
             <hr/>
         </section>
-        <section>
+        <section id="bilagsmaler">
             <h2>Bilag</h2>
 
             <p class="lead"></p>

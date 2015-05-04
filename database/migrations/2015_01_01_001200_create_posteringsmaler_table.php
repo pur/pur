@@ -18,7 +18,7 @@ class CreatePosteringsmalerTable extends Migration
             $table->increments('id');
             $table->text('formel');
             $table->integer('bilagsmal_id')->unsigned();
-            $table->integer('kontokode')->nullable();
+            $table->integer('kontokode')->default(0);
 
             $table->foreign('bilagsmal_id')
                 ->references('id')->on('bilagsmaler')

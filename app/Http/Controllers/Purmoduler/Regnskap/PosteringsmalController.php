@@ -4,6 +4,7 @@ use Pur\Http\Requests;
 use Pur\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Pur\Purmoduler\Regnskap\Bilagsmal;
 use Pur\Purmoduler\Regnskap\Posteringsmal;
 
 class PosteringsmalController extends Controller {
@@ -35,9 +36,16 @@ class PosteringsmalController extends Controller {
      * @param Posteringsmal $posteringsmal
      * @return Response
      */
-	public function store(Posteringsmal $posteringsmal)
+	public function store(Request $request)
 	{
-		//
+        $bilagsId = $request->get('bilagsmalId');
+        $bilagsmal = Bilagsmal::find($bilagsId);
+
+        $posteringsmal = new Posteringsmal();
+        $posteringsmal->bilagsmal()->associate($bilagsmal);
+        $posteringsmal->save();
+
+        return $posteringsmal->id;
 	}
 
     /**
