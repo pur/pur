@@ -150,10 +150,10 @@
 
 
 
-    <script src="/js/bilagsmalsekvens.js"></script>
+    <script src="{{ env('APPWEBPATH') }}/js/bilagsmalsekvens.js"></script>
 
 
-    <script src="/js/ajaxformsubmit.js"></script>
+    <script src="{{ env('APPWEBPATH') }}/js/ajaxformsubmit.js"></script>
 
 
 
