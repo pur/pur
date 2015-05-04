@@ -6,6 +6,9 @@
 
 <div class="row">
     <div class="col-md-8">
+        <blockquote class="bq-info">
+            <p>1. Fyll ut info om bilag</p>
+        </blockquote>
         <div class="row">
             <div class="form-group col-md-12">
                 <div class="input-group">
@@ -17,18 +20,18 @@
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-addon">Infotekst:</div>
-                        {!! Form::textarea( 'infotekst', $bilagsmal->infotekst, ['id' => 'bilagstekst' . $bilagsmal->id, 'class' => 'form-control localstorage', 'style' => 'height: 4em;']) !!}
+                        {!! Form::textarea( 'infotekst', $bilagsmal->infotekst, ['id' => 'bilagstekst' . $bilagsmal->id, 'class' => 'form-control bilagstekst', 'style' => 'height: 4em;']) !!}
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-md-4">
+        <blockquote class="bq-info">
+            <p>2. Velg hvilke elementer som skal vises sammen med oppgavetekst</p>
+        </blockquote>
         <div class="row">
             <div class="col-md-12">
-                <blockquote class="bq-info">
-                    <p>Velg hvilke elementer som skal vises sammen med oppgavetekst</p>
-                </blockquote>
                 <div class="checkbox">
                     <label>
                         {!! Form::checkbox('false', 'motpartEksempel' . $bilagsmal->id) !!}
@@ -54,7 +57,7 @@
         {!! Form::close() !!}
         <hr/>
         <blockquote class="bq-info">
-            <p>Legg til posteringer</p>
+            <p>3. Legg til posteringer</p>
         </blockquote>
         <div class="posteringer panel-default list-group">
             <div class="panel-heading hidden-xs">

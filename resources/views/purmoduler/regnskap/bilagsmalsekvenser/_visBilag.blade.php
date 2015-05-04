@@ -3,7 +3,7 @@
 
         <p id="bilagstittel{{ $bilagsmal->id }}Vis" class="lead">{{ $bilagsmal->tittel() }}</p>
 
-        <p id="bilagstekst{{ $bilagsmal->id }}Vis">{{ $bilagsmal->bilagstekst }}</p>
+        <p id="bilagstekst{{ $bilagsmal->id }}Vis">{{ $bilagsmal->infotekst }}</p>
 
         <div id="motpartEksempel{{$bilagsmal->id}}" style="display: none;">
             Motpart:
