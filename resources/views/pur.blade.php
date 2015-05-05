@@ -101,7 +101,7 @@
         <p class="text-center text-muted"></p>
 
         <p class="text-center text-muted">Pur er laget av
-            <a href="http://syntax-error.no/">SyntaxError</a> for Høgskolen i Telemark</p>
+            <a href="http://syntax-error.no/">SyntaxError</a> på oppdrag fra Høgskolen i Telemark</p>
 
         <p class="text-center text-muted">som fri programvare lisensiert under
             <a href="https://github.com/HiT-SyntaxError/pur/blob/master/LICENSE" target="_blank">GNU General Public License</a></p>
