@@ -5,6 +5,7 @@
     <!-- Fonts -->
     <link href="{{ env('APPWEBPATH') }}/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ env('APPWEBPATH') }}/css/lato.css" rel="stylesheet">
+    <link href="{{ env('APPWEBPATH') }}/fonts/roboto/stylesheet.css" rel="stylesheet">
 
     <link href="{{ env('APPWEBPATH') }}/css/bootstrap-datetime.css" rel="stylesheet">
     <link href="{{ env('APPWEBPATH') }}/css/app.css" rel="stylesheet">
