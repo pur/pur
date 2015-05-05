@@ -9,7 +9,9 @@
 
     <link href="{{ env('APPWEBPATH') }}/css/bootstrap-datetime.css" rel="stylesheet">
     <link href="{{ env('APPWEBPATH') }}/css/app.css" rel="stylesheet">
+    <link href="{{ env('APPWEBPATH') }}/css/material.css" rel="stylesheet">
     <link href="{{ env('APPWEBPATH') }}/css/pur.css" rel="stylesheet">
+    <link href="{{ env('APPWEBPATH') }}/css/ripples.css" rel="stylesheet">
 </head>
 <body>
 <div class="loading" style="background: url({{ env('APPWEBPATH') }}/images/loading-animation.gif) center no-repeat #fff;"></div>
@@ -116,7 +118,14 @@
 <script src="{{ env('APPWEBPATH') }}/js/bootstrap-datetime.js"></script>
 
 <script src="{{ env('APPWEBPATH') }}/js/globalScripts.js"></script>
-
+<script src="{{ env('APPWEBPATH') }}/js/ripples.js"></script>
+<script src="{{ env('APPWEBPATH') }}/js/material.js"></script>
+<script>
+    $(document).ready(function() {
+        // This command is used to initialize some elements and make them work properly
+        $.material.init();
+    });
+</script>
 
 @yield('scripts')
 
