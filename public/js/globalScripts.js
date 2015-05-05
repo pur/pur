@@ -1,7 +1,3 @@
-
-
-
-
 // Loading animation:
 $('a:not(.dropdown-toggle):not([href*=javascript]):not([href^=#])').click(function () {
     if ($(this).attr('href') != undefined) {
@@ -9,10 +5,11 @@ $('a:not(.dropdown-toggle):not([href*=javascript]):not([href^=#])').click(functi
         ;
     }
 });
+
+
 $(document).ready(function () {
     // Animate loader off screen
     $(".loading").fadeOut("slow");
-    ;
 });
 
 // Fixed submenu:
