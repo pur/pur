@@ -1,9 +1,13 @@
 <html>
 	<head>
+        <link href="{{ env('APPWEBPATH') }}/css/font-awesome.min.css" rel="stylesheet">
         <link href="{{ env('APPWEBPATH') }}/css/lato.css" rel="stylesheet">
+        <link href="{{ env('APPWEBPATH') }}/fonts/roboto/stylesheet.css" rel="stylesheet">
 
         <link href="{{ env('APPWEBPATH') }}/css/app.css" rel="stylesheet">
+        <link href="{{ env('APPWEBPATH') }}/css/material.css" rel="stylesheet">
         <link href="{{ env('APPWEBPATH') }}/css/pur.css" rel="stylesheet">
+        <link href="{{ env('APPWEBPATH') }}/css/ripples.css" rel="stylesheet">
 
 		<style>
 			body {
@@ -11,8 +15,7 @@
 				padding: 0;
 				width: 100%;
 				height: 100%;
-				color: #B0BEC5;
-                color: #EEE;
+                color: #FFF;
 				display: table;
 				font-weight: 100;
                 background: #337AB7; /* Old browsers */
@@ -62,5 +65,18 @@
                 <a href="{{ env('APPWEBPATH') }}/auth/login" class="btn btn-default">Prøv!</a>
 			</div>
 		</div>
+
+        <script src="{{ env('APPWEBPATH') }}/js/jquery-1.11.2.min.js"></script>
+        <script src="{{ env('APPWEBPATH') }}/js/bootstrap.min.js"></script>
+
+        <script src="{{ env('APPWEBPATH') }}/js/globalScripts.js"></script>
+        <script src="{{ env('APPWEBPATH') }}/js/ripples.js"></script>
+        <script src="{{ env('APPWEBPATH') }}/js/material.js"></script>
+        <script>
+            $(document).ready(function() {
+                // This command is used to initialize some elements and make them work properly
+                $.material.init();
+            });
+        </script>
 	</body>
 </html>
