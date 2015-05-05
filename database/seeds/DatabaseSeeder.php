@@ -140,7 +140,9 @@ class OppgavesettTableSeeder extends Seeder
         DB::table('oppgavesett')->delete();
 
         Oppgavesett::create([
-            'beskrivelse' => 'Oppgavesett 1',
+            'type' => 'øving',
+            'tittel' => 'Øvingsoppg. 1',
+            'beskrivelse' => 'Innføring i grunnleggende bokføring',
             'tid_opprettet' => '2015-01-01 09:00:00',
             'tid_endret' => '2015-01-05 09:00:00',
             'tid_publisert' => '2015-01-10 10:00:00',
@@ -150,7 +152,9 @@ class OppgavesettTableSeeder extends Seeder
         ]);
 
         Oppgavesett::create([
-            'beskrivelse' => 'Oppgavesett 2',
+            'type' => 'oblig',
+            'tittel' => 'Oblig.oppg. 1',
+            'beskrivelse' => '',
             'tid_opprettet' => '2015-02-01 09:00:00',
             'tid_endret' => '2015-02-05 09:00:00',
             'tid_publisert' => '2015-02-10 10:00:00',
@@ -160,7 +164,9 @@ class OppgavesettTableSeeder extends Seeder
         ]);
 
         Oppgavesett::create([
-            'beskrivelse' => 'Oppgavesett 3',
+            'type' => 'øving',
+            'tittel' => 'Øvingsoppg. 2',
+            'beskrivelse' => '',
             'tid_opprettet' => '2015-03-01 09:00:00',
             'tid_endret' => '2015-03-05 09:00:00',
             'tid_publisert' => '2015-03-15 10:00:00',
@@ -170,7 +176,9 @@ class OppgavesettTableSeeder extends Seeder
         ]);
 
         Oppgavesett::create([
-            'beskrivelse' => 'Oppgavesett 4',
+            'type' => 'oblig',
+            'tittel' => 'Oblig.oppg. 2',
+            'beskrivelse' => '',
             'tid_opprettet' => '2015-04-01 09:00:00',
             'tid_endret' => '2015-04-05 09:00:00',
             'tid_publisert' => '2015-05-15 10:00:00',

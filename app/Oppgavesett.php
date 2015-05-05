@@ -9,6 +9,8 @@ class Oppgavesett extends Model
     protected $table = 'oppgavesett';
 
     protected $fillable = [
+        'type',
+        'tittel',
         'beskrivelse',
         'tid_publisert',
         'tid_aapent',

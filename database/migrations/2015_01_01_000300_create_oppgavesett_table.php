@@ -15,6 +15,8 @@ class CreateOppgavesettTable extends Migration
     {
         Schema::create('oppgavesett', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('type');
+            $table->string('tittel');
             $table->text('beskrivelse');
             $table->timestamp('tid_opprettet');
             $table->timestamp('tid_endret');
