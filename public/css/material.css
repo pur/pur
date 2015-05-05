@@ -565,7 +565,7 @@ select[multiple].form-control.focus {
     background-position: center bottom, center calc(100% - 1px);
     background-color: transparent;
     background-color: rgba(0, 0, 0, 0);
-    transition: background 0 ease-out;
+    transition: inherit;
 }
 
 .form-control::-webkit-input-placeholder {
@@ -880,26 +880,27 @@ select.form-control.focus {
 }
 
 .nav-tabs {
-    background: #337AB7;
+    background: #F5F5F5;
 }
 
+
 .nav-tabs > li > a {
-    color: #FFFFFF;
+    color: #337AB7;
     border: 0;
     margin: 0;
 }
 
 .nav-tabs > li > a:hover {
-    background-color: transparent;
+    background-color: #EEE;
     border: 0;
 }
 
 .nav-tabs > li > a,
 .nav-tabs > li > a:hover,
-.nav-tabs > li > a:focus {
+.nav-tabs > li > a:focus {/*
     background-color: transparent !important;
     border: 0 !important;
-    color: #FFFFFF !important;
+    color: #FFFFFF !important;*/
     font-weight: 500;
 }
 

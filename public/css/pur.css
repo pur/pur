@@ -2,6 +2,12 @@ body {
     background-color: #EEE;
 }
 
+
+.fa {
+    font-size: 16px;
+}
+
+
 main {
     background-color: #F9F9F9;
     padding-bottom: 40px;
@@ -132,34 +138,26 @@ section{
     -webkit-appearance: none;
 }
 
-.row.list-group-item {
-    margin-left: 0;
-    margin-right: 0;
-    padding: 8px 0;
+.list-group-item {
+    border: none;
+    border-bottom: 1px solid #EEE;
 }
 
 .btn {
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
     border-radius: 2px;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease, box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none !important;
+    margin: 5px 0;
 }
 
 .btn-default {
-    /*color: #337AB7;
-    border-color: #337AB7;
-    border-top-color: #438AC7;
-    border-bottom-color: #236AA7;*/
     background-color: #F8F8F8;
     border-color: #D3D3D3;
 }
 
 .btn-default:hover {
-   /* background-color: #337AB7;
-    background-color: #D3EAFF;
-    color: #FFF;
-    color: #236AA7;
-    border-color: #236AA7;
-    border-top-color: #337AB7;
-    border-bottom-color: #135A97;*/
     border-color: #C6C6C6;
     background: #F0F0F0;
 
@@ -177,6 +175,11 @@ section{
     box-shadow: none;
 }
 
+.btn .fa{
+    font-size: 18px;
+    width: 20px;
+}
+
 .row.list-group-item .form-group {
     margin-bottom: 5px;
 }
@@ -186,7 +189,6 @@ section{
 }
 
 .pur-dropdown select {
-    background: none;
     -moz-appearance: none;
 }
 
@@ -230,24 +232,14 @@ section{
     border-radius: 0;
 }
 
-.row.list-group-item {
-    margin-top: -1px;
-}
 
-.list-group-item {
- /*   padding: 0px 15px; */
-}
-
-.list-group-item .row div {
-
-}
 
 .list-group-item .actions{
-    border-left: 1px solid #DDD;
+    border-left: 1px solid #EEE;
 }
 
 .panel-heading .actions{
-    border-left: 1px solid #135A97;
+    border-left: 1px solid #236AA7;
 }
 
 .bilag .alert {
@@ -260,7 +252,7 @@ blockquote.bq-info {
     border-left:5px solid #337AB7;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
-    background-color: #FFF;
+    background-color: #D9EDF7;
 }
 
 footer {
