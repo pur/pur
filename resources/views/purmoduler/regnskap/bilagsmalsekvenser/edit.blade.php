@@ -3,6 +3,7 @@
     @include('purmoduler.regnskap.bilagsmalsekvenser._editSubmenu')
 
     <div class="container content">
+        <section>
         <h1>Rediger oppgave</h1>
         {!! Form::model($bilagsmalsekvens, ['route' => ['bilagsmalsekvenser.update', $bilagsmalsekvens->id], 'method' => 'PATCH']) !!}
         <div class="row">
@@ -29,9 +30,10 @@
                 </div>
             </div>
         </div>
+        </section>
 
         {!! Form::close() !!}
-        <hr/>
+
         <section>
             <h2>Variabler</h2>
 
@@ -40,41 +42,41 @@
 
                 <p>Elevoppgavene får tilfeldige variabelverdier mellom minimumsverdi og maksimumsverdi.</p>
             </blockquote>
-            <div class="list-group">
-                <div class="panel-heading hidden-xs">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <b>Variabelnavn:</b>
-                        </div>
-                        <div class="col-sm-4">
-                            <b>Minimumsverdi:</b>
-                        </div>
-                        <div class="col-sm-4">
-                            <b>Maksimumsverdi:</b>
-                        </div>
-                    </div>
-                </div>
-                @foreach($bilagsmalsekvens->variabler as $variabel)
-                    <div class="list-group-item row">
-                        <div class="form-group col-sm-4">
-                            <span class="visible-xs-inline">Variabelnavn: </span>
-                            <div class="input-group">
-                                <div class="input-group-addon">{{$variabel->tegn_i_formel}}: </div>
-                                {!! Form::input('text', $variabel->tegn_i_formel . 'navn', $variabel->navn, ['class' => 'form-control variabel', 'id' => $variabel->tegn_i_formel . 'Navn']) !!}
-                            </div>
-                        </div>
-                        <div class="form-group col-sm-4">
-                            <span class="visible-xs-inline">Minimumsverdi: </span>
-                            {!! Form::input('number', $variabel->tegn_i_formel . 'Min', $variabel->verdi_min, ['min'=>'0', 'class' => 'form-control variabel', 'id' => $variabel->tegn_i_formel . 'Min']) !!}
-                        </div>
-                        <div class="form-group col-sm-4">
-                            <span class="visible-xs-inline">Maksimumsverdi: </span>
-                            {!! Form::input('number', $variabel->tegn_i_formel . 'Maks', $variabel->verdi_maks, ['min'=>'0', 'class' => 'form-control variabel', 'id' => $variabel->tegn_i_formel . 'Maks']) !!}
-                        </div>
 
-                    </div>
-                @endforeach
+            <div class="row">
+                <div class="col-sm-4">
+                    <b>Variabelnavn:</b>
+                </div>
+                <div class="col-sm-4">
+                    <b>Minimumsverdi:</b>
+                </div>
+                <div class="col-sm-4">
+                    <b>Maksimumsverdi:</b>
+                </div>
             </div>
+
+            @foreach($bilagsmalsekvens->variabler as $variabel)
+                <div class=" row">
+                    <div class="form-group col-sm-4">
+                        <span class="visible-xs-inline">Variabelnavn: </span>
+
+                        <div class="input-group">
+                            <div class="input-group-addon">{{$variabel->tegn_i_formel}}:</div>
+                            {!! Form::input('text', $variabel->tegn_i_formel . 'navn', $variabel->navn, ['class' => 'form-control variabel', 'id' => $variabel->tegn_i_formel . 'Navn']) !!}
+                        </div>
+                    </div>
+                    <div class=" col-sm-4">
+                        <span class="visible-xs-inline">Minimumsverdi: </span>
+                        {!! Form::input('number', $variabel->tegn_i_formel . 'Min', $variabel->verdi_min, ['min'=>'0', 'class' => 'form-control variabel', 'id' => $variabel->tegn_i_formel . 'Min']) !!}
+                    </div>
+                    <div class=" col-sm-4">
+                        <span class="visible-xs-inline">Maksimumsverdi: </span>
+                        {!! Form::input('number', $variabel->tegn_i_formel . 'Maks', $variabel->verdi_maks, ['min'=>'0', 'class' => 'form-control variabel', 'id' => $variabel->tegn_i_formel . 'Maks']) !!}
+                    </div>
+
+                </div>
+            @endforeach
+
             <hr/>
         </section>
         <section id="bilagsmaler">

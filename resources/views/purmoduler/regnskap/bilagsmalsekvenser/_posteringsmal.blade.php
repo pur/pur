@@ -1,4 +1,4 @@
-<div class="postering list-group-item {{ $cssclass }} ">
+<div class="postering {{ $cssclass }} ">
     <div class="row">
         <div class="col-md-11">
             @if($posteringsmal != null)
@@ -6,20 +6,22 @@
             @else
                 {!! Form::open(['route' => ['posteringsmaler.update', null], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
             @endif
-            <div class="form-group col-md-6">
-                <div class="input-group pur-dropdown">
-                    <div class="input-group-addon">Konto:</div>
-                    {!! Form::select('kontokode', $selectKontoer, $posteringsmal != null ? $posteringsmal->konto->kontokode : 0, ['id' =>  ($posteringsmal != null) ? 'kontokode-' . $posteringsmal->id : '', 'class' => 'form-control kontoliste', 'autocomplete' => 'off']) !!}
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <div class="input-group pur-dropdown">
+                        <div class="input-group-addon">Konto:</div>
+                        {!! Form::select('kontokode', $selectKontoer, $posteringsmal != null ? $posteringsmal->konto->kontokode : 0, ['id' =>  ($posteringsmal != null) ? 'kontokode-' . $posteringsmal->id : '', 'class' => 'form-control kontoliste', 'autocomplete' => 'off']) !!}
 
-                    <div class="input-group-addon"><span class="fa fa-caret-down"></span></div>
+                        <div class="input-group-addon"><span class="fa fa-caret-down"></span></div>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group col-md-6">
-                <div class="input-group pur-dropdown">
-                    <div class="input-group-addon">Beløp =</div>
-                    {!! Form::select('formel', $selectFormler,  $posteringsmal != null ? $posteringsmal->formel : null, ['id' =>  ($posteringsmal != null) ? 'formel-' . $posteringsmal->id : '', 'class' => 'form-control formelliste', 'autocomplete' => 'off']) !!}
-                    <div class="input-group-addon">
-                        <span class="fa fa-caret-down"></span>
+                <div class="form-group col-md-6">
+                    <div class="input-group pur-dropdown">
+                        <div class="input-group-addon">Beløp =</div>
+                        {!! Form::select('formel', $selectFormler,  $posteringsmal != null ? $posteringsmal->formel : null, ['id' =>  ($posteringsmal != null) ? 'formel-' . $posteringsmal->id : '', 'class' => 'form-control formelliste', 'autocomplete' => 'off']) !!}
+                        <div class="input-group-addon">
+                            <span class="fa fa-caret-down"></span>
+                        </div>
                     </div>
                 </div>
             </div>

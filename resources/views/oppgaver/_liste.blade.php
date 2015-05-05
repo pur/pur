@@ -46,8 +46,8 @@
                                 <span class="fa fa-pencil-square-o"></span>
                             </a>
                             @if(isset($kanOpprette) && $kanOpprette == true)
-                                <a href="#" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Fjern oppgave fra oppgavesett">
-                                    <span class="fa fa-eraser"></span>
+                                <a href="#" class="btn btn-danger" data-toggle="tooltip" data-placement="top" data-container="body" title="Fjern oppgave fra oppgavesett">
+                                    <span class="fa fa-minus"></span>
                                 </a>
                                 @else
                                 <a href="#" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Slett oppgave">
@@ -65,7 +65,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="pull-right">
-                            <a class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Legg til ny oppgave">
+                            <a class="btn btn-success" data-toggle="tooltip" data-placement="top" data-container="body" title="Legg til ny oppgave">
                                 <span class="fa fa-plus"></span>
                             </a>
                         </div>

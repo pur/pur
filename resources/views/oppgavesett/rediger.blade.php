@@ -8,7 +8,7 @@
         <div class="form-group col-sm-12">
             <div class="input-group">
                 <div class="input-group-addon">Tittel:</div>
-                {!! Form::text('beskrivelse', $oppgavesett->tittel, ['class' => 'form-control']) !!}
+                {!! Form::text('tittel', $oppgavesett->tittel, ['class' => 'form-control']) !!}
             </div>
         </div>
 
