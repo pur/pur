@@ -73,8 +73,12 @@
                 var forms = tomMal.find('form');
                 for (var i = 0; i < forms.length; i++) {
                     $(forms[i]).attr('action', form.attr('action') + "/" + response);
+                    $(forms[i]).find('select.kontoliste').attr('id', 'kontokode-' + response);
+                    $(forms[i]).find('select.formelliste').attr('id', 'formel-' + response);
                 }
                 liste.append(tomMal);
+               
+
             },
             error: function (response) {
                 console.log('Creation failed');
@@ -83,6 +87,7 @@
         });
 
         tomMal.removeClass('hidden');
+        hentVerdier();
 
         e.preventDefault();
     });
