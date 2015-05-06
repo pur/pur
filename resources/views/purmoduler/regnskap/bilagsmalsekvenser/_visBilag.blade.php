@@ -72,10 +72,9 @@
             @foreach($bilagsmal->posteringsmaler as $posteringsmal)
                 @include('purmoduler.regnskap.bilagsmalsekvenser._visPosteringsmal', ['posteringsmal' => $posteringsmal, 'cssclass' => ''])
                 @endforeach
-
-                        <!-- <div id="tomposteringsmal-{{ $bilagsmal->id }}Vis">
-               {{-- @include('purmoduler.regnskap.bilagsmalsekvenser._visPosteringsmal', ['posteringsmal' => null, 'cssclass' => 'hidden'])--}}
-            </div> -->
+            <div id="tomposteringsmal-{{ $bilagsmal->id }}Vis">
+                @include('purmoduler.regnskap.bilagsmalsekvenser._visPosteringsmal', ['posteringsmal' => null, 'cssclass' => 'hidden'])
+            </div>
 
 
                 <div class="list-group-item">

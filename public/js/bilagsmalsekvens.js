@@ -137,20 +137,23 @@ $('textarea.bilagstekst').keyup(function () {
     $("#" + idTittel + "Vis").text($(this).val());
 });
 
+
 // Legge til valgt konto i vis bilag
-$('select.kontoliste').change(function () {
+$('#bilagsmaler').on('change', 'select.kontoliste', (function (e) {
+    e.preventDefault();
     if ('input[type="select"]') {
         var idName = $(this).attr("id");
         var str = $(this).find('option:selected').text();
         $("#" + idName + "Vis").text(str);
     }
-});
+}));
 
 
 // Legg til valgt formel i vis bilag
-$("select.formelliste").change(function () {
+$("#bilagsmaler").on('change', 'select.formelliste', (function (e) {
+    e.preventDefault();
     hentVerdier();
-});
+}));
 
 function brukFormel($formelNr, $verdi1, $verdi2, $verdi3) {
     if ($formelNr == 1) {

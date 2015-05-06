@@ -60,7 +60,10 @@
         }
 
         var tomMal = $($('#tomposteringsmal-' + bilagsmalId).children()[0]).clone();
+        var tomVis = $($('#tomposteringsmal-' + bilagsmalId + 'Vis').children()[0]).clone();
+
         var liste = $('#posteringsmaler-' + bilagsmalId);
+        var listeVis = $('#visBilag' + bilagsmalId + ' .postering');
         var url = form.prop('action');
 
         $.ajax({
@@ -76,8 +79,18 @@
                     $(forms[i]).find('select.kontoliste').attr('id', 'kontokode-' + response);
                     $(forms[i]).find('select.formelliste').attr('id', 'formel-' + response);
                 }
+                var posteringVis = tomVis.find('.posteringVis');
+                for (var i = 0; i < posteringVis.length; i++) {
+                    $(posteringVis[i]).find('span.kontokodeVis').attr('id', 'kontokode-' + response + 'Vis');
+                    $(posteringVis[i]).find('span.formelVis').attr('id', 'formel-' + response + 'Vis');
+                    $(posteringVis[i]).find('span.belopVis').attr('id', 'formel-' + response + 'ResultatVis');
+                    $(posteringVis[i]).find('span.belopVis').addClass('bilag' + response + '-formel');
+
+                    console.log('bilag'+response+'-formel');
+                }
+
                 liste.append(tomMal);
-               
+                listeVis.append(tomVis);
 
             },
             error: function (response) {
@@ -87,6 +100,7 @@
         });
 
         tomMal.removeClass('hidden');
+        tomVis.removeClass('hidden');
         hentVerdier();
 
         e.preventDefault();
