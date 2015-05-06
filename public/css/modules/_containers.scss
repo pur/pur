@@ -1,0 +1,53 @@
+body {
+  background-color: #EEE;
+}
+
+main {
+  background-color: #F9F9F9;
+  padding-bottom: 40px;
+}
+
+section {
+  margin: 20px 0;
+  background-color: #FFF;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  border: 1px solid #DDD;
+  border-top-color: #EEE;
+  border-bottom-color: #CCC;
+  border-radius: 2px;
+}
+
+section.padding {
+  padding: 5px 10px;
+}
+
+section > .panel {
+  border: none;
+  overflow: hidden;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.panel-primary {
+  border-color: #DDD;
+}
+
+.panel .list-group-item:last-child {
+  margin-bottom: -1px;
+}
+
+.panel-action-bar {
+  position: relative;
+  top: -19px;
+  a {
+    color: $white;
+    .fa {
+      font-size: 1.5em;
+      margin-left: 8px;
+    }
+  }
+  .collapsed .fa-compress:before {
+    content: "\f065";
+  }
+}
+

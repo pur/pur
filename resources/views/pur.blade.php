@@ -7,11 +7,12 @@
     <link href="{{ env('APPWEBPATH') }}/css/lato.css" rel="stylesheet">
     <link href="{{ env('APPWEBPATH') }}/fonts/roboto/stylesheet.css" rel="stylesheet">
 
-    <link href="{{ env('APPWEBPATH') }}/css/bootstrap-datetime.css" rel="stylesheet">
+   <!-- <link href="{{ env('APPWEBPATH') }}/css/bootstrap-datetime.css" rel="stylesheet"> -->
     <link href="{{ env('APPWEBPATH') }}/css/app.css" rel="stylesheet">
-    <link href="{{ env('APPWEBPATH') }}/css/material.css" rel="stylesheet">
+    <link href="{{ env('APPWEBPATH') }}/css/main.css" rel="stylesheet">
+   <!-- <link href="{{ env('APPWEBPATH') }}/css/material.css" rel="stylesheet">
     <link href="{{ env('APPWEBPATH') }}/css/pur.css" rel="stylesheet">
-    <link href="{{ env('APPWEBPATH') }}/css/ripples.css" rel="stylesheet">
+    <link href="{{ env('APPWEBPATH') }}/css/ripples.css" rel="stylesheet"> -->
 </head>
 <body>
 <div class="loading" style="background: url({{ env('APPWEBPATH') }}/images/loading-animation.gif) center no-repeat #fff;"></div>

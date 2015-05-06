@@ -12,24 +12,11 @@
     color: rgba(0, 0, 0, 0.84);
 }
 
-.btn.btn-flat {
-    background: none;
-    box-shadow: none;
-    font-weight: 500;
-}
 
 .btn.btn-flat:disabled {
     color: #a8a8a8 !important;
 }
 
-.btn.btn-sm {
-    padding: 5px 20px;
-}
-
-.btn.btn-xs {
-    padding: 4px 15px;
-    font-size: 10px;
-}
 
 .btn-link,
 .btn:not([class*="btn-"]),
@@ -103,6 +90,7 @@
     box-shadow: none !important;
     margin: 0;
 }
+/*scss over*/
 
 .form-horizontal .checkbox {
     padding-top: 20px;

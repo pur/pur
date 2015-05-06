@@ -1,0 +1,50 @@
+blockquote.bq-info {
+  color: #31708F;
+  border: 1px solid #EEE;
+  border-left:5px solid $blue;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  background-color: #D9EDF7;
+}
+
+.fa {
+  font-size: 16px;
+}
+
+#navbar-submenu li > #ajax-success {
+  display: none;
+  top: 13px;
+  position: relative;
+}
+
+footer {
+  border-top: 1px solid #E7E7E7;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+}
+
+.no-js #loader {
+  display: none;
+}
+
+.js #loader {
+  display: block;
+  position: absolute;
+  left: 100px;
+  top: 0;
+}
+
+.loading {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  opacity: .8;
+  z-index: 400;
+}
+
+.bilag .alert {
+  display: none;
+}
