@@ -6,7 +6,7 @@
         <blockquote class="bq-info">
             <p>Info om oppgavesett</p>
         </blockquote>
-        <section>
+        <section class="padding">
             <h2>Mine oppgavesett</h2>
 
             <div class="list-group panel panel-primary" id="accordion" role="tablist" aria-multiselectable="true">

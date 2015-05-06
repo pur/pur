@@ -6,8 +6,8 @@
         <blockquote class="bq-info">
             <p>Info om oppgaver</p>
         </blockquote>
-        <section>
-            <h2>Mine oppgaver</h2>
+        <section class="padding">
+            <h2>Alle oppgaver</h2>
             @include('oppgaver._liste')
         </section>
     </div>

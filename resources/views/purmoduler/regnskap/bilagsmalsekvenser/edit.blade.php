@@ -3,7 +3,7 @@
     @include('purmoduler.regnskap.bilagsmalsekvenser._editSubmenu')
 
     <div class="container content">
-        <section>
+
         <h1>Rediger oppgave</h1>
         {!! Form::model($bilagsmalsekvens, ['route' => ['bilagsmalsekvenser.update', $bilagsmalsekvens->id], 'method' => 'PATCH']) !!}
         <div class="row">
@@ -30,11 +30,11 @@
                 </div>
             </div>
         </div>
-        </section>
+
 
         {!! Form::close() !!}
 
-        <section>
+
             <h2>Variabler</h2>
 
             <blockquote class="bq-info">
@@ -78,8 +78,8 @@
             @endforeach
 
             <hr/>
-        </section>
-        <section id="bilagsmaler">
+
+        <div id="bilagsmaler">
             <h2>Bilag</h2>
 
             <p class="lead"></p>
@@ -89,7 +89,7 @@
                 <p>Klikk på vis bilag fanen for å se resultat av utregning.</p>
             </blockquote>
             @foreach($bilagsmalsekvens->bilagsmaler as $bilagsmal)
-
+<section>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 id="bilagstittel{{ $bilagsmal->id }}HeadingVis" class="panel-title">{{ $bilagsmal->tittel() }}</h3>
@@ -142,8 +142,9 @@
                         </div>
                     </div>
                 </div>
+</section>
             @endforeach
-        </section>
+        </div>
     </div>
 @endsection
 

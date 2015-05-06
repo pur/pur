@@ -6,7 +6,7 @@
         <blockquote class="bq-info">
             <p>Info om oppgavesett</p>
         </blockquote>
-        <section>
+        <section class="padding">
             <h2>Mine oppgavesett</h2>
 
             <!-- TODO: Tilpass kolonner til visning for student -->
@@ -78,7 +78,7 @@
             </div>
         </section>
         @if( ! $besvarelser->isEmpty() )
-            <section>
+            <section class="padding">
                 <h2>Mine besvarelser</h2>
                 @include('besvarelser._liste', $besvarelser)
             </section>

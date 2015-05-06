@@ -14,7 +14,7 @@
         <div class="clearfix"></div>
 
         {!! Form::close() !!}
-        <section>
+        <section class="padding">
             <h2>Oppgaver</h2>
             @include('oppgaver._liste', ['oppgaver' => $oppgavesett->oppgaver, 'kanOpprette' => true])
         </section>
