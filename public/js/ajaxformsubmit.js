@@ -1,3 +1,7 @@
+// TODO: Lag funksjonene generelle, så de kan brukes av både bilagsmaler og bilag
+
+// Bilagsmaler:
+
 (function () {
 
     $('#bilagsmaler').on('change', 'form[submit-async]', function (e) {
@@ -86,7 +90,7 @@
                     $(posteringVis[i]).find('span.belopVis').attr('id', 'formel-' + response + 'ResultatVis');
                     $(posteringVis[i]).find('span.belopVis').addClass('bilag' + response + '-formel');
 
-                    console.log('bilag'+response+'-formel');
+                    console.log('bilag' + response + '-formel');
                 }
 
                 liste.append(tomMal);
@@ -108,24 +112,28 @@
 
 })();
 
+// Bilag:
 
 (function () {
 
-    $('form[slett-malrad]').submit(function (e) {
+    $('#bilagsgruppe').on('focusout', 'form[submit-async]', function (e) {
 
-        confirm('Vil du slette posteringen?');
+        var form = $(this);
+        var type = form.find('input[name="_method"]').val() || 'POST';
+        var url = form.prop('action');
+        var data = form.serialize();
+        var successelement = $('#ajax-success');
 
-        $(this).closest('.postering').remove();
+        $.ajax({
+            type: type,
+            url: url,
+            data: data,
+            success: function (serverActionOk) {
+                if (serverActionOk == 'true') successelement.css('visibility', 'visible');
+            }
+        });
 
         e.preventDefault();
     });
 
 })();
-
-$('form').on('submit', function (event) {
-    console.log("got submit event");
-    console.log(event);
-}).on('submit', 'form[slett-asynk]', function (event) {
-    console.log("got submit event for form[slett-asynk]");
-    console.log(event);
-});

@@ -175,6 +175,7 @@ Route::get('regnskap/bilagsmalsekvenser/{bilagsmalsekvenser}/update',
 $router->resource('bilagsmaler', 'Purmoduler\Regnskap\BilagsmalController');
 $router->resource('posteringsmaler', 'Purmoduler\Regnskap\PosteringsmalController');
 $router->resource('bilag', 'Purmoduler\Regnskap\BilagController');
+$router->resource('posteringer', 'Purmoduler\Regnskap\PosteringController');
 
 Route::get('formel', function (Request $request) {
     //return "Retur fra formel nr. $nr $verdi1 $verdi2  ";

@@ -60,4 +60,14 @@ class Postering extends Model {
     {
         return $this->belongsTo('Pur\Purmoduler\Regnskap\Bilag');
     }
+
+    /**
+     * Kontoen som brukes i posteringen
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function konto()
+    {
+        return $this->belongsTo('Pur\Purmoduler\Regnskap\Konto', 'kontokode', 'kontokode');
+    }
 }

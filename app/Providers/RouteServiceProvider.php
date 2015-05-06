@@ -41,6 +41,8 @@ class RouteServiceProvider extends ServiceProvider {
         $router->model('posteringsmal', 'Pur\Purmoduler\Regnskap\Posteringsmal');
         $router->model('posteringsmaler', 'Pur\Purmoduler\Regnskap\Posteringsmal');
         $router->model('bilag', 'Pur\Purmoduler\Regnskap\Bilag');
+        $router->model('postering', 'Pur\Purmoduler\Regnskap\Postering');
+        $router->model('posteringer', 'Pur\Purmoduler\Regnskap\Postering');
 
 	}
 
