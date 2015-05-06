@@ -10,14 +10,15 @@
         var type = form.find('input[name="_method"]').val() || 'POST';
         var url = form.prop('action');
         var data = form.serialize();
-        var successelement = form.children('.ajax-success');
+        var successelement = $('#ajax-success');
 
         $.ajax({
             type: type,
             url: url,
             data: data,
             success: function () {
-                successelement.css('visibility', 'visible');
+                successelement.fadeIn(500);
+                successelement.delay(3000).fadeOut(500);
             }
         });
 
@@ -129,7 +130,10 @@
             url: url,
             data: data,
             success: function (serverActionOk) {
-                if (serverActionOk == 'true') successelement.css('visibility', 'visible');
+                if (serverActionOk == 'true') {
+                    successelement.fadeIn(500);
+                    successelement.delay(3000).fadeOut(500);
+                }
             }
         });
 

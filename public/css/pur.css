@@ -90,7 +90,6 @@ main {
 }
 
 section{
-    padding: 4px 20px;
     margin: 20px 0;
     background-color: #FFF;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
@@ -100,12 +99,25 @@ section{
     border-radius: 2px;
 }
 
-.ajax-success {
-    visibility: hidden;
+section.padding {
+    padding: 5px 10px;
+}
+
+section>.panel {
+    border: none;
+    overflow: hidden;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+
+#navbar-submenu li > #ajax-success {
+    display: none;
+    top: 13px;
+    position: relative;
 }
 
 .panel-primary {
-   /* border-bottom: 2px solid #337AB7;*/
     border-color: #DDD;
 }
 
@@ -178,6 +190,18 @@ section{
 .btn .fa{
     font-size: 18px;
     width: 20px;
+}
+
+.input-group-addon.btn.btn-default {
+    background-color: #F8F8F8;
+    border: 1px solid #D3D3D3;
+    border-radius: 2px;
+    top: -2px;
+    position: relative;
+}
+.input-group-addon.btn.btn-default span.fa {
+    font-size: 1em;
+    width: 14px;
 }
 
 .row.list-group-item .form-group {
