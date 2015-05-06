@@ -113,6 +113,7 @@
 </footer>
 
 <script src="{{ env('APPWEBPATH') }}/js/jquery-1.11.2.min.js"></script>
+<script src="{{ env('APPWEBPATH') }}/js/jquery.autosize.js"></script>
 <script src="{{ env('APPWEBPATH') }}/js/bootstrap.min.js"></script>
 <script src="{{ env('APPWEBPATH') }}/js/moment-with-locales.js"></script>
 <script src="{{ env('APPWEBPATH') }}/js/bootstrap-datetime.js"></script>
@@ -124,6 +125,12 @@
     $(document).ready(function() {
         // This command is used to initialize some elements and make them work properly
         $.material.init();
+    });
+</script>
+<script>
+    $(function(){
+        $('.normal').autosize();
+        $('.animated').autosize();
     });
 </script>
 

@@ -25,7 +25,7 @@
                             <label class="col-md-2" for="infotekst">Infotekst:</label>
 
                             <div class="col-md-10">
-                                {!! Form::textarea( 'infotekst', $bilagsmal->infotekst, ['id' => 'bilagstekst' . $bilagsmal->id, 'class' => 'form-control bilagstekst', 'style' => 'height: 6em;']) !!}
+                                {!! Form::textarea( 'infotekst', $bilagsmal->infotekst, ['id' => 'bilagstekst' . $bilagsmal->id, 'class' => 'form-control bilagstekst animated', 'style' => 'height: 6em;']) !!}
                             </div>
                         </div>
                     </div>
