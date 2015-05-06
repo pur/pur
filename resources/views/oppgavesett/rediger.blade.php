@@ -22,7 +22,7 @@
 
             <div class='input-group date' id='datetimepicker3'>
                 {!! Form::input('text', 'tid_publisert', $oppgavesett->tidPublisert(), ['class' => 'form-control']) !!}
-                <div class="input-group-addon">
+                <div class="input-group-addon btn btn-default">
                     <span class="fa fa-calendar"></span>
                 </div>
             </div>
@@ -48,7 +48,7 @@
 
             <div class='input-group date' id='datetimepicker1'>
                 {!! Form::input('text', 'tid_aapent', $oppgavesett->tidAapent(), ['class' => 'form-control']) !!}
-                <span class="input-group-addon">
+                <span class="input-group-addon btn btn-default">
                     <span class="fa fa-calendar"></span>
                 </span>
             </div>
@@ -65,7 +65,7 @@
             {!!Form::label('tid_lukket', 'Åpent til: ') !!}
             <div class='input-group date' id='datetimepicker2'>
                 {!! Form::input('text', 'tid_aapent', $oppgavesett->tidLukket(), ['class' => 'form-control']) !!}
-                <div class="input-group-addon">
+                <div class="input-group-addon btn btn-default">
                     <span class="fa fa-calendar"></span>
                 </div>
             </div>
@@ -78,7 +78,7 @@
         <div class="clearfix"></div>
 
         {!! Form::close() !!}
-        <section>
+        <section class="padding">
             <h2>Oppgaver</h2>
         @include('oppgaver._liste', ['oppgaver' => $oppgavesett->oppgaver, 'kanOpprette' => true])
         </section>
