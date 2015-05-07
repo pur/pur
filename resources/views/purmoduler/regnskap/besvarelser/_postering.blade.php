@@ -17,7 +17,7 @@
                 <div class="form-group col-md-6">
                     <div class="input-group">
                         <div class="input-group-addon">Beløp =</div>
-                        {!! Form::input('number', 'belop', $postering != null ? $postering->belop : 0.00, ['id' => $postering != null ? 'belop-' . $postering->id : '', 'class' => 'form-control', 'autocomplete' => 'off']) !!}
+                        {!! Form::input('text', 'belop', $postering != null ? $postering->belop : 0.00, ['id' => $postering != null ? 'belop-' . $postering->id : '', 'class' => 'form-control', 'autocomplete' => 'off']) !!}
                     </div>
                 </div>
             </div>
