@@ -11,10 +11,13 @@
                 @endforeach
             </ul>
         </nav>
+        <section>
         <div class="tab-content">
 
             @foreach($bilagssamling as $bilag)
+
                 <div id="bilag{{ $bilag->id }}" class="tab-pane panel panel-primary @if($bilag->id == 1) active @endif" role="tabpanel">
+
                     <div class="panel-heading">
                         <h3 id="bilagstittel{{ $bilag->id }}HeadingVis" class="panel-title">Bilag {{ $bilag->id }} - {{ $bilag->bilagsmal->bilagstype}}</h3>
                     </div>
@@ -25,10 +28,11 @@
                     @include('purmoduler.regnskap.besvarelser._posteringer', ['bilag' => $bilag])
 
                 </div>
+
             @endforeach
 
         </div>
-
+        </section>
     </div>
 </div>
 

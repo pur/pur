@@ -56,21 +56,21 @@
             </div>
 
             @foreach($bilagsmalsekvens->variabler as $variabel)
-                <div class=" row">
+                <div class="row">
                     <div class="form-group col-sm-4">
-                        <span class="visible-xs-inline">Variabelnavn: </span>
+                        <label class="visible-xs-inline">Variabelnavn: </label>
 
                         <div class="input-group">
                             <div class="input-group-addon">{{$variabel->tegn_i_formel}}:</div>
                             {!! Form::input('text', $variabel->tegn_i_formel . 'navn', $variabel->navn, ['class' => 'form-control variabel', 'id' => $variabel->tegn_i_formel . 'Navn']) !!}
                         </div>
                     </div>
-                    <div class=" col-sm-4">
-                        <span class="visible-xs-inline">Minimumsverdi: </span>
+                    <div class="form-group col-sm-4">
+                        <label class="visible-xs-inline">Minimumsverdi: </label>
                         {!! Form::input('number', $variabel->tegn_i_formel . 'Min', $variabel->verdi_min, ['min'=>'0', 'class' => 'form-control variabel', 'id' => $variabel->tegn_i_formel . 'Min']) !!}
                     </div>
-                    <div class=" col-sm-4">
-                        <span class="visible-xs-inline">Maksimumsverdi: </span>
+                    <div class="form-group col-sm-4">
+                        <label class="visible-xs-inline">Maksimumsverdi: </label>
                         {!! Form::input('number', $variabel->tegn_i_formel . 'Maks', $variabel->verdi_maks, ['min'=>'0', 'class' => 'form-control variabel', 'id' => $variabel->tegn_i_formel . 'Maks']) !!}
                     </div>
 

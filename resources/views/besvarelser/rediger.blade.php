@@ -11,10 +11,11 @@
             <div class="input-group-addon"><span class="fa fa-comment"></span> Kommentar</div>
             {!! Form::input('text', 'kommentar',  $besvarelse->kommentar, ['class' => 'form-control variabel', 'id' => 'kommentar']) !!}
         </div>
-        <section>
+
             <h2>Oppgaver</h2>
+
             @include('purmoduler.regnskap.besvarelser._rediger')
-        </section>
+
 
         <section>
             <h2>Saldoballanse</h2>

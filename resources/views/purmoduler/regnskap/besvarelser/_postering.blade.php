@@ -1,4 +1,4 @@
-<div class="row postering list-group-item {{ $cssclass }} ">
+<div class=" postering list-group-item {{ $cssclass }} ">
     <div class="row">
         <div class="col-md-11">
             @if($postering != null)
@@ -23,7 +23,7 @@
             </div>
             {!! Form::close() !!}
         </div>
-        <div class="form-group col-md-1">
+        <div class=" col-md-1">
             <div class="pull-right">
                 @if($postering != null)
                     {!! Form::open(['route' => ['posteringer.destroy', $postering->id], 'method' => 'DELETE', 'slett-asynk' => 'true']) !!}

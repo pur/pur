@@ -26,31 +26,31 @@
             </div>
         </div>
     </div>
-        <div class="list-group-item ">
-            <div class="row">
-                <div class="col-sm-11">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <p>
+    <div class="list-group-item ">
+        <div class="row">
+            <div class="col-sm-11">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p>
 
-                            </p>
-                        </div>
-                        <div class="form-group col-sm-6">
-                            <div class="input-group">
-                                <div class="input-group-addon"> Kontrollsum:</div>
+                        </p>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <div class="input-group">
+                            <div class="input-group-addon"> Kontrollsum:</div>
 
-                                <input class="form-control" readonly value="234.54,-">
+                            <input class="form-control" readonly value="234.54,-">
 
-                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="col-sm-1">
+            <div class="col-sm-1">
 
-                </div>
             </div>
         </div>
+    </div>
 </div>
 
 
