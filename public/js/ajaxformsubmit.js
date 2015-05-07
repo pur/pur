@@ -141,3 +141,28 @@
     });
 
 })();
+
+(function () {
+
+    $('#bilagsgruppe').on('submit', 'form[slett-asynk]', function (e) {
+
+        confirm('Vil du slette posteringen?');
+
+        var form = $(this);
+        var type = form.find('input[name="_method"]').val() || 'POST';
+        var url = form.prop('action');
+        var data = form.serialize();
+
+        $.ajax({
+            type: type,
+            url: url,
+            data: data,
+            success: function (serverActionOk) {
+                if (serverActionOk == 'true') form.closest('.postering').remove();
+            }
+        });
+
+        e.preventDefault();
+    });
+
+})();

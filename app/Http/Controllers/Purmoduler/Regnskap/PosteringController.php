@@ -68,7 +68,7 @@ class PosteringController extends Controller {
 	 */
 	public function update(Postering $postering, Request $request)
     {
-        return ($postering->fill($request->all())->save())? 'true' : 'false';
+        return $postering->fill($request->all())->save() ? 'true' : 'false';
     }
 
 	/**
@@ -77,9 +77,9 @@ class PosteringController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
-	{
-		//
+	public function destroy(Postering $postering)
+    {
+        return $postering->delete() ? 'true' : 'false';
 	}
 
 }
