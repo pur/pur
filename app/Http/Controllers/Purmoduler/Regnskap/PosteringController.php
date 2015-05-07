@@ -4,6 +4,7 @@ use Pur\Http\Requests;
 use Pur\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Pur\Purmoduler\Regnskap\Bilag;
 use Pur\Purmoduler\Regnskap\Postering;
 
 class PosteringController extends Controller {
@@ -33,9 +34,16 @@ class PosteringController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
-	{
-		//
+	public function store(Request $request)
+    {
+        $bilagsId = $request->get('bilagsId');
+        $bilag = Bilag::find($bilagsId);
+
+        $postering = new Postering();
+        $postering->bilag()->associate($bilag);
+        $postering->save();
+
+        return $postering->id;
 	}
 
 	/**

@@ -15,10 +15,13 @@
     <div class="list-group-item list-group-item-info ">
         <div class="row">
             <div class="col-sm-12">
-                <div class="btn-group pull-right">
-                    <a class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Legg til postering">
+                <div class="pull-right">
+                    {!! Form::open(['route' => ['posteringer.store'], 'opprett-asynk' => 'true']) !!}
+                    {!! Form::hidden('bilagsId', $bilag->id) !!}
+                    <button type="submit" class="btn btn-success" data-toggle="tooltip" data-placement="top" data-container="body" title="Legg til postering">
                         <span class="fa fa-plus"></span>
-                    </a>
+                    </button>
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>

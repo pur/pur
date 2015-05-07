@@ -117,7 +117,7 @@
 
 (function () {
 
-    $('#bilagsgruppe').on('focusout', 'form[submit-async]', function (e) {
+    $('#bilagsgruppe').on('focusout', 'form[oppdater-asynk]', function (e) {
 
         var form = $(this);
         var type = form.find('input[name="_method"]').val() || 'POST';
@@ -163,6 +163,52 @@
         });
 
         e.preventDefault();
+    });
+
+})();
+
+
+(function () {
+
+    $('form[opprett-asynk]').submit(function (e) {
+
+        e.preventDefault();
+
+        var form = $(this);
+        var bilagsId = form.find('input[name="bilagsId"]').val();
+
+        if (bilagsId === null) {
+            console.error('Mangler bilagsId. Kunne ikke opprette ny postering.');
+            return;
+        }
+
+        var tomPostering = $($('#tompostering-' + bilagsId).children()[0]).clone();
+
+        var liste = $('#posteringer-' + bilagsId);
+
+        var url = form.prop('action');
+
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: form.serialize(),
+            success: function (response) {
+                console.log('Oppretter ny postering');
+                console.log(response);
+                var forms = tomPostering.find('form');
+                for (var i = 0; i < forms.length; i++) {
+                    $(forms[i]).attr('action', form.attr('action') + "/" + response);
+                }
+                liste.append(tomPostering);
+            },
+            error: function (response) {
+                console.log('Opprettelse feilet');
+                console.log(response);
+            }
+        });
+
+        tomPostering.removeClass('hidden');
+
     });
 
 })();

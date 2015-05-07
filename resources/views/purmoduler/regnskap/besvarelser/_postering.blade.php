@@ -2,9 +2,9 @@
     <div class="row">
         <div class="col-md-11">
             @if($postering != null)
-                {!! Form::model($postering, ['route' => ['posteringer.update', $postering->id], 'method' => 'PATCH', 'submit-async' => 'true']) !!}
+                {!! Form::model($postering, ['route' => ['posteringer.update', $postering->id], 'method' => 'PATCH', 'oppdater-asynk' => 'true']) !!}
             @else
-                {!! Form::open(['route' => ['posteringer.update', null], 'method' => 'PATCH', 'submit-async' => 'true']) !!}
+                {!! Form::open(['route' => ['posteringer.update', null], 'method' => 'PATCH', 'oppdater-asynk' => 'true']) !!}
             @endif
             <div class="row">
                 <div class="form-group col-md-6">
