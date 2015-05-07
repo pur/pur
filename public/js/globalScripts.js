@@ -83,3 +83,25 @@ $('.date').each(function () {
         });
     });
 });
+
+$('.input-group input').focus(function () {
+    var outerInputGroup = $(this).closest('.input-group');
+    outerInputGroup.children('.input-group-addon').addClass('focused');
+});
+
+$('.input-group input').blur(function () {
+    var outerInputGroup = $(this).closest('.input-group');
+    outerInputGroup.children('.input-group-addon').removeClass('focused');
+});
+
+$('.form-group input, .form-group textarea').focus(function () {
+    var outerFormGroup = $(this).closest('.form-group');
+    outerFormGroup.find('label').addClass('focused');
+    console.log(outerFormGroup);
+});
+
+$('.form-group input, .form-group textarea').blur(function () {
+    var outerFormGroup = $(this).closest('.form-group');
+    outerFormGroup.find('label').removeClass('focused');
+
+});

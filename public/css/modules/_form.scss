@@ -248,6 +248,10 @@ fieldset[disabled] .form-control.focus:disabled,
   background-image: linear-gradient($blue, $blue), linear-gradient(#d2d2d2, #d2d2d2);
 }
 
+label.focused{
+  color: $blue;
+}
+
 .input-group {
   .input-group-addon {
     border: 0;
@@ -256,6 +260,9 @@ fieldset[disabled] .form-control.focus:disabled,
   .input-group-btn .btn {
     border-radius: 4px;
     margin: 0;
+  }
+  .input-group-addon.focused{
+    color: $blue;
   }
 }
 
