@@ -20,24 +20,49 @@ class Besvarelse extends Model
 
     protected $dates = ['tid_levert'];
 
+
     /**
      * Formattert tidspunkt for da besvarelsen ble opprettet
      *
-     * @return mixed
+     * @param string $format
+     * @return string
      */
-    public function tidOpprettet()
+    public function tidOpprettet($format = 'd.m.y H:i')
     {
-        return $this->tid_opprettet->format('d.m.y H:i');
+        return $this->tid_opprettet->format($format);
+    }
+
+    /**
+     * Formattert tidspunkt for besvarelsens leveringsfrist
+     *
+     * @param string $format
+     * @return string
+     */
+    public function frist($format = 'd.m.y H:i')
+    {
+        return $this->oppgavesett->tid_lukket->format($format);
     }
 
     /**
      * Formattert tidspunkt for da besvarelsen sist ble endret
      *
-     * @return mixed
+     * @param string $format
+     * @return string
      */
-    public function tidEndret()
+    public function tidEndret($format = 'd.m.y H:i')
     {
-        return $this->tid_endret->format('d.m.y H:i');
+        return $this->tid_endret->format($format);
+    }
+
+    /**
+     * Formattert tidspunkt for da besvarelsen ble levert
+     *
+     * @param string $format
+     * @return string
+     */
+    public function tidLevert($format = 'd.m.y H:i')
+    {
+        return $this->erLevert() ? $this->tid_levert->format($format) : null;
     }
 
     /**
@@ -48,16 +73,6 @@ class Besvarelse extends Model
     public function erLevert()
     {
         return !starts_with($this->tid_levert, '-') && $this->tid_levert->isPast();
-    }
-
-    /**
-     * Formattert tidspunkt for da besvarelsen ble levert
-     *
-     * @return mixed
-     */
-    public function tidLevert()
-    {
-        return $this->erLevert() ? $this->tid_levert->format('d.m.y H:i') : null;
     }
 
     /**
@@ -103,7 +118,7 @@ class Besvarelse extends Model
     /**
      * Antallet oppgavesvar besvarelsen skal inneholde ved levering
      *
-     * @return mixed
+     * @return int
      */
     public function antKrevdeSvar()
     {

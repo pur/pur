@@ -3,22 +3,24 @@
     @include('purmoduler.regnskap.besvarelser._editSubmenu')
 
     <div class="container">
-        <h1>Besvarelse på {{ $besvarelse->oppgavesett->beskrivelse }}</h1>
+        <h1>Besvarelse på {{ $besvarelse->oppgavesett->tittel }}</h1>
 
-        <p>Opprettet: {{$besvarelse->tidOpprettet()}}</p>
+        <p>Påbegynt: {{ $besvarelse->tidOpprettet('d.m.y') }} – Leveringsfrist: {{ $besvarelse->frist('d.m.y k\l.H:i') }}</p>
 
         <div class="input-group">
-            <div class="input-group-addon"><span class="fa fa-comment"></span> Kommentar</div>
+            <div class="input-group-addon"><span class="fa fa-comment"></span> Kommentar til besvarelsen:</div>
             {!! Form::input('text', 'kommentar',  $besvarelse->kommentar, ['class' => 'form-control variabel', 'id' => 'kommentar']) !!}
         </div>
 
-            <h2>Oppgaver</h2>
+        <!-- TODO : Gjør purmodul-uavhengig: -->
+
+            <h2>Bilag</h2>
 
             @include('purmoduler.regnskap.besvarelser._rediger')
 
 
         <section>
-            <h2>Saldoballanse</h2>
+            <h2>Saldobalanse</h2>
             @include('purmoduler.regnskap.besvarelser._besvarelseSaldobalanse')
         </section>
 
