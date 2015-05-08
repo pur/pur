@@ -37,19 +37,19 @@
                 </blockquote>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="checkbox">
-                            <label>
-                                {!! Form::checkbox('false', 'motpartEksempel' . $bilagsmal->id) !!}
+                        <div class="radio">
+                            <label class="radio">
+                                {!! Form::radio('false', 'motpartEksempel' . $bilagsmal->id) !!}
                                 Motpart:
-                                <span class="motpartEksempel">{{$bilagsmalsekvens->motpart}}</span>
+                                <div class="radio-inline motpartEksempel">{{$bilagsmalsekvens->motpart}}</div>
                             </label>
                         </div>
                         @foreach($bilagsmalsekvens->variabler as $variabel)
-                            <div class="checkbox">
-                                <label>
-                                    {!! Form::checkbox('false', $variabel->tegn_i_formel . 'Eksempel' . $bilagsmal->id) !!} {{$variabel->tegn_i_formel}}:
-                                    <span class="{{$variabel->tegn_i_formel}}NavnEksempel">{{$variabel->navn}}</span>
-                                    <span class="{{$variabel->tegn_i_formel}}Eksempel">{{($variabel->verdi_min +$variabel->verdi_min)/2}}</span>
+                            <div class="radio">
+                                <label class="radio">
+                                    {!! Form::radio('false', $variabel->tegn_i_formel . 'Eksempel' . $bilagsmal->id) !!} {{$variabel->tegn_i_formel}}:
+                                    <div class="radio-inline {{$variabel->tegn_i_formel}}NavnEksempel">{{$variabel->navn}}</div>
+                                    <div class="radio-inline {{$variabel->tegn_i_formel}}Eksempel">{{($variabel->verdi_min +$variabel->verdi_min)/2}}</div>
                                 </label>
                             </div>
                         @endforeach
