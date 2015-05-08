@@ -92,7 +92,7 @@
 <section>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 id="bilagstittel{{ $bilagsmal->id }}HeadingVis" class="panel-title">{{ $bilagsmal->tittel() }}</h3>
+                        <h3 class="panel-title">Bilag nr. {{ $bilagsmal->nr_i_sekvens }}  - <span id="bilagstittel{{ $bilagsmal->id }}HeadingVis">{{ $bilagsmal->bilagstype }}</span></h3>
 
                         <div class="panel-action-bar pull-right">
                             <a data-toggle="collapse" href="#bilag{{ $bilagsmal->id }}"><span class="fa fa-compress"></span></a>

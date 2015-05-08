@@ -13,10 +13,10 @@
                     <div class="form-group col-md-12">
                         <div class="row">
                             <div class="col-md-2">
-                                <label for="bilagstittel">Tittel:</label>
+                                <label for="bilagstittel">Type:</label>
                             </div>
                             <div class="col-md-10">
-                                {!! Form::text('bilagstittel', $bilagsmal->tittel(), ['class' => 'form-control bilagstittel', 'id' => 'bilagstittel' . $bilagsmal->id]) !!}
+                                {!! Form::text('bilagstittel', $bilagsmal->bilagstype, ['class' => 'form-control bilagstittel', 'id' => 'bilagstittel' . $bilagsmal->id]) !!}
                             </div>
                         </div>
                     </div>

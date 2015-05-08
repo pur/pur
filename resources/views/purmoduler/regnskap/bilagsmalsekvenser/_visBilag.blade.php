@@ -1,7 +1,7 @@
 <div role="tabpanel" class="tab-pane" id="visBilag{{ $bilagsmal->id }}">
     <div class="panel-body">
 
-        <p id="bilagstittel{{ $bilagsmal->id }}Vis" class="lead">{{ $bilagsmal->tittel() }}</p>
+        <p class="lead">Bilag nr. {{ $bilagsmal->nr_i_sekvens}} - <span id="bilagstittel{{ $bilagsmal->id }}Vis">{{ $bilagsmal->bilagstype}}</span></p>
 
         <p id="bilagstekst{{ $bilagsmal->id }}Vis">{{ $bilagsmal->infotekst }}</p>
 
