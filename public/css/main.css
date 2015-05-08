@@ -55,9 +55,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   text-transform: uppercase;
   transition: background-color 0.2s ease, box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none !important;
-  margin: 5px 0; }
+  margin: 5px 0;
+  position: relative; }
   .btn .fa {
-    font-size: 18px;
+    font-size: 18x;
     width: 20px; }
 
 .btn:hover {
