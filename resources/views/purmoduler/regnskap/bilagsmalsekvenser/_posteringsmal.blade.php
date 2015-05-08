@@ -2,9 +2,9 @@
     <div class="row">
         <div class="col-md-11">
             @if($posteringsmal != null)
-                {!! Form::model($posteringsmal, ['route' => ['posteringsmaler.update', $posteringsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
+                {!! Form::model($posteringsmal, ['route' => ['posteringsmaler.update', $posteringsmal->id], 'method' => 'PATCH', 'oppdater-asynk' => 'on-form-focusout']) !!}
             @else
-                {!! Form::open(['route' => ['posteringsmaler.update', null], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
+                {!! Form::open(['route' => ['posteringsmaler.update', null], 'method' => 'PATCH', 'oppdater-asynk' => 'on-form-focusout']) !!}
             @endif
             <div class="row">
                 <div class="form-group col-md-6">

@@ -1,12 +1,29 @@
+
+// Forhindre ordinær synkron submit av skjema ved trykk på enter:
+$(document).ready(function() {
+    $(window).keydown(function(event){
+        if(event.keyCode == 13) {
+            event.preventDefault();
+            return false; // TODO: submit skjema tilsv. onfocusout her?
+        }
+    });
+});
+
 // TODO: Lag funksjonene generelle, så de kan brukes av både bilagsmaler og bilag
 
 // Bilagsmaler:
 
 (function () {
 
-    $('#bilagsmaler').on('change', 'form[submit-async]', function (e) {
+    $('#bilagsmaler').on('focusout', 'form[oppdater-asynk]', function (event) {
+
+        event.preventDefault();
 
         var form = $(this);
+
+        var postering = form.closest('.postering');
+        postering.css('background-color', '#ffffbb');
+
         var type = form.find('input[name="_method"]').val() || 'POST';
         var url = form.prop('action');
         var data = form.serialize();
@@ -17,21 +34,24 @@
             url: url,
             data: data,
             success: function () {
+                postering.removeAttr('style');
                 successelement.fadeIn(500);
                 successelement.delay(3000).fadeOut(500);
             }
         });
 
-        e.preventDefault();
     });
 
 })();
 
+
 (function () {
 
-    $('#bilagsmaler').on('submit', 'form[slett-asynk]', function (e) {
+    $('#bilagsmaler').on('submit', 'form[slett-asynk]', function (event) {
 
-        confirm('Vil du slette posteringen?');
+        event.preventDefault();
+
+        if (!confirm('Vil du slette posteringen?')) return;
 
         var form = $(this);
         var type = form.find('input[name="_method"]').val() || 'POST';
@@ -47,14 +67,16 @@
             }
         });
 
-        e.preventDefault();
     });
 
 })();
 
+
 (function () {
 
-    $('form[leggtil-asynk]').submit(function (e) {
+    $('form[opprett-mal-asynk]').submit(function (event) {
+
+        event.preventDefault();
 
         var form = $(this);
         var bilagsmalId = form.find('input[name="bilagsmalId"]').val();
@@ -108,18 +130,24 @@
         tomVis.removeClass('hidden');
         hentVerdier();
 
-        e.preventDefault();
     });
 
 })();
+
 
 // Bilag:
 
 (function () {
 
-    $('#bilagsgruppe').on('focusout', 'form[oppdater-asynk]', function (e) {
+    $('#bilagsgruppe').on('focusout', 'form[oppdater-asynk]', function (event) {
+
+        event.preventDefault();
 
         var form = $(this);
+
+        var postering = form.closest('.postering');
+        postering.css('background-color', '#ffffbb');
+
         var type = form.find('input[name="_method"]').val() || 'POST';
         var url = form.prop('action');
         var data = form.serialize();
@@ -131,22 +159,25 @@
             data: data,
             success: function (serverActionOk) {
                 if (serverActionOk == 'true') {
+                    postering.removeAttr('style');
                     successelement.fadeIn(500);
                     successelement.delay(3000).fadeOut(500);
                 }
             }
         });
 
-        e.preventDefault();
     });
 
 })();
 
+
 (function () {
 
-    $('#bilagsgruppe').on('submit', 'form[slett-asynk]', function (e) {
+    $('#bilagsgruppe').on('submit', 'form[slett-asynk]', function (event) {
 
-        confirm('Vil du slette posteringen?');
+        event.preventDefault();
+
+        if (!confirm('Vil du slette posteringen?')) return;
 
         var form = $(this);
         var type = form.find('input[name="_method"]').val() || 'POST';
@@ -162,7 +193,6 @@
             }
         });
 
-        e.preventDefault();
     });
 
 })();
@@ -170,9 +200,9 @@
 
 (function () {
 
-    $('form[opprett-asynk]').submit(function (e) {
+    $('form[opprett-asynk]').submit(function (event) {
 
-        e.preventDefault();
+        event.preventDefault();
 
         var form = $(this);
         var bilagsId = form.find('input[name="bilagsId"]').val();

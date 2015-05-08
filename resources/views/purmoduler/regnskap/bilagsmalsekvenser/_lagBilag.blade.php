@@ -83,7 +83,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="pull-right">
-                        {!! Form::open(['route' => ['posteringsmaler.store'], 'leggtil-asynk' => 'true']) !!}
+                        {!! Form::open(['route' => ['posteringsmaler.store'], 'opprett-mal-asynk' => 'true']) !!}
                         {!! Form::hidden('bilagsmalId', $bilagsmal->id) !!}
                         <button type="submit" class="btn btn-success" data-toggle="tooltip" data-placement="top" data-container="body" title="Legg til postering">
                             <span class="fa fa-plus"></span>
