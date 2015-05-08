@@ -11,6 +11,16 @@ class Bilagssekvens extends Model
 
 
     /**
+     * Alle bilagssekvensens variabler
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function variabler()
+    {
+        return $this->hasMany('\Pur\Purmoduler\Regnskap\BilagssekvensVar');
+    }
+
+    /**
      * Bilagssekvensen sine bilag
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

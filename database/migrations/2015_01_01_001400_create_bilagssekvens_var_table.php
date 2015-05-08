@@ -15,13 +15,17 @@ class CreateBilagssekvensVarTable extends Migration {
 		Schema::create('bilagssekvens_var', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->string('navn');
             $table->decimal('verdi');
+            $table->integer('bilagsmalsekvens_id')->unsigned();
             $table->integer('bilagssekvens_id')->unsigned();
+
+            $table->foreign('bilagsmalsekvens_id')
+                ->references('id')->on('bilagsmalsekvenser')
+                ->onDelete('restrict'); // Malvariabler med variabler kan ikke slettes
 
             $table->foreign('bilagssekvens_id')
                 ->references('id')->on('bilagssekvenser')
-                ->onDelete('cascade');
+                ->onDelete('cascade'); // Variabler slettes hvis bilagssekvensen de inngår i slettes
 		});
 	}
 

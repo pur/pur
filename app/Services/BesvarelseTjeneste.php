@@ -50,17 +50,27 @@ class BesvarelseTjeneste
         $oppgavesvar->moduloppgavesvar_id = $moduloppgavesvar->id;
         $oppgavesvar->save();
 
+        $this->genererVariabler($moduloppgavesvar);
         $this->genererBilag($moduloppgavesvar);
     }
 
     // TODO: Flytt til en ny tjenesteklasse som er spesifikk for regnskapsmodulen:
+
+    private function genererVariabler($bilagssekvens)
+    {
+        $malvariabler = $bilagssekvens->oppgavesvar->oppgave->moduloppgave->variabler;
+
+        foreach ($malvariabler as $malvariabel)
+            $malvariabel->instansierFor($bilagssekvens);
+    }
+
     private function genererBilag($bilagssekvens)
     {
         $bilagsmalsekvens = $bilagssekvens->oppgavesvar->oppgave->moduloppgave;
 
-        foreach ($bilagsmalsekvens->bilagsmaler as $bilagsmal) {
+        foreach ($bilagsmalsekvens->bilagsmaler as $bilagsmal)
             $this->opprettBilagFraMal($bilagsmal, $bilagssekvens);
-        }
+
     }
 
     private function opprettBilagFraMal($bilagsmal, $bilagssekvens)
