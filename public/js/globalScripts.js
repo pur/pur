@@ -84,12 +84,14 @@ $('.date').each(function () {
     });
 });
 
-$('.input-group input').focus(function () {
+
+
+$('.input-group input, .input-group select').focus(function () {
     var outerInputGroup = $(this).closest('.input-group');
     outerInputGroup.children('.input-group-addon').addClass('focused');
 });
 
-$('.input-group input').blur(function () {
+$('.input-group input, .input-group select').blur(function () {
     var outerInputGroup = $(this).closest('.input-group');
     outerInputGroup.children('.input-group-addon').removeClass('focused');
 });
