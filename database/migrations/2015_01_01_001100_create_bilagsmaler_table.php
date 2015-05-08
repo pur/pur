@@ -15,8 +15,9 @@ class CreateBilagsmalerTable extends Migration {
 		Schema::create('bilagsmaler', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->text('bilagstype');
 			$table->integer('nr_i_sekvens')->unsigned();
+			$table->integer('belopsformel');
+			$table->text('bilagstype');
 			$table->text('infotekst');
 			$table->integer('bilagsmalsekvens_id')->unsigned();
 

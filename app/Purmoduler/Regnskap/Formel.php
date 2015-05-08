@@ -1,17 +1,20 @@
 <?php namespace Pur\Purmoduler\Regnskap;
 
-class Formel //extends Model
+class Formel
 {
 
     private static $navnAlleFormler = [
-        0 => 'Velg formel',
-        1 => '- a',                   // 'bruttobeløp - bruttobeløp',                // 'Bruttobeløp som kreditt'
-        2 => 'a / 5',                 // 'bruttobeløp / 5',                          // 'Mva. fra bruttobeløp a'
-        3 => 'a / 1,25',              // 'bruttobeløp / 1,25',                       // 'Bruttobeløp a eks. mva.',
-        4 => 'a - b * (100 - x)',     // 'brt.belA - brt.belB * (100-rabattA)',
-        5 => '- (a - b * (100 - x))', // '-(brt.belA - brt.belB * (100-rabattA))',
-        6 => 'x / 5',                 // 'rabattbeløp / 5',
-        7 => 'x / 1,25',              // 'rabattbeløp / 1,25'
+        'Velg formel',
+        '- a',                   //  1 'bruttobeløp - bruttobeløp'                // 'Bruttobeløp som kreditt'
+        'a / 5',                 //  2 'bruttobeløp / 5'                          // 'Mva. fra bruttobeløp a'
+        'a / 1,25',              //  3 'bruttobeløp / 1,25'                       // 'Bruttobeløp a eks. mva.'
+        'a - b * (100 - x)',     //  4 'brt.belA - brt.belB * (100-rabattA)'
+        '- (a - b * (100 - x))', //  5 '-(brt.belA - brt.belB * (100-rabattA))'
+        'x / 5',                 //  6 'rabattbeløp / 5'
+        'x / 1,25',              //  7 'rabattbeløp / 1,25'
+        'a',                     //  8 'beløp a'
+        'b',                     //  9 'beløp b'
+        'a - b'                  // 10 'beløp a - beløp b'
     ];
 
 
@@ -43,6 +46,12 @@ class Formel //extends Model
                 return self::formelB($verdi1);
             case 7 :
                 return self::formelC($verdi1);
+            case 8 :
+                return $verdi1;
+            case 9 :
+                return $verdi1;
+            case 10 :
+                return self::formelF($verdi1, $verdi2);
         }
     }
 
@@ -63,12 +72,17 @@ class Formel //extends Model
 
     private static function formelD($verdi1, $verdi2, $verdi3)
     {
-        return $verdi1 - $verdi2 * (100 - $verdi3);
+        return self::formelF($verdi1, $verdi2) * (100 - $verdi3);
     }
 
     private static function formelE($verdi1, $verdi2, $verdi3)
     {
         return self::formelA(self::formelD($verdi1, $verdi2, $verdi3));
+    }
+
+    private static function formelF($verdi1, $verdi2)
+    {
+        return $verdi1 - $verdi2;
     }
 }
 
