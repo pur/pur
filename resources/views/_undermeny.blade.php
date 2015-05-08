@@ -11,7 +11,10 @@
                     @yield('menuleft')
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><span id="ajax-success" class="text-info">Lagret</span></li>
+                    <li id="ajax-success">
+                        <span class="ajax-success-animation" style="background-image: url({{ env('APPWEBPATH') }}/images/loading-animation.gif);"></span>
+                        <span class="ajax-success-text"></span>
+                    </li>
                     @yield('menuright')
                 </ul>
             </div>

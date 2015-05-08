@@ -11,11 +11,34 @@ blockquote.bq-info {
   font-size: 16px;
 }
 
-#navbar-submenu li > #ajax-success {
+#navbar-submenu #ajax-success {
   display: none;
-  top: 13px;
-  position: relative;
+  padding: 12px 20px 13px 20px;
+  .ajax-success-text {
+    padding: 0;
+    display: inline-block;
+    vertical-align: top;
+    color: #777;
+  }
+  .ajax-success-animation {
+    background-size: 100%;
+    width: 20px;
+    height: 20px;
+    padding: 0px;
+    display: none;
+  }
 }
+
+#navbar-submenu #ajax-success.saving {
+  background-color: #FFF;
+  .ajax-success-animation{
+    display: inline-block;
+  }
+  .ajax-success-text{
+    color: $blue;
+  }
+}
+
 
 footer {
   border-top: 1px solid #E7E7E7;

@@ -58,7 +58,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   margin: 5px 0;
   position: relative; }
   .btn .fa {
-    font-size: 18x;
+    font-size: 18px;
     width: 20px; }
 
 .btn:hover {
@@ -485,7 +485,7 @@ fieldset[disabled] .form-control.focus:disabled,
 .form-control-wrapper .form-control.empty ~ .floating-label {
   opacity: 1; }
 
-.form-control-wrapper textarea {
+textarea {
   resize: none; }
 
 .form-control-wrapper textarea ~ .form-control-highlight {
@@ -802,10 +802,27 @@ blockquote.bq-info {
 .fa {
   font-size: 16px; }
 
-#navbar-submenu li > #ajax-success {
+#navbar-submenu #ajax-success {
   display: none;
-  top: 13px;
-  position: relative; }
+  padding: 12px 20px 13px 20px; }
+  #navbar-submenu #ajax-success .ajax-success-text {
+    padding: 0;
+    display: inline-block;
+    vertical-align: top;
+    color: #777; }
+  #navbar-submenu #ajax-success .ajax-success-animation {
+    background-size: 100%;
+    width: 20px;
+    height: 20px;
+    padding: 0px;
+    display: none; }
+
+#navbar-submenu #ajax-success.saving {
+  background-color: #FFF; }
+  #navbar-submenu #ajax-success.saving .ajax-success-animation {
+    display: inline-block; }
+  #navbar-submenu #ajax-success.saving .ajax-success-text {
+    color: #337AB7; }
 
 footer {
   border-top: 1px solid #E7E7E7;

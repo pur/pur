@@ -28,18 +28,27 @@ $(document).ready(function() {
         var url = form.prop('action');
         var data = form.serialize();
         var successelement = $('#ajax-success');
+        var successelementText = $('#ajax-succes .ajax-success-text')
+
 
         $.ajax({
             type: type,
             url: url,
             data: data,
             success: function () {
+                successelement.find('.ajax-success-text').text('Lagrer..');
                 postering.removeAttr('style');
+                successelement.addClass('saving')
                 successelement.fadeIn(500);
-                successelement.delay(3000).fadeOut(500);
+                setTimeout(function(){
+                    successelement.removeClass('saving')
+                    successelement.find('.ajax-success-text').text('Lagret');
+                },2000);
+
             }
         });
 
+        e.preventDefault();
     });
 
 })();
