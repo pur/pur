@@ -119,7 +119,7 @@ class BesvarelseTjeneste
         $verdi1 = 0;
         $verdi2 = 0;
         $verdi3 = 0;
-        $belop = Formel::brukFormel($formel, $verdi1, $verdi2, $verdi3);
+        $belop = 0; //Formel::brukFormel($formel, $verdi1, $verdi2, $verdi3);
         return $belop;
     }
 

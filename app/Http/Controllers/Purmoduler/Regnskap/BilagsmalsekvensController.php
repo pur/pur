@@ -6,7 +6,7 @@ use Pur\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Pur\Oppgave;
 use Pur\Purmoduler\Regnskap\Bilagsmalsekvens;
-use Pur\Purmoduler\Regnskap\Formel;
+use Pur\Purmoduler\Regnskap\Formelregner;
 use Pur\Purmoduler\Regnskap\Konto;
 
 
@@ -69,7 +69,7 @@ class BilagsmalsekvensController extends Controller
     {
         $selectKontoer = Konto::alleSomKodeNavnTabell();
 
-        $selectFormler = Formel::navnAlleFormler();
+        $selectFormler = Formelregner::navnAlleFormler();
 
         return view('purmoduler.regnskap.bilagsmalsekvenser.edit', compact('bilagsmalsekvens', 'selectKontoer', 'selectFormler'));
         //return view('purmoduler.regnskap.bilagsmalsekvenser.testing.edit', compact('bilagsmalsekvens', 'selectKontoer'));
