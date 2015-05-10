@@ -16,11 +16,11 @@ class CreateBilagssekvensVarTable extends Migration {
 		{
 			$table->increments('id');
             $table->decimal('verdi');
-            $table->integer('bilagsmalsekvens_id')->unsigned();
+            $table->integer('bilagsmalsekvens_var_id')->unsigned();
             $table->integer('bilagssekvens_id')->unsigned();
 
-            $table->foreign('bilagsmalsekvens_id')
-                ->references('id')->on('bilagsmalsekvenser')
+            $table->foreign('bilagsmalsekvens_var_id')
+                ->references('id')->on('bilagsmalsekvens_var')
                 ->onDelete('restrict'); // Malvariabler med variabler kan ikke slettes
 
             $table->foreign('bilagssekvens_id')

@@ -23,6 +23,7 @@ class BilagsmalsekvensVar extends Model
     {
         if ($this->bilagsmalsekvens_id == $bilagssekvens->oppgavesvar->oppgave->moduloppgave->id) {
             $variabel = new BilagssekvensVar();
+            $variabel->malvariabel()->associate($this);
             $variabel->verdi = rand($this->verdi_min, $this->verdi_maks);
             $bilagssekvens->variabler()->save($variabel);
         }
