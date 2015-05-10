@@ -5,23 +5,27 @@
   z-index: 500;
 }
 
+body > nav {
+  padding-top: 30px;
+}
+
 .navbar-nav {
   margin: 0;
 }
 
 .navbar-inverse {
   background-color: $blue;
-  border-color: $darkblue;
+  border-color: $blue-border;
   .navbar-collapse, .navbar-form {
-    border-color: $darkblue;
+    border-color: $blue-border;
   }
   .navbar-toggle {
-    border-color: $darkblue;
+    border-color: $blue-border;
     z-index: 4000;
   }
   .navbar-nav > li > a,
   .navbar-brand {
-    color: #EEE;
+    color: #FFF;
   }
   .navbar-nav > .open > a,
   .navbar-nav > li > a:hover,
@@ -29,7 +33,13 @@
   .navbar-nav > .open > a:focus,
   .navbar-toggle:hover,
   .navbar-toggle:focus {
-    background-color: $darkblue;
+    background-color: $blue-hover;
+  }
+  .navbar-collapse.collapse.in ul:first-child, .navbar-collapse.collapsing ul:first-child{
+    margin-top: 15px;
+  }
+  .navbar-collapse.collapse.in ul:last-child, .navbar-collapse.collapsing ul:last-child{
+    margin-bottom: 15px;
   }
 }
 
@@ -39,9 +49,9 @@
 }
 
 #navbar-submenu {
-  background-color: #FBFBFB;
-  border-top: 1px solid #FFF;
-  border-bottom: 1px solid #E7E7E7;
+  background-color: $white;
+  border-top: 1px solid $white;
+  border-bottom: 1px solid $default-border;
   z-index: 300;
   li a:hover {
     background-color: #eee;
@@ -68,20 +78,22 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
 }
 
+
+
 .nav-tabs {
-  background: #F5F5F5;
+  background: $default;
   padding: 10px 0 0 10px;
 }
 
 
 .nav-tabs > li > a {
-  color: #337AB7;
+  color: $blue;
   border: 0;
   margin: 0;
 }
 
 .nav-tabs > li > a:hover {
-  background-color: #EEE;
+  background-color: $default-hover;
   border: 0;
 }
 
@@ -128,7 +140,7 @@
   }
 
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
-    color: #EEE;
+    color: $white;
   }
 
   .dropdown-menu > li > a {
@@ -136,7 +148,7 @@
   }
 
   .navbar-nav .open .dropdown-menu li:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: $blue-hover;
   }
 
   .open > .dropdown-menu {
@@ -153,7 +165,7 @@
     padding-top: 9px;
     padding-bottom: 9px;
     margin-top: 3px;
-    border: 1px solid #ddd;
+    border: 1px solid $default-border;
     font-size: 1.3em;
   }
 }

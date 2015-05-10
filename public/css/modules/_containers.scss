@@ -10,7 +10,7 @@ main {
 section {
   margin: 20px 0;
   background-color: #FFF;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
   border: 1px solid #DDD;
   border-top-color: #EEE;
   border-bottom-color: #CCC;
@@ -28,12 +28,19 @@ section > .panel {
   border-top-right-radius: 2px;
 }
 
+.panel {
+  margin-bottom: 0;
+  .list-group-item:last-child {
+    margin-bottom: -1px;
+  }
+}
+
 .panel-primary {
   border-color: #DDD;
 }
 
-.panel .list-group-item:last-child {
-  margin-bottom: -1px;
+.panel-primary > .panel-heading {
+  background-color: $blue;
 }
 
 .panel-action-bar {

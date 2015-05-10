@@ -21,15 +21,39 @@
 }
 
 .btn-default {
-  background-color: #F8F8F8;
-  border-color: #D3D3D3;
+  background-color: $default;
+  border-color: $default-border;
 }
 
-.btn-default:hover {
-  border-color: #C6C6C6;
-  background: #F0F0F0;
-
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+  background: $default-hover;
+  border-color: $default-hover-border;
 }
+
+.btn-danger {
+  color: #FFF;
+  background-color: $red;
+  border-color: $red-border;
+}
+
+.btn-danger:hover, .btn-danger:focus, .btn-danger.focus, .btn-danger:active, .btn-danger.active, .open > .dropdown-toggle.btn-danger {
+  color: #FFF;
+  background-color: $red-hover;
+  border-color: $red-hover-border;
+}
+
+.btn-success {
+  color: #FFF;
+  background-color: $green;
+  border-color: $green-border;
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success.focus, .btn-success:active, .btn-success.active, .open > .dropdown-toggle.btn-success {
+  color: #FFF;
+  background-color: $green-hover;
+  border-color: $green-hover-border;
+}
+
 
 .btn.disabled {
   pointer-events: stroke;
@@ -42,8 +66,8 @@
 
 
 .input-group-addon.btn.btn-default {
-  background-color: #F8F8F8;
-  border: 1px solid #D3D3D3;
+  background-color: $default;
+  border: 1px solid $default-border;
   border-radius: 2px;
   top: -2px;
   position: relative;

@@ -1,9 +1,33 @@
 $font: "robotoregular", Helvetica, Arial, sans-serif;
 
 $infoblue: #03a9f4;
-$blue: #337AB7;
-$darkblue: #226AA7;
+
+
+$default: #F8F8F8;
+$default-border: #D3D3D3;
+$default-hover: #F0F0F0;
+$default-hover-border: #C6C6C6;
+
+
 $red: #f44336;
+$red-border: #e9382b;
+$red-hover: #ec3b2e;
+$red-hover-border: #c21104;
+
 $orange: #ff5722;
+$orange-border: #f44c17;
+$orange-hover: #f74f1a;
+$orange-hover-border: #cd2500;
+
 $green: #4caf50;
+$green-border: #41a445;
+$green-hover: #44a748;
+$green-hover-border: #1a7d1e;
+
 $white: #FFFFFF;
+
+$blue: #4285f4;
+$blue-border: #377ae9;
+$blue-hover: #3a7dec;
+$blue-hover-border: #1053c2;
+$darkblue: #3174e3;

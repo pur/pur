@@ -7,7 +7,7 @@
         <blockquote class="bq-info">
             <p>Info om pur</p>
         </blockquote>
-        <section>
+        <section class="padding">
             <h2>Fagmoduler:</h2>
 
             <div class="row">
