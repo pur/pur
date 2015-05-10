@@ -15,6 +15,9 @@ $('input[type="checkbox"]').click(function () {
     $("#" + idName).toggle();
 });
 
+
+
+
 hentVerdier()
 
 function hentVerdier() {
@@ -28,6 +31,13 @@ function hentVerdier() {
     var aSnitt = (aMin + aMaks) / 2;
     var bSnitt = (bMin + bMaks) / 2;
     var xSnitt = (xMin + xMaks) / 2;
+
+    $('.aEksempel').text(aSnitt);
+    $('.bEksempel').text(bSnitt);
+    $('.a-bEksempel').text(aSnitt - bSnitt);
+
+
+
 
     // Henter ut verdier fra kontolister
     $('select.kontoliste').each(function () {
@@ -83,44 +93,12 @@ function hentVerdier() {
 }
 
 
+
+
+
 // Oppdaterer checkbox tekst fra inputfelt med variabler
 $('input.variabel').keyup(function () {
-
     hentVerdier();
-    var idName = $(this).attr("id");
-    var str = $(this).val();
-
-    if (idName == 'aMaks') {
-        aMaks = parseInt(str)
-    }
-    if (idName == 'aMin') {
-        aMin = parseInt(str)
-    }
-    if (idName == 'bMaks') {
-        bMaks = parseInt(str)
-    }
-    if (idName == 'bMin') {
-        bMin = parseInt(str)
-    }
-    if (idName == 'xMaks') {
-        xMaks = parseInt(str)
-    }
-    if (idName == 'xMin') {
-        xMin = parseInt(str)
-    }
-
-    if (idName == 'aMaks' || idName == 'aMin') {
-        aSnitt = (aMaks + aMin) / 2;
-        $('.aEksempel').text(aSnitt);
-    } else if (idName == 'bMaks' || idName == 'bMin') {
-        bSnitt = (bMaks + bMin) / 2;
-        $('.bEksempel').text(bSnitt);
-    } else if (idName == 'xMaks' || idName == 'xMin') {
-        xSnitt = (xMaks + xMin) / 2;
-        $('.xEksempel').text(xSnitt);
-    } else {
-        $('.' + idName + 'Eksempel').text(str);
-    }
 });
 
 

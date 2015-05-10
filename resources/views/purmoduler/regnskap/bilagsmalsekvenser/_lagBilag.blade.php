@@ -37,22 +37,60 @@
                 </blockquote>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="radio">
+                      {{--  <div class="radio">
                             <label class="radio">
                                 {!! Form::radio('false', 'motpartEksempel' . $bilagsmal->id) !!}
                                 Motpart:
                                 <div class="radio-inline motpartEksempel">{{$bilagsmalsekvens->motpart}}</div>
                             </label>
                         </div>
-                        @foreach($bilagsmalsekvens->variabler as $variabel)
-                            <div class="radio">
-                                <label class="radio">
-                                    {!! Form::radio('false', $variabel->tegn_i_formel . 'Eksempel' . $bilagsmal->id) !!} {{$variabel->tegn_i_formel}}:
-                                    <div class="radio-inline {{$variabel->tegn_i_formel}}NavnEksempel">{{$variabel->navn}}</div>
-                                    <div class="radio-inline {{$variabel->tegn_i_formel}}Eksempel">{{($variabel->verdi_min +$variabel->verdi_min)/2}}</div>
-                                </label>
-                            </div>
-                        @endforeach
+                        --}}
+                        {{--  @foreach($bilagsmalsekvens->variabler as $variabel)
+                              <div class="radio">
+                                  <label class="radio">
+                                      {!! Form::radio('false', $variabel->tegn_i_formel . 'Eksempel' . $bilagsmal->id) !!} {{$variabel->tegn_i_formel}}:
+                                      <div class="radio-inline {{$variabel->tegn_i_formel}}NavnEksempel">{{$variabel->navn}}</div>
+                                      <div class="radio-inline {{$variabel->tegn_i_formel}}Eksempel">{{($variabel->verdi_min +$variabel->verdi_min)/2}}</div>
+                                  </label>
+                              </div>
+                          @endforeach--}}
+
+                        <div class="radio">
+                            <label class="radio">
+                                @if($bilagsmal->belopsformel == 8)
+                                    {!! Form::radio('formel-a', '8', 'checked') !!}
+                                @else
+                                    {!! Form::radio('formel-a', '8') !!}
+                                @endif
+                                <div class="radio-inline aNavnEksempel">a</div>
+                                <div class="radio-inline aEksempel"></div>
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label class="radio">
+                                @if($bilagsmal->belopsformel == 9)
+                                    {!! Form::radio('formel-a', '9', 'checked') !!}
+                                @else
+                                    {!! Form::radio('formel-a', '9') !!}
+                                @endif
+                                <div class="radio-inline bNavnEksempel">b</div>
+                                <div class="radio-inline bEksempel"></div>
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label class="radio">
+                                @if($bilagsmal->belopsformel == 10)
+                                    {!! Form::radio('formel-a', '10', 'checked') !!}
+                                @else
+                                    {!! Form::radio('formel-a', '10') !!}
+                                @endif
+                                <div class="radio-inline a-bNavnEksempel">a-b</div>
+                                <div class="radio-inline a-bEksempel"></div>
+                            </label>
+                        </div>
+
+
+
                     </div>
                 </div>
             </div>
