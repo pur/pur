@@ -9,9 +9,9 @@ class Formelregner
 
     public function __construct($variabler)
     {
-        $this->a = $variabler['a'];
-        $this->b = $variabler['b'];
-        $this->x = $variabler['x'];
+        $this->a = isset($variabler['a']) ? (float)$variabler['a'] : 0.0;
+        $this->b = isset($variabler['b']) ? (float)$variabler['b'] : 0.0;
+        $this->x = isset($variabler['x']) ? (float)$variabler['x'] : 0.0;
     }
 
 

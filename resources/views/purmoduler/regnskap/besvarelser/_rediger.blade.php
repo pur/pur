@@ -24,6 +24,9 @@
                     <div class="panel-body">
                         {{ $bilag->bilagsmal->infotekst}}
                     </div>
+                    <div class="panel-body">
+                       <b>Bruttobeløp: {{ $bilag->belop() }},–</b>
+                    </div>
 
                     @include('purmoduler.regnskap.besvarelser._posteringer', ['bilag' => $bilag])
 

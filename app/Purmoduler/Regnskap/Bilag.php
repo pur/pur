@@ -32,6 +32,25 @@ class Bilag extends Model
         return $this->belongsTo('Pur\Purmoduler\Regnskap\Bilagsmal');
     }
 
+    /**
+     * Bilagets (brutto–)beløp formattert som kronebeløp
+     *
+     * @return float
+     */
+    public function belop()
+    {
+        // Henter bilagssekvensens variabel-objekter inkl. malvariabel-objekter
+        $variabler = $this->bilagssekvens->variabler()->with('malvariabel')->get();
+
+        // Lager en tabell på formen "a" => "1000", "b" => "500", etc.
+        $formelvariabler = $variabler->lists('verdi', 'malvariabel.tegn_i_formel');
+
+        // Formelregneren typetvinger tabellverdiene til 'float'
+        $formelregner = new Formelregner($formelvariabler);
+        $belop = $formelregner->brukFormel($this->bilagsmal->belopsformel);
+
+        return money_format('%.2n', $belop);
+    }
 
     /**
      * Returnerer posteringer som eleven har utført på bilaget
