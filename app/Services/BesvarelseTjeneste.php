@@ -138,7 +138,7 @@ class BesvarelseTjeneste
      * @param $besvarelse
      * @return array
      */
-    public function besvarelseBilag($besvarelse)
+    public static function besvarelseBilag($besvarelse)
     {
         $bilagssamling = array();
         foreach ($besvarelse->oppgavesvar as $oppgavesvar) {

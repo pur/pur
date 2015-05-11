@@ -79,8 +79,7 @@ class BesvarelseController extends Controller
     public function rediger(Besvarelse $besvarelse)
     {
         // TODO : Gjør Purmodul-uavhengig:
-        $besvarelseTjeneste = new BesvarelseTjeneste();
-        $bilagssamling = $besvarelseTjeneste->besvarelseBilag($besvarelse);
+        $bilagssamling = BesvarelseTjeneste::besvarelseBilag($besvarelse);
         $selectKontoer = Konto::alleSomKodeNavnTabell();
 
         return view('besvarelser.rediger', compact('besvarelse', 'bilagssamling', 'selectKontoer'));
