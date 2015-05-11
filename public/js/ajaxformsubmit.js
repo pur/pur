@@ -58,6 +58,7 @@ $(document).ready(function () {
         var url = form.prop('action');
         var data = form.serialize();
         var posteringId = form.find('button').attr('id');
+        $('#' + posteringId).tooltip('hide');
 
         $.ajax({
             type: type,
@@ -68,9 +69,7 @@ $(document).ready(function () {
                 form.closest('.postering').remove();
             }
         });
-
     });
-
 })();
 
 
