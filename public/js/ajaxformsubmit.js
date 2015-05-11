@@ -107,7 +107,6 @@ $(document).ready(function () {
 
                 for (var i = 0; i < forms.length; i++) {
                     $(forms[i]).attr('action', form.attr('action') + "/" + response);
-                    //$(forms[i]).addClass('posteringsmal' + response);
                     $(forms[i]).find('select.kontoliste').attr('id', 'kontokode-' + response);
                     $(forms[i]).find('select.formelliste').attr('id', 'formel-' + response);
                 }
@@ -122,7 +121,7 @@ $(document).ready(function () {
                     $(posteringVis[i]).find('span.kontokodeVis').attr('id', 'kontokode-' + response + 'Vis');
                     $(posteringVis[i]).find('span.formelVis').attr('id', 'formel-' + response + 'Vis');
                     $(posteringVis[i]).find('span.belopVis').attr('id', 'formel-' + response + 'ResultatVis');
-                    $(posteringVis[i]).find('span.belopVis').addClass('bilag' + response + '-formel');
+                    $(posteringVis[i]).find('span.belopVis').addClass('bilag' + bilagsmalId + '-formel');
                 }
 
 

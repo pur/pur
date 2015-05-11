@@ -16,8 +16,6 @@ $('input[type="checkbox"]').click(function () {
 });
 
 
-
-
 hentVerdier()
 
 function hentVerdier() {
@@ -75,8 +73,12 @@ function hentVerdier() {
 
         }
     });
+}
 
-    $('.bilag').each(function () {
+function beregnReultat() {
+
+    $("#bilagsmaler").find('.bilag').each(function () {
+        console.log('fant');
         var idBilag = $(this).attr('id');
         var sumBilag = 0;
         $("#" + idBilag + " div.radio input").each(function () {
@@ -94,10 +96,9 @@ function hentVerdier() {
             }
         });
         $("#" + idBilag + "Resultat").text(sumBilag);
+        console.log(sumBilag);
     });
-
 }
-
 
 // Oppdater valgt bilagsformel
 $("input[type=radio]").change(function () {
@@ -131,7 +132,6 @@ $('textarea.bilagstekst').keyup(function () {
 });
 
 
-
 // Legge til valgt konto i vis bilag
 $('#bilagsmaler').on('change', 'select.kontoliste', (function (e) {
     e.preventDefault();
@@ -140,6 +140,7 @@ $('#bilagsmaler').on('change', 'select.kontoliste', (function (e) {
         var str = $(this).find('option:selected').text();
         $("#" + idName + "Vis").text(str);
     }
+    beregnReultat()
 }));
 
 
@@ -157,9 +158,9 @@ function brukFormel($formelNr, $verdi1, $verdi2, $verdi3) {
     } else if ($formelNr == 3) {
         return $verdi1 / 1.25;
     } else if ($formelNr == 4) {
-        return ($verdi1 - $verdi2) * (100 - $verdi3);
+        return ($verdi1 - $verdi2) * (1 - ($verdi3 / 100));
     } else if ($formelNr == 5) {
-        return 0 - ($verdi1 - $verdi2) * (100 - $verdi3);
+        return 0 - ($verdi1 - $verdi2) * (1 - ($verdi3 / 100));
     } else if ($formelNr == 6) {
         return $verdi3 / 5;
     } else if ($formelNr == 7) {
