@@ -32,6 +32,40 @@ class Postering extends Model {
     }
 
     /**
+     * Sant hvis det finnes en fasitpostering som er lik denne posteringen
+     *
+     * @return bool
+     */
+    public function erKorrekt()
+    {
+        return $this->bilag->fasitposteringer()->medKontokode($this->kontokode)->medBelop($this->belop)->exists();
+    }
+
+    /**
+     * Begrenser spørreresultatet til rader med oppgitt kontokode
+     *
+     * @param $query
+     * @param $kontokode
+     * @return mixed
+     */
+    public function scopeMedKontokode($query, $kontokode)
+    {
+        return $query->whereKontokode($kontokode);
+    }
+
+    /**
+     * Begrenser spørreresultatet til rader med oppgitt beløp
+     *
+     * @param $query
+     * @param $belop
+     * @return mixed
+     */
+    public function scopeMedBelop($query, $belop)
+    {
+        return $query->whereBelop($belop);
+    }
+
+    /**
      * Begrenser spørreresultatet til rader der kolonnen 'er_fasit' = 'false'
      *
      * @param $query

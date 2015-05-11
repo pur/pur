@@ -76,7 +76,10 @@ class PosteringController extends Controller {
 	 */
 	public function update(Postering $postering, Request $request)
     {
-        return $postering->fill($request->all())->save() ? 'true' : 'false';
+        return [
+            'lagretOk' => $postering->fill($request->all())->save(),
+            'postering' => ['erKorrekt' => $postering->erKorrekt()]
+        ];
     }
 
 	/**

@@ -165,11 +165,13 @@ $(document).ready(function () {
             type: type,
             url: url,
             data: data,
-            success: function (serverActionOk) {
-                if (serverActionOk == 'true') {
-                    postering.removeAttr('style');
+            success: function (response) {
+                if (response.lagretOk) {
                     successelement.fadeIn(500);
                     successelement.delay(3000).fadeOut(500);
+                    if (response.postering.erKorrekt)
+                        postering.css('background-color', '#e0ffd5'); // TODO: Sett css-klasse
+                    else postering.removeAttr('style');
                 }
             }
         });
