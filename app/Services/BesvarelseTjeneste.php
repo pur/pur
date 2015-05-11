@@ -6,7 +6,7 @@ use Pur\Oppgavesett;
 use Pur\Oppgavesvar;
 use Pur\Purmoduler\Regnskap\Bilag;
 use Pur\Purmoduler\Regnskap\Bilagssekvens;
-use Pur\Purmoduler\Regnskap\Formel;
+use Pur\Purmoduler\Regnskap\Formelregner;
 use Pur\Purmoduler\Regnskap\Postering;
 
 
@@ -50,8 +50,23 @@ class BesvarelseTjeneste
         $oppgavesvar->moduloppgavesvar_id = $moduloppgavesvar->id;
         $oppgavesvar->save();
 
-        $this->genererVariabler($moduloppgavesvar);
-        $this->genererBilag($moduloppgavesvar);
+
+        // Bytter til moduloppgavenavnet i regnskapsmodulen:
+        $bilagssekvens = $moduloppgavesvar;
+
+        $this->genererVariabler($bilagssekvens);
+
+        // Henter bilagssekvensens variabel-objekter inkl. malvariabel-objekter
+        $variabler = $bilagssekvens->variabler()->with('malvariabel')->get();
+
+        // Lager en tabell på formen "a" => "1000", "b" => "500", etc.
+        $formelvariabler = $variabler->lists('verdi', 'malvariabel.tegn_i_formel');
+
+        // Formelregneren typetvinger tabellverdiene til 'float'
+        $formelregner = new Formelregner($formelvariabler);
+
+
+        $this->genererBilag($bilagssekvens, $formelregner);
     }
 
     // TODO: Flytt til en ny tjenesteklasse som er spesifikk for regnskapsmodulen:
@@ -60,20 +75,23 @@ class BesvarelseTjeneste
     {
         $malvariabler = $bilagssekvens->oppgavesvar->oppgave->moduloppgave->variabler;
 
+        $variabler = array();
         foreach ($malvariabler as $malvariabel)
-            $malvariabel->instansierFor($bilagssekvens);
+            $variabler[] = $malvariabel->instansier();
+
+        $bilagssekvens->variabler()->saveMany($variabler);
     }
 
-    private function genererBilag($bilagssekvens)
+    private function genererBilag($bilagssekvens, $formelregner)
     {
         $bilagsmalsekvens = $bilagssekvens->oppgavesvar->oppgave->moduloppgave;
 
         foreach ($bilagsmalsekvens->bilagsmaler as $bilagsmal)
-            $this->opprettBilagFraMal($bilagsmal, $bilagssekvens);
+            $this->opprettBilagFraMal($bilagsmal, $bilagssekvens, $formelregner);
 
     }
 
-    private function opprettBilagFraMal($bilagsmal, $bilagssekvens)
+    private function opprettBilagFraMal($bilagsmal, $bilagssekvens, $formelregner)
     {
         $bilag = new Bilag();
         $bilag->bilagssekvens()->associate($bilagssekvens);
@@ -81,8 +99,11 @@ class BesvarelseTjeneste
         $bilag->nr_i_besvarelse = $this->giNummerIBesvarelse();
         $bilag->save();
 
+        $posteringer = array();
         foreach ($bilagsmal->posteringsmaler as $posteringsmal)
-            $this->opprettPosteringFraMal($posteringsmal, $bilag);
+            $posteringer[] = $this->opprettPosteringFraMal($posteringsmal, $formelregner);
+
+        $bilag->posteringer()->saveMany($posteringer);
     }
 
     public function giNummerIBesvarelse()
@@ -100,27 +121,15 @@ class BesvarelseTjeneste
         return 1;
     }
 
-    private function opprettPosteringFraMal($posteringsmal, $bilag)
+    private function opprettPosteringFraMal($posteringsmal, $formelregner)
     {
         $postering = new Postering();
 
-        $postering->kontokode = $posteringsmal->kontokode;
         $postering->er_fasit = true;
+        $postering->kontokode = $posteringsmal->kontokode;
+        $postering->belop = $formelregner->brukFormel($posteringsmal->formel);
 
-        $postering->belop = $this->genererBelop($posteringsmal);
-
-        $postering->bilag()->associate($bilag);
-        $postering->save();
-    }
-
-    private function genererBelop($posteringsmal)
-    {
-        $formel = $posteringsmal->formel;
-        $verdi1 = 0;
-        $verdi2 = 0;
-        $verdi3 = 0;
-        $belop = 0; //Formel::brukFormel($formel, $verdi1, $verdi2, $verdi3);
-        return $belop;
+        return $postering;
     }
 
     /**

@@ -13,19 +13,16 @@ class BilagsmalsekvensVar extends Model
 
 
     /**
-     * Fabrikerer en ny bilagssekvensvariabel, gir den en tilfeldig generert verdi mellom
-     * bilagsmalsekvensvariabelens min.– og maks.–verdi og knytter den til oppgitt bilagssekvens.
-     * Oppgitt bilagssekvens må være tilknyttet samme bilagsmalsekvens som denne bilagsmalsekvensvariabelen.
+     * Fabrikerer en ny bilagssekvensvariabel og gir den en tilfeldig generert verdi mellom
+     * bilagsmalsekvensvariabelens minimums– og maksimumsverdi.
      *
-     * @param $bilagssekvens
+     * @return BilagssekvensVar
      */
-    public function instansierFor($bilagssekvens)
+    public function instansier()
     {
-        if ($this->bilagsmalsekvens_id == $bilagssekvens->oppgavesvar->oppgave->moduloppgave->id) {
-            $variabel = new BilagssekvensVar();
-            $variabel->malvariabel()->associate($this);
-            $variabel->verdi = rand($this->verdi_min, $this->verdi_maks);
-            $bilagssekvens->variabler()->save($variabel);
-        }
+        $variabel = new BilagssekvensVar();
+        $variabel->malvariabel()->associate($this);
+        $variabel->verdi = rand($this->verdi_min, $this->verdi_maks);
+        return $variabel;
     }
 }
