@@ -680,6 +680,9 @@ select.form-control.focus {
   height: 0;
   padding: 0; }
 
+.posteringVis span {
+  color: #555; }
+
 .navbar {
   margin-bottom: 0px;
   border: none;
@@ -724,8 +727,11 @@ body > nav {
   border-top: 1px solid #FFFFFF;
   border-bottom: 1px solid #D3D3D3;
   z-index: 300; }
+  #navbar-submenu li a {
+    color: #777; }
   #navbar-submenu li a:hover {
-    background-color: #eee; }
+    background-color: #F0F0F0;
+    color: #333; }
 
 .navbar-brand {
   font-family: 'LatoThin', sans-serif;
@@ -872,7 +878,7 @@ body > nav {
   .row.list-group-item .form-group {
     margin-bottom: 10px; } }
 blockquote.bq-info {
-  color: #4285f4;
+  color: #333;
   border: 1px solid #EEE;
   border-left: 5px solid #4285f4;
   border-top-left-radius: 3px;
@@ -927,6 +933,19 @@ footer {
 
 .bilag .alert {
   display: none; }
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+  background-color: #4285f4;
+  border-color: #377ae9; }
+
+.pagination > li > a, .pagination > li > span {
+  color: #333;
+  background-color: #F8F8F8;
+  border: 1px solid #D3D3D3; }
+
+.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
+  background-color: #F0F0F0;
+  border-color: #C6C6C6; }
 
 .form-horizontal .radio {
   margin-bottom: 10px; }

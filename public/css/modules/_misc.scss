@@ -1,5 +1,5 @@
 blockquote.bq-info {
-  color: $blue;
+  color: $dark-gray;
   border: 1px solid #EEE;
   border-left:5px solid $blue;
   border-top-left-radius: 3px;
@@ -69,4 +69,23 @@ footer {
 
 .bilag .alert {
   display: none;
+}
+
+
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
+  background-color: $blue;
+  border-color: $blue-border;
+}
+
+.pagination > li > a, .pagination > li > span {
+  color: $dark-gray;
+  background-color: $default;
+  border: 1px solid $default-border;
+}
+
+.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
+
+  background-color: $default-hover;
+  border-color: $default-hover-border;
 }
