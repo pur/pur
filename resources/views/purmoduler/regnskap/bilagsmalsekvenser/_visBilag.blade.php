@@ -1,7 +1,15 @@
 <div role="tabpanel" class="tab-pane" id="visBilag{{ $bilagsmal->id }}">
     <div class="panel-body">
 
-        <p class="lead">Bilag nr. {{ $bilagsmal->nr_i_sekvens}} - <span id="bilagstittel{{ $bilagsmal->id }}Vis">{{ $bilagsmal->bilagstype}}</span></p>
+       <!-- <p class="lead">Bilag nr. {{ $bilagsmal->nr_i_sekvens}} - <span id="bilagstittel{{ $bilagsmal->id }}Vis">{{ $bilagsmal->bilagstype}}</span></p> -->
+
+         <p id="motpartVis{{ $bilagsmal->id }}" class="lead">
+                <span class="motpartEksempel"></span>
+            </p>
+
+        <p id="bruttobelopVis{{ $bilagsmal->id }}">
+                Beløp: <span class="bruttobelopEksempel"></span>
+            </p>
 
         <p id="bilagstekst{{ $bilagsmal->id }}Vis">{{ $bilagsmal->infotekst }}</p>
 
@@ -10,13 +18,16 @@
             <span class="motpartEksempel">{{$bilagsmalsekvens->motpart}}</span>
         </div>
 
+        <!--
         @foreach($bilagsmalsekvens->variabler as $variabel)
             <div id="{{$variabel->tegn_i_formel}}Eksempel{{$bilagsmal->id}}" class="" style="display: none;">
                 {{$variabel->tegn_i_formel}}:
                 <span class="{{$variabel->tegn_i_formel}}NavnEksempel">{{$variabel->navn}}:</span>
                 <span class="{{$variabel->tegn_i_formel}}Eksempel">{{(($variabel->verdi_maks) + ($variabel->verdi_min))/2}}</span>
             </div>
-        @endforeach
+        @endforeach -->
+
+
 
 
         <dl class="dl-horizontal">
@@ -40,40 +51,17 @@
                     <span class="yEksempel"></span>% (<span class="yNavnEksempel"></span>)
                 </dd>
             </span>
-            <span id="motpartVis{{ $bilagsmal->id }}" style="display: none;">
-                <dt>Motpart:</dt><dd><span class="motpartEksempel"></span></dd>
-            </span>
         </dl>
+        <div class="list-group">
+            <div class="visPosteringer" >
 
-
-        <div class="postering panel panel-default list-group">
-            <div class="panel-heading hidden-xs">
-                <div class="row">
-                    <div class="col-md-11">
-                        <div class="row">
-                            <div class="col-md-7">
-                                <b>Konto:</b>
-                            </div>
-                            <div class=" col-md-3">
-                                <b>Formel:</b>
-                            </div>
-                            <div class=" col-md-2">
-                                <b>Resultat</b>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-1">
-
-                    </div>
-                </div>
-            </div>
 
             @foreach($bilagsmal->posteringsmaler as $posteringsmal)
                 @include('purmoduler.regnskap.bilagsmalsekvenser._visPosteringsmal', ['posteringsmal' => $posteringsmal, 'cssclass' => ''])
                 @endforeach
             <div id="tomposteringsmal-{{ $bilagsmal->id }}Vis">
                 @include('purmoduler.regnskap.bilagsmalsekvenser._visPosteringsmal', ['posteringsmal' => null, 'cssclass' => 'hidden'])
+            </div>
             </div>
 
 
@@ -87,7 +75,7 @@
                                 <div class="form-group col-md-5">
                                     <span></span>
                                 </div>
-                                <div class="form-group col-md-2">
+                                <div class="form-group col-md-2 posteringVis">
                                     <span id="bilag{{ $bilagsmal->id }}Resultat"></span>
                                 </div>
                             </div>

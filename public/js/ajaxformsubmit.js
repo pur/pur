@@ -1,8 +1,7 @@
-
 // Forhindre ordinær synkron submit av skjema ved trykk på enter:
-$(document).ready(function() {
-    $(window).keydown(function(event){
-        if(event.keyCode == 13) {
+$(document).ready(function () {
+    $(window).keydown(function (event) {
+        if (event.keyCode == 13) {
             event.preventDefault();
             return false; // TODO: submit skjema tilsv. onfocusout her?
         }
@@ -18,17 +17,13 @@ $(document).ready(function() {
     $('#bilagsmaler').on('focusout', 'form[oppdater-asynk]', function (event) {
 
         event.preventDefault();
-
         var form = $(this);
-
         var postering = form.closest('.postering');
         postering.css('background-color', '#ffffbb');
-
         var type = form.find('input[name="_method"]').val() || 'POST';
         var url = form.prop('action');
         var data = form.serialize();
         var successelement = $('#ajax-success');
-        var successelementText = $('#ajax-succes .ajax-success-text')
 
 
         $.ajax({
@@ -40,11 +35,10 @@ $(document).ready(function() {
                 postering.removeAttr('style');
                 successelement.addClass('saving')
                 successelement.fadeIn(500);
-                setTimeout(function(){
+                setTimeout(function () {
                     successelement.removeClass('saving')
                     successelement.find('.ajax-success-text').text('Lagret');
-                },2000);
-
+                }, 2000);
             }
         });
 
@@ -57,21 +51,20 @@ $(document).ready(function() {
 (function () {
 
     $('#bilagsmaler').on('submit', 'form[slett-asynk]', function (event) {
-
         event.preventDefault();
-
         if (!confirm('Vil du slette posteringen?')) return;
-
         var form = $(this);
         var type = form.find('input[name="_method"]').val() || 'POST';
         var url = form.prop('action');
         var data = form.serialize();
+        var posteringId = form.find('button').attr('id');
 
         $.ajax({
             type: type,
             url: url,
             data: data,
             success: function () {
+                $('#' + posteringId + 'Vis').remove();
                 form.closest('.postering').remove();
             }
         });
@@ -98,8 +91,9 @@ $(document).ready(function() {
         var tomMal = $($('#tomposteringsmal-' + bilagsmalId).children()[0]).clone();
         var tomVis = $($('#tomposteringsmal-' + bilagsmalId + 'Vis').children()[0]).clone();
 
+
         var liste = $('#posteringsmaler-' + bilagsmalId);
-        var listeVis = $('#visBilag' + bilagsmalId + ' .postering');
+        var listeVis = $('#visBilag' + bilagsmalId + ' .visPosteringer');
         var url = form.prop('action');
 
         $.ajax({
@@ -107,23 +101,30 @@ $(document).ready(function() {
             url: url,
             data: form.serialize(),
             success: function (response) {
-                console.log('Creating new posteringsmal');
-                console.log(response);
                 var forms = tomMal.find('form');
+                var formButtons = tomMal.find('.action-buttons');
+
+
                 for (var i = 0; i < forms.length; i++) {
                     $(forms[i]).attr('action', form.attr('action') + "/" + response);
+                    //$(forms[i]).addClass('posteringsmal' + response);
                     $(forms[i]).find('select.kontoliste').attr('id', 'kontokode-' + response);
                     $(forms[i]).find('select.formelliste').attr('id', 'formel-' + response);
                 }
+                for (var i = 0; i < formButtons.length; i++) {
+                    $(formButtons[i]).find('button').attr('id', 'posteringsmal-' + response);
+                }
+
                 var posteringVis = tomVis.find('.posteringVis');
                 for (var i = 0; i < posteringVis.length; i++) {
+                    $(posteringVis[i]).closest('.list-group-item').attr('id', 'posteringsmal-' + response + 'Vis');
+                    $(posteringVis[i]).closest('.list-group-item').attr('id', 'posteringsmal-' + response + 'Vis');
                     $(posteringVis[i]).find('span.kontokodeVis').attr('id', 'kontokode-' + response + 'Vis');
                     $(posteringVis[i]).find('span.formelVis').attr('id', 'formel-' + response + 'Vis');
                     $(posteringVis[i]).find('span.belopVis').attr('id', 'formel-' + response + 'ResultatVis');
                     $(posteringVis[i]).find('span.belopVis').addClass('bilag' + response + '-formel');
-
-                    console.log('bilag' + response + '-formel');
                 }
+
 
                 liste.append(tomMal);
                 listeVis.append(tomVis);

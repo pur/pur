@@ -1,9 +1,6 @@
 <div role="tabpanel" class="tab-pane active" id="lagBilag{{ $bilagsmal->id }}">
     <div class="panel-body">
-
-
         {!! Form::model($bilagsmal, ['route' => ['bilagsmaler.update', $bilagsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
-
         <div class="row">
             <div class="col-md-8">
                 <blockquote class="bq-info">
@@ -58,39 +55,36 @@
                         <div class="radio">
                             <label class="radio">
                                 @if($bilagsmal->belopsformel == 8)
-                                    {!! Form::radio('formel-a', '8', 'checked') !!}
+                                    {!! Form::radio('belopsformel', '8', 'true', ['id' => 'formel8']) !!}
                                 @else
-                                    {!! Form::radio('formel-a', '8') !!}
+                                    {!! Form::radio('belopsformel', '8', 'false', ['id' => 'formel8']) !!}
                                 @endif
-                                <div class="radio-inline aNavnEksempel">a</div>
-                                <div class="radio-inline aEksempel"></div>
+                                <div class="radio-inline formel8NavnEksempel">a</div>
+                                <div class="radio-inline formel8Eksempel"></div>
                             </label>
                         </div>
                         <div class="radio">
                             <label class="radio">
                                 @if($bilagsmal->belopsformel == 9)
-                                    {!! Form::radio('formel-a', '9', 'checked') !!}
+                                    {!! Form::radio('belopsformel', '9', 'true', ['id' => 'formel9']) !!}
                                 @else
-                                    {!! Form::radio('formel-a', '9') !!}
+                                    {!! Form::radio('belopsformel', '9', 'true', ['id' => 'formel9']) !!}
                                 @endif
-                                <div class="radio-inline bNavnEksempel">b</div>
-                                <div class="radio-inline bEksempel"></div>
+                                <div class="radio-inline formel9NavnEksempel">b</div>
+                                <div class="radio-inline formel9Eksempel"></div>
                             </label>
                         </div>
                         <div class="radio">
                             <label class="radio">
                                 @if($bilagsmal->belopsformel == 10)
-                                    {!! Form::radio('formel-a', '10', 'checked') !!}
+                                    {!! Form::radio('belopsformel', '10', 'true', ['id' => 'formel10']) !!}
                                 @else
-                                    {!! Form::radio('formel-a', '10') !!}
+                                    {!! Form::radio('belopsformel', '10', 'false',  ['id' => 'formel10']) !!}
                                 @endif
-                                <div class="radio-inline a-bNavnEksempel">a-b</div>
-                                <div class="radio-inline a-bEksempel"></div>
+                                <div class="radio-inline formel10NavnEksempel">a-b</div>
+                                <div class="radio-inline formel10Eksempel"></div>
                             </label>
                         </div>
-
-
-
                     </div>
                 </div>
             </div>

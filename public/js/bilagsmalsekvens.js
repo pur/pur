@@ -31,13 +31,12 @@ function hentVerdier() {
     var aSnitt = (aMin + aMaks) / 2;
     var bSnitt = (bMin + bMaks) / 2;
     var xSnitt = (xMin + xMaks) / 2;
+    var motpart = $('#motpart').val();
 
-    $('.aEksempel').text(aSnitt);
-    $('.bEksempel').text(bSnitt);
-    $('.a-bEksempel').text(aSnitt - bSnitt);
-
-
-
+    $(".motpartEksempel").text(motpart);
+    $('.formel8Eksempel').text(aSnitt);
+    $('.formel9Eksempel').text(bSnitt);
+    $('.formel10Eksempel').text(aSnitt - bSnitt);
 
     // Henter ut verdier fra kontolister
     $('select.kontoliste').each(function () {
@@ -80,6 +79,13 @@ function hentVerdier() {
     $('.bilag').each(function () {
         var idBilag = $(this).attr('id');
         var sumBilag = 0;
+        $("#" + idBilag + " div.radio input").each(function () {
+            if ($(this).is(":checked")) {
+                var navn = $(this).attr('id');
+                var verdi = $("#" + idBilag + " ." + navn + "Eksempel").text();
+                $("#" + idBilag + " .bruttobelopEksempel").text(verdi);
+            }
+        });
         $('.' + idBilag + '-formel').each(function () {
             if (parseFloat($(this).text()) != '') {
                 sumBilag += parseFloat($(this).text());
@@ -93,12 +99,21 @@ function hentVerdier() {
 }
 
 
+// Oppdater valgt bilagsformel
+$("input[type=radio]").change(function () {
 
+    hentVerdier();
+});
 
 
 // Oppdaterer checkbox tekst fra inputfelt med variabler
 $('input.variabel').keyup(function () {
     hentVerdier();
+});
+
+// Oppdaterer bilagstittel
+$('#motpart').keyup(function () {
+    $(".motpartEksempel").text($(this).val());
 });
 
 
@@ -114,6 +129,7 @@ $('textarea.bilagstekst').keyup(function () {
     var idTittel = $(this).attr('id');
     $("#" + idTittel + "Vis").text($(this).val());
 });
+
 
 
 // Legge til valgt konto i vis bilag
