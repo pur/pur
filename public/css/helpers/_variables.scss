@@ -2,6 +2,7 @@ $font: "robotoregular", Helvetica, Arial, sans-serif;
 
 $infoblue: #03a9f4;
 
+$white: #FFFFFF;
 
 $default: #F8F8F8;
 $default-border: #D3D3D3;
@@ -11,26 +12,37 @@ $default-hover-border: #C6C6C6;
 $gray: #777;
 $dark-gray: #333;
 
+// Red
+$red: #f44336; // 500
+$red-hover: #EF5350; // 400
+$red-border: #E53935; // 600
+$red-hover-border: #C62828; // 800
 
-$red: #f44336;
-$red-border: #e9382b;
-$red-hover: #ec3b2e;
-$red-hover-border: #c21104;
 
-$orange: #ff5722;
-$orange-border: #f44c17;
-$orange-hover: #f74f1a;
-$orange-hover-border: #cd2500;
+// Orange
+$orange: #FF9800; // 500
+$orange-hover: #FFA726; // 400
+$orange-border: #FB8C00; // 600
+$orange-hover-border: #EF6C00; // 800
 
-$green: #4caf50;
-$green-border: #41a445;
-$green-hover: #44a748;
-$green-hover-border: #1a7d1e;
+// Green
+$green: #4caf50; // 500
+$green-hover: #66BB6A; // 400
+$green-border: #43A047; // 600
+$green-hover-border: #2E7D32; // 800
 
-$white: #FFFFFF;
+// Light Green
+$succes-bg: #CCFF90; //A100
 
-$blue: #4285f4;
-$blue-border: #377ae9;
-$blue-hover: #3a7dec;
-$blue-hover-border: #1053c2;
+
+// Yellow
+$yellow-bg: #FFFF8D;
+
+
+
+// Blue
+$blue: #2196f3; // 500
+$blue-hover: #42A5F5; // 400
+$blue-border: #1E88E5; // 600
+$blue-hover-border: #1565C0; // 800
 $darkblue: #3174e3;

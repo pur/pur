@@ -55,6 +55,18 @@
 }
 
 
+.btn-warning {
+  color: #FFF;
+  background-color: $orange;
+  border-color: $orange-border;
+}
+
+.btn-warning:hover, .btn-warning:focus, .btn-warning.focus, .btn-warning:active, .btn-warning.active, .open > .dropdown-toggle.btn-warning{
+  background-color: $orange-hover;
+  border-color: $orange-hover-border;
+}
+
+
 .btn.disabled {
   pointer-events: stroke;
   color: #CCC;
