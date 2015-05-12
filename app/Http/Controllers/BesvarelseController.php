@@ -107,7 +107,8 @@ class BesvarelseController extends Controller
      */
     public function slett(Besvarelse $besvarelse)
     {
-        // TODO: implementér
-        return "<i>Slett besvarelse med id " . $besvarelse->id . "</i>";
+        $besvarelse->delete();
+
+        return redirect()->back();
     }
 }
