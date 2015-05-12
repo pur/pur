@@ -15,8 +15,8 @@ $('input[type="checkbox"]').click(function () {
     $("#" + idName).toggle();
 });
 
-
-hentVerdier()
+beregnReultat();
+hentVerdier();
 
 function hentVerdier() {
     // Henter ut verdier fra tekstfelt
@@ -32,9 +32,9 @@ function hentVerdier() {
     var motpart = $('#motpart').val();
 
     $(".motpartEksempel").text(motpart);
-    $('.formel8Eksempel').text(aSnitt);
-    $('.formel9Eksempel').text(bSnitt);
-    $('.formel10Eksempel').text(aSnitt - bSnitt);
+    $('.formel8belopEksempel').text(aSnitt);
+    $('.formel9belopEksempel').text(bSnitt);
+    $('.formel10belopEksempel').text(aSnitt - bSnitt);
 
     // Henter ut verdier fra kontolister
     $('select.kontoliste').each(function () {
@@ -88,6 +88,7 @@ function beregnReultat() {
         $("#" + idBilag + " div.radio input").each(function () {
             if ($(this).is(":checked")) {
                 var navn = $(this).attr('id');
+                $('#' + idBilag + 'belopEksempel').attr('class', navn + 'belopEksempel');
                 var verdi = $("#" + idBilag + " ." + navn + "Eksempel").text();
                 $("#" + idBilag + " .bruttobelopEksempel").text(verdi);
             }
@@ -107,6 +108,7 @@ function beregnReultat() {
 // Oppdater valgt bilagsformel
 $("input[type=radio]").change(function () {
     beregnReultat();
+    hentVerdier();
 });
 
 
@@ -119,6 +121,8 @@ function genererRadiobuttonTekst (element) {
     var inputId = element.attr('id');
     var inputText = element.val();
     $('.' + inputId + 'Eksempel').text(inputText);
+
+
 }
 
 
