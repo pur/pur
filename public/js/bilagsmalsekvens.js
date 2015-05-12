@@ -45,6 +45,10 @@ function hentVerdier() {
         }
     });
 
+    $('input.variabel').each(function () {
+        genererRadiobuttonTekst($(this));
+    });
+
 
     $('select.formelliste').each(function () {
         if ('input[type="select"]') {
@@ -106,13 +110,17 @@ $("input[type=radio]").change(function () {
 });
 
 
-// Oppdaterer checkbox tekst fra inputfelt med variabler
+// Oppdaterer radio tekst fra inputfelt med variabler
 $('input.variabel').keyup(function () {
-    var inputId = $(this).attr('id');
-    var inputText = $(this).val();
-    $('.' + inputId + 'Eksempel').text(inputText);
-    hentVerdier();
+    genererRadiobuttonTekst($(this));
 });
+
+function genererRadiobuttonTekst (element) {
+    var inputId = element.attr('id');
+    var inputText = element.val();
+    $('.' + inputId + 'Eksempel').text(inputText);
+}
+
 
 // Oppdaterer bilagstittel
 $('#motpart').keyup(function () {

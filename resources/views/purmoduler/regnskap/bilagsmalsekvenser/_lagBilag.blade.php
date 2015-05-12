@@ -18,8 +18,9 @@
                         </div>
                     </div>
                     <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Formel for bilagets beløp: </label>
                         <div class="radio">
-                            <p>2. Velg hvilke elementer som skal vises sammen med oppgavetekst</p>
                             <label class="radio">
                                 @if($bilagsmal->belopsformel == 8)
                                     {!! Form::radio('belopsformel', '8', 'true', ['id' => 'formel8']) !!}
@@ -27,12 +28,13 @@
                                     {!! Form::radio('belopsformel', '8', 'false', ['id' => 'formel8']) !!}
                                 @endif
                                 <div class="radio-bilagsformel">
-                                    <span class="aNavnEksempel">a</span>
+                                    <b>a: </b>
 
-                                    <span class="formel8Eksempel"></span>
+                                    <span class="aNavnEksempel"></span>
                                 </div>
                             </label>
-                        </div>
+                            </div>
+
                         <div class="radio">
                             <label class="radio">
                                 @if($bilagsmal->belopsformel == 9)
@@ -41,8 +43,9 @@
                                     {!! Form::radio('belopsformel', '9', 'true', ['id' => 'formel9']) !!}
                                 @endif
                                 <div class="radio-bilagsformel">
-                                    <span class="bNavnEksempel">b</span>
-                                    <span class="formel9Eksempel"></span>
+                                    <b>b: </b>
+                                    <span class="bNavnEksempel"></span>
+
                                 </div>
                             </label>
                         </div>
@@ -54,11 +57,14 @@
                                     {!! Form::radio('belopsformel', '10', 'false',  ['id' => 'formel10']) !!}
                                 @endif
                                 <div class="radio-bilagsformel">
-                                    <span class="aNavnEksempel">a-b</span> -
+                                    <b>a - b: </b>
+
+                                    <span class="aNavnEksempel"></span> -
                                     <span class="bNavnEksempel"></span>
-                                    <span class="formel10Eksempel"></span>
+
                                 </div>
                             </label>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -70,7 +76,7 @@
                             <label class="col-md-2" for="infotekst">Infotekst:</label>
 
                             <div class="col-md-10">
-                                {!! Form::textarea( 'infotekst', $bilagsmal->infotekst, ['id' => 'bilagstekst' . $bilagsmal->id, 'class' => 'form-control bilagstekst animated']) !!}
+                                {!! Form::textarea( 'infotekst', $bilagsmal->infotekst, ['id' => 'bilagstekst' . $bilagsmal->id, 'class' => 'form-control bilagstekst animated', 'style' => 'height: 6em']) !!}
                             </div>
                         </div>
                     </div>
