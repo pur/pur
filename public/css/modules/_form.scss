@@ -33,6 +33,10 @@ select[multiple].form-control.focus {
   height: 85px;
 }
 
+.form-inline {
+  display: inline-block;
+}
+
 .form-control {
   border: 0;
   background-image: linear-gradient($blue, $blue), linear-gradient(#d2d2d2, #d2d2d2);

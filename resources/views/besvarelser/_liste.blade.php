@@ -29,6 +29,7 @@
                 </div>
                 <div class="col-sm-2">
                     <span class="visible-xs-inline">Framdrift: </span>
+
                     <div class="progress">
                         <div class="progress-bar" role="progressbar"
                              aria-valuenow="{{ $besvarelse->prosentPaabegynt() }}"
@@ -58,15 +59,20 @@
                                     <span class="fa fa-edit"></span>
                                 </a>
                             @else
-                            <a class="btn btn-default disabled " data-toggle="tooltip" data-placement="top" data-container="body" title="Kan ikke endres. Frist utløpt">
-                                <span class="fa fa-edit"></span>
-                            </a>
+                                <a class="btn btn-default disabled " data-toggle="tooltip" data-placement="top" data-container="body" title="Kan ikke endres. Frist utløpt">
+                                    <span class="fa fa-edit"></span>
+                                </a>
                             @endif
                         @else
                             <a href="{{ URL::route('besvarelser.rediger', $besvarelse) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Rediger oppgave">
                                 <span class="fa fa-edit"></span>
                             </a>
                         @endif
+                        {!! Form::open(['route' => ['besvarelser.slett', $besvarelse->id], 'method' => 'DELETE', 'class' => 'form-inline']) !!}
+                        <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Slett oppgave">
+                            <span class="fa fa-trash"></span>
+                        </button>
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>
