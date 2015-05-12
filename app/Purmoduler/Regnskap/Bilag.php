@@ -7,7 +7,7 @@ class Bilag extends Model
 
     protected $table = 'bilag';
 
-    protected $fillable = ['nr_i_besvarelse', 'bilagssekvens_id', 'bilagsmal_id'];
+    protected $fillable = ['belop', 'nr_i_besvarelse', 'bilagssekvens_id', 'bilagsmal_id'];
 
     public $timestamps = false;
 
@@ -39,17 +39,7 @@ class Bilag extends Model
      */
     public function belop()
     {
-        // Henter bilagssekvensens variabel-objekter inkl. malvariabel-objekter
-        $variabler = $this->bilagssekvens->variabler()->with('malvariabel')->get();
-
-        // Lager en tabell på formen "a" => "1000", "b" => "500", etc.
-        $formelvariabler = $variabler->lists('verdi', 'malvariabel.tegn_i_formel');
-
-        // Formelregneren typetvinger tabellverdiene til 'float'
-        $formelregner = new Formelregner($formelvariabler);
-        $belop = $formelregner->brukFormel($this->bilagsmal->belopsformel);
-
-        return money_format('%.2n', $belop);
+        return  number_format($this->belop, 2, ',', '.');
     }
 
     /**

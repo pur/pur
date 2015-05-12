@@ -15,6 +15,7 @@ class CreateBilagTable extends Migration
     {
         Schema::create('bilag', function (Blueprint $table) {
             $table->increments('id');
+            $table->float('belop');
             $table->integer('nr_i_besvarelse')->unsigned();
             $table->integer('bilagssekvens_id')->unsigned();
             $table->integer('bilagsmal_id')->unsigned();

@@ -329,11 +329,14 @@ class BilagsmalsekvensVarTableSeeder extends Seeder
     {
         DB::table('bilagsmalsekvens_var')->delete();
 
+
+        // Bilagsmalsekvens 1
+
         BilagsmalsekvensVar::create([
             'navn' => 'Bruttobeløp',
             'tegn_i_formel' => 'a',
-            'verdi_min' => '30000',
-            'verdi_maks' => '50000',
+            'verdi_min' => '20000',
+            'verdi_maks' => '40000',
             'bilagsmalsekvens_id' => 1
         ]);
 
@@ -348,9 +351,63 @@ class BilagsmalsekvensVarTableSeeder extends Seeder
         BilagsmalsekvensVar::create([
             'navn' => 'Rabattsats',
             'tegn_i_formel' => 'x',
-            'verdi_min' => '10',
-            'verdi_maks' => '10',
+            'verdi_min' => '1',
+            'verdi_maks' => '2',
             'bilagsmalsekvens_id' => 1
+        ]);
+
+
+        // Bilagsmalsekvens 2
+
+        BilagsmalsekvensVar::create([
+            'navn' => 'Bruttobeløp',
+            'tegn_i_formel' => 'a',
+            'verdi_min' => '30000',
+            'verdi_maks' => '50000',
+            'bilagsmalsekvens_id' => 2
+        ]);
+
+        BilagsmalsekvensVar::create([
+            'navn' => 'Bruttobeløp',
+            'tegn_i_formel' => 'b',
+            'verdi_min' => '3000',
+            'verdi_maks' => '5000',
+            'bilagsmalsekvens_id' => 2
+        ]);
+
+        BilagsmalsekvensVar::create([
+            'navn' => 'Rabattsats',
+            'tegn_i_formel' => 'x',
+            'verdi_min' => '2',
+            'verdi_maks' => '4',
+            'bilagsmalsekvens_id' => 2
+        ]);
+
+
+        // Bilagsmalsekvens 3
+
+        BilagsmalsekvensVar::create([
+            'navn' => 'Bruttobeløp',
+            'tegn_i_formel' => 'a',
+            'verdi_min' => '40000',
+            'verdi_maks' => '60000',
+            'bilagsmalsekvens_id' => 3
+        ]);
+
+        BilagsmalsekvensVar::create([
+            'navn' => 'Bruttobeløp',
+            'tegn_i_formel' => 'b',
+            'verdi_min' => '4000',
+            'verdi_maks' => '6000',
+            'bilagsmalsekvens_id' => 3
+        ]);
+
+        BilagsmalsekvensVar::create([
+            'navn' => 'Rabattsats',
+            'tegn_i_formel' => 'x',
+            'verdi_min' => '3',
+            'verdi_maks' => '5',
+            'bilagsmalsekvens_id' => 3
         ]);
     }
 }

@@ -22,7 +22,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <p class="lead">Bruttobeløp: {{ $bilag->belop() }},–</p>
+                                    <p class="lead">Bruttobeløp: {{ $bilag->belop() }}</p>
                                 </div>
                                 <div class="col-sm-6 text-right">
                                    <p class="lead"> {{ $bilag->bilagsmal->bilagsmalsekvens->motpart}}</p>
