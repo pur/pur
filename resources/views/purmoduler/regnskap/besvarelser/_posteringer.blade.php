@@ -3,7 +3,7 @@
     <div id="posteringer-{{ $bilag->id }}">
         @foreach($bilag->elevposteringer as $postering)
 
-            @include('purmoduler.regnskap.besvarelser._postering', ['postering' => $postering, 'cssclass' => ''])
+            @include('purmoduler.regnskap.besvarelser._postering', ['postering' => $postering, 'cssclass' => $postering->erKorrekt() ? 'korrekt' : ''])
 
         @endforeach
     </div>

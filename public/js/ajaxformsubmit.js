@@ -154,7 +154,7 @@ $(document).ready(function () {
         var form = $(this);
 
         var postering = form.closest('.postering');
-        postering.css('background-color', '#ffffbb');
+        postering.removeClass('korrekt').addClass('lagres');
 
         var type = form.find('input[name="_method"]').val() || 'POST';
         var url = form.prop('action');
@@ -169,8 +169,9 @@ $(document).ready(function () {
                 if (response.lagretOk) {
                     successelement.fadeIn(500);
                     successelement.delay(3000).fadeOut(500);
+                    postering.removeClass('lagres');
                     if (response.postering.erKorrekt)
-                        postering.css('background-color', '#e0ffd5'); // TODO: Sett css-klasse
+                        postering.addClass('korrekt');
                     else postering.removeAttr('style');
                 }
             }
