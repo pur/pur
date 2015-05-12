@@ -19,7 +19,7 @@ $(document).ready(function () {
         event.preventDefault();
         var form = $(this);
         var postering = form.closest('.postering');
-        postering.css('background-color', '#ffffbb');
+        //postering.css('background-color', '#ffffbb');
         var type = form.find('input[name="_method"]').val() || 'POST';
         var url = form.prop('action');
         var data = form.serialize();
@@ -33,10 +33,12 @@ $(document).ready(function () {
             success: function () {
                 successelement.find('.ajax-success-text').text('Lagrer..');
                 postering.removeAttr('style');
+                postering.addClass('lagres')
                 successelement.addClass('saving')
                 successelement.fadeIn(500);
                 setTimeout(function () {
                     successelement.removeClass('saving')
+                    postering.removeClass('lagres')
                     successelement.find('.ajax-success-text').text('Lagret');
                 }, 2000);
             }
