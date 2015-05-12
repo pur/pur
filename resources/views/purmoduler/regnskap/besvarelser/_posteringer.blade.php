@@ -27,22 +27,18 @@
         </div>
     </div>
     <div class="list-group-item ">
-        <div class="row">
+        <div class="row posteringVis">
             <div class="col-sm-11">
                 <div class="row">
-                    <div class="col-sm-6">
-                        <p>
-
-                        </p>
-                    </div>
                     <div class="form-group col-sm-6">
-                        <div class="input-group">
-                            <div class="input-group-addon"> Kontrollsum:</div>
 
-                            <input class="form-control" readonly value="234.54,-">
-
-                        </div>
                     </div>
+                    <div class="form-group col-md-6">
+
+                        <span>Kontrollsum: </span><span id="bilag{{$bilag->id}}-kontrollsum"></span>
+                    </div>
+
+
                 </div>
             </div>
 

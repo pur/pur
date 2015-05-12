@@ -19,7 +19,7 @@
             @include('purmoduler.regnskap.besvarelser._rediger')
 
 
-        <section>
+        <section class="padding">
             <h2>Saldobalanse</h2>
             @include('purmoduler.regnskap.besvarelser._besvarelseSaldobalanse')
         </section>
