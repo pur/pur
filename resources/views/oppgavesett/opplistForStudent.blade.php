@@ -7,7 +7,7 @@
             <p>Info om oppgavesett</p>
         </blockquote>
         <section class="padding">
-            <h2>Mine oppgavesett</h2>
+            <h2>Alle oppgavesett</h2>
 
             <!-- TODO: Tilpass kolonner til visning for student -->
 
@@ -15,7 +15,10 @@
                 <div class="panel-heading hidden-xs">
                     <div class="row">
                         <div class="col-sm-2">
-                            <b>Navn:</b>
+                            <b>Tittel:</b>
+                        </div>
+                        <div class="col-sm-2">
+                            <b>Beskrivelse:</b>
                         </div>
                         <div class="col-sm-2">
                             <b>Status:</b>
@@ -25,9 +28,6 @@
                         </div>
                         <div class="col-sm-2">
                             <b>Åpen til:</b>
-                        </div>
-                        <div class="col-sm-2">
-
                         </div>
                         <div class="col-sm-2 actions">
                             <b>Handlinger:</b>
@@ -42,7 +42,10 @@
                     <div class="list-group-item">
                         <div class="row">
                             <div class="col-sm-2">
-                                <span class="visible-xs-inline">Navn: </span>{{ $oppgavesett->beskrivelse }}
+                                <span class="visible-xs-inline">Tittel: </span>{{ $oppgavesett->tittel }}
+                            </div>
+                            <div class="col-sm-2">
+                                <span class="visible-xs-inline">Beskrivelse: </span>{{ $oppgavesett->beskrivelse }}
                             </div>
                             <div class="col-sm-2">
                                 <span class="visible-xs-inline">Status: </span>{{$oppgavesett->status()}}
@@ -53,8 +56,6 @@
                             <div class="col-sm-2">
                                 <span class="visible-xs-inline">Åpen til: </span>{{ $oppgavesett->tidLukket() }}
                             </div>
-                            <div class="col-sm-2">
-                            </div>
 
                             <div class="col-sm-2 actions">
 
@@ -64,10 +65,15 @@
                                    title="Vis statistikk">
                                     <span class="fa fa-bar-chart"></span>
                                 </a> -->
-
+                                @if($oppgavesett->erAapent())
                                     <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Opprett besvarelse">
                                         <span class="fa fa-play"></span>
                                     </button>
+                                @else
+                                    <button type="button" class="btn btn-default disabled" data-toggle="tooltip" data-placement="top" data-container="body" title="Oppgavesettet er ikke åpent">
+                                        <span class="fa fa-play"></span>
+                                    </button>
+                                @endif
                                 </div>
                             </div>
                         </div>

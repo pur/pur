@@ -49,11 +49,12 @@ class BesvarelseController extends Controller
      */
     public function lagre(Oppgavesett $oppgavesett)
     {
-        $besvarelseTjeneste = new BesvarelseTjeneste();
-        $besvarelse = $besvarelseTjeneste->opprett($this->bruker, $oppgavesett);
-
+        if($oppgavesett->erAapent()) {
+            $besvarelseTjeneste = new BesvarelseTjeneste();
+            $besvarelse = $besvarelseTjeneste->opprett($this->bruker, $oppgavesett);
+            //return redirect()->route('besvarelser.rediger', $besvarelse);
+        }
         return redirect()->route('oppgavesett.opplist');
-        //return redirect()->route('besvarelser.rediger', $besvarelse);
     }
 
     /**

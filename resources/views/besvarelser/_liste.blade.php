@@ -2,10 +2,10 @@
     <div class="panel-heading hidden-xs">
         <div class="row">
             <div class="col-sm-2">
-                <b>Navn:</b>
+                <b>Oppg.sett:</b>
             </div>
             <div class="col-sm-2">
-                <b>Påbegynte svar:</b>
+                <b>Framdrift:</b>
             </div>
             <div class="col-sm-2">
                 <b>Påbegynt:</b>
@@ -25,9 +25,10 @@
         <div class="list-group-item">
             <div class="row">
                 <div class="col-sm-2">
-                    <span class="visible-xs-inline">Navn: </span>{{ $besvarelse->oppgavesett->beskrivelse }}
+                    <span class="visible-xs-inline">Oppg.sett: </span>{{ $besvarelse->oppgavesett->tittel }}
                 </div>
                 <div class="col-sm-2">
+                    <span class="visible-xs-inline">Framdrift: </span>
                     <div class="progress">
                         <div class="progress-bar" role="progressbar"
                              aria-valuenow="{{ $besvarelse->prosentPaabegynt() }}"

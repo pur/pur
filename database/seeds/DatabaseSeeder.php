@@ -142,7 +142,7 @@ class OppgavesettTableSeeder extends Seeder
         Oppgavesett::create([
             'type' => 'øving',
             'tittel' => 'Øving 1',
-            'beskrivelse' => 'Innføring i grunnleggende bokføring',
+            'beskrivelse' => 'Innføring i bokføring',
             'tid_opprettet' => '2015-01-01 09:00:00',
             'tid_endret' => '2015-01-05 09:00:00',
             'tid_publisert' => '2015-01-10 10:00:00',
@@ -154,7 +154,7 @@ class OppgavesettTableSeeder extends Seeder
         Oppgavesett::create([
             'type' => 'øving',
             'tittel' => 'Øving 2',
-            'beskrivelse' => '',
+            'beskrivelse' => 'Utprøving av grunnleggende prinsipper',
             'tid_opprettet' => '2015-05-01 09:00:00',
             'tid_endret' => '2015-05-02 09:00:00',
             'tid_publisert' => '2015-05-10 10:00:00',
@@ -166,7 +166,7 @@ class OppgavesettTableSeeder extends Seeder
         Oppgavesett::create([
             'type' => 'oblig',
             'tittel' => 'Oblig. 1',
-            'beskrivelse' => '',
+            'beskrivelse' => 'Test av fundamentale ferdigheter',
             'tid_opprettet' => '2015-05-01 09:00:00',
             'tid_endret' => '2015-05-05 09:00:00',
             'tid_publisert' => '2015-05-10 10:00:00',
@@ -178,7 +178,7 @@ class OppgavesettTableSeeder extends Seeder
         Oppgavesett::create([
             'type' => 'oblig',
             'tittel' => 'Oblig. 2',
-            'beskrivelse' => '',
+            'beskrivelse' => 'Eksamensforberedende test',
             'tid_opprettet' => '2015-05-10 09:00:00',
             'tid_endret' => '2015-05-12 09:00:00',
             'tid_publisert' => '2015-06-15 10:00:00',
