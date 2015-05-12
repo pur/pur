@@ -94,3 +94,10 @@
 .radio input[type=radio][disabled] ~ .check {
   background-color: rgba(0, 0, 0, 0.84);
 }
+
+.radio .radio-bilagsformel{
+  span{
+    display: inline-block;
+    position: static;;
+  }
+}

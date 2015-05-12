@@ -1,5 +1,5 @@
 blockquote.bq-info {
-  color: $dark-gray;
+  color: $blue;
   border: 1px solid #EEE;
   border-left:5px solid $blue;
   border-top-left-radius: 3px;
@@ -38,6 +38,9 @@ blockquote.bq-info {
   }
 }
 
+.progress-bar {
+background-color: $blue;
+}
 
 footer {
   border-top: 1px solid #E7E7E7;

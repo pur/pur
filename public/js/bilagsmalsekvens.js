@@ -102,13 +102,15 @@ function beregnReultat() {
 
 // Oppdater valgt bilagsformel
 $("input[type=radio]").change(function () {
-
-    hentVerdier();
+    beregnReultat();
 });
 
 
 // Oppdaterer checkbox tekst fra inputfelt med variabler
 $('input.variabel').keyup(function () {
+    var inputId = $(this).attr('id');
+    var inputText = $(this).val();
+    $('.' + inputId + 'Eksempel').text(inputText);
     hentVerdier();
 });
 

@@ -12,29 +12,30 @@
             </ul>
         </nav>
         <section>
-        <div class="tab-content">
+            <div class="tab-content">
 
-            @foreach($bilagssamling as $bilag)
-
-                <div id="bilag{{ $bilag->id }}" class="tab-pane panel bilag panel-primary @if($bilag->id == 1) active @endif" role="tabpanel">
-
-                    <div class="panel-heading">
-                        <h3 id="bilagstittel{{ $bilag->id }}HeadingVis" class="panel-title">Bilag {{ $bilag->id }} - {{ $bilag->bilagsmal->bilagstype}}</h3>
+                @foreach($bilagssamling as $bilag)
+                    <div id="bilag{{ $bilag->id }}" class="tab-pane panel bilag panel-primary @if($bilag->id == 1) active @endif" role="tabpanel">
+                        <div class="panel-heading">
+                            <h3 id="bilagstittel{{ $bilag->id }}HeadingVis" class="panel-title">Bilag {{ $bilag->id }} - {{ $bilag->bilagsmal->bilagstype}}</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <p class="lead">Bruttobeløp: {{ $bilag->belop() }},–</p>
+                                </div>
+                                <div class="col-sm-6 text-right">
+                                   <p class="lead"> {{ $bilag->bilagsmal->bilagsmalsekvens->motpart}}</p>
+                                </div>
+                                <div class="col-sm-12">
+                                    {{ $bilag->bilagsmal->infotekst}}
+                                </div>
+                            </div>
+                        </div>
+                        @include('purmoduler.regnskap.besvarelser._posteringer', ['bilag' => $bilag])
                     </div>
-                    <div class="panel-body">
-                        {{ $bilag->bilagsmal->infotekst}}
-                    </div>
-                    <div class="panel-body">
-                       <b>Bruttobeløp: {{ $bilag->belop() }},–</b>
-                    </div>
-
-                    @include('purmoduler.regnskap.besvarelser._posteringer', ['bilag' => $bilag])
-
-                </div>
-
-            @endforeach
-
-        </div>
+                @endforeach
+            </div>
         </section>
     </div>
 </div>

@@ -11,10 +11,7 @@ section {
   margin: 20px 0;
   background-color: #FFF;
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
-  border: 1px solid #DDD;
-  border-top-color: #EEE;
-  border-bottom-color: #CCC;
-  border-radius: 2px;
+  border: 1px solid $default-border;
 }
 
 section.padding {
@@ -24,8 +21,6 @@ section.padding {
 section > .panel {
   border: none;
   overflow: hidden;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
 }
 
 .panel {
@@ -33,6 +28,10 @@ section > .panel {
   .list-group-item:last-child {
     margin-bottom: -1px;
   }
+}
+
+section>.tab-content>.panel, section>.panel {
+  border: none;
 }
 
 .panel-primary {

@@ -31,13 +31,13 @@
             <div class="pull-right">
                 @if($posteringsmal != null)
                     {!! Form::open(['route' => ['posteringsmaler.destroy', $posteringsmal->id], 'method' => 'DELETE', 'slett-asynk' => 'true' ]) !!}
-                    <button type="submit" class="btn btn-danger" id="posteringsmal-{{$posteringsmal->id}}" data-toggle="tooltip" data-placement="top"
+                    <button type="submit" class="btn btn-default" id="posteringsmal-{{$posteringsmal->id}}" data-toggle="tooltip" data-placement="top"
                             data-container="body" title="Slett postering">
                         <span class="fa fa-minus"></span>
                     </button>
                 @else
                     {!! Form::open(['route' => ['posteringsmaler.destroy', null], 'method' => 'DELETE', 'slett-asynk' => 'true']) !!}
-                    <button type="submit" class="btn btn-danger" data-toggle="tooltip" data-placement="top"
+                    <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top"
                             data-container="body" title="Slett postering">
                         <span class="fa fa-minus"></span>
                     </button>

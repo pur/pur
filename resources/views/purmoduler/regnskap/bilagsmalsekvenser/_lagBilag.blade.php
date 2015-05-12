@@ -1,11 +1,11 @@
 <div role="tabpanel" class="tab-pane active" id="lagBilag{{ $bilagsmal->id }}">
     <div class="panel-body">
         {!! Form::model($bilagsmal, ['route' => ['bilagsmaler.update', $bilagsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
+        <blockquote class="bq-info">
+            <p>1. Fyll ut info om bilag</p>
+        </blockquote>
         <div class="row">
-            <div class="col-md-8">
-                <blockquote class="bq-info">
-                    <p>1. Fyll ut info om bilag</p>
-                </blockquote>
+            <div class="col-md-6">
                 <div class="row">
                     <div class="form-group col-md-12">
                         <div class="row">
@@ -17,50 +17,20 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group col-md-12">
-                        <div class="row">
-                            <label class="col-md-2" for="infotekst">Infotekst:</label>
-
-                            <div class="col-md-10">
-                                {!! Form::textarea( 'infotekst', $bilagsmal->infotekst, ['id' => 'bilagstekst' . $bilagsmal->id, 'class' => 'form-control bilagstekst animated', 'style' => 'height: 6em;']) !!}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <blockquote class="bq-info">
-                    <p>2. Velg hvilke elementer som skal vises sammen med oppgavetekst</p>
-                </blockquote>
-                <div class="row">
                     <div class="col-md-12">
-                      {{--  <div class="radio">
-                            <label class="radio">
-                                {!! Form::radio('false', 'motpartEksempel' . $bilagsmal->id) !!}
-                                Motpart:
-                                <div class="radio-inline motpartEksempel">{{$bilagsmalsekvens->motpart}}</div>
-                            </label>
-                        </div>
-                        --}}
-                        {{--  @foreach($bilagsmalsekvens->variabler as $variabel)
-                              <div class="radio">
-                                  <label class="radio">
-                                      {!! Form::radio('false', $variabel->tegn_i_formel . 'Eksempel' . $bilagsmal->id) !!} {{$variabel->tegn_i_formel}}:
-                                      <div class="radio-inline {{$variabel->tegn_i_formel}}NavnEksempel">{{$variabel->navn}}</div>
-                                      <div class="radio-inline {{$variabel->tegn_i_formel}}Eksempel">{{($variabel->verdi_min +$variabel->verdi_min)/2}}</div>
-                                  </label>
-                              </div>
-                          @endforeach--}}
-
                         <div class="radio">
+                            <p>2. Velg hvilke elementer som skal vises sammen med oppgavetekst</p>
                             <label class="radio">
                                 @if($bilagsmal->belopsformel == 8)
                                     {!! Form::radio('belopsformel', '8', 'true', ['id' => 'formel8']) !!}
                                 @else
                                     {!! Form::radio('belopsformel', '8', 'false', ['id' => 'formel8']) !!}
                                 @endif
-                                <div class="radio-inline formel8NavnEksempel">a</div>
-                                <div class="radio-inline formel8Eksempel"></div>
+                                <div class="radio-bilagsformel">
+                                    <span class="aNavnEksempel">a</span>
+
+                                    <span class="formel8Eksempel"></span>
+                                </div>
                             </label>
                         </div>
                         <div class="radio">
@@ -70,8 +40,10 @@
                                 @else
                                     {!! Form::radio('belopsformel', '9', 'true', ['id' => 'formel9']) !!}
                                 @endif
-                                <div class="radio-inline formel9NavnEksempel">b</div>
-                                <div class="radio-inline formel9Eksempel"></div>
+                                <div class="radio-bilagsformel">
+                                    <span class="bNavnEksempel">b</span>
+                                    <span class="formel9Eksempel"></span>
+                                </div>
                             </label>
                         </div>
                         <div class="radio">
@@ -81,13 +53,30 @@
                                 @else
                                     {!! Form::radio('belopsformel', '10', 'false',  ['id' => 'formel10']) !!}
                                 @endif
-                                <div class="radio-inline formel10NavnEksempel">a-b</div>
-                                <div class="radio-inline formel10Eksempel"></div>
+                                <div class="radio-bilagsformel">
+                                    <span class="aNavnEksempel">a-b</span> -
+                                    <span class="bNavnEksempel"></span>
+                                    <span class="formel10Eksempel"></span>
+                                </div>
                             </label>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <div class="row">
+                            <label class="col-md-2" for="infotekst">Infotekst:</label>
+
+                            <div class="col-md-10">
+                                {!! Form::textarea( 'infotekst', $bilagsmal->infotekst, ['id' => 'bilagstekst' . $bilagsmal->id, 'class' => 'form-control bilagstekst animated']) !!}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
 
@@ -117,7 +106,7 @@
                     <div class="pull-right">
                         {!! Form::open(['route' => ['posteringsmaler.store'], 'opprett-mal-asynk' => 'true']) !!}
                         {!! Form::hidden('bilagsmalId', $bilagsmal->id) !!}
-                        <button type="submit" class="btn btn-success" data-toggle="tooltip" data-placement="top" data-container="body" title="Legg til postering">
+                        <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Legg til postering">
                             <span class="fa fa-plus"></span>
                         </button>
                         {!! Form::close() !!}

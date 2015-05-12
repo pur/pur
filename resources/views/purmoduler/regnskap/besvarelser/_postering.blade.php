@@ -30,7 +30,7 @@
                 @else
                     {!! Form::open(['route' => ['posteringer.destroy', null], 'method' => 'DELETE', 'slett-asynk' => 'true']) !!}
                 @endif
-                <button type="submit" class="btn btn-danger" data-toggle="tooltip" data-placement="top"
+                <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top"
                         data-container="body" title="Slett postering">
                     <span class="fa fa-minus"></span>
                 </button>
