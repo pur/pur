@@ -31,9 +31,9 @@
                 </button>
 
                 @if($postering != null)
-                    {!! Form::open(['route' => ['posteringer.destroy', $postering->id], 'method' => 'DELETE', 'slett-asynk' => 'true', 'class' => 'form-inline']) !!}
+                    {!! Form::open(['route' => ['posteringer.destroy', $postering->id], 'method' => 'DELETE', 'slett-asynk' => 'true', 'class' => 'form-inline bekreft-slett']) !!}
                 @else
-                    {!! Form::open(['route' => ['posteringer.destroy', null], 'method' => 'DELETE', 'slett-asynk' => 'true', 'class' => 'form-inline']) !!}
+                    {!! Form::open(['route' => ['posteringer.destroy', null], 'method' => 'DELETE', 'slett-asynk' => 'true', 'class' => 'form-inline bekreft-slett']) !!}
                 @endif
                 <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top"
                         data-container="body" title="Slett postering">

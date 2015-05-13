@@ -54,7 +54,7 @@ $(document).ready(function () {
 
     $('#bilagsmaler').on('submit', 'form[slett-asynk]', function (event) {
         event.preventDefault();
-        if (!confirm('Vil du slette posteringen?')) return;
+
         var form = $(this);
         var type = form.find('input[name="_method"]').val() || 'POST';
         var url = form.prop('action');
@@ -188,8 +188,6 @@ $(document).ready(function () {
     $('#bilagsgruppe').on('submit', 'form[slett-asynk]', function (event) {
 
         event.preventDefault();
-
-        if (!confirm('Vil du slette posteringen?')) return;
 
         var form = $(this);
         var type = form.find('input[name="_method"]').val() || 'POST';

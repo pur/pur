@@ -106,3 +106,10 @@ $('.form-group input, .form-group textarea').blur(function () {
     outerFormGroup.find('label').removeClass('focused');
 
 });
+
+
+$('.bekreft-slett').click(function(event){
+
+    if (!confirm('Bekreft sletting')) event.preventDefault();
+
+});

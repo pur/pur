@@ -69,7 +69,7 @@
                             </a>
                         @endif
                         {!! Form::open(['route' => ['besvarelser.slett', $besvarelse->id], 'method' => 'DELETE', 'class' => 'form-inline']) !!}
-                        <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Slett oppgave">
+                        <button type="submit" class="btn btn-default bekreft-slett" data-toggle="tooltip" data-placement="top" data-container="body" title="Slett besvarelse">
                             <span class="fa fa-trash"></span>
                         </button>
                         {!! Form::close() !!}
