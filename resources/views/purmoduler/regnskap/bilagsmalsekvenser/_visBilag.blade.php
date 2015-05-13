@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-sm-6">
         <p id="bruttobelopVis{{ $bilagsmal->id }}" class="lead">
-            Beløp: <span id="bilag{{ $bilagsmal->id }}belopEksempel"></span>
+            Bruttobeløp: <span id="bilag{{ $bilagsmal->id }}belopEksempel"></span>
         </p>
     </div>
     <div class="col-sm-6">

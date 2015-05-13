@@ -32,7 +32,7 @@
                 @endif
                 <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top"
                         data-container="body" title="Slett postering">
-                    <span class="fa fa-minus"></span>
+                    <span class="fa fa-trash"></span>
                 </button>
                 {!! Form::close() !!}
             </div>
