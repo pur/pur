@@ -199,6 +199,7 @@ function submitPosteringsForm(posteringsID) {
         var type = form.find('input[name="_method"]').val() || 'POST';
         var url = form.prop('action');
         var data = form.serialize();
+        $('button').tooltip('hide');
 
         $.ajax({
             type: type,
