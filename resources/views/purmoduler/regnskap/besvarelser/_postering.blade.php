@@ -26,7 +26,7 @@
         <div class="col-md-2">
             <div class="pull-right">
 
-                <button onclick="submitPosteringsForm({{ $postering != null ? $postering->id : null }})" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Postér">
+                <button posterings-id="{{ $postering != null ? $postering->id : null }}" class="btn btn-default oppdater-knapp" data-toggle="tooltip" data-placement="top" data-container="body" title="Postér">
                     <span class="fa fa-check"></span>
                 </button>
 

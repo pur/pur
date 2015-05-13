@@ -147,17 +147,13 @@ $(document).ready(function () {
 
 // Bilag:
 
-function submitPosteringsForm(posteringsID) {
-    $('#posteringsform-'+posteringsID).submit();
-}
-
 (function () {
 
-    $('#bilagsgruppe').on('submit', 'form[oppdater-asynk]', function (event) {
+    $('#bilagsgruppe').on('click', '.oppdater-knapp', function () {
 
-        event.preventDefault();
+    var posteringsId = $(this).attr('posterings-id');
 
-        var form = $(this);
+        var form = $('#posteringsform-' + posteringsId);
 
         var postering = form.closest('.postering');
         postering.removeClass('korrekt').removeClass('feil').addClass('lagres');
@@ -239,13 +235,15 @@ function submitPosteringsForm(posteringsID) {
             type: 'POST',
             url: url,
             data: form.serialize(),
-            success: function (response) {
+            success: function (posteringsId) {
                 console.log('Oppretter ny postering');
-                console.log(response);
+                console.log(posteringsId);
                 var forms = tomPostering.find('form');
                 for (var i = 0; i < forms.length; i++) {
-                    $(forms[i]).attr('action', form.attr('action') + "/" + response);
+                    $(forms[i]).attr('action', form.attr('action') + "/" + posteringsId);
                 }
+                tomPostering.find('.oppdater-knapp').attr('posterings-id', posteringsId);
+                tomPostering.find('form[oppdater-asynk]').attr('id', 'posteringsform-' + posteringsId);
                 liste.append(tomPostering);
             },
             error: function (response) {
