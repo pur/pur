@@ -32,7 +32,7 @@ class EventServiceProvider extends ServiceProvider {
         Besvarelse::deleting(function($besvarelse)
         {
             foreach($besvarelse->oppgavesvar as $oppgavesvar)
-                $oppgavesvar->moduloppgavesvar->delete();
+                if(!$oppgavesvar->moduloppgavesvar->delete()) return false;
         });
 	}
 
