@@ -24,7 +24,7 @@
                     <div class="col-sm-4">
                         <div class="input-group">
                             <div class="input-group-addon"><span class="fa fa-user"></span> Motpart</div>
-                            {!! Form::input('text', 'motpart', null, ['class' => 'form-control variabel', 'id' => 'motpart']) !!}
+                            {!! Form::input('text', 'motpart', null, ['class' => 'form-control', 'id' => 'motpart']) !!}
                         </div>
                     </div>
                 </div>

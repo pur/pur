@@ -18,17 +18,36 @@ $('input[type="checkbox"]').click(function () {
 beregnReultat();
 hentVerdier();
 
+
+function stadariserVerdier(verdi) {
+    verdi = verdi.replace(/\s+/g, '');
+    verdi = verdi.replace(',', '.');
+
+
+    if (parseFloat(verdi) != '' && parseFloat(verdi) != null) {
+        verdi = parseFloat(verdi);
+    } else {
+        verdi = 0.00;
+    }
+    return verdi;
+}
+
+function avrundVerdier(verdi){
+    verdi = Math.round(verdi * 100) / 100;
+    return verdi;
+}
+
 function hentVerdier() {
     // Henter ut verdier fra tekstfelt
-    var aMaks = parseInt($('#aMaks').val());
-    var aMin = parseInt($('#aMin').val());
-    var bMaks = parseInt($('#bMaks').val());
-    var bMin = parseInt($('#bMin').val());
-    var xMaks = parseInt($('#xMaks').val());
-    var xMin = parseInt($('#xMin').val());
-    var aSnitt = (aMin + aMaks) / 2;
-    var bSnitt = (bMin + bMaks) / 2;
-    var xSnitt = (xMin + xMaks) / 2;
+    var aMaks = stadariserVerdier($('#aMaks').val());
+    var aMin = stadariserVerdier($('#aMin').val());
+    var bMaks = stadariserVerdier($('#bMaks').val());
+    var bMin = stadariserVerdier($('#bMin').val());
+    var xMaks = stadariserVerdier($('#xMaks').val());
+    var xMin = stadariserVerdier($('#xMin').val());
+    var aSnitt = avrundVerdier((aMin + aMaks) / 2);
+    var bSnitt = avrundVerdier((bMin + bMaks) / 2);
+    var xSnitt = avrundVerdier((xMin + xMaks) / 2);
     var motpart = $('#motpart').val();
 
     $(".motpartEksempel").text(motpart);
@@ -65,15 +84,15 @@ function hentVerdier() {
 
             var resultat = brukFormel(formelnr, verdia, verdib, verdix);
 
-            $("#" + idName + "ResultatVis").text(resultat);
+            $("#" + idName + "ResultatVis").text(avrundVerdier(resultat));
             $('.' + idBilag + '-formel').each(function () {
                 if (parseFloat($(this).text()) != '') {
-                    sumBilag += parseFloat($(this).text());
+                    sumBilag += parseFloat(avrundVerdier($(this).text()));
                 } else {
                     sumBilag += 0;
                 }
             });
-            $("#" + idBilag + "Resultat").text(sumBilag);
+            $("#" + idBilag + "Resultat").text(avrundVerdier(sumBilag));
 
         }
     });
@@ -82,7 +101,6 @@ function hentVerdier() {
 function beregnReultat() {
 
     $("#bilagsmaler").find('.bilag').each(function () {
-        console.log('fant');
         var idBilag = $(this).attr('id');
         var sumBilag = 0;
         $("#" + idBilag + " div.radio input").each(function () {
@@ -94,13 +112,13 @@ function beregnReultat() {
             }
         });
         $('.' + idBilag + '-formel').each(function () {
-            if (parseFloat($(this).text()) != '') {
-                sumBilag += parseFloat($(this).text());
+            if (stadariserVerdier($(this).text()) != '') {
+                sumBilag += stadariserVerdier($(this).text());
             } else {
                 sumBilag += 0;
             }
         });
-        $("#" + idBilag + "Resultat").text(sumBilag);
+        $("#" + idBilag + "Resultat").text(avrundVerdier(sumBilag));
         console.log(sumBilag);
     });
 }
@@ -114,10 +132,11 @@ $("input[type=radio]").change(function () {
 
 // Oppdaterer radio tekst fra inputfelt med variabler
 $('input.variabel').keyup(function () {
+    hentVerdier();
     genererRadiobuttonTekst($(this));
 });
 
-function genererRadiobuttonTekst (element) {
+function genererRadiobuttonTekst(element) {
     var inputId = element.attr('id');
     var inputText = element.val();
     $('.' + inputId + 'Eksempel').text(inputText);

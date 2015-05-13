@@ -99,7 +99,6 @@ $('.input-group input, .input-group select').blur(function () {
 $('.form-group input, .form-group textarea').focus(function () {
     var outerFormGroup = $(this).closest('.form-group');
     outerFormGroup.find('label').addClass('focused');
-    console.log(outerFormGroup);
 });
 
 $('.form-group input, .form-group textarea').blur(function () {
