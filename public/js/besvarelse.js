@@ -1,15 +1,16 @@
 function beregnReultat() {
     var sumBilag = 0.00;
     var idBilag = $('.tab-content .bilag.active').attr('id');
-    console.log(idBilag);
     $('.tab-content').find('.' + idBilag + '-belop').each(function () {
-        if (parseFloat($(this).text()) != '' && parseFloat($(this).text()) != null) {
-            sumBilag += parseFloat($(this).val());
+        var verdi = $(this).val();
+        verdi = verdi.replace(/\s+/g, '');
+        verdi = verdi.replace(',', '.');
+        if (parseFloat(verdi) != '' && parseFloat(verdi) != null) {
+            sumBilag += parseFloat(verdi);
         } else {
             sumBilag += 0.00;
         }
         $("#" + idBilag + "-kontrollsum").text(sumBilag);
-        console.log(sumBilag);
     });
 }
 
