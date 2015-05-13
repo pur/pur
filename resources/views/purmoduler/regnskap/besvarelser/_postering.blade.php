@@ -21,20 +21,17 @@
                     </div>
                 </div>
             </div>
-            {!! Form::close() !!}
+
         </div>
         <div class="col-md-2">
             <div class="pull-right">
-                @if($postering != null)
-                    {!! Form::open(['route' => ['posteringer.update', $postering->id], 'method' => 'PATCH', 'oppdater-asynk', 'class' => 'form-inline']) !!}
-                @else
-                    {!! Form::open(['route' => ['posteringer.update', null], 'method' => 'PATCH', 'oppdater-asynk', 'class' => 'form-inline']) !!}
-                @endif
+
                 <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top"
                         data-container="body" title="Postér">
                     <span class="fa fa-check"></span>
                 </button>
                 {!! Form::close() !!}
+
                 @if($postering != null)
                     {!! Form::open(['route' => ['posteringer.destroy', $postering->id], 'method' => 'DELETE', 'slett-asynk' => 'true', 'class' => 'form-inline']) !!}
                 @else

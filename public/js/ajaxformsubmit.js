@@ -33,12 +33,12 @@ $(document).ready(function () {
             success: function () {
                 successelement.find('.ajax-success-text').text('Lagrer..');
                 postering.removeAttr('style');
-                postering.addClass('lagres')
-                successelement.addClass('saving')
+                postering.addClass('lagres');
+                successelement.addClass('saving');
                 successelement.fadeIn(500);
                 setTimeout(function () {
-                    successelement.removeClass('saving')
-                    postering.removeClass('lagres')
+                    successelement.removeClass('saving');
+                    postering.removeClass('lagres');
                     successelement.find('.ajax-success-text').text('Lagret');
                 }, 2000);
             }
