@@ -1,6 +1,7 @@
 <?php namespace Pur\Purmoduler\Regnskap;
 
 use Illuminate\Database\Eloquent\Model;
+use NumberFormatter;
 
 class Postering extends Model {
 
@@ -29,6 +30,24 @@ class Postering extends Model {
     public function tidEndret()
     {
         return $this->tid_endret->format('d.m.y H:i');
+    }
+
+    public function setBelopAttribute($belop)
+    {
+        $belop = str_replace(' ', '', $belop);
+        $belop = str_replace(',', '.', $belop);
+
+        $this->attributes['belop'] = $belop;
+    }
+
+    /**
+     * Posteringens beløp formattert som kronebeløp
+     *
+     * @return float
+     */
+    public function belop()
+    {
+        return  number_format($this->belop, 2, ',', ' ');
     }
 
     /**
