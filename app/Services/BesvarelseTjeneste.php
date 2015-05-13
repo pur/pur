@@ -147,6 +147,18 @@ class BesvarelseTjeneste
             foreach ($bilagssekvens->bilag as $bilag)
                 $bilagssamling[] = $bilag;
         }
-        return $bilagssamling;
+        //return $bilagssamling;
+
+
+        // TODO: Lagre på bilag ved opprettelse av besvarelse:
+        $besvarelseBilag = collect($bilagssamling);
+
+        //$besvarelseBilag->shuffle();
+
+        $besvarelseBilag->map(function ($bilag, $nrIBesvarelse = 0) {
+            return $bilag->nr_i_besvarelse = ++$nrIBesvarelse;
+        });
+
+        return $besvarelseBilag;
     }
 }

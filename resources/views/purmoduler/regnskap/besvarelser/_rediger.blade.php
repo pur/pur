@@ -3,9 +3,9 @@
         <nav>
             <ul class="pagination" role="tablist">
                 @foreach($bilagssamling as $bilag)
-                    <li class="@if($bilag->id == 1) active @endif">
+                    <li class="@if($bilag->nr_i_besvarelse == 1) active @endif">
                         <a href="#bilag{{ $bilag->id }}" aria-controls="bilag{{ $bilag->id }}" role="tab" data-toggle="tab">
-                            {{ $bilag->id }} <span class="sr-only">(current)</span>
+                            {{ $bilag->nr_i_besvarelse }} <span class="sr-only">(current)</span>
                         </a>
                     </li>
                 @endforeach
@@ -15,7 +15,7 @@
             <div class="tab-content">
 
                 @foreach($bilagssamling as $bilag)
-                    <div id="bilag{{ $bilag->id }}" class="tab-pane panel bilag panel-primary @if($bilag->id == 1) active @endif" role="tabpanel">
+                    <div id="bilag{{ $bilag->id }}" class="tab-pane panel bilag panel-primary @if($bilag->nr_i_besvarelse == 1) active @endif" role="tabpanel">
                         <div class="panel-heading">
                             <h3 id="bilagstittel{{ $bilag->id }}HeadingVis" class="panel-title">Bilag {{ $bilag->id }} - {{ $bilag->bilagsmal->bilagstype}}</h3>
                         </div>
