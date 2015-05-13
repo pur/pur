@@ -149,14 +149,14 @@ $(document).ready(function () {
 
 (function () {
 
-    $('#bilagsgruppe').on('focusout', 'form[oppdater-asynk]', function (event) {
+    $('#bilagsgruppe').on('submit', 'form[oppdater-asynk]', function (event) {
 
         event.preventDefault();
 
         var form = $(this);
 
         var postering = form.closest('.postering');
-        postering.removeClass('korrekt').addClass('lagres');
+        postering.removeClass('korrekt').removeClass('feil').addClass('lagres');
 
         var type = form.find('input[name="_method"]').val() || 'POST';
         var url = form.prop('action');
@@ -174,7 +174,7 @@ $(document).ready(function () {
                     postering.removeClass('lagres');
                     if (response.postering.erKorrekt)
                         postering.addClass('korrekt');
-                    else postering.removeAttr('style');
+                    else postering.addClass('feil');
                 }
             }
         });
