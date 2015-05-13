@@ -877,10 +877,13 @@ body > nav {
   margin-bottom: 0; }
 
 .postering.lagres {
-  background-color: #e6f1ff; }
+  background-color: #FFF9C4; }
 
 .postering.korrekt {
-  background-color: #CCFF90; }
+  background-color: #DCEDC8; }
+
+.postering.feil {
+  background-color: #FFCDD2; }
 
 .panel-heading .actions {
   border-left: 1px solid #4781cc; }

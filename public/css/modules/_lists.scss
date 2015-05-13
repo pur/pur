@@ -65,12 +65,16 @@
 
 
   .postering.lagres {
-    background-color: $blue-bg;
+    background-color: $yellow-bg;
   }
 
   .postering.korrekt {
-    background-color: $succes-bg;
+    background-color: $green-bg;
   }
+
+.postering.feil {
+  background-color: $red-bg;
+}
 
   .panel-heading .actions {
     border-left: 1px solid $blue;
