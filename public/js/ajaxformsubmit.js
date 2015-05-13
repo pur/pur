@@ -147,6 +147,10 @@ $(document).ready(function () {
 
 // Bilag:
 
+function submitPosteringsForm(posteringsID) {
+    $('#posteringsform-'+posteringsID).submit();
+}
+
 (function () {
 
     $('#bilagsgruppe').on('submit', 'form[oppdater-asynk]', function (event) {
@@ -182,7 +186,6 @@ $(document).ready(function () {
     });
 
 })();
-
 
 (function () {
 

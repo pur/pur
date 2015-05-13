@@ -2,9 +2,9 @@
     <div class="row">
         <div class="col-md-10">
             @if($postering != null)
-                {!! Form::model($postering, ['route' => ['posteringer.update', $postering->id], 'method' => 'PATCH', 'oppdater-asynk' => 'true']) !!}
+            {!! Form::model($postering, ['route' => ['posteringer.update', $postering->id], 'method' => 'PATCH', 'oppdater-asynk' => 'true', 'id' => 'posteringsform-' . $postering->id]) !!}
             @else
-                {!! Form::open(['route' => ['posteringer.update', null], 'method' => 'PATCH', 'oppdater-asynk' => 'true']) !!}
+            {!! Form::open(['route' => ['posteringer.update', null], 'method' => 'PATCH', 'oppdater-asynk' => 'true']) !!}
             @endif
             <div class="row">
                 <div class="form-group col-md-6">
@@ -21,21 +21,19 @@
                     </div>
                 </div>
             </div>
-
+            {!! Form::close() !!}
         </div>
         <div class="col-md-2">
             <div class="pull-right">
 
-                <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top"
-                        data-container="body" title="Postér">
+                <button onclick="submitPosteringsForm({{ $postering != null ? $postering->id : null }})" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Postér">
                     <span class="fa fa-check"></span>
                 </button>
-                {!! Form::close() !!}
 
                 @if($postering != null)
-                    {!! Form::open(['route' => ['posteringer.destroy', $postering->id], 'method' => 'DELETE', 'slett-asynk' => 'true', 'class' => 'form-inline']) !!}
+                {!! Form::open(['route' => ['posteringer.destroy', $postering->id], 'method' => 'DELETE', 'slett-asynk' => 'true', 'class' => 'form-inline']) !!}
                 @else
-                    {!! Form::open(['route' => ['posteringer.destroy', null], 'method' => 'DELETE', 'slett-asynk' => 'true', 'class' => 'form-inline']) !!}
+                {!! Form::open(['route' => ['posteringer.destroy', null], 'method' => 'DELETE', 'slett-asynk' => 'true', 'class' => 'form-inline']) !!}
                 @endif
                 <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top"
                         data-container="body" title="Slett postering">
