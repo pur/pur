@@ -28,14 +28,16 @@
     </div>
     <div class="list-group-item ">
         <div class="row posteringVis">
-            <div class="col-sm-11">
+            <div class="col-sm-12">
                 <div class="row">
-                    <div class="form-group col-sm-6">
+                    <div class="form-group col-sm-5">
 
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-5">
+                        <div class="pull-right">
 
                         <span>Kontrollsum: </span><span id="bilag{{$bilag->id}}-kontrollsum"></span>
+                        </div>
                     </div>
 
 
