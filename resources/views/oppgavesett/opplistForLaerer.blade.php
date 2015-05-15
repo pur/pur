@@ -3,9 +3,6 @@
     @include('oppgavesett._opplist-undermeny')
     <div class="container">
         <h1>Oppgavesett</h1>
-        <blockquote class="bq-info">
-            <p>Info om oppgavesett</p>
-        </blockquote>
         <section class="padding">
             <h2>Mine oppgavesett</h2>
 
