@@ -1,7 +1,7 @@
 @extends('_undermeny')
 @section('menuleft')
     <li>
-        <a id="submenuitem1" href="/" data-toggle="tooltip" data-placement="bottom" data-container="body" title="Send inn besvarelse"><span class="fa fa-upload"></span> Send inn besvarelse</a>
+        <a class="ikke-implementert" id="submenuitem1" href="#" data-toggle="tooltip" data-placement="bottom" data-container="body" title="Send inn besvarelse"><span class="fa fa-upload"></span> Send inn besvarelse</a>
     </li>
     <li>
         {!! Form::open(['route' => ['besvarelser.slett', $besvarelse->id], 'method' => 'DELETE', 'class' => 'form-inline']) !!}

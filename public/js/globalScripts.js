@@ -112,3 +112,11 @@ $(document.body).on('click', '.bekreft-slett', function(event){
     if (!confirm('Bekreft sletting')) event.preventDefault();
 
 });
+
+$(document.body).on('click', '.ikke-implementert', function(event){
+
+    event.preventDefault();
+    alert('Funksjonen er ikke implementert i denne demo-versjonen')
+
+
+});
