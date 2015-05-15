@@ -2,7 +2,7 @@
     <div class="panel-heading hidden-xs">
         <div class="row">
             <div class="col-sm-2">
-                <b>Oppg.sett:</b>
+                <b>Oppgavesett:</b>
             </div>
             <div class="col-sm-2">
                 <b>Framdrift:</b>
@@ -25,7 +25,7 @@
         <div class="list-group-item">
             <div class="row">
                 <div class="col-sm-2">
-                    <span class="visible-xs-inline">Oppg.sett: </span>{{ $besvarelse->oppgavesett->tittel }}
+                    <span class="visible-xs-inline">Oppgavesett: </span>{{ $besvarelse->oppgavesett->tittel }}
                 </div>
                 <div class="col-sm-2">
                     <span class="visible-xs-inline">Framdrift: </span>
