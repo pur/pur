@@ -10,18 +10,30 @@ $(document).ready(function () {
 
 // TODO: Lag funksjonene generelle, så de kan brukes av både bilagsmaler og bilag
 
-function visLagring(lagringsElement){
+function visBehandling(behandlingsElement, behandlingsTekst) {
     var menyanimasjon = $('#ajax-success');
-    menyanimasjon.find('.ajax-success-text').text('Lagrer..');
-    lagringsElement.addClass('lagres');
+    var menyanimasjonTekst = menyanimasjon.find('.ajax-success-text');
+
+    menyanimasjonTekst.text(behandlingsTekst);
     menyanimasjon.addClass('saving');
-    menyanimasjon.fadeIn(500);
-    setTimeout(function () {
-        menyanimasjon.removeClass('saving');
-        lagringsElement.removeClass('lagres');
-        menyanimasjon.find('.ajax-success-text').text('Lagret');
-    }, 2000);
+    menyanimasjon.fadeIn(200);
+    if (behandlingsElement != null) behandlingsElement.addClass('lagres');
+    /*  setTimeout(function () {
+     menyanimasjon.removeClass('saving');
+     if(behandlingsElement != null) behandlingsElement.removeClass('lagres');
+     menyanimasjonTekst.text(ferdigBehandlingsTekst);
+     menyanimasjon.delay(2000).fadeOut(200);
+     }, 2000);*/
 }
+
+function visBehandlingsResultat(behandlingsElement, behandlingsTekst) {
+    var menyanimasjon = $('#ajax-success');
+    var menyanimasjonTekst = menyanimasjon.find('.ajax-success-text');
+    if (behandlingsElement != null) behandlingsElement.removeClass('lagres');
+    menyanimasjon.removeClass('saving');
+    menyanimasjonTekst.text(behandlingsTekst);
+    menyanimasjon.delay(2000).fadeOut(200);
+};
 
 
 // Bilagsmaler:
@@ -36,13 +48,14 @@ function visLagring(lagringsElement){
         var type = form.find('input[name="_method"]').val() || 'POST';
         var url = form.prop('action');
         var data = form.serialize();
+        visBehandling(postering, 'Lagrer');
 
         $.ajax({
             type: type,
             url: url,
             data: data,
             success: function () {
-                visLagring(postering);
+                visBehandlingsResultat(postering, 'Lagret');
             }
         });
         e.preventDefault();
@@ -62,6 +75,8 @@ function visLagring(lagringsElement){
         var data = form.serialize();
         var posteringId = form.find('button').attr('id');
         $('#' + posteringId).tooltip('hide');
+        visBehandling(null, 'Sletter posteringsmal');
+
 
         $.ajax({
             type: type,
@@ -70,6 +85,7 @@ function visLagring(lagringsElement){
             success: function () {
                 $('#' + posteringId + 'Vis').remove();
                 form.closest('.postering').remove();
+                visBehandlingsResultat(null, 'Posteringsmal slettet');
             }
         });
     });
@@ -92,10 +108,10 @@ function visLagring(lagringsElement){
 
         var tomMal = $($('#tomposteringsmal-' + bilagsmalId).children()[0]).clone();
         var tomVis = $($('#tomposteringsmal-' + bilagsmalId + 'Vis').children()[0]).clone();
-
         var liste = $('#posteringsmaler-' + bilagsmalId);
         var listeVis = $('#visBilag' + bilagsmalId + ' .visPosteringer');
         var url = form.prop('action');
+        visBehandling(null, 'Oppretter posteringsmal');
 
         $.ajax({
             type: 'POST',
@@ -128,11 +144,13 @@ function visLagring(lagringsElement){
 
                 liste.append(tomMal);
                 listeVis.append(tomVis);
+                visBehandlingsResultat(null, 'Posteringsmal opprettet');
 
             },
             error: function (response) {
                 console.log('Creation failed');
                 console.log(response);
+                visBehandlingsResultat(null, 'Posteringsmal kunne ikke opprettes');
             }
         });
 
@@ -149,13 +167,15 @@ function visLagring(lagringsElement){
 
 (function () {
     $('#bilagsgruppe').on('click', '.oppdater-knapp', function () {
-    var posteringsId = $(this).attr('posterings-id');
+        var posteringsId = $(this).attr('posterings-id');
         var form = $('#posteringsform-' + posteringsId);
         var postering = form.closest('.postering');
         postering.removeClass('korrekt').removeClass('feil').addClass('lagres');
         var type = form.find('input[name="_method"]').val() || 'POST';
         var url = form.prop('action');
         var data = form.serialize();
+        visBehandling(postering, 'Sjekker postering');
+
 
         $.ajax({
             type: type,
@@ -163,10 +183,15 @@ function visLagring(lagringsElement){
             data: data,
             success: function (response) {
                 if (response.lagretOk) {
-                    visLagring(postering);
-                    if (response.postering.erKorrekt)
+                    if (response.postering.erKorrekt) {
+                        visBehandlingsResultat(postering, 'Postering er korrekt');
                         postering.addClass('korrekt');
-                    else postering.addClass('feil');
+                    }
+
+                    else {
+                        visBehandlingsResultat(postering, 'Postering er ikke korrekt');
+                        postering.addClass('feil');
+                    }
                 }
             }
         });
@@ -186,13 +211,17 @@ function visLagring(lagringsElement){
         var url = form.prop('action');
         var data = form.serialize();
         $('button').tooltip('hide');
+        visBehandling(null, 'Sletter postering');
 
         $.ajax({
             type: type,
             url: url,
             data: data,
             success: function (serverActionOk) {
-                if (serverActionOk == 'true') form.closest('.postering').remove();
+                if (serverActionOk == 'true') {
+                    visBehandlingsResultat(null, 'Postering er slettet');
+                    form.closest('.postering').remove();
+                }
             }
         });
 
@@ -220,14 +249,13 @@ function visLagring(lagringsElement){
         var liste = $('#posteringer-' + bilagsId);
 
         var url = form.prop('action');
+        visBehandling(null, 'Oppretter postering');
 
         $.ajax({
             type: 'POST',
             url: url,
             data: form.serialize(),
             success: function (posteringsId) {
-                console.log('Oppretter ny postering');
-                console.log(posteringsId);
                 var forms = tomPostering.find('form');
                 for (var i = 0; i < forms.length; i++) {
                     $(forms[i]).attr('action', form.attr('action') + "/" + posteringsId);
@@ -235,8 +263,10 @@ function visLagring(lagringsElement){
                 tomPostering.find('.oppdater-knapp').attr('posterings-id', posteringsId);
                 tomPostering.find('form[oppdater-asynk]').attr('id', 'posteringsform-' + posteringsId);
                 liste.append(tomPostering);
+                visBehandlingsResultat(null, 'Postering er opprettet');
             },
             error: function (response) {
+                visBehandlingsResultat(null, 'Postering kunne ikke opprettes');
                 console.log('Opprettelse feilet');
                 console.log(response);
             }
