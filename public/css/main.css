@@ -226,6 +226,9 @@ body.welcome {
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1); }
 
+.btn-default.disabled:hover {
+  color: #CCC; }
+
 .form-horizontal .checkbox {
   padding-top: 20px; }
 
@@ -441,6 +444,13 @@ section > .tab-content > .panel, section > .panel {
       margin-left: 8px; }
   .panel-action-bar .collapsed .fa-compress:before {
     content: "\f065"; }
+
+.fagmodul {
+  border-radius: 0; }
+
+.fagmodul > div {
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 0; }
 
 fieldset[disabled] .form-control,
 .form-control,

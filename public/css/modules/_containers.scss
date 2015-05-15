@@ -57,3 +57,11 @@ section>.tab-content>.panel, section>.panel {
   }
 }
 
+.fagmodul{
+  border-radius: 0;
+}
+.fagmodul>div {
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 0;
+}
+

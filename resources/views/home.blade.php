@@ -3,18 +3,11 @@
 @section('content')
     <div class="container">
 
-        <h1>Velkommen {{ Auth::user()->fulltNavn() }}!</h1>
-        <blockquote class="bq-info">
-            <p>Info om pur</p>
-        </blockquote>
-        <section class="padding">
-            <h2>Fagmoduler:</h2>
-
+        <h1>Fagmoduler</h1>
             <div class="row">
-                <div class="col-xs-6 col-sm-4 col-md-3">
+                <div class="fagmodul col-xs-6 col-sm-4 col-md-3">
                     <div class="thumbnail">
                         <img src="{{ env('APPWEBPATH') }}/images/module-thumbs/test-thumb.jpg" alt="...">
-
                         <div class="caption">
                             <h3>pur:Regnskap</h3>
 
@@ -25,7 +18,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-6 col-sm-4 col-md-3">
+                <div class="fagmodul col-xs-6 col-sm-4 col-md-3">
                     <div class="thumbnail">
                         <img src="{{ env('APPWEBPATH') }}/images/module-thumbs/test-thumb-disabled.png" alt="...">
 
@@ -39,7 +32,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-6 col-sm-4 col-md-3">
+                <div class="fagmodul col-xs-6 col-sm-4 col-md-3">
                     <div class="thumbnail">
                         <img src="{{ env('APPWEBPATH') }}/images/module-thumbs/test-thumb-disabled.png" alt="...">
 
@@ -53,7 +46,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-6 col-sm-4 col-md-3">
+                <div class="fagmodul col-xs-6 col-sm-4 col-md-3">
                     <div class="thumbnail">
                         <img src="{{ env('APPWEBPATH') }}/images/module-thumbs/test-thumb-disabled.png" alt="...">
 
@@ -70,6 +63,6 @@
 
 
             </div>
-        </section>
+
     </div>
 @endsection

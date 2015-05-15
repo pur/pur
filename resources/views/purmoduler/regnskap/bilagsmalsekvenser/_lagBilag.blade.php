@@ -2,7 +2,7 @@
     <div class="panel-body">
         {!! Form::model($bilagsmal, ['route' => ['bilagsmaler.update', $bilagsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
         <blockquote class="bq-info">
-            <p>1. Fyll ut info om bilag</p>
+            <p>Fyll ut info om bilag</p>
         </blockquote>
         <div class="row">
             <div class="col-md-6">
@@ -89,7 +89,7 @@
         {!! Form::close() !!}
         <hr/>
         <blockquote class="bq-info">
-            <p>3. Legg til posteringer</p>
+            <p>Legg til posteringer</p>
         </blockquote>
         <div class="posteringer">
 
