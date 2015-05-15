@@ -5,7 +5,7 @@ function skrivebeskytt() {
     $(korrektPostering + ' button').attr('disabled', 'disabled');
 }
 
-function avrundVerdier(verdi){
+function avrundVerdier(verdi) {
     verdi = parseFloat(Math.round(verdi * 100) / 100).toFixed(2);
     return verdi;
 }
@@ -16,7 +16,7 @@ function beregnReultat() {
 
     $('.tab-content').find('.' + idBilag + '-belop').each(function () {
         var verdi = $(this).val();
-        if ($(this).val() == null || $(this).val() == '') verdi = 0;
+        if ($(this).val() == null || $(this).val() == '') verdi = '0';
         verdi = verdi.replace(/\s+/g, '');
         verdi = verdi.replace(',', '.');
         console.log(verdi);
