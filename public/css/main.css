@@ -943,7 +943,8 @@ blockquote.bq-info {
   color: #4781cc; }
 
 .progress-bar {
-  background-color: #4caf50; }
+  background-color: #4caf50;
+  min-width: 2em; }
 
 footer {
   border-top: 1px solid #E7E7E7;

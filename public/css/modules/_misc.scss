@@ -1,10 +1,10 @@
 blockquote.bq-info {
   color: $blue;
   border: 1px solid #EEE;
-  border-left:5px solid $blue;
+  border-left: 5px solid $blue;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
-    background-color: $default;
+  background-color: $default;
 }
 
 .fa {
@@ -30,16 +30,17 @@ blockquote.bq-info {
 }
 
 #navbar-submenu #ajax-success.saving {
-  .ajax-success-animation{
+  .ajax-success-animation {
     display: inline-block;
   }
-  .ajax-success-text{
+  .ajax-success-text {
     color: $blue;
   }
 }
 
 .progress-bar {
-background-color: $green;
+  background-color: $green;
+  min-width: 2em;
 }
 
 footer {
@@ -74,9 +75,7 @@ footer {
   display: none;
 }
 
-
-
-.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
   background-color: $blue;
   border-color: $blue-border;
 }
