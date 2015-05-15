@@ -56,6 +56,7 @@
 
 @yield('scripts')
 
+@include('_flash')
 
 </body>
 </html>

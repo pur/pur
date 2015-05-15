@@ -120,3 +120,5 @@ $(document.body).on('click', '.ikke-implementert', function(event){
 
 
 });
+
+$('.flash').delay(3000).fadeOut(300);

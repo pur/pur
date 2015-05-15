@@ -91,3 +91,16 @@ footer {
   background-color: $default-hover;
   border-color: $default-hover-border;
 }
+
+.flash {
+  position: fixed;
+  bottom: 2%;
+  left: 1%;
+  min-width: 200px;
+  padding: 20px;
+  background-color: #2e3436;
+  border-radius: 3px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}
