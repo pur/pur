@@ -10,6 +10,20 @@ $(document).ready(function () {
 
 // TODO: Lag funksjonene generelle, så de kan brukes av både bilagsmaler og bilag
 
+function visLagring(lagringsElement){
+    var menyanimasjon = $('#ajax-success');
+    menyanimasjon.find('.ajax-success-text').text('Lagrer..');
+    lagringsElement.addClass('lagres');
+    menyanimasjon.addClass('saving');
+    menyanimasjon.fadeIn(500);
+    setTimeout(function () {
+        menyanimasjon.removeClass('saving');
+        lagringsElement.removeClass('lagres');
+        menyanimasjon.find('.ajax-success-text').text('Lagret');
+    }, 2000);
+}
+
+
 // Bilagsmaler:
 
 (function () {
@@ -19,31 +33,18 @@ $(document).ready(function () {
         event.preventDefault();
         var form = $(this);
         var postering = form.closest('.postering');
-        //postering.css('background-color', '#ffffbb');
         var type = form.find('input[name="_method"]').val() || 'POST';
         var url = form.prop('action');
         var data = form.serialize();
-        var successelement = $('#ajax-success');
-
 
         $.ajax({
             type: type,
             url: url,
             data: data,
             success: function () {
-                successelement.find('.ajax-success-text').text('Lagrer..');
-                postering.removeAttr('style');
-                postering.addClass('lagres');
-                successelement.addClass('saving');
-                successelement.fadeIn(500);
-                setTimeout(function () {
-                    successelement.removeClass('saving');
-                    postering.removeClass('lagres');
-                    successelement.find('.ajax-success-text').text('Lagret');
-                }, 2000);
+                visLagring(postering);
             }
         });
-
         e.preventDefault();
     });
 
@@ -91,7 +92,6 @@ $(document).ready(function () {
 
         var tomMal = $($('#tomposteringsmal-' + bilagsmalId).children()[0]).clone();
         var tomVis = $($('#tomposteringsmal-' + bilagsmalId + 'Vis').children()[0]).clone();
-
 
         var liste = $('#posteringsmaler-' + bilagsmalId);
         var listeVis = $('#visBilag' + bilagsmalId + ' .visPosteringer');
@@ -148,20 +148,14 @@ $(document).ready(function () {
 // Bilag:
 
 (function () {
-
     $('#bilagsgruppe').on('click', '.oppdater-knapp', function () {
-
     var posteringsId = $(this).attr('posterings-id');
-
         var form = $('#posteringsform-' + posteringsId);
-
         var postering = form.closest('.postering');
         postering.removeClass('korrekt').removeClass('feil').addClass('lagres');
-
         var type = form.find('input[name="_method"]').val() || 'POST';
         var url = form.prop('action');
         var data = form.serialize();
-        var successelement = $('#ajax-success');
 
         $.ajax({
             type: type,
@@ -169,9 +163,7 @@ $(document).ready(function () {
             data: data,
             success: function (response) {
                 if (response.lagretOk) {
-                    successelement.fadeIn(500);
-                    successelement.delay(3000).fadeOut(500);
-                    postering.removeClass('lagres');
+                    visLagring(postering);
                     if (response.postering.erKorrekt)
                         postering.addClass('korrekt');
                     else postering.addClass('feil');
