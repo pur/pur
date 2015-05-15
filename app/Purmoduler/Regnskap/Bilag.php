@@ -39,7 +39,7 @@ class Bilag extends Model
      */
     public function belop()
     {
-        return  number_format($this->belop, 2, ',', ' ');
+        return 'kr ' . number_format($this->belop, 2, ',', ' ');
     }
 
     /**

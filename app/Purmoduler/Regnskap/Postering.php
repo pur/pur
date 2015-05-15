@@ -47,7 +47,7 @@ class Postering extends Model {
      */
     public function belop()
     {
-        return  number_format($this->belop, 2, ',', ' ');
+        return  ($this->belop != 0) ? number_format($this->belop, 2, ',', ' ') : '';
     }
 
     /**

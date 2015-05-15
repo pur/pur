@@ -17,7 +17,7 @@
                 @foreach($bilagssamling as $bilag)
                     <div id="bilag{{ $bilag->id }}" class="tab-pane panel bilag panel-primary @if($bilag->nr_i_besvarelse == 1) active @endif" role="tabpanel">
                         <div class="panel-heading">
-                            <h3 id="bilagstittel{{ $bilag->id }}HeadingVis" class="panel-title">Bilag {{ $bilag->id }} - {{ $bilag->bilagsmal->bilagstype}}</h3>
+                            <h3 id="bilagstittel{{ $bilag->id }}HeadingVis" class="panel-title">Bilag {{ $bilag->nr_i_besvarelse }} - {{ $bilag->bilagsmal->bilagstype}}</h3>
                         </div>
                         <div class="panel-body">
                             <div class="row">
