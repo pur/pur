@@ -109,6 +109,7 @@ class BesvarelseController extends Controller
     {
         $besvarelse->delete();
 
-        return redirect()->back();
+        // TODO: Gjør purmoduluavhengig:
+        return redirect('/regnskap/oppgavesett');
     }
 }
