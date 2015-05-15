@@ -25,3 +25,11 @@ $('.tab-content').on('click', 'button', function () {
 $(document).ready(function () {
     beregnReultat();
 });
+
+$('.tab-content').on('keydown', '.postering.feil input', function () {
+    $(this).closest('.postering').removeClass('feil');
+})
+
+$('.tab-content').on('change', '.postering.feil select', function () {
+    $(this).closest('.postering').removeClass('feil');
+})
