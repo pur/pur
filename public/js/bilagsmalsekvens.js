@@ -33,7 +33,7 @@ function stadariserVerdier(verdi) {
 }
 
 function avrundVerdier(verdi){
-    verdi = Math.round(verdi * 100) / 100;
+    verdi = parseFloat(Math.round(verdi * 100) / 100).toFixed(2);
     return verdi;
 }
 

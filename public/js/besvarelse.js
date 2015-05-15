@@ -5,19 +5,27 @@ function skrivebeskytt() {
     $(korrektPostering + ' button').attr('disabled', 'disabled');
 }
 
+function avrundVerdier(verdi){
+    verdi = parseFloat(Math.round(verdi * 100) / 100).toFixed(2);
+    return verdi;
+}
+
 function beregnReultat() {
     var sumBilag = 0.00;
     var idBilag = $('.tab-content .bilag.active').attr('id');
+
     $('.tab-content').find('.' + idBilag + '-belop').each(function () {
         var verdi = $(this).val();
+        if ($(this).val() == null || $(this).val() == '') verdi = 0;
         verdi = verdi.replace(/\s+/g, '');
         verdi = verdi.replace(',', '.');
+        console.log(verdi);
         if (parseFloat(verdi) != '' && parseFloat(verdi) != null) {
             sumBilag += parseFloat(verdi);
         } else {
             sumBilag += 0.00;
         }
-        $("#" + idBilag + "-kontrollsum").text(sumBilag);
+        $("#" + idBilag + "-kontrollsum").text(avrundVerdier(sumBilag));
     });
 }
 
