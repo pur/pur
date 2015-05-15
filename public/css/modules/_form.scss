@@ -5,21 +5,8 @@ fieldset[disabled] .form-control:focus,
 .form-control:focus,
 fieldset[disabled] .form-control.focus,
 .form-control.focus {
- // padding: 0;
   float: none;
- // border: 0;
   box-shadow: none;
- // border-radius: 0;
-}
-
-fieldset[disabled] .form-control:disabled,
-.form-control:disabled,
-fieldset[disabled] .form-control:focus:disabled,
-.form-control:focus:disabled,
-fieldset[disabled] .form-control.focus:disabled,
-.form-control.focus:disabled {
- // border-style: dashed;
- // border-bottom: 1px solid #757575;
 }
 
 fieldset[disabled] textarea.form-control,
@@ -38,8 +25,6 @@ select[multiple].form-control.focus {
 }
 
 .form-control {
-  //border: 0;
-  //background-image: linear-gradient($blue, $blue), linear-gradient(#d2d2d2, #d2d2d2);
   background-size: 0 2px, 100% 1px;
   background-repeat: no-repeat;
   background-position: center bottom, center calc(100% - 1px);
@@ -47,7 +32,6 @@ select[multiple].form-control.focus {
   background-color: rgba(0, 0, 0, 0);
   background-color: $white;
   transition: inherit;
-  padding: 0 5px;
   border-radius: 2px;
 }
 
@@ -80,7 +64,6 @@ fieldset[disabled] .form-control.focus:disabled,
 .form-control-wrapper .form-control.focus:disabled,
 .form-control.focus:disabled {
   background-color: $default-hover;
- // border: 0;
 }
 
 .form-control:focus,

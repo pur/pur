@@ -53,6 +53,12 @@ a {
 a:hover {
   color: #6996d6; }
 
+.text-success {
+  color: #4caf50 !important; }
+
+.text-danger {
+  color: #f44336 !important; }
+
 body.welcome {
   margin: 0;
   padding: 0;
@@ -479,7 +485,6 @@ select[multiple].form-control.focus {
   background-color: transparent;
   background-color: #FFFFFF;
   transition: inherit;
-  padding: 0 5px;
   border-radius: 2px; }
 
 .form-control::-webkit-input-placeholder {
@@ -971,6 +976,18 @@ footer {
 .pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
   background-color: #F0F0F0;
   border-color: #C6C6C6; }
+
+.flash {
+  position: fixed;
+  bottom: 2%;
+  left: 1%;
+  min-width: 200px;
+  padding: 20px;
+  background-color: #2e3436;
+  border-radius: 3px;
+  text-align: center;
+  font-weight: bold;
+  color: white; }
 
 .form-horizontal .radio {
   margin-bottom: 10px; }
