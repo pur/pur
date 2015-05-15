@@ -107,8 +107,7 @@ $('.form-group input, .form-group textarea').blur(function () {
 
 });
 
-
-$('.bekreft-slett').click(function(event){
+$(document.body).on('click', '.bekreft-slett', function(event){
 
     if (!confirm('Bekreft sletting')) event.preventDefault();
 
