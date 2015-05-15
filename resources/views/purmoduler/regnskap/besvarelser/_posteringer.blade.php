@@ -34,7 +34,7 @@
 
                     </div>
                     <div class="form-group col-md-5">
-                        <div class="pull-right">
+                        <div class="">
 
                         <span>Kontrollsum: </span><span id="bilag{{$bilag->id}}-kontrollsum"></span>
                         </div>

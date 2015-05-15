@@ -26,6 +26,17 @@ function beregnReultat() {
             sumBilag += 0.00;
         }
         $("#" + idBilag + "-kontrollsum").text(avrundVerdier(sumBilag));
+        if (sumBilag > 0) {
+            $("#" + idBilag + "-kontrollsum").addClass('text-success');
+            $("#" + idBilag + "-kontrollsum").removeClass('text-danger');
+        }
+        else if (sumBilag < 0) {
+            $("#" + idBilag + "-kontrollsum").addClass('text-danger');
+            $("#" + idBilag + "-kontrollsum").removeClass('text-success');
+        }else {
+            $("#" + idBilag + "-kontrollsum").removeClass('text-success');
+            $("#" + idBilag + "-kontrollsum").removeClass('text-danger');
+        }
     });
 }
 
