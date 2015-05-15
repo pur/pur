@@ -7,40 +7,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <div class="nav navbar-nav dropdown">
-                <a href="/" class="navbar-brand dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                    pur
-                    @if(Request::segment(1) == 'regnskap')
-                        :Regnskap
-                    @endif
-                    <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                    <li>
-                        <a href="{{ env('APPWEBPATH') }}/">
-                            <span class="fa fa-list"></span> Alle Pur-moduler
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ env('APPWEBPATH') }}/regnskap">
-                            <span class="fa fa-toggle-on"></span> Regnskap
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <span class="fa fa-toggle-off"></span> Purmodul
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <span class="fa fa-toggle-off"></span> Purmodul
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <span class="fa fa-toggle-off"></span> Purmodul
-                        </a>
-                    </li>
-                </ul>
+            <div class="nav navbar-nav navbar-brand">
+                <a href="{{ env('APPWEBPATH') }}/" role="button" aria-expanded="false">
+                    pur</a>
+                @if(Request::segment(1) == 'regnskap')
+                    :<a href="{{ env('APPWEBPATH') }}/regnskap">Regnskap</a>
+                @endif
             </div>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -58,7 +30,8 @@
             @endif
             <ul class="nav navbar-nav navbar-right">
                 @if (Auth::guest())
-                    <li><a href="{{ env('APPWEBPATH') }}/auth/login"><span class="fa fa-sign-in"></span> Logg inn</a></li>
+                    <li><a href="{{ env('APPWEBPATH') }}/auth/login"><span class="fa fa-sign-in"></span> Logg inn</a>
+                    </li>
                     {{--<li><a href="/auth/register">Registrer</a></li>--}}
                 @else
                     <li class="dropdown">
@@ -68,7 +41,9 @@
 
                             <li><a href="{{ URL::route('brukere.vis.innlogget') }}">
                                     <span class="fa fa-user"></span> Min brukerprofil</a></li>
-                            <li><a href="{{ env('APPWEBPATH') }}/auth/logout"><span class="fa fa-sign-in"></span> Logg ut</a></li>
+                            <li>
+                                <a href="{{ env('APPWEBPATH') }}/auth/logout"><span class="fa fa-sign-in"></span> Logg ut</a>
+                            </li>
                         </ul>
                     </li>
                 @endif

@@ -67,6 +67,15 @@
   text-rendering: optimizeLegibility;
 }
 
+.navbar-brand a {
+  color: #FAFAFA;
+}
+
+.navbar-brand a:hover {
+  color: #FFF;
+  text-decoration: none;
+}
+
 #navbar-submenu li > span {
   display: block;
   padding: 15px 15px 10px;
