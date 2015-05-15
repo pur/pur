@@ -8,6 +8,13 @@ $(document).ready(function () {
     });
 });
 
+function skrivebeskytt() {
+    var korrektPostering = ('.postering.korrekt');
+    $(korrektPostering + ' input').attr('disabled', 'disabled');
+    $(korrektPostering + ' select').attr('disabled', 'disabled');
+    $(korrektPostering + ' button').attr('disabled', 'disabled');
+}
+
 // TODO: Lag funksjonene generelle, så de kan brukes av både bilagsmaler og bilag
 
 function visBehandling(behandlingsElement, behandlingsTekst) {
@@ -186,6 +193,7 @@ function visBehandlingsResultat(behandlingsElement, behandlingsTekst) {
                     if (response.postering.erKorrekt) {
                         visBehandlingsResultat(postering, 'Postering er korrekt');
                         postering.addClass('korrekt');
+                        skrivebeskytt();
                     }
 
                     else {

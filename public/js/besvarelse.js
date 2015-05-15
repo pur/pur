@@ -1,3 +1,10 @@
+function skrivebeskytt() {
+    var korrektPostering = ('.postering.korrekt');
+    $(korrektPostering + ' input').attr('disabled', 'disabled');
+    $(korrektPostering + ' select').attr('disabled', 'disabled');
+    $(korrektPostering + ' button').attr('disabled', 'disabled');
+}
+
 function beregnReultat() {
     var sumBilag = 0.00;
     var idBilag = $('.tab-content .bilag.active').attr('id');
@@ -24,6 +31,7 @@ $('.tab-content').on('click', 'button', function () {
 
 $(document).ready(function () {
     beregnReultat();
+    skrivebeskytt();
 });
 
 $('.tab-content').on('keydown', '.postering.feil input', function () {
