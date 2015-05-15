@@ -833,6 +833,16 @@ select.form-control.focus {
 
   .dropdown-menu > li > a {
     padding: 5px 20px; } }
+.btn-menu {
+  border: none;
+  background-color: inherit;
+  color: #777;
+  padding: 15px; }
+
+.btn-menu:hover {
+  background-color: #F0F0F0;
+  color: #333; }
+
 @media (max-width: 675px) {
   #navbar-submenu li a {
     padding-top: 9px;
