@@ -54,6 +54,9 @@ class BesvarelseController extends Controller
             $besvarelse = $besvarelseTjeneste->opprett($this->bruker, $oppgavesett);
             //return redirect()->route('besvarelser.rediger', $besvarelse);
         }
+
+        flash('Ny besvarelse ble opprettet');
+
         return redirect()->route('oppgavesett.opplist');
     }
 
