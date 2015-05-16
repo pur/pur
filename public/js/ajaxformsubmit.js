@@ -17,31 +17,20 @@ function skrivebeskytt() {
 
 // TODO: Lag funksjonene generelle, så de kan brukes av både bilagsmaler og bilag
 
-function visBehandling(behandlingsElement, behandlingsTekst) {
-    var menyanimasjon = $('#ajax-success');
-    var menyanimasjonTekst = menyanimasjon.find('.ajax-success-text');
 
+function visBehandling(behandlingsElement, behandlingsTekst) {
+    var menyanimasjon = $('.flash');
+    var menyanimasjonTekst = menyanimasjon.find('p');
     menyanimasjonTekst.text(behandlingsTekst);
-    menyanimasjon.addClass('saving');
-    menyanimasjon.fadeIn(200);
-    if (behandlingsElement != null) behandlingsElement.addClass('lagres');
-    /*  setTimeout(function () {
-     menyanimasjon.removeClass('saving');
-     if(behandlingsElement != null) behandlingsElement.removeClass('lagres');
-     menyanimasjonTekst.text(ferdigBehandlingsTekst);
-     menyanimasjon.delay(2000).fadeOut(200);
-     }, 2000);*/
+    menyanimasjon.show();
 }
 
 function visBehandlingsResultat(behandlingsElement, behandlingsTekst) {
-    var menyanimasjon = $('#ajax-success');
-    var menyanimasjonTekst = menyanimasjon.find('.ajax-success-text');
-    if (behandlingsElement != null) behandlingsElement.removeClass('lagres');
-    menyanimasjon.removeClass('saving');
+    var menyanimasjon = $('.flash');
+    var menyanimasjonTekst = menyanimasjon.find('p');
     menyanimasjonTekst.text(behandlingsTekst);
-    menyanimasjon.delay(2000).fadeOut(200);
+    menyanimasjon.delay(3000).fadeOut(1000);
 };
-
 
 // Bilagsmaler:
 

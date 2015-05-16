@@ -6,8 +6,7 @@ $('a:not(.dropdown-toggle):not([href*=javascript]):not([href^=#])').click(functi
     }
 });
 
-
-$(document).ready(function () {
+$(window).load(function () {
     // Animate loader off screen
     $(".loading").fadeOut("slow");
 });
@@ -120,7 +119,15 @@ $(document.body).on('click', '.ikke-implementert', function(event){
 
 
 });
-
-$(function () {
-    $('.flash').delay(3000).fadeOut(300);
-})
+$(document).ready(function () {
+    $(function () {
+        var flashMelding = $('.flash p').text();
+        flashMelding = flashMelding.replace(/\s+/g, '');
+        flashMelding = flashMelding.replace(/(\r\n|\n|\r)/gm, '');
+        console.log(flashMelding);
+        if (flashMelding != '' && flashMelding != null) {
+            $('.flash').show()
+            $('.flash').delay(3000).fadeOut(1000);
+        }
+    })
+});

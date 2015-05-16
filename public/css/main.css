@@ -954,6 +954,7 @@ footer {
 
 .loading {
   position: fixed;
+  display: none;
   left: 0px;
   top: 0px;
   width: 100%;
@@ -978,16 +979,22 @@ footer {
   border-color: #C6C6C6; }
 
 .flash {
+  display: none;
   position: fixed;
-  bottom: 2%;
-  left: 1%;
-  min-width: 200px;
-  padding: 20px;
-  background-color: #2e3436;
-  border-radius: 3px;
-  text-align: center;
-  font-weight: bold;
-  color: white; }
+  padding: 14px 24px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  border-radius: 2px;
+  max-width: 100%;
+  -webkit-transform: translate3d(0, 0, 0) rotateZ(0deg);
+  transform: translate3d(0, 0, 0) rotateZ(0deg);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background-color: #323232;
+  color: #FAFAFA;
+  bottom: 10px;
+  left: 10px; }
+  .flash p {
+    padding: 0;
+    margin: 0; }
 
 .form-horizontal .radio {
   margin-bottom: 10px; }
