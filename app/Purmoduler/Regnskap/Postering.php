@@ -36,6 +36,7 @@ class Postering extends Model {
     {
         $belop = str_replace(' ', '', $belop);
         $belop = str_replace(',', '.', $belop);
+        $belop = str_replace('–', '-', $belop);
         $belop = (float) $belop;
         $belop = round($belop, 2);
 
