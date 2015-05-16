@@ -183,12 +183,14 @@ function visBehandlingsResultat(behandlingsElement, behandlingsTekst) {
                 if (response.lagretOk) {
                     if (response.postering.erKorrekt) {
                         visBehandlingsResultat(postering, 'Postering er korrekt');
+                        postering.removeClass('lagres');
                         postering.addClass('korrekt');
                         skrivebeskytt();
                     }
 
                     else {
                         visBehandlingsResultat(postering, 'Postering er ikke korrekt');
+                        postering.removeClass('lagres');
                         postering.addClass('feil');
                     }
                 }
