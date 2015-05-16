@@ -22,10 +22,10 @@
                             <label>Formel for bilagets beløp: </label>
                         <div class="radio">
                             <label class="radio">
-                                @if($bilagsmal->belopsformel == 8)
-                                    {!! Form::radio('belopsformel', '8', 'true', ['id' => 'formel8']) !!}
+                                @if($bilagsmal->belopsformel == 1)
+                                    {!! Form::radio('belopsformel', '1', 'true', ['id' => 'formel1']) !!}
                                 @else
-                                    {!! Form::radio('belopsformel', '8', 'false', ['id' => 'formel8']) !!}
+                                    {!! Form::radio('belopsformel', '1', 'false', ['id' => 'formel1']) !!}
                                 @endif
                                 <div class="radio-bilagsformel">
                                     <b>a: </b>
@@ -37,10 +37,10 @@
 
                         <div class="radio">
                             <label class="radio">
-                                @if($bilagsmal->belopsformel == 9)
-                                    {!! Form::radio('belopsformel', '9', 'true', ['id' => 'formel9']) !!}
+                                @if($bilagsmal->belopsformel == 4)
+                                    {!! Form::radio('belopsformel', '4', 'true', ['id' => 'formel4']) !!}
                                 @else
-                                    {!! Form::radio('belopsformel', '9', 'true', ['id' => 'formel9']) !!}
+                                    {!! Form::radio('belopsformel', '4', 'true', ['id' => 'formel4']) !!}
                                 @endif
                                 <div class="radio-bilagsformel">
                                     <b>b: </b>
@@ -51,10 +51,10 @@
                         </div>
                         <div class="radio">
                             <label class="radio">
-                                @if($bilagsmal->belopsformel == 10)
-                                    {!! Form::radio('belopsformel', '10', 'true', ['id' => 'formel10']) !!}
+                                @if($bilagsmal->belopsformel == 13)
+                                    {!! Form::radio('belopsformel', '13', 'true', ['id' => 'formel13']) !!}
                                 @else
-                                    {!! Form::radio('belopsformel', '10', 'false',  ['id' => 'formel10']) !!}
+                                    {!! Form::radio('belopsformel', '13', 'false',  ['id' => 'formel13']) !!}
                                 @endif
                                 <div class="radio-bilagsformel">
                                     <b>a - b: </b>

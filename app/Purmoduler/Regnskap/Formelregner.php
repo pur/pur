@@ -19,78 +19,50 @@ class Formelregner
     {
         switch ($formelNr) {
             case 1 :
-                return $this->formelA($this->a);
-            case 2 :
-                return $this->formelB($this->a);
-            case 3 :
-                return $this->formelC($this->a);
-            case 4 :
-                return $this->formelD($this->a, $this->b, $this->x);
-            case 5 :
-                return $this->formelE($this->a, $this->b, $this->x);
-            case 6 :
-                return $this->formelH($this->a, $this->b, $this->x);
-            case 7 :
-                return $this->formelI($this->a, $this->b, $this->x);
-            case 8 :
                 return $this->a;
-            case 9 :
+            case 2 :
+                return $this->a / 5;
+            case 3 :
+                return $this->a / 1.25;
+            case 4 :
                 return $this->b;
+            case 5 :
+                return $this->b / 5;
+            case 6 :
+                return $this->b / 1.25;
+            case 7 :
+                return 0 - $this->a;
+            case 8 :
+                return 0 - $this->a / 5;
+            case 9 :
+                return 0 - $this->a / 1.25;
             case 10 :
-                return $this->formelF($this->a, $this->b);
+                return 0 - $this->b;
             case 11 :
-                return $this->formelG($this->a, $this->b, $this->x);
+                return 0 - $this->b / 5;
+            case 12 :
+                return 0 - $this->b / 1.25;
+            case 13 :
+                return $this->a - $this->b;
+            case 14 :
+                return ($this->a - $this->b) * ($this->x / 100);
+            case 15 :
+                return ($this->a - $this->b) * ($this->x / 100) / 5;
+            case 16 :
+                return ($this->a - $this->b) * ($this->x / 100) / 1.25;
+            case 17 :
+                return ($this->a - $this->b) * (100 - $this->x) / 100;
+            case 18 :
+                return 0 - (($this->a - $this->b) * ($this->x / 100));
+            case 19 :
+                return 0 - (($this->a - $this->b) * ($this->x / 100) / 5);
+            case 20 :
+                return 0 - (($this->a - $this->b) * ($this->x / 100) / 1.25);
+            case 21 :
+                return 0 - (($this->a - $this->b) * (100 - $this->x) / 100);
+            default :
+                return 0;
         }
-    }
-
-    private function formelA($var)
-    {
-        return 0 - $var;
-    }
-
-    private function formelB($var)
-    {
-        return $var / 5;
-    }
-
-    private function formelC($var)
-    {
-        return $var / 1.25;
-    }
-
-    private function formelD($var1, $var2, $var3)
-    {
-        return $this->formelF($var1, $var2) * (1 - $this->formelJ($var3));
-    }
-
-    private function formelE($var1, $var2, $var3)
-    {
-        return $this->formelA($this->formelD($var1, $var2, $var3));
-    }
-
-    private function formelF($var1, $var2)
-    {
-        return $var1 - $var2;
-    }
-
-    private function formelG($var1, $var2, $var3)
-    {
-        return $this->formelF($var1, $var2) * $this->formelJ($var3);
-    }
-
-    private function formelH($var1, $var2, $var3)
-    {
-        return $this->formelB($this->formelG($var1, $var2, $var3));
-    }
-
-    private function formelI($var1, $var2, $var3)
-    {
-        return $this->formelC($this->formelG($var1, $var2, $var3));
-    }
-
-    private function formelJ($var)
-    {
-        return $var / 100;
     }
 
 
@@ -102,18 +74,28 @@ class Formelregner
     public static function navnAlleFormler()
     {
         return $navnAlleFormler = [
-            'Velg formel',
-            '- a',                        //  1 '- bruttobeløp'                                'Bruttobeløp som kreditt'
-            'a / 5',                      //  2 'bruttobeløp / 5'                              'Mva. fra bruttobeløp a'
-            'a / 1,25',                   //  3 'bruttobeløp / 1,25'                           'Bruttobeløp a eks. mva.'
-            '(a - b) * (1 - (x / 100)',   //  4 'brt.belA - brt.belB * (1 - rabatt / 100)'     'Beregnet beløp med rabatt'
-            '- (a - b * (100 - x))',      //  5 '-(brt.belA - brt.belB * (1 - rabatt / 100))'  'Beregnet beløp med rabatt som kreditt'
-            '(a - b) * (x / 100) / 5',    //  6 'rabattbeløp / 5'                              'Mva. fra rabattbeløp'
-            '(a - b) * (x / 100) / 1,25', //  7 'rabattbeløp / 1,25'                           'Rabattbeløp eks. mva'
-            'a',                          //  8 'beløp a'                                      'Opprinnelig fakturabeløp'
-            'b',                          //  9 'beløp b'                                      'Kreditnota-beløp'
-            'a - b',                      // 10 'beløp a - beløp b'                            'Differans mellom opprinnelig fakturabeløp og beløp b'
-            '(a - b) * (x / 100)'         // 11 '(beløp a - beløp b) * (rabatt / 100)'         'Rabattbeløp'
+            0 => 'Velg formel',
+            1 => 'a',
+            2 => 'a / 5',
+            3 => 'a / 1,25',
+            4 => 'b',
+            5 => 'b / 5',
+            6 => 'b / 1,25',
+            7 => '- a',
+            8 => '- a / 5',
+            9 => '- a / 1,25',
+            10 => '- b',
+            11 => '- b / 5',
+            12 => '- b / 1,25',
+            13 => 'a - b',
+            14 => '(a - b) * (x / 100)',
+            15 => '(a - b) * (x / 100) / 5',
+            16 => '(a - b) * (x / 100) / 1,25',
+            17 => '(a - b) * (100 - x) / 100',
+            18 => '- ((a - b) * (x / 100)',
+            19 => '- ((a - b) * (x / 100) / 5)',
+            20 => '- ((a - b) * (x / 100) / 1.25)',
+            21 => '- ((a - b) * (100 - x) / 100)',
         ];
     }
 

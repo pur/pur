@@ -421,7 +421,7 @@ class BilagsmalTableSeeder extends Seeder
 
         Bilagsmal::create([
             'nr_i_sekvens' => 1,
-            'belopsformel' => 8,
+            'belopsformel' => 1,
             'bilagstype' => 'Inngående faktura',
             'infotekst' => 'Faktura for varekjøp...',
             'bilagsmalsekvens_id' => 1
@@ -429,7 +429,7 @@ class BilagsmalTableSeeder extends Seeder
 
         Bilagsmal::create([
             'nr_i_sekvens' => 2,
-            'belopsformel' => 9,
+            'belopsformel' => 4,
             'bilagstype' => 'Inngående kreditnota',
             'infotekst' => '',
             'bilagsmalsekvens_id' => 1
@@ -437,7 +437,7 @@ class BilagsmalTableSeeder extends Seeder
 
         Bilagsmal::create([
             'nr_i_sekvens' => 3,
-            'belopsformel' => 10,
+            'belopsformel' => 13,
             'bilagstype' => 'Utbetaling',
             'infotekst' => '',
             'bilagsmalsekvens_id' => 1
@@ -453,7 +453,7 @@ class BilagsmalTableSeeder extends Seeder
 
         Bilagsmal::create([
             'nr_i_sekvens' => 2,
-            'belopsformel' => 9,
+            'belopsformel' => 4,
             'bilagstype' => 'Utgående kreditnota',
             'infotekst' => '',
             'bilagsmalsekvens_id' => 2
@@ -461,7 +461,7 @@ class BilagsmalTableSeeder extends Seeder
 
         Bilagsmal::create([
             'nr_i_sekvens' => 3,
-            'belopsformel' => 10,
+            'belopsformel' => 13,
             'bilagstype' => 'Innbetaling',
             'infotekst' => '',
             'bilagsmalsekvens_id' => 2
@@ -469,7 +469,7 @@ class BilagsmalTableSeeder extends Seeder
 
         Bilagsmal::create([
             'nr_i_sekvens' => 1,
-            'belopsformel' => 8,
+            'belopsformel' => 1,
             'bilagstype' => 'Lønn',
             'infotekst' => '',
             'bilagsmalsekvens_id' => 3
@@ -483,10 +483,12 @@ class PosteringsmalTableSeeder extends Seeder
     {
         DB::table('posteringsmaler')->delete();
 
-        // Bilag 1
+        // Sekvens 1
+
+        // Bilag 1 (Inngående faktura)
 
         Posteringsmal::create([
-            'formel' => 1,
+            'formel' => 7,
             'bilagsmal_id' => 1,
             'kontokode' => 2400
         ]);
@@ -504,58 +506,146 @@ class PosteringsmalTableSeeder extends Seeder
         ]);
 
 
-        // Bilag 2
+        // Bilag 2 (Inngående kreditnota)
 
         Posteringsmal::create([
-            'formel' => 1,
+            'formel' => 10,
             'bilagsmal_id' => 2,
-            'kontokode' => 2400
-        ]);
-
-        Posteringsmal::create([
-            'formel' => 2,
-            'bilagsmal_id' => 2,
-            'kontokode' => 2710
-        ]);
-
-        Posteringsmal::create([
-            'formel' => 3,
-            'bilagsmal_id' => 2,
-            'kontokode' => 4300
-        ]);
-
-
-        // Bilag 3
-
-        Posteringsmal::create([
-            'formel' => 4,
-            'bilagsmal_id' => 3,
             'kontokode' => 2400
         ]);
 
         Posteringsmal::create([
             'formel' => 5,
-            'bilagsmal_id' => 3,
-            'kontokode' => 1910
+            'bilagsmal_id' => 2,
+            'kontokode' => 2710
         ]);
 
         Posteringsmal::create([
-            'formel' => 4,
+            'formel' => 6,
+            'bilagsmal_id' => 2,
+            'kontokode' => 4300
+        ]);
+
+
+        // Bilag 3 (Utbetaling)
+
+        Posteringsmal::create([
+            'formel' => 21,
             'bilagsmal_id' => 3,
             'kontokode' => 2400
         ]);
 
         Posteringsmal::create([
-            'formel' => 6,
+            'formel' => 17,
+            'bilagsmal_id' => 3,
+            'kontokode' => 1910
+        ]);
+
+        Posteringsmal::create([
+            'formel' => 19,
+            'bilagsmal_id' => 3,
+            'kontokode' => 2400
+        ]);
+
+        Posteringsmal::create([
+            'formel' => 20,
             'bilagsmal_id' => 3,
             'kontokode' => 2710
         ]);
 
         Posteringsmal::create([
-            'formel' => 7,
+            'formel' => 21,
             'bilagsmal_id' => 3,
             'kontokode' => 4300
         ]);
+
+
+        // Sekvens 2:
+
+        // Bilag 4 (Utgående faktura)
+
+        Posteringsmal::create([
+            'formel' => 1,
+            'bilagsmal_id' => 4,
+            'kontokode' => 1500
+        ]);
+
+        Posteringsmal::create([
+            'formel' => 8,
+            'bilagsmal_id' => 4,
+            'kontokode' => 2700
+        ]);
+
+        Posteringsmal::create([
+            'formel' => 9,
+            'bilagsmal_id' => 4,
+            'kontokode' => 3000
+        ]);
+
+
+        // Bilag 5 (Utgående kreditnota)
+
+        Posteringsmal::create([
+            'formel' => 4,
+            'bilagsmal_id' => 5,
+            'kontokode' => 1500
+        ]);
+
+        Posteringsmal::create([
+            'formel' => 11,
+            'bilagsmal_id' => 5,
+            'kontokode' => 2700
+        ]);
+
+        Posteringsmal::create([
+            'formel' => 12,
+            'bilagsmal_id' => 5,
+            'kontokode' => 3000
+        ]);
+
+
+        // Bilag 6 (Innbetaling)
+
+        Posteringsmal::create([
+            'formel' => 17,
+            'bilagsmal_id' => 6,
+            'kontokode' => 1500
+        ]);
+
+        Posteringsmal::create([
+            'formel' => 21,
+            'bilagsmal_id' => 6,
+            'kontokode' => 1910
+        ]);
+
+        Posteringsmal::create([
+            'formel' => 14,
+            'bilagsmal_id' => 6,
+            'kontokode' => 1500
+        ]);
+
+        Posteringsmal::create([
+            'formel' => 15,
+            'bilagsmal_id' => 6,
+            'kontokode' => 2700
+        ]);
+
+        Posteringsmal::create([
+            'formel' => 16,
+            'bilagsmal_id' => 6,
+            'kontokode' => 3000
+        ]);
+
+        // Sekvens 3
+
+        // Bilag 7
+
+        Posteringsmal::create([
+            'formel' => 1,
+            'bilagsmal_id' => 7,
+            'kontokode' => 2930
+        ]);
+
     }
 }
 
