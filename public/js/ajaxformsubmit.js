@@ -141,6 +141,7 @@ function visBehandlingsResultat(behandlingsElement, behandlingsTekst) {
                 liste.append(tomMal);
                 listeVis.append(tomVis);
                 visBehandlingsResultat(null, 'Posteringsmal opprettet');
+                $('[data-toggle="tooltip"]').tooltip();
 
             },
             error: function (response) {
@@ -153,6 +154,7 @@ function visBehandlingsResultat(behandlingsElement, behandlingsTekst) {
         tomMal.removeClass('hidden');
         tomVis.removeClass('hidden');
         hentVerdier();
+
 
     });
 
@@ -261,6 +263,7 @@ function visBehandlingsResultat(behandlingsElement, behandlingsTekst) {
                 tomPostering.find('form[oppdater-asynk]').attr('id', 'posteringsform-' + posteringsId);
                 liste.append(tomPostering);
                 visBehandlingsResultat(null, 'Postering er opprettet');
+                $('[data-toggle="tooltip"]').tooltip();
             },
             error: function (response) {
                 visBehandlingsResultat(null, 'Postering kunne ikke opprettes');
