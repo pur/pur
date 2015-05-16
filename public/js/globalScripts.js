@@ -17,6 +17,13 @@ $('#navbar-submenu').affix({
     offset: $('#navbar-submenu').position()
 });
 
+// Skjul undermeny om antall menypunkter er 0
+$(document).ready(function () {
+    var antallMenypunkter = $('#navbar-submenu-wrapper').find('li').length;
+    if (antallMenypunkter == 0){
+        $('#navbar-submenu-wrapper').hide();
+    }
+});
 
 // Tooltip:
 $(function () {
@@ -131,3 +138,4 @@ $(document).ready(function () {
         }
     })
 });
+
