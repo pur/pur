@@ -53,13 +53,13 @@ class Formelregner
             case 17 :
                 return ($this->a - $this->b) * (100 - $this->x) / 100;
             case 18 :
-                return 0 - (($this->a - $this->b) * ($this->x / 100));
+                return 0 - ($this->a - $this->b) * ($this->x / 100);
             case 19 :
-                return 0 - (($this->a - $this->b) * ($this->x / 100) / 5);
+                return 0 - ($this->a - $this->b) * ($this->x / 100) / 5;
             case 20 :
-                return 0 - (($this->a - $this->b) * ($this->x / 100) / 1.25);
+                return 0 - ($this->a - $this->b) * ($this->x / 100) / 1.25;
             case 21 :
-                return 0 - (($this->a - $this->b) * (100 - $this->x) / 100);
+                return 0 - ($this->a - $this->b) * (100 - $this->x) / 100;
             default :
                 return 0;
         }
@@ -74,16 +74,16 @@ class Formelregner
     public static function navnAlleFormler()
     {
         return $navnAlleFormler = [
-            0 => 'Velg formel',
-            1 => 'a',
-            2 => 'a / 5',
-            3 => 'a / 1,25',
-            4 => 'b',
-            5 => 'b / 5',
-            6 => 'b / 1,25',
-            7 => '- a',
-            8 => '- a / 5',
-            9 => '- a / 1,25',
+             0 => 'Velg formel',
+             1 => 'a',
+             2 => 'a / 5',
+             3 => 'a / 1,25',
+             4 => 'b',
+             5 => 'b / 5',
+             6 => 'b / 1,25',
+             7 => '- a',
+             8 => '- a / 5',
+             9 => '- a / 1,25',
             10 => '- b',
             11 => '- b / 5',
             12 => '- b / 1,25',
@@ -92,10 +92,10 @@ class Formelregner
             15 => '(a - b) * (x / 100) / 5',
             16 => '(a - b) * (x / 100) / 1,25',
             17 => '(a - b) * (100 - x) / 100',
-            18 => '- ((a - b) * (x / 100)',
-            19 => '- ((a - b) * (x / 100) / 5)',
-            20 => '- ((a - b) * (x / 100) / 1.25)',
-            21 => '- ((a - b) * (100 - x) / 100)',
+            18 => '- (a - b) * (x / 100)',
+            19 => '- (a - b) * (x / 100) / 5',
+            20 => '- (a - b) * (x / 100) / 1,25',
+            21 => '- (a - b) * (100 - x) / 100',
         ];
     }
 
