@@ -110,14 +110,14 @@ class OppgaveTableSeeder extends Seeder
         DB::table('oppgaver')->delete();
 
         Oppgave::create([
-            'beskrivelse' => 'Sekvens av 3 bilag: Inngående faktura, inngående kreditnota og utbetaling.',
+            'beskrivelse' => 'Inngående faktura-sekvens (3 bilag)',
             'bruker_id' => 1,
             'moduloppgave_type' => 'Pur\Purmoduler\Regnskap\Bilagsmalsekvens',
             'moduloppgave_id' => 1
         ]);
 
         Oppgave::create([
-            'beskrivelse' => 'Sekvens av 3 bilag: Utgående faktura, utgående kreditnota og innbetaling.',
+            'beskrivelse' => 'Utgående faktura-sekvens (3 bilag)',
             'bruker_id' => 1,
             'moduloppgave_type' => 'Pur\Purmoduler\Regnskap\Bilagsmalsekvens',
             'moduloppgave_id' => 2
@@ -306,19 +306,22 @@ class BilagsmalsekvensTableSeeder extends Seeder
     {
         DB::table('bilagsmalsekvenser')->delete();
 
+        // Sekvens for inngående faktura
         Bilagsmalsekvens::create([
-            'sekvenstype' => 'Fakturasekvens (inng.)',
+            'sekvenstype' => 'Inngående faktura-sekvens',
             'motpart' => 'Hansen & Hansen AS'
         ]);
 
+        // Sekvens for utgående faktura
         Bilagsmalsekvens::create([
-            'sekvenstype' => 'Fakturasekvens (utg.)',
-            'motpart' => 'Monsen & Monsen AS'
+            'sekvenstype' => 'Utgående faktura-sekvens',
+            'motpart' => 'Jensen & Co AS'
         ]);
 
+        // Lønnsutbetaling
         Bilagsmalsekvens::create([
-            'sekvenstype' => 'Lønnssekvens',
-            'motpart' => 'Jensen & Jensen AS'
+            'sekvenstype' => 'Lønnsutbetaling',
+            'motpart' => 'T. Lønnes Dah'
         ]);
     }
 }
@@ -330,7 +333,7 @@ class BilagsmalsekvensVarTableSeeder extends Seeder
         DB::table('bilagsmalsekvens_var')->delete();
 
 
-        // Bilagsmalsekvens 1
+        // Bilagsmalsekvens 1 - Sekvens for inngående faktura
 
         BilagsmalsekvensVar::create([
             'navn' => 'Bruttobeløp',
@@ -357,7 +360,7 @@ class BilagsmalsekvensVarTableSeeder extends Seeder
         ]);
 
 
-        // Bilagsmalsekvens 2
+        // Bilagsmalsekvens 2 - Sekvens for utgående faktura
 
         BilagsmalsekvensVar::create([
             'navn' => 'Bruttobeløp',
@@ -509,19 +512,19 @@ class PosteringsmalTableSeeder extends Seeder
         // Bilag 2 (Inngående kreditnota)
 
         Posteringsmal::create([
-            'formel' => 10,
+            'formel' => 4,
             'bilagsmal_id' => 2,
             'kontokode' => 2400
         ]);
 
         Posteringsmal::create([
-            'formel' => 5,
+            'formel' => 11,
             'bilagsmal_id' => 2,
             'kontokode' => 2710
         ]);
 
         Posteringsmal::create([
-            'formel' => 6,
+            'formel' => 12,
             'bilagsmal_id' => 2,
             'kontokode' => 4300
         ]);
@@ -530,31 +533,31 @@ class PosteringsmalTableSeeder extends Seeder
         // Bilag 3 (Utbetaling)
 
         Posteringsmal::create([
-            'formel' => 21,
+            'formel' => 17,
             'bilagsmal_id' => 3,
             'kontokode' => 2400
         ]);
 
         Posteringsmal::create([
-            'formel' => 17,
+            'formel' => 21,
             'bilagsmal_id' => 3,
             'kontokode' => 1910
         ]);
 
         Posteringsmal::create([
-            'formel' => 19,
+            'formel' => 14,
             'bilagsmal_id' => 3,
             'kontokode' => 2400
         ]);
 
         Posteringsmal::create([
-            'formel' => 20,
+            'formel' => 19,
             'bilagsmal_id' => 3,
             'kontokode' => 2710
         ]);
 
         Posteringsmal::create([
-            'formel' => 21,
+            'formel' => 20,
             'bilagsmal_id' => 3,
             'kontokode' => 4300
         ]);
@@ -586,19 +589,19 @@ class PosteringsmalTableSeeder extends Seeder
         // Bilag 5 (Utgående kreditnota)
 
         Posteringsmal::create([
-            'formel' => 4,
+            'formel' => 10,
             'bilagsmal_id' => 5,
             'kontokode' => 1500
         ]);
 
         Posteringsmal::create([
-            'formel' => 11,
+            'formel' => 5,
             'bilagsmal_id' => 5,
             'kontokode' => 2700
         ]);
 
         Posteringsmal::create([
-            'formel' => 12,
+            'formel' => 6,
             'bilagsmal_id' => 5,
             'kontokode' => 3000
         ]);
@@ -607,19 +610,19 @@ class PosteringsmalTableSeeder extends Seeder
         // Bilag 6 (Innbetaling)
 
         Posteringsmal::create([
-            'formel' => 17,
+            'formel' => 21,
             'bilagsmal_id' => 6,
             'kontokode' => 1500
         ]);
 
         Posteringsmal::create([
-            'formel' => 21,
+            'formel' => 17,
             'bilagsmal_id' => 6,
             'kontokode' => 1910
         ]);
 
         Posteringsmal::create([
-            'formel' => 14,
+            'formel' => 18,
             'bilagsmal_id' => 6,
             'kontokode' => 1500
         ]);
