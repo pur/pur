@@ -11,6 +11,28 @@ class Bilagssekvens extends Model
 
 
     /**
+     * Rabattsatsen som gjelder for bilagssekvensen
+     *
+     * @return float
+     */
+    public function getRabattsatsAttribute()
+    {
+        $sekvensvariabler = $this->variabler()->with('malvariabel')->get(); // TODO: Spør DB etter kun x
+
+        return (float) $sekvensvariabler->where('malvariabel.tegn_i_formel', 'x')->fetch('verdi')->first();
+    }
+
+    /**
+     * Rabattsatsen som gjelder for bilagssekvensen, formattert for visning
+     *
+     * @return mixed
+     */
+    public function rabattsats()
+    {
+        return number_format($this->rabattsats, 1, ',', ' ') . '%';
+    }
+
+    /**
      * Alle bilagssekvensens variabler
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
