@@ -51,9 +51,9 @@ function hentVerdier() {
     var motpart = $('#motpart').val();
 
     $(".motpartEksempel").text(motpart);
-    $('.formel8belopEksempel').text(aSnitt);
-    $('.formel9belopEksempel').text(bSnitt);
-    $('.formel10belopEksempel').text(aSnitt - bSnitt);
+    $('.formel1belopEksempel').text(aSnitt);
+    $('.formel4belopEksempel').text(bSnitt);
+    $('.formel13belopEksempel').text(aSnitt - bSnitt);
 
     // Henter ut verdier fra kontolister
     $('select.kontoliste').each(function () {
