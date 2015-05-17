@@ -10,6 +10,20 @@ function avrundVerdier(verdi) {
     return verdi;
 }
 
+function formaterVerdier(number)
+{
+    number = parseFloat(number).toFixed(2);
+    console.log(number);
+    var x = number.split('.');
+    var x1 = x[0];
+    var x2 = x.length > 1 ? ',' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ' ' + '$2');
+    }
+    return x1 + x2;
+}
+
 function beregnReultat() {
     var sumBilag = 0.00;
     var idBilag = $('.tab-content .bilag.active').attr('id');
@@ -25,7 +39,7 @@ function beregnReultat() {
         } else {
             sumBilag += 0.00;
         }
-        $("#" + idBilag + "-kontrollsum").text(avrundVerdier(sumBilag));
+        $("#" + idBilag + "-kontrollsum").text(formaterVerdier(avrundVerdier(sumBilag)));
         if (sumBilag == 0) {
             $("#" + idBilag + "-kontrollsum").addClass('text-success');
             $("#" + idBilag + "-kontrollsum").removeClass('text-danger');
@@ -36,6 +50,7 @@ function beregnReultat() {
         }
     });
 }
+
 
 $('.tab-content').on('keyup', 'input', function () {
     beregnReultat();

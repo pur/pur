@@ -43,20 +43,6 @@ function formaterVerdier(number)
     return x1 + x2;
 }
 
-/*
- function standariserVerdier(number)
- {
- var number = number.toFixed(2) + '';
- var x = number.split('.');
- var x1 = x[0];
- var x2 = x.length > 1 ? '.' + x[1] : '';
- var rgx = /(\d+)(\d{3})/;
- while (rgx.test(x1)) {
- x1 = x1.replace(rgx, '$1' + ' ' + '$2');
- }
- return x1 + x2;
- }
- */
 function avrundVerdier(verdi) {
     verdi = parseFloat(Math.round(verdi * 100) / 100).toFixed(2);
     return verdi;
