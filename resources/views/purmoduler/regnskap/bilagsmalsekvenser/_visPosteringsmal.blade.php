@@ -1,7 +1,7 @@
 @if ($posteringsmal != null)
     <div class="list-group-item {{$cssclass}}" id="posteringsmal-{{ $posteringsmal->id }}Vis">
         <div class="row">
-            <div class="col-md-11">
+            <div class="col-md-12">
                 <div class="row posteringVis">
                     <div class="form-group col-md-6">
 
@@ -14,16 +14,13 @@
                         <span>Beløp = </span><span class="bilag{{ $bilagsmal->id }}-formel" id="formel-{{ $posteringsmal->id }}ResultatVis"></span>
                     </div>
                 </div>
-
-            </div>
-            <div class="form-group col-md-1">
             </div>
         </div>
     </div>
 @else
     <div class="list-group-item {{$cssclass}}">
         <div class="row">
-            <div class="col-md-11">
+            <div class="col-md-12">
                 <div class="row posteringVis">
                     <div class="form-group col-md-6">
                         <span>Konto: </span><span class="kontokodeVis" id=""></span>
@@ -35,8 +32,6 @@
                         <span>Beløp = </span><span class="belopVis" id=""></span>
                     </div>
                 </div>
-            </div>
-            <div class="form-group col-md-1">
             </div>
         </div>
     </div>

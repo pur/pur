@@ -19,11 +19,9 @@ beregnReultat();
 hentVerdier();
 
 
-function stadariserVerdier(verdi) {
+function standariserVerdier(verdi) {
     verdi = verdi.replace(/\s+/g, '');
     verdi = verdi.replace(',', '.');
-
-
     if (parseFloat(verdi) != '' && parseFloat(verdi) != null) {
         verdi = parseFloat(verdi);
     } else {
@@ -32,6 +30,33 @@ function stadariserVerdier(verdi) {
     return verdi;
 }
 
+function formaterVerdier(number)
+{
+    number = parseFloat(number).toFixed(2);
+    var x = number.split('.');
+    var x1 = x[0];
+    var x2 = x.length > 1 ? ',' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ' ' + '$2');
+    }
+    return x1 + x2;
+}
+
+/*
+ function standariserVerdier(number)
+ {
+ var number = number.toFixed(2) + '';
+ var x = number.split('.');
+ var x1 = x[0];
+ var x2 = x.length > 1 ? '.' + x[1] : '';
+ var rgx = /(\d+)(\d{3})/;
+ while (rgx.test(x1)) {
+ x1 = x1.replace(rgx, '$1' + ' ' + '$2');
+ }
+ return x1 + x2;
+ }
+ */
 function avrundVerdier(verdi) {
     verdi = parseFloat(Math.round(verdi * 100) / 100).toFixed(2);
     return verdi;
@@ -39,21 +64,21 @@ function avrundVerdier(verdi) {
 
 function hentVerdier() {
     // Henter ut verdier fra tekstfelt
-    var aMaks = stadariserVerdier($('#aMaks').val());
-    var aMin = stadariserVerdier($('#aMin').val());
-    var bMaks = stadariserVerdier($('#bMaks').val());
-    var bMin = stadariserVerdier($('#bMin').val());
-    var xMaks = stadariserVerdier($('#xMaks').val());
-    var xMin = stadariserVerdier($('#xMin').val());
+    var aMaks = standariserVerdier($('#aMaks').val());
+    var aMin = standariserVerdier($('#aMin').val());
+    var bMaks = standariserVerdier($('#bMaks').val());
+    var bMin = standariserVerdier($('#bMin').val());
+    var xMaks = standariserVerdier($('#xMaks').val());
+    var xMin = standariserVerdier($('#xMin').val());
     var aSnitt = avrundVerdier((aMin + aMaks) / 2);
     var bSnitt = avrundVerdier((bMin + bMaks) / 2);
     var xSnitt = avrundVerdier((xMin + xMaks) / 2);
     var motpart = $('#motpart').val();
 
     $(".motpartEksempel").text(motpart);
-    $('.formel1belopEksempel').text(aSnitt);
-    $('.formel4belopEksempel').text(bSnitt);
-    $('.formel13belopEksempel').text(aSnitt - bSnitt);
+    $('.formel1belopEksempel').text(formaterVerdier(aSnitt));
+    $('.formel4belopEksempel').text(formaterVerdier(bSnitt));
+    $('.formel13belopEksempel').text(formaterVerdier(aSnitt - bSnitt));
 
     // Henter ut verdier fra kontolister
     $('select.kontoliste').each(function () {
@@ -92,8 +117,7 @@ function hentVerdier() {
                     sumBilag += 0;
                 }
             });
-            $("#" + idBilag + "Resultat").text(avrundVerdier(sumBilag));
-
+            $("#" + idBilag + "Resultat").text(formaterVerdier(avrundVerdier(sumBilag)));
         }
     });
 }
@@ -108,18 +132,17 @@ function beregnReultat() {
                 var navn = $(this).attr('id');
                 $('#' + idBilag + 'belopEksempel').attr('class', navn + 'belopEksempel');
                 var verdi = $("#" + idBilag + " ." + navn + "Eksempel").text();
-                $("#" + idBilag + " .bruttobelopEksempel").text(verdi);
+                $("#" + idBilag + " .bruttobelopEksempel").text(formaterVerdier(avrundVerdier(verdi)));
             }
         });
         $('.' + idBilag + '-formel').each(function () {
-            if (stadariserVerdier($(this).text()) != '') {
-                sumBilag += stadariserVerdier($(this).text());
+            if (standariserVerdier($(this).text()) != '') {
+                sumBilag += standariserVerdier($(this).text());
             } else {
                 sumBilag += 0;
             }
         });
-        $("#" + idBilag + "Resultat").text(avrundVerdier(sumBilag));
-        console.log(sumBilag);
+        $("#" + idBilag + "Resultat").text(formaterVerdier(avrundVerdier(sumBilag)));
     });
 }
 
