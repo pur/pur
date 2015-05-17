@@ -80,7 +80,8 @@ class Bilag extends Model
      */
     public function erPaabegynt()
     {
-        return $this->elevposteringer()->count() > 0;
+        // TODO: Sjekk heller om bilaget har minst én korrekt postering
+        return $this->elevposteringer()->count() > 1;
     }
 
 }

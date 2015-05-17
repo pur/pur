@@ -105,6 +105,9 @@ class BesvarelseTjeneste
             $posteringer[] = $this->opprettPosteringFraMal($posteringsmal, $formelregner);
 
         $bilag->posteringer()->saveMany($posteringer);
+
+        // Én tom postering på hvert bilag:
+        $bilag->posteringer()->create(['er_fasit' => false]);
     }
 
     public function giNummerIBesvarelse()
