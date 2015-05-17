@@ -32,7 +32,7 @@ function stadariserVerdier(verdi) {
     return verdi;
 }
 
-function avrundVerdier(verdi){
+function avrundVerdier(verdi) {
     verdi = parseFloat(Math.round(verdi * 100) / 100).toFixed(2);
     return verdi;
 }
@@ -183,20 +183,49 @@ $("#bilagsmaler").on('change', 'select.formelliste', (function (e) {
     hentVerdier();
 }));
 
-function brukFormel($formelNr, $verdi1, $verdi2, $verdi3) {
-    if ($formelNr == 1) {
-        return 0 - $verdi1;
-    } else if ($formelNr == 2) {
-        return $verdi1 / 5;
-    } else if ($formelNr == 3) {
-        return $verdi1 / 1.25;
-    } else if ($formelNr == 4) {
-        return ($verdi1 - $verdi2) * (1 - ($verdi3 / 100));
-    } else if ($formelNr == 5) {
-        return 0 - ($verdi1 - $verdi2) * (1 - ($verdi3 / 100));
-    } else if ($formelNr == 6) {
-        return $verdi3 / 5;
-    } else if ($formelNr == 7) {
-        return $verdi3 / 1.25;
-    }
-}
+function brukFormel(formelNr, a, b, x) {
+    if (formelNr == 1)
+        return a;
+    else if (formelNr == 2)
+        return a / 5;
+    else if (formelNr == 3)
+        return a / 1.25;
+    else if (formelNr == 4)
+        return b;
+    else if (formelNr == 5)
+        return b / 5;
+    else if (formelNr == 6)
+        return b / 1.25;
+    else if (formelNr == 7)
+        return 0 - a;
+    else if (formelNr == 8)
+        return 0 - a / 5;
+    else if (formelNr == 9)
+        return 0 - a / 1.25;
+    else if (formelNr == 10)
+        return 0 - b;
+    else if (formelNr == 11)
+        return 0 - b / 5;
+    else if (formelNr == 12)
+        return 0 - b / 1.25;
+    else if (formelNr == 13)
+        return a - b;
+    else if (formelNr == 14)
+        return (a - b) * (x / 100);
+    else if (formelNr == 15)
+        return (a - b) * (x / 100) / 5;
+    else if (formelNr == 16)
+        return (a - b) * ( x / 100) / 1.25;
+    else if (formelNr == 17)
+        return (a - b) * (100 - x) / 100;
+    else if (formelNr == 18)
+        return 0 - (a - b) * (x / 100);
+    else if (formelNr == 19)
+        return 0 - (a - b) * (x / 100) / 5;
+    else if (formelNr == 20)
+        return 0 - (a - b) * (x / 100) / 1.25;
+    else if (formelNr == 21)
+        return 0 - (a - b) * (100 - x) / 100;
+    else
+        return 0;
+};
