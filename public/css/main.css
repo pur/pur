@@ -107,7 +107,6 @@ body.welcome {
   text-transform: uppercase;
   transition: background-color 0.2s ease, box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none !important;
-  margin: 5px 0;
   position: relative; }
   .btn .fa {
     font-size: 18px;
@@ -163,9 +162,10 @@ body.welcome {
 .input-group-addon.btn.btn-default {
   background-color: #F8F8F8;
   border: 1px solid #D3D3D3;
-  border-radius: 2px;
-  top: -2px;
-  position: relative; }
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  position: relative;
+  left: -2px; }
   .input-group-addon.btn.btn-default span.fa {
     font-size: 1em;
     width: 14px; }
@@ -448,6 +448,9 @@ section > .tab-content > .panel, section > .panel {
       margin-left: 8px; }
   .panel-action-bar .collapsed .fa-compress:before {
     content: "\f065"; }
+
+.form-group {
+  margin-top: 5px; }
 
 .fagmodul {
   border-radius: 0; }

@@ -8,7 +8,6 @@
   text-transform: uppercase;
   transition: background-color 0.2s ease, box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none !important;
-  margin: 5px 0;
   position: relative;
   .fa {
     font-size: 18px;
@@ -78,11 +77,12 @@
 
 
 .input-group-addon.btn.btn-default {
-  background-color: $default;
-  border: 1px solid $default-border;
-  border-radius: 2px;
-  top: -2px;
+  background-color: #F8F8F8;
+  border: 1px solid #D3D3D3;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
   position: relative;
+  left: -2px;
 
   span.fa{
     font-size: 1em;
