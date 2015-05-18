@@ -6,7 +6,7 @@ class FormelregnerTest extends TestCase
 {
 
     /**
-     * Tester resultatet av beregninger gjort av formelmetoder i Formelberegner-klassen.
+     * Tester resultatet av beregninger gjort med formler i klassen FormelRegner.
      *
      * @return void
      */
