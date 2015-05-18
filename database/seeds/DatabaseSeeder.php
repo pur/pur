@@ -145,8 +145,8 @@ class OppgavesettTableSeeder extends Seeder
 
         Oppgavesett::create([
             'type' => 'øving',
-            'tittel' => 'Øving 2',
-            'beskrivelse' => 'Utprøving av grunnleggende prinsipper',
+            'tittel' => 'Demo for sensor (student)',
+            'beskrivelse' => 'Demo-oppgavesett for sensor (innlogget som student)',
             'tid_opprettet' => '2015-05-01 09:00:00',
             'tid_endret' => '2015-05-02 09:00:00',
             'tid_publisert' => '2015-05-10 10:00:00',
