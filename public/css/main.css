@@ -1015,6 +1015,10 @@ footer {
     padding: 0;
     margin: 0; }
 
+.container.innlogging {
+  padding-top: 80px;
+  padding-bottom: 80px; }
+
 .form-horizontal .radio {
   margin-bottom: 10px; }
 
