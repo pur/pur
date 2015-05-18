@@ -60,11 +60,9 @@ class BrukerTableSeeder extends Seeder
         DB::table('brukere')->delete();
 
         Bruker::create([
-            'fornavn' => 'Lærer',
-            'etternavn' => 'Lærd',
-            //'epost' => 'lektor@lerd.no',
-            'email' => 'laerer@laerd.no',
-            //'passord' => bcrypt('passord'),
+            'fornavn' => 'Lektor',
+            'etternavn' => 'Lur',
+            'email' => 'lektor@lur.no',
             'password' => bcrypt('sensor'),
             'rolle' => 'laerer'
         ]);
@@ -73,9 +71,7 @@ class BrukerTableSeeder extends Seeder
 
             'fornavn' => 'Professor',
             'etternavn' => 'Proff',
-            //'epost' => 'professor@proff.no',
             'email' => 'professor@proff.no',
-            //'passord' => bcrypt('passord'),
             'password' => bcrypt('sensor'),
             'rolle' => 'laerer'
         ]);
@@ -83,9 +79,7 @@ class BrukerTableSeeder extends Seeder
         Bruker::create([
             'fornavn' => 'Sture',
             'etternavn' => 'Student',
-            //'epost' => 'sture@student.no',
             'email' => 'sture@student.no',
-            //'passord' => bcrypt('passord'),
             'password' => bcrypt('sensor'),
             'rolle' => 'student',
         ]);
@@ -93,9 +87,7 @@ class BrukerTableSeeder extends Seeder
         Bruker::create([
             'fornavn' => 'Ellen',
             'etternavn' => 'Elev',
-            //'epost' => 'ellen@elev.no',
             'email' => 'ellen@elev.no',
-            //'passord' => bcrypt('passord'),
             'password' => bcrypt('sensor'),
             'rolle' => 'student',
         ]);
@@ -177,11 +169,11 @@ class OppgavesettTableSeeder extends Seeder
 
         Oppgavesett::create([
             'type' => 'oblig',
-            'tittel' => 'Oblig. 2',
-            'beskrivelse' => 'Eksamensforberedende test',
+            'tittel' => 'Demo for sensor',
+            'beskrivelse' => 'Demo-oppgavesett for sensor',
             'tid_opprettet' => '2015-05-10 09:00:00',
             'tid_endret' => '2015-05-12 09:00:00',
-            'tid_publisert' => '2015-06-15 10:00:00',
+            'tid_publisert' => '2015-07-15 10:00:00',
             'tid_aapent' => '2015-07-15 10:00:00',
             'tid_lukket' => '2015-10-15 10:00:00',
             'bruker_id' => 1,
