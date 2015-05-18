@@ -13,8 +13,8 @@
 
                             <p>Tren på å føre regnskap<br/> - og bare det!</p>
 
-                            <p><a href="{{ env('APPWEBPATH') }}/regnskap" class="btn btn-default" role="button">Velg</a>
-                                <a href="#" class="btn btn-default" role="button">Info</a></p>
+                            <p><a href="{{ URL::route('oppgavesett.opplist') }}" class="btn btn-default" role="button">Velg</a>
+                                <a class="btn btn-default disabled" role="button">Info</a></p>
                         </div>
                     </div>
                 </div>

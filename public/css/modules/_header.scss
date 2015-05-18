@@ -64,16 +64,15 @@
   height: 47px;
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.004);
   text-rendering: optimizeLegibility;
+  a {
+    color: #FAFAFA;
+  }
+  a:hover, a:focus {
+    color: #FFF;
+    text-decoration: none;
+  }
 }
 
-.navbar-brand a {
-  color: #FAFAFA;
-}
-
-.navbar-brand a:hover {
-  color: #FFF;
-  text-decoration: none;
-}
 
 #navbar-submenu li > span {
   display: block;

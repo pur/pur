@@ -8,10 +8,12 @@
                 <span class="icon-bar"></span>
             </button>
             <div class="nav navbar-nav navbar-brand">
+                @if(Request::segment(1) != 'regnskap')
                 <a href="{{ env('APPWEBPATH') }}/" role="button" aria-expanded="false">
                     pur</a>
+                @endif
                 @if(Request::segment(1) == 'regnskap')
-                    :<a href="{{ env('APPWEBPATH') }}/regnskap">Regnskap</a>
+                    <a href="{{ URL::route('oppgavesett.opplist') }}">pur:Regnskap</a>
                 @endif
             </div>
         </div>
@@ -19,7 +21,6 @@
 
             @if (!Auth::guest())
                 <ul class="nav navbar-nav">
-                    <li><a href="/">Hjem</a></li>
                     @if(Auth::user()->erLaerer() && Request::segment(1) == 'regnskap')
                         @include('toppmenyer._regnskap-laerer')
                     @endif
@@ -39,10 +40,14 @@
                            aria-expanded="false">{{ Auth::user()->fulltNavn() }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
 
-                            <li><a href="{{ URL::route('brukere.vis.innlogget') }}">
-                                    <span class="fa fa-user"></span> Min brukerprofil</a></li>
                             <li>
-                                <a href="{{ env('APPWEBPATH') }}/auth/logout"><span class="fa fa-sign-in"></span> Logg ut</a>
+                                <a href="{{ URL::route('brukere.vis.innlogget') }}"><span class="fa fa-user"></span> Min brukerprofil</a>
+                            </li>
+                            <li>
+                                <a href="{{ env('APPWEBPATH') }}/"><span class="fa fa-th"></span> Velg purmodul</a>
+                            </li>
+                            <li>
+                                <a href="{{ env('APPWEBPATH') }}/auth/logout"><span class="fa fa-sign-in"></span> Logg ut av pur</a>
                             </li>
                         </ul>
                     </li>

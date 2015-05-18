@@ -79,7 +79,7 @@
                                            class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Rediger oppgavesett">
                                             <span class="fa fa-edit"></span>
                                         </a>
-                                        <a href="#" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Slett oppgavesett">
+                                        <a href="#" class="btn btn-default ikke-implementert disabled" data-toggle="tooltip" data-placement="top" data-container="body" title="Slett oppgavesett">
                                             <span class="fa fa-trash"></span>
                                         </a>
                                     @endif

@@ -1,3 +1,16 @@
+a.disabled {
+  cursor: not-allowed;
+  opacity: .5;
+
+}
+
+
+#navbar-submenu li a.disabled:hover {
+  background-color: inherit;
+  color: $gray;
+  opacity: .5;
+}
+
 blockquote.bq-info {
   color: $blue;
   border: 1px solid #EEE;
