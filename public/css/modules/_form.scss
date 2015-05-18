@@ -35,6 +35,10 @@ select[multiple].form-control.focus {
   border-radius: 2px;
 }
 
+.form-control:focus {
+  border-color: $blue;
+}
+
 .form-control::-webkit-input-placeholder {
   color: #bdbdbd;
 }

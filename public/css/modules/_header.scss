@@ -176,6 +176,10 @@
   color: #333;
 }
 
+ul.dropdown-menu span.fa {
+  width: 20px;
+}
+
 @media (max-width: 675px) {
   #navbar-submenu li a {
     padding-top: 9px;

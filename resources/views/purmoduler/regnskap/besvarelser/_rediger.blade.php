@@ -44,4 +44,12 @@
 @section('scripts')
     <script src="{{ env('APPWEBPATH') }}/js/ajaxformsubmit.js"></script>
     <script src="{{ env('APPWEBPATH') }}/js/besvarelse.js"></script>
+    <script src="{{ env('APPWEBPATH') }}/js/jquery.plugin.js"></script>
+    <script src="{{ env('APPWEBPATH') }}/js/jquery.calculator.js"></script>
+    <script>
+        $(function () {
+            // $.calculator.setDefaults({showOn: 'both', buttonImageOnly: true, buttonImage: 'calculator.png'});
+            $('.postering input:text').not('.postering.korrekt input').calculator();
+        });
+    </script>
 @endsection
