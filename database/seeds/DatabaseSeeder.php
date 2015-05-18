@@ -65,7 +65,7 @@ class BrukerTableSeeder extends Seeder
             //'epost' => 'lektor@lerd.no',
             'email' => 'laerer@laerd.no',
             //'passord' => bcrypt('passord'),
-            'password' => bcrypt('passord'),
+            'password' => bcrypt('sensor'),
             'rolle' => 'laerer'
         ]);
 
@@ -76,7 +76,7 @@ class BrukerTableSeeder extends Seeder
             //'epost' => 'professor@proff.no',
             'email' => 'professor@proff.no',
             //'passord' => bcrypt('passord'),
-            'password' => bcrypt('passord'),
+            'password' => bcrypt('sensor'),
             'rolle' => 'laerer'
         ]);
 
@@ -86,7 +86,7 @@ class BrukerTableSeeder extends Seeder
             //'epost' => 'sture@student.no',
             'email' => 'sture@student.no',
             //'passord' => bcrypt('passord'),
-            'password' => bcrypt('passord'),
+            'password' => bcrypt('sensor'),
             'rolle' => 'student',
         ]);
 
@@ -96,7 +96,7 @@ class BrukerTableSeeder extends Seeder
             //'epost' => 'ellen@elev.no',
             'email' => 'ellen@elev.no',
             //'passord' => bcrypt('passord'),
-            'password' => bcrypt('passord'),
+            'password' => bcrypt('sensor'),
             'rolle' => 'student',
         ]);
     }
@@ -123,12 +123,12 @@ class OppgaveTableSeeder extends Seeder
             'moduloppgave_id' => 2
         ]);
 
-        Oppgave::create([
-            'beskrivelse' => 'Lønnsutbetaling (1 bilag)',
-            'bruker_id' => 2,
-            'moduloppgave_type' => 'Pur\Purmoduler\Regnskap\Bilagsmalsekvens',
-            'moduloppgave_id' => 3
-        ]);
+//        Oppgave::create([
+//            'beskrivelse' => 'Lønnsutbetaling (1 bilag)',
+//            'bruker_id' => 2,
+//            'moduloppgave_type' => 'Pur\Purmoduler\Regnskap\Bilagsmalsekvens',
+//            'moduloppgave_id' => 3
+//        ]);
     }
 }
 
@@ -198,16 +198,16 @@ class SettoppgaveTableSeeder extends Seeder
 
         DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [1, 1]);
         DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [1, 2]);
-        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [1, 3]);
+//        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [1, 3]);
         DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [2, 1]);
         DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [2, 2]);
-        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [2, 3]);
+//        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [2, 3]);
         DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [3, 1]);
         DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [3, 2]);
-        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [3, 3]);
+//        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [3, 3]);
         DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [4, 1]);
         DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [4, 2]);
-        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [4, 3]);
+//        DB::insert('insert into settoppgaver (oppgavesett_id, oppgave_id) values (?, ?)', [4, 3]);
     }
 }
 
@@ -318,11 +318,11 @@ class BilagsmalsekvensTableSeeder extends Seeder
             'motpart' => 'Jensen & Co AS'
         ]);
 
-        // Lønnsutbetaling
-        Bilagsmalsekvens::create([
-            'sekvenstype' => 'Lønnsutbetaling',
-            'motpart' => 'T. Lønnes Dah'
-        ]);
+//        // Lønnsutbetaling
+//        Bilagsmalsekvens::create([
+//            'sekvenstype' => 'Lønnsutbetaling',
+//            'motpart' => 'T. Lønnes Dah'
+//        ]);
     }
 }
 
@@ -389,29 +389,29 @@ class BilagsmalsekvensVarTableSeeder extends Seeder
 
         // Bilagsmalsekvens 3
 
-        BilagsmalsekvensVar::create([
-            'navn' => 'Bruttobeløp',
-            'tegn_i_formel' => 'a',
-            'verdi_min' => '40000',
-            'verdi_maks' => '60000',
-            'bilagsmalsekvens_id' => 3
-        ]);
-
-        BilagsmalsekvensVar::create([
-            'navn' => 'Bruttobeløp',
-            'tegn_i_formel' => 'b',
-            'verdi_min' => '4000',
-            'verdi_maks' => '6000',
-            'bilagsmalsekvens_id' => 3
-        ]);
-
-        BilagsmalsekvensVar::create([
-            'navn' => 'Rabattsats',
-            'tegn_i_formel' => 'x',
-            'verdi_min' => '3',
-            'verdi_maks' => '5',
-            'bilagsmalsekvens_id' => 3
-        ]);
+//        BilagsmalsekvensVar::create([
+//            'navn' => 'Bruttobeløp',
+//            'tegn_i_formel' => 'a',
+//            'verdi_min' => '40000',
+//            'verdi_maks' => '60000',
+//            'bilagsmalsekvens_id' => 3
+//        ]);
+//
+//        BilagsmalsekvensVar::create([
+//            'navn' => 'Bruttobeløp',
+//            'tegn_i_formel' => 'b',
+//            'verdi_min' => '4000',
+//            'verdi_maks' => '6000',
+//            'bilagsmalsekvens_id' => 3
+//        ]);
+//
+//        BilagsmalsekvensVar::create([
+//            'navn' => 'Rabattsats',
+//            'tegn_i_formel' => 'x',
+//            'verdi_min' => '3',
+//            'verdi_maks' => '5',
+//            'bilagsmalsekvens_id' => 3
+//        ]);
     }
 }
 
@@ -426,7 +426,7 @@ class BilagsmalTableSeeder extends Seeder
             'nr_i_sekvens' => 1,
             'belopsformel' => 1,
             'bilagstype' => 'Inngående faktura',
-            'infotekst' => 'Faktura for varekjøp...',
+            'infotekst' => 'Faktura for varekjøp inkl. 25% mva.',
             'bilagsmalsekvens_id' => 1
         ]);
 
@@ -434,7 +434,7 @@ class BilagsmalTableSeeder extends Seeder
             'nr_i_sekvens' => 2,
             'belopsformel' => 4,
             'bilagstype' => 'Inngående kreditnota',
-            'infotekst' => '',
+            'infotekst' => 'Inngående kreditnota',
             'bilagsmalsekvens_id' => 1
         ]);
 
@@ -442,7 +442,7 @@ class BilagsmalTableSeeder extends Seeder
             'nr_i_sekvens' => 3,
             'belopsformel' => 13,
             'bilagstype' => 'Utbetaling',
-            'infotekst' => '',
+            'infotekst' => 'Betalt faktura for varekjøp via bank med fradrag for kreditnota og rabatt',
             'bilagsmalsekvens_id' => 1
         ]);
 
@@ -450,7 +450,7 @@ class BilagsmalTableSeeder extends Seeder
             'nr_i_sekvens' => 1,
             'belopsformel' => 1,
             'bilagstype' => 'Utgående faktura',
-            'infotekst' => '',
+            'infotekst' => 'Utgående faktura for varesalg inkl. 25% mva.',
             'bilagsmalsekvens_id' => 2
         ]);
 
@@ -458,7 +458,7 @@ class BilagsmalTableSeeder extends Seeder
             'nr_i_sekvens' => 2,
             'belopsformel' => 4,
             'bilagstype' => 'Utgående kreditnota',
-            'infotekst' => '',
+            'infotekst' => 'Utgående kreditnota pga. retur av deler av vareparti',
             'bilagsmalsekvens_id' => 2
         ]);
 
@@ -466,17 +466,17 @@ class BilagsmalTableSeeder extends Seeder
             'nr_i_sekvens' => 3,
             'belopsformel' => 13,
             'bilagstype' => 'Innbetaling',
-            'infotekst' => '',
+            'infotekst' => 'Mottatt betaling fra kunde via bank med fradrag av kreditnota og rabatt',
             'bilagsmalsekvens_id' => 2
         ]);
 
-        Bilagsmal::create([
-            'nr_i_sekvens' => 1,
-            'belopsformel' => 1,
-            'bilagstype' => 'Lønn',
-            'infotekst' => '',
-            'bilagsmalsekvens_id' => 3
-        ]);
+//        Bilagsmal::create([
+//            'nr_i_sekvens' => 1,
+//            'belopsformel' => 1,
+//            'bilagstype' => 'Lønn',
+//            'infotekst' => '',
+//            'bilagsmalsekvens_id' => 3
+//        ]);
     }
 }
 
@@ -643,11 +643,11 @@ class PosteringsmalTableSeeder extends Seeder
 
         // Bilag 7
 
-        Posteringsmal::create([
-            'formel' => 1,
-            'bilagsmal_id' => 7,
-            'kontokode' => 2930
-        ]);
+//        Posteringsmal::create([
+//            'formel' => 1,
+//            'bilagsmal_id' => 7,
+//            'kontokode' => 2930
+//        ]);
 
     }
 }
