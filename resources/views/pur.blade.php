@@ -13,6 +13,7 @@
 
 </head>
 <body>
+<script src="{{ env('APPWEBPATH') }}/js/analytics-demotjener.js"></script>
 <div class="loading" style="background: url({{ env('APPWEBPATH') }}/images/loading-animation.gif) center no-repeat #fff;"></div>
 @include('_meny')
 <main>
