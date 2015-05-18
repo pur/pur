@@ -26,9 +26,7 @@ class BesvarelseController extends Controller
      */
     public function opplist()
     {
-        $besvarelser = $this->bruker->besvarelser;
-
-        return view('besvarelser.testing.opplist', compact('besvarelser'));
+        //
     }
 
     /**
@@ -69,9 +67,9 @@ class BesvarelseController extends Controller
     public function vis(Besvarelse $besvarelse)
     {
         if ($besvarelse->skaper != $this->bruker)
-            return redirect()->route('besvarelser.opplist');
+            return redirect()->route('oppgavesett.opplist');
 
-        return view('besvarelser.testing.vis', compact('besvarelse'));
+        return view('besvarelser.vis', compact('besvarelse'));
     }
 
     /**
