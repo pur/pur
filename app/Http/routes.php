@@ -26,12 +26,10 @@ Route::controllers([
 
 // -- PUR --
 
-// Hvilke roller en bruker kan overstyre sin egen med:
-$router->pattern('rolle', 'student');
-
-Route::get('/regnskap', function () {
-    return view('purmoduler.regnskap.modulstartside');
+Route::get('{purmodul}', function () {
+    return redirect()->route('oppgavesett.opplist');
 });
+
 // Brukere
 
 Route::get('brukere',
@@ -68,6 +66,8 @@ Route::patch('brukere/{bruker}',
 Route::delete('brukere/{bruker}',
     ['as' => 'oppgaver.slett', 'uses' => 'BrukerController@slett']);
 
+
+// TODO: Bytt 'regnskap/' med url-parameter {purmodul} og håndter i alle aktuelle controllere:
 
 // Oppgaver
 
@@ -151,6 +151,8 @@ Route::delete('regnskap/besvarelser/{besvarelse}',
 
 // PURMODULER - REGNSKAP:
 
+// TODO Lag norske rute– og controllermetode-navn:
+
 Route::get('regnskap/bilagsmalsekvenser',
     [
         'as' => 'bilagsmalsekvenser.index',
@@ -172,21 +174,10 @@ Route::get('regnskap/bilagsmalsekvenser/{bilagsmalsekvenser}/update',
         'uses' => 'Purmoduler\Regnskap\BilagsmalsekvensController@update'
     ]);
 
+
+// TODO: Gjør til eksplisitte ruter:
+
 $router->resource('bilagsmaler', 'Purmoduler\Regnskap\BilagsmalController');
 $router->resource('posteringsmaler', 'Purmoduler\Regnskap\PosteringsmalController');
-$router->resource('bilag', 'Purmoduler\Regnskap\BilagController');
 $router->resource('posteringer', 'Purmoduler\Regnskap\PosteringController');
 
-Route::get('formel', function (Request $request) {
-    //return "Retur fra formel nr. $nr $verdi1 $verdi2  ";
-    //return "test";
-    //return $request->all();
-    //return Formel::brukFormel($request->formelid, $request->verdi1, $request->verdi2, $request->verdi3 );
-    // return $request->all();
-    // $retur = $request->formelid . $request->verdi1 . $request->verdi2 . $request->verdi3;
-    //$retur = json_encode($request->all());
-
-    $retur = Formel::brukFormel($request->formelid, $request->verdi1, $request->verdi2, $request->verdi3);
-    //$retur = \Pur\Purmoduler\Regnskap\Formel::brukFormel(2, 12, 32, 100);
-    return $retur;
-});
