@@ -8,7 +8,7 @@
 
 	var pluginName = 'calculator';
 	
-	var layoutStandard = ['    CECA', '_1_2_3_+@X', '_4_5_6_-@U', '_7_8_9_*@E', '_0_._=_/'];
+	var layoutStandard = ['CA@X@U', '_1_2_3_+', '_4_5_6_-', '_7_8_9_*', '_0_._=_/'];
 
 	var digit = 'd';
 	var binary = 'b';
@@ -105,9 +105,9 @@
 			buttonImage: '',
 			buttonImageOnly: false,
 			isOperator: null,
-			showAnim: 'show',
+			showAnim: 'slideDown',
 			showOptions: {},
-			duration: 'normal',
+			duration: 'fast',
 			appendText: '',
 			useThemeRoller: false,
 			calculatorClass: '',

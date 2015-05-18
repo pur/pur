@@ -1216,7 +1216,7 @@ img.calculator-trigger {
   border-color: #C6C6C6; }
 
 .calculator-row .calculator-ctrl {
-  width: 60px;
+  width: 71px;
   background-color: #F8F8F8; }
 
 .calculator-row .calculator-undo, .calculator-row .calculator-clear-error, .calculator-row .calculator-clear {
@@ -1266,6 +1266,27 @@ img.calculator-trigger {
   width: 22px;
   font-size: 70%; }
 
+/*
+.calculator-use:before {
+  content: "\f00c";
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.calculator-close:before {
+  content: "\f00d";
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.calculator-use, .calculator-close {
+  width: 69px;
+}
+*/
 .bootstrap-datetimepicker-widget {
   list-style: none; }
 

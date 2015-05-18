@@ -10,10 +10,8 @@ function avrundVerdier(verdi) {
     return verdi;
 }
 
-function formaterVerdier(number)
-{
+function formaterVerdier(number) {
     number = parseFloat(number).toFixed(2);
-    console.log(number);
     var x = number.split('.');
     var x1 = x[0];
     var x2 = x.length > 1 ? ',' + x[1] : '';
@@ -34,7 +32,6 @@ function beregnReultat() {
         verdi = verdi.replace(/\s+/g, '');
         verdi = verdi.replace(',', '.');
         verdi = verdi.replace('–', '-');
-        console.log(verdi);
         verdi = parseFloat(verdi);
         if (verdi != '' && verdi != null) {
             sumBilag += parseFloat(verdi);
@@ -61,6 +58,32 @@ $('.tab-content').on('keyup', 'input', function () {
 $('.tab-content').on('click', 'button', function () {
     beregnReultat();
 });
+
+$('body').on('click', 'button.calculator-use', function () {
+    $(this).closest('.postering').removeClass('feil');
+    beregnReultat();
+});
+
+$("input").bind("change paste keyup", function () {
+    $(this).closest('.postering').removeClass('feil');
+});
+
+$('input').click(function () {
+    var verdi = $(this).val();
+    var inputId = $(this).attr('id');
+    setInterval(function () {
+        var nyVerdi = $('#' + inputId).val();
+        if (verdi != nyVerdi) {
+            $('#' + inputId).closest('.postering').removeClass('feil');
+            verdi = nyVerdi;
+        }
+    }, 1500);
+});
+
+$('input').change(function () {
+    $(this).closest('.postering').removeClass('feil');
+});
+
 
 $(document).ready(function () {
     beregnReultat();
