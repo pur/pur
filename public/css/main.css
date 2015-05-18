@@ -500,10 +500,13 @@ select[multiple].form-control.focus {
   color: #bdbdbd; }
 
 .form-control[disabled],
-.form-control[readonly],
 fieldset[disabled] .form-control {
   background-color: transparent;
   background-color: transparent; }
+
+.form-control[readonly] {
+  background-color: #F0F0F0;
+  cursor: text; }
 
 fieldset[disabled] .form-control:disabled,
 .form-control-wrapper .form-control:disabled,

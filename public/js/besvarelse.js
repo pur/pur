@@ -1,8 +1,8 @@
 function skrivebeskytt() {
     var korrektPostering = ('.postering.korrekt');
-    $(korrektPostering + ' input').attr('disabled', 'disabled');
+    $(korrektPostering + ' input').attr('readonly', 'readonly');
     $(korrektPostering + ' select').attr('disabled', 'disabled');
-    $(korrektPostering + ' button').attr('disabled', 'disabled');
+    $(korrektPostering + ' button.oppdater-knapp').attr('disabled', 'disabled');
 }
 
 function avrundVerdier(verdi) {
@@ -33,8 +33,10 @@ function beregnReultat() {
         if ($(this).val() == null || $(this).val() == '') verdi = '0';
         verdi = verdi.replace(/\s+/g, '');
         verdi = verdi.replace(',', '.');
+        verdi = verdi.replace('–', '-');
         console.log(verdi);
-        if (parseFloat(verdi) != '' && parseFloat(verdi) != null) {
+        verdi = parseFloat(verdi);
+        if (verdi != '' && verdi != null) {
             sumBilag += parseFloat(verdi);
         } else {
             sumBilag += 0.00;
