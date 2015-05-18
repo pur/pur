@@ -32,7 +32,7 @@ class BilagsmalsekvensController extends Controller
      */
     public function create()
     {
-        //return view("purmoduler.regnskap.bilagsmalsekvenser.inngaaende-faktura.create");
+        //
     }
 
     /**
@@ -55,7 +55,6 @@ class BilagsmalsekvensController extends Controller
     public function show(Bilagsmalsekvens $bilagsmalsekvens)
     {
         return view('purmoduler.regnskap.bilagsmalsekvenser.show', compact('bilagsmalsekvens'));
-        //return view('purmoduler.regnskap.bilagsmalsekvenser.testing.show', compact('bilagsmalsekvens'));
     }
 
     /**
@@ -72,7 +71,6 @@ class BilagsmalsekvensController extends Controller
         $selectFormler = Formelregner::navnAlleFormler();
 
         return view('purmoduler.regnskap.bilagsmalsekvenser.edit', compact('bilagsmalsekvens', 'selectKontoer', 'selectFormler'));
-        //return view('purmoduler.regnskap.bilagsmalsekvenser.testing.edit', compact('bilagsmalsekvens', 'selectKontoer'));
     }
 
     /**
