@@ -30,6 +30,7 @@ class OppgaveController extends Controller
      */
     public function opplist(Oppgave $oppgave, $rolle = null)
     {
+        // TODO: Håndter mht. rolle:
         $oppgaver = $oppgave->get();
         return view('oppgaver.opplist', compact('oppgaver'));
     }
@@ -67,8 +68,7 @@ class OppgaveController extends Controller
     public function vis(Oppgave $oppgave, $rolle = null)
     {
         // TODO: implementér
-        return "<i>Vis purmodul-spesifikk oppgave med id " . $oppgave->id . "<br />
-                <small>(Noen purmoduler viser kun deloppgaver)</small></i>";
+        return "<i>Vis purmodul-spesifikk oppgave med id " . $oppgave->id . "</i>";
     }
 
     /**
