@@ -26,6 +26,13 @@ Route::controllers([
 
 // -- PUR --
 
+// Hvilke roller en bruker kan overstyre sin egen med:
+$router->pattern('rolle', 'student');
+
+// Hvilke purmoduler som er registrert:
+$router->pattern('purmodul', 'regnskap');
+
+
 Route::get('{purmodul}', function () {
     return redirect()->route('oppgavesett.opplist');
 });

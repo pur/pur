@@ -24,12 +24,6 @@ class RouteServiceProvider extends ServiceProvider {
 	{
 		parent::boot($router);
 
-        // Hvilke roller en bruker kan overstyre sin egen med:
-        $router->pattern('rolle', 'student');
-
-        // Hvilke purmoduler som er registrert i systemet:
-        $router->patterns(['purmodul' => 'regnskap']);
-
         // Pur:
         $router->model('bruker', 'Pur\Bruker');
         $router->model('brukere', 'Pur\Bruker');
