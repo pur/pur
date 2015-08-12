@@ -44,7 +44,7 @@ class BesvarelseTjeneste
     {
 
         $oppgavesvartype = 'Pur\Purmoduler\Regnskap\Bilagssekvens';
-        $moduloppgavesvar = Bilagssekvens::create([]);
+        $moduloppgavesvar = Bilagssekvens::create();
 
         $oppgavesvar->moduloppgavesvar_type = $oppgavesvartype;
         $oppgavesvar->moduloppgavesvar_id = $moduloppgavesvar->id;
@@ -60,7 +60,7 @@ class BesvarelseTjeneste
         $variabler = $bilagssekvens->variabler()->with('malvariabel')->get();
 
         // Lager en tabell på formen "a" => "1000", "b" => "500", etc.
-        $formelvariabler = $variabler->lists('verdi', 'malvariabel.tegn_i_formel');
+        $formelvariabler = $variabler->lists('verdi', 'malvariabel.tegn_i_formel')->all();
 
         // Formelregneren typetvinger tabellverdiene til 'float'
         $formelregner = new Formelregner($formelvariabler);
