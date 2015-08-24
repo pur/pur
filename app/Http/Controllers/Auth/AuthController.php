@@ -2,6 +2,7 @@
 
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Support\Facades\Validator;
+use Pur\Bruker;
 use Pur\Http\Controllers\Controller;
 use Pur\User;
 
@@ -19,6 +20,8 @@ class AuthController extends Controller {
 	*/
 
 	use AuthenticatesAndRegistersUsers;
+
+	protected $username = 'epost';
 
 	/**
 	 * Create a new authentication controller instance.
@@ -39,9 +42,9 @@ class AuthController extends Controller {
 	public function validator(array $data)
 	{
 		return Validator::make($data, [
-			'name' => 'required|max:255',
-			'email' => 'required|email|max:255|unique:users',
+			'epost' => 'required|email|max:255|unique:brukere',
 			'password' => 'required|confirmed|min:6',
+			//TODO: 'betingelser' => 'accepted'
 		]);
 	}
 
@@ -53,10 +56,10 @@ class AuthController extends Controller {
 	 */
 	public function create(array $data)
 	{
-		return User::create([
-			'name' => $data['name'],
-			'email' => $data['email'],
+		return Bruker::create([
+			'epost' => $data['epost'],
 			'password' => bcrypt($data['password']),
+			'rolle' => 'student' // TODO: Tildel riktig rolle
 		]);
 	}
 

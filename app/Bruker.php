@@ -1,10 +1,10 @@
 <?php namespace Pur;
 
 use Illuminate\Auth\Authenticatable;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Database\Eloquent\Model;
 
 class Bruker extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
@@ -22,27 +22,37 @@ class Bruker extends Model implements AuthenticatableContract, CanResetPasswordC
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['fornavn', 'etternavn', 'epost', 'passord', 'rolle'];
+	protected $fillable = ['epost', 'password', 'rolle', 'navn'];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
 	 * @var array
 	 */
-	protected $hidden = ['passord', 'remember_token'];
+	protected $hidden = ['password', 'remember_token'];
 
     const CREATED_AT = 'tid_opprettet';
     const UPDATED_AT = 'tid_endret';
 
 
     /**
-     * Returnerer brukerens for– og etternavn satt sammen
+     * Kompabilitetsmetode
+     *
+     * @return $this->navn()
+     */
+    public function fulltNavn() // TODO: Endre alle kall til navn() og fjern denne metoden
+    {
+        return $this->navn();
+    }
+
+    /**
+     * Returnerer brukerens visningsnavn hvis satt, epost ellers
      *
      * @return string
      */
-    public function fulltNavn()
+    public function navn()
     {
-        return $this->fornavn . " " . $this->etternavn;
+        return !empty($this->navn) ? $this->navn : $this->epost;
     }
 
     /**

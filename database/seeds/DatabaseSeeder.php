@@ -60,36 +60,31 @@ class BrukerTableSeeder extends Seeder
         DB::table('brukere')->delete();
 
         Bruker::create([
-            'fornavn' => 'Lektor',
-            'etternavn' => 'Lur',
-            'email' => 'lektor@lur.no',
-            'password' => bcrypt('sensor'),
-            'rolle' => 'laerer'
+            'epost' => 'lektor@lur.no',
+            'password' => bcrypt('test'),
+            'rolle' => 'laerer',
+            'navn' => 'Lektor Lur'
         ]);
 
         Bruker::create([
-
-            'fornavn' => 'Professor',
-            'etternavn' => 'Proff',
-            'email' => 'professor@proff.no',
-            'password' => bcrypt('sensor'),
-            'rolle' => 'laerer'
+            'epost' => 'professor@proff.no',
+            'password' => bcrypt('test'),
+            'rolle' => 'laerer',
+            'navn' => 'Professor Proff'
         ]);
 
         Bruker::create([
-            'fornavn' => 'Sture',
-            'etternavn' => 'Student',
-            'email' => 'sture@student.no',
-            'password' => bcrypt('sensor'),
+            'epost' => 'sture@student.no',
+            'password' => bcrypt('test'),
             'rolle' => 'student',
+            'navn' => 'Sture Student',
         ]);
 
         Bruker::create([
-            'fornavn' => 'Ellen',
-            'etternavn' => 'Elev',
-            'email' => 'ellen@elev.no',
-            'password' => bcrypt('sensor'),
+            'epost' => 'ellen@elev.no',
+            'password' => bcrypt('test'),
             'rolle' => 'student',
+            'navn' => 'Ellen Elev'
         ]);
     }
 }

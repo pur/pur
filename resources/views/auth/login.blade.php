@@ -1,41 +1,61 @@
 @extends('pur')
 
 @section('content')
-    <div class="container innlogging">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Logg inn</div>
+                    <div class="panel-body">
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <strong>Huff da!</strong> Pur var ikke helt fornøyd med det du la inn:<br><br>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
 
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <section>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">Logg inn</div>
-                        <div class="panel-body">
-                            <div class="row">
-                                {!! Form::open(['url' => '/auth/login', 'method' => 'post']) !!}
+                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                                <div class="form-group col-sm-6">
-                                    <div class="input-group">
-                                        <div class="input-group-addon">Brukernavn:</div>
-                                        {!! Form::input('text', 'email', null, ['class' => 'form-control']) !!}
-                                    </div>
-                                </div>
-                                <div class="form-group col-sm-6">
-                                    <div class="input-group">
-                                        <div class="input-group-addon">Passord:</div>
-                                        {!! Form::input('password','password', null, ['class' => 'form-control']) !!}
-                                    </div>
-                                </div>
-                                <div class="form-group col-sm-6 pull-right">
-                                    {!! Form::submit('Logg inn', ['class' => 'btn btn-default pull-right']) !!}
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">E-post:</label>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" name="epost" value="{{ old('epost') }}">
                                 </div>
                             </div>
-                            {!! Form::close()  !!}
-                        </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Passord:</label>
+                                <div class="col-md-6">
+                                    <input type="password" class="form-control" name="password">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="remember"> Husk meg
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-4">
+                                    <button type="submit" class="btn btn-primary">Logg inn</button>
+
+                                    <a class="btn btn-link" href="{{ url('/password/email') }}">Glemt passordet?</a>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    </section>
                 </div>
             </div>
-
+        </div>
     </div>
-
-
 @endsection

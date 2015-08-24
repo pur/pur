@@ -11,10 +11,6 @@
 |
 */
 
-use Pur\Bruker;
-use Pur\Oppgavesett;
-use Pur\Services\BesvarelseTjeneste;
-
 Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
@@ -67,8 +63,14 @@ Route::get('bruker/rediger',
 Route::put('brukere/{bruker}',
     ['as' => 'brukere.oppdater', 'uses' => 'BrukerController@oppdater']);
 
+Route::put('bruker',
+    ['as' => 'brukere.oppdater.innlogget', 'uses' => 'BrukerController@oppdaterInnlogget']);
+
 Route::patch('brukere/{bruker}',
     ['uses' => 'BrukerController@oppdater']);
+
+Route::patch('bruker',
+    ['uses' => 'BrukerController@oppdaterInnlogget']);
 
 Route::delete('brukere/{bruker}',
     ['as' => 'oppgaver.slett', 'uses' => 'BrukerController@slett']);
