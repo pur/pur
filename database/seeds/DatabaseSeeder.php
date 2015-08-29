@@ -129,7 +129,7 @@ class OppgavesettTableSeeder extends Seeder
         Oppgavesett::create([
             'type' => 'øving',
             'tittel' => 'Øving 1',
-            'beskrivelse' => 'Innføring i bokføring',
+            'beskrivelse' => 'Test-øving',
             'tid_opprettet' => '2015-01-01 09:00:00',
             'tid_endret' => '2015-01-05 09:00:00',
             'tid_publisert' => '2015-01-10 10:00:00',
@@ -140,37 +140,37 @@ class OppgavesettTableSeeder extends Seeder
 
         Oppgavesett::create([
             'type' => 'øving',
-            'tittel' => 'Demo for sensor (student)',
-            'beskrivelse' => 'Demo-oppgavesett for sensor (innlogget som student)',
+            'tittel' => 'Øving 2',
+            'beskrivelse' => 'Test-øving',
             'tid_opprettet' => '2015-05-01 09:00:00',
             'tid_endret' => '2015-05-02 09:00:00',
             'tid_publisert' => '2015-05-10 10:00:00',
             'tid_aapent' => '2015-05-12 10:00:00',
-            'tid_lukket' => '2015-08-12 10:00:00',
+            'tid_lukket' => '2015-10-12 10:00:00',
             'bruker_id' => 1,
         ]);
 
         Oppgavesett::create([
             'type' => 'oblig',
             'tittel' => 'Oblig. 1',
-            'beskrivelse' => 'Test av fundamentale ferdigheter',
+            'beskrivelse' => 'Test-oblig',
             'tid_opprettet' => '2015-05-01 09:00:00',
             'tid_endret' => '2015-05-05 09:00:00',
-            'tid_publisert' => '2015-05-10 10:00:00',
-            'tid_aapent' => '2015-06-10 10:00:00',
-            'tid_lukket' => '2015-09-10 10:00:00',
+            'tid_publisert' => '2015-08-10 10:00:00',
+            'tid_aapent' => '2015-10-10 10:00:00',
+            'tid_lukket' => '2015-11-10 10:00:00',
             'bruker_id' => 1,
         ]);
 
         Oppgavesett::create([
             'type' => 'oblig',
-            'tittel' => 'Demo for sensor',
-            'beskrivelse' => 'Demo-oppgavesett for sensor',
+            'tittel' => 'Oblig 2',
+            'beskrivelse' => 'Test-oblig',
             'tid_opprettet' => '2015-05-10 09:00:00',
             'tid_endret' => '2015-05-12 09:00:00',
-            'tid_publisert' => '2015-07-15 10:00:00',
-            'tid_aapent' => '2015-07-15 10:00:00',
-            'tid_lukket' => '2015-10-15 10:00:00',
+            'tid_publisert' => '2015-09-15 10:00:00',
+            'tid_aapent' => '2015-09-20 10:00:00',
+            'tid_lukket' => '2015-10-20 10:00:00',
             'bruker_id' => 1,
         ]);
     }
