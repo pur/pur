@@ -21,8 +21,6 @@ class AuthController extends Controller {
 
 	use AuthenticatesAndRegistersUsers;
 
-	protected $username = 'epost';
-
 	/**
 	 * Create a new authentication controller instance.
 	 *
@@ -42,7 +40,7 @@ class AuthController extends Controller {
 	public function validator(array $data)
 	{
 		return Validator::make($data, [
-			'epost' => 'required|email|max:255|unique:brukere',
+			'email' => 'required|email|max:255|unique:brukere',
 			'password' => 'required|confirmed|min:6',
 			//TODO: 'betingelser' => 'accepted'
 		]);
@@ -57,7 +55,7 @@ class AuthController extends Controller {
 	public function create(array $data)
 	{
 		return Bruker::create([
-			'epost' => $data['epost'],
+			'email' => $data['email'],
 			'password' => bcrypt($data['password']),
 			'rolle' => 'student' // TODO: Tildel riktig rolle
 		]);

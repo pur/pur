@@ -22,7 +22,7 @@ class Bruker extends Model implements AuthenticatableContract, CanResetPasswordC
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['epost', 'password', 'rolle', 'navn'];
+	protected $fillable = ['email', 'password', 'rolle', 'navn'];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -52,7 +52,7 @@ class Bruker extends Model implements AuthenticatableContract, CanResetPasswordC
      */
     public function navn()
     {
-        return !empty($this->navn) ? $this->navn : $this->epost;
+        return !empty($this->navn) ? $this->navn : $this->email;
     }
 
     /**

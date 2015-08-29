@@ -60,28 +60,28 @@ class BrukerTableSeeder extends Seeder
         DB::table('brukere')->delete();
 
         Bruker::create([
-            'epost' => 'lektor@lur.no',
+            'email' => 'lektor@lur.no',
             'password' => bcrypt('test'),
             'rolle' => 'laerer',
             'navn' => 'Lektor Lur'
         ]);
 
         Bruker::create([
-            'epost' => 'professor@proff.no',
+            'email' => 'professor@proff.no',
             'password' => bcrypt('test'),
             'rolle' => 'laerer',
             'navn' => 'Professor Proff'
         ]);
 
         Bruker::create([
-            'epost' => 'sture@student.no',
+            'email' => 'sture@student.no',
             'password' => bcrypt('test'),
             'rolle' => 'student',
             'navn' => 'Sture Student',
         ]);
 
         Bruker::create([
-            'epost' => 'ellen@elev.no',
+            'email' => 'ellen@elev.no',
             'password' => bcrypt('test'),
             'rolle' => 'student',
             'navn' => 'Ellen Elev'

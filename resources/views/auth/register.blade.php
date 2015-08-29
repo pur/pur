@@ -24,7 +24,7 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label">E-post:</label>
 							<div class="col-md-6">
-								<input type="email" class="form-control" name="epost" value="{{ old('epost') }}">
+								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
 							</div>
 						</div>
 

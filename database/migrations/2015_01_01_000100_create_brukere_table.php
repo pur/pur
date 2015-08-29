@@ -15,7 +15,8 @@ class CreateBrukereTable extends Migration {
 		Schema::create('brukere', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('epost')->unique();
+			//$table->string('epost')->unique();
+			$table->string('email')->unique();
 			//$table->string('passord', 60);
 			$table->string('password', 60);
 			$table->string('rolle');
