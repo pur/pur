@@ -1,5 +1,6 @@
 <?php namespace Pur\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Pur\Http\Requests;
 use Pur\Oppgavesett;
@@ -59,12 +60,25 @@ class OppgavesettController extends Controller
     /**
      * Lagre oppgavesett.
      *
+     * @param Oppgavesett $oppgavesett
+     * @param Request $request
      * @return Response
      */
-    public function lagre(Oppgavesett $oppgavesett)
+    public function lagre(Oppgavesett $oppgavesett, Request $request)
     {
-        // TODO: implementér
-        return "<i>Lagre nytt oppgavesett</i>";
+        // TODO: Flytt validering til egen valideringsklasse for gjenbruk i oppdater()
+        $this->validate($request, [
+            'tittel' => 'required|max:28', // TODO: Tittel bør være unik for en og samme bruker
+            'type' => 'required',
+            'tid_publisert' => 'required|date_format:d.m.y H:i|after:now',
+            'tid_aapent' => 'required|date_format:d.m.y H:i|after:tid_publisert',
+            'tid_lukket' => 'required|date_format:d.m.y H:i|after:tid_aapent'
+        ]);
+
+        Auth::user()->oppgavesett()->save($oppgavesett->fill($request->all()));
+
+        $oppgavesettsamling = $this->bruker->oppgavesett;
+        return view('oppgavesett.opplistForLaerer', compact('oppgavesettsamling'));
     }
 
     /**

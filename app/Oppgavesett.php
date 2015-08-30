@@ -23,6 +23,46 @@ class Oppgavesett extends Model
 
     protected $dates = ['tid_publisert', 'tid_aapent', 'tid_lukket'];
 
+    /**
+     * Konverterer til databasens tidstempelformat før lagring
+     *
+     * @param $tidsstempel
+     */
+    public function setTidPublisertAttribute($tidsstempel)
+    {
+        $this->attributes['tid_publisert'] = $this->fraGuiTilDbTidsFormat($tidsstempel);
+    }
+
+    /**
+     * Konverterer til databasens tidstempelformat før lagring
+     *
+     * @param $tidsstempel
+     */
+    public function setTidAapentAttribute($tidsstempel)
+    {
+        $this->attributes['tid_aapent'] = $this->fraGuiTilDbTidsFormat($tidsstempel);
+    }
+
+    /**
+     * Konverterer til databasens tidstempelformat før lagring
+     *
+     * @param $tidsstempel
+     */
+    public function setTidLukketAttribute($tidsstempel)
+    {
+        $this->attributes['tid_lukket'] = $this->fraGuiTilDbTidsFormat($tidsstempel);
+    }
+
+    /**
+     * Konverterer fra formatet 'd.m.y H:i' til formatet 'Y-m-d H:i:s'
+     *
+     * @param $tidsstempel
+     * @return string
+     */
+    private function fraGuiTilDbTidsFormat($tidsstempel) {
+
+        return Carbon::createFromFormat('d.m.y H:i', $tidsstempel)->format('Y-m-d H:i:s');
+    }
 
     /**
      * Oppgavesettets status, slik studenten skal se den
