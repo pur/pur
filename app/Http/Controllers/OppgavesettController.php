@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Pur\Http\Requests;
+use Pur\Oppgave;
 use Pur\Oppgavesett;
 
 class OppgavesettController extends Controller
@@ -54,7 +55,9 @@ class OppgavesettController extends Controller
      */
     public function opprett()
     {
-        return view('oppgavesett.opprett');
+        $alleOppgaver = Oppgave::get(); // TODO: Kun forseglede oppgaver
+
+        return view('oppgavesett.opprett', compact('alleOppgaver'));
     }
 
     /**
@@ -64,7 +67,7 @@ class OppgavesettController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function lagre(Oppgavesett $oppgavesett, Request $request)
+    public function lagre(Request $request)
     {
         // TODO: Flytt validering til egen valideringsklasse for gjenbruk i oppdater()
         $this->validate($request, [
@@ -75,9 +78,14 @@ class OppgavesettController extends Controller
             'tid_lukket' => 'required|date_format:d.m.y H:i|after:tid_aapent'
         ]);
 
-        Auth::user()->oppgavesett()->save($oppgavesett->fill($request->all()));
+        $oppgavesett = Auth::user()->oppgavesett()->create($request->all());
+
+        $oppgavesett->oppgaver()->sync($request->input('oppgaver'));
 
         $oppgavesettsamling = $this->bruker->oppgavesett;
+
+        flash('Oppgavesettet ble opprettet');
+
         return view('oppgavesett.opplistForLaerer', compact('oppgavesettsamling'));
     }
 
@@ -105,7 +113,10 @@ class OppgavesettController extends Controller
      */
     public function rediger(Oppgavesett $oppgavesett)
     {
-        return view('oppgavesett.rediger', compact('oppgavesett'));
+        $alleOppgaver = Oppgave::get(); // TODO: Kun forseglede oppgaver
+        $settoppgaver = $oppgavesett->oppgaver()->get();
+
+        return view('oppgavesett.rediger', compact('oppgavesett', 'alleOppgaver', 'settoppgaver'));
     }
 
     /**
@@ -125,9 +136,12 @@ class OppgavesettController extends Controller
             'tid_lukket' => 'required|date_format:d.m.y H:i|after:tid_aapent'
         ]);
 
-        $oppgavesett->fill($request->all())->save();
+        $oppgavesett->update($request->all());
+
+        $oppgavesett->oppgaver()->sync($request->input('oppgaver'));
 
         $oppgavesettsamling = $this->bruker->oppgavesett;
+
         return view('oppgavesett.opplistForLaerer', compact('oppgavesettsamling'));
     }
 

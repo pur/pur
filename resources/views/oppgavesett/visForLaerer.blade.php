@@ -16,7 +16,7 @@
         {!! Form::close() !!}
         <section class="padding">
             <h2>Oppgaver</h2>
-            @include('oppgaver._liste', ['oppgaver' => $oppgavesett->oppgaver, 'kanOpprette' => true])
+            @include('oppgaver._oppgsett-liste', ['oppgaver' => $oppgavesett->oppgaver, 'oppgaverKanVelges' => false])
         </section>
     </div>
 

@@ -14,12 +14,6 @@
         @include('oppgavesett._skjema', $oppgavesett)
 
         {!! Form::close() !!}
-{{--
-        <section class="padding">
-            <h2>Oppgaver</h2>
-            @include('oppgaver._liste', ['oppgaver' => $oppgavesett->oppgaver, 'kanOpprette' => true])
-        </section>
---}}
     </div>
 
 @endsection

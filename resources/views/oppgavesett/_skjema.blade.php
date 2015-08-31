@@ -48,12 +48,16 @@
             <span class="fa fa-calendar"></span>
         </div>
     </div>
-
 </div>
+
+<div class="clearfix"></div>
+
+<section class="padding">
+    <h2>Inkluder oppgaver</h2>
+    @include('oppgaver._oppgsett-liste', ['oppgaver' => $alleOppgaver, 'oppgaverKanVelges' => true])
+</section>
 
 <div class="form-group col-sm-12">
     {!! Form::submit('Lagre', ['class' => 'btn btn-primary']) !!}
     {!! link_to_route('oppgavesett.opplist', 'Avbryt', null, ['class' => 'btn btn-warning']) !!}
 </div>
-
-<div class="clearfix"></div>
