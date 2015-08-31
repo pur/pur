@@ -114,10 +114,21 @@ class OppgavesettController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function oppdater(Oppgavesett $oppgavesett)
+    public function oppdater(Oppgavesett $oppgavesett, Request $request)
     {
-        // TODO: implementér
-        return "<i>Oppdater oppgavesett med id " . $oppgavesett->id . "</i>";
+        // TODO: Flytt validering til egen valideringsklasse for gjenbruk i lagre()
+        $this->validate($request, [
+            'tittel' => 'required|max:28', // TODO: Tittel bør være unik for en og samme bruker
+            'type' => 'required',
+            'tid_publisert' => 'required|date_format:d.m.y H:i|after:now',
+            'tid_aapent' => 'required|date_format:d.m.y H:i|after:tid_publisert',
+            'tid_lukket' => 'required|date_format:d.m.y H:i|after:tid_aapent'
+        ]);
+
+        $oppgavesett->fill($request->all())->save();
+
+        $oppgavesettsamling = $this->bruker->oppgavesett;
+        return view('oppgavesett.opplistForLaerer', compact('oppgavesettsamling'));
     }
 
     /**
