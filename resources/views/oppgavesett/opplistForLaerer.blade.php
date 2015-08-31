@@ -79,9 +79,11 @@
                                            class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Rediger oppgavesett">
                                             <span class="fa fa-edit"></span>
                                         </a>
-                                        <a href="#" class="btn btn-default ikke-implementert disabled" data-toggle="tooltip" data-placement="top" data-container="body" title="Slett oppgavesett">
+                                        {!! Form::open(['route' => ['oppgavesett.slett', $oppgavesett->id], 'method' => 'DELETE', 'class' => 'form-inline']) !!}
+                                        <button type="submit" class="btn btn-default bekreft-slett" data-toggle="tooltip" data-placement="top" data-container="body" title="Slett oppgavesett">
                                             <span class="fa fa-trash"></span>
-                                        </a>
+                                        </button>
+                                        {!! Form::close() !!}
                                     @endif
 
                                 </div>

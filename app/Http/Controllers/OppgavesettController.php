@@ -139,8 +139,12 @@ class OppgavesettController extends Controller
      */
     public function slett(Oppgavesett $oppgavesett)
     {
-        // TODO: implementér
-        return "<i>Slett oppgavesett med id " . $oppgavesett->id . "</i>";
+        $oppgavesett->delete();
+
+        flash('Oppgavesettet ble slettet');
+
+        // TODO: Gjør purmoduluavhengig:
+        return redirect('/regnskap/oppgavesett');
     }
 
 }
