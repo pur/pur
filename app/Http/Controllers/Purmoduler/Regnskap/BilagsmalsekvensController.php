@@ -1,5 +1,6 @@
 <?php namespace Pur\Http\Controllers\Purmoduler\Regnskap;
 
+use Illuminate\Support\Facades\Auth;
 use Pur\Http\Requests;
 use Pur\Http\Controllers\Controller;
 
@@ -40,9 +41,24 @@ class BilagsmalsekvensController extends Controller
      *
      * @return Response
      */
-    public function store(Bilagsmalsekvens $bilagsmalsekvens)
+    public function lagre(Request $request)
     {
-        //
+        $bilagsmalsekvens = new Bilagsmalsekvens();
+        $bilagsmalsekvens->motpart = $request->input('motpart');
+        $bilagsmalsekvens->save();
+
+        $oppgave = new Oppgave();
+        $oppgave->beskrivelse = $request->input('beskrivelse');
+
+        $oppgave->moduloppgave_type = 'Pur\Purmoduler\Regnskap\Bilagsmalsekvens';
+        $oppgave->moduloppgave_id = $bilagsmalsekvens->id;
+
+        $oppgave->skaper()->associate(Auth::user());
+        $oppgave->save();
+
+        flash('Oppgaven ble opprettet');
+
+        return redirect()->route('oppgaver.opplist');
     }
 
     /**
