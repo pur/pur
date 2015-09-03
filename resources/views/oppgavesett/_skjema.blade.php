@@ -31,7 +31,7 @@
 </div>
 <div class="col-sm-6">
     <blockquote class="bq-info bq-input-align">
-        <p>NB! "Oppgavesettet kan ikke endres/slettes etter publisering"</p>
+        <p>NB! Oppgavesettet kan ikke endres/slettes etter publisering</p>
     </blockquote>
 </div>
 <div class="clearfix"></div>
