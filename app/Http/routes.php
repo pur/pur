@@ -174,6 +174,12 @@ Route::get('regnskap/oppgaver/opprett',
      'uses' => 'Purmoduler\Regnskap\BilagsmalsekvensController@opprett'
     ]);
 
+Route::post('regnskap/oppgaver',
+    [
+     'as' => 'regnskap.oppgaver.lagre',
+     'uses' => 'OppgaveController@lagre'
+    ]);
+
 Route::get('regnskap/bilagsmalsekvenser/{bilagsmalsekvenser}',
     [
         'as' => 'bilagsmalsekvenser.show',
