@@ -8,7 +8,7 @@
                 <span class="fa fa-list"></span> Oppgavesett
             </a>
         </li>
-        <li><a class="ikke-implementert disabled"><span class="fa fa-plus"></span> Legg til oppgavesett</a></li>
+        <li><a href="{{ route('oppgavesett.opprett') }}"><span class="fa fa-plus"></span> Legg til oppgavesett</a></li>
     </ul>
 </li>
 <li class="dropdown">
@@ -22,7 +22,7 @@
             </a>
         </li>
         <li>
-            <a class="ikke-implementert disabled">
+            <a href="{{ route('regnskap.oppgaver.opprett') }}">
                 <span class="fa fa-plus"></span> Legg til oppgave
             </a>
         </li>
