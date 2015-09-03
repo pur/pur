@@ -20,7 +20,7 @@
     {!! Form::textarea( 'beskrivelse', null, ['class' => 'form-control', 'style' => 'height: 75px;']) !!}
 </div>
 
-<div class="form-group col-sm-12">
+<div class="form-group col-sm-6">
     {!! Form::label('tid_publisert', '* Publiseringstidspunkt:') !!}
     <div class='input-group date' id='datetimepicker3'>
         {!! Form::input('text', 'tid_publisert', isset($oppgavesett) ? $oppgavesett->tidPublisert() : '', ['class' => 'form-control']) !!}
@@ -29,6 +29,12 @@
         </div>
     </div>
 </div>
+<div class="col-sm-6">
+    <blockquote class="bq-info bq-input-align">
+        <p>NB! "Oppgavesettet kan ikke endres/slettes etter publisering"</p>
+    </blockquote>
+</div>
+<div class="clearfix"></div>
 
 <div class="form-group col-sm-6">
     {!!Form::label('tid_aapent', '* Åpent for oppgaveløsing fra:') !!}
