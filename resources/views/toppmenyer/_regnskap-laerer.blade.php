@@ -17,7 +17,7 @@
     </a>
     <ul class="dropdown-menu" role="menu">
         <li>
-            <a href="{{ URL::route('oppgaver.vis', null) }}">
+            <a href="{{ URL::route('oppgaver.opplist', null) }}">
                 <span class="fa fa-list"></span> Oppgaver
             </a>
         </li>

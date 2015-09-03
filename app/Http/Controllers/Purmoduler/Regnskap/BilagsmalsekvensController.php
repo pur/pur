@@ -30,9 +30,9 @@ class BilagsmalsekvensController extends Controller
      *
      * @return Response
      */
-    public function create()
+    public function opprett()
     {
-        //
+        return view('purmoduler.regnskap.bilagsmalsekvenser.opprett');
     }
 
     /**

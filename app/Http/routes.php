@@ -83,26 +83,26 @@ Route::delete('brukere/{bruker}',
 Route::get('regnskap/oppgaver/{rolle?}',
     ['as' => 'oppgaver.opplist', 'uses' => 'OppgaveController@opplist']);
 
-Route::get('regnskap/oppgaver/opprett',
-    ['as' => 'oppgaver.opprett', 'uses' => 'OppgaveController@opprett']);
-
-Route::post('regnskap/oppgaver',
-    ['as' => 'oppgaver.lagre', 'uses' => 'OppgaveController@lagre']);
-
-Route::get('regnskap/oppgaver/{oppgave}/{rolle?}',
-    ['as' => 'oppgaver.vis', 'uses' => 'OppgaveController@vis']);
-
-Route::get('regnskap/oppgaver/{oppgave}/rediger',
-    ['as' => 'oppgaver.rediger', 'uses' => 'OppgaveController@rediger']);
-
-Route::put('regnskap/oppgaver/{oppgave}',
-    ['as' => 'oppgaver.oppdater', 'uses' => 'OppgaveController@oppdater']);
-
-Route::patch('regnskap/oppgaver/{oppgave}',
-    ['uses' => 'OppgaveController@oppdater']);
-
-Route::delete('regnskap/oppgaver/{oppgave}',
-    ['as' => 'oppgaver.slett', 'uses' => 'OppgaveController@slett']);
+//Route::get('regnskap/oppgaver/opprett',
+//    ['as' => 'oppgaver.opprett', 'uses' => 'OppgaveController@opprett']);
+//
+//Route::post('regnskap/oppgaver',
+//    ['as' => 'oppgaver.lagre', 'uses' => 'OppgaveController@lagre']);
+//
+//Route::get('regnskap/oppgaver/{oppgave}/{rolle?}',
+//    ['as' => 'oppgaver.vis', 'uses' => 'OppgaveController@vis']);
+//
+//Route::get('regnskap/oppgaver/{oppgave}/rediger',
+//    ['as' => 'oppgaver.rediger', 'uses' => 'OppgaveController@rediger']);
+//
+//Route::put('regnskap/oppgaver/{oppgave}',
+//    ['as' => 'oppgaver.oppdater', 'uses' => 'OppgaveController@oppdater']);
+//
+//Route::patch('regnskap/oppgaver/{oppgave}',
+//    ['uses' => 'OppgaveController@oppdater']);
+//
+//Route::delete('regnskap/oppgaver/{oppgave}',
+//    ['as' => 'oppgaver.slett', 'uses' => 'OppgaveController@slett']);
 
 
 // Oppgavesett
@@ -167,6 +167,13 @@ Route::get('regnskap/bilagsmalsekvenser',
         'as' => 'bilagsmalsekvenser.index',
         'uses' => 'Purmoduler\Regnskap\BilagsmalsekvensController@index'
     ]);
+
+Route::get('regnskap/oppgaver/opprett',
+    [
+     'as' => 'regnskap.oppgaver.opprett',
+     'uses' => 'Purmoduler\Regnskap\BilagsmalsekvensController@opprett'
+    ]);
+
 Route::get('regnskap/bilagsmalsekvenser/{bilagsmalsekvenser}',
     [
         'as' => 'bilagsmalsekvenser.show',
