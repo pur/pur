@@ -3,6 +3,7 @@
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Pur\Besvarelse;
+use Pur\Oppgave;
 
 class EventServiceProvider extends ServiceProvider {
 
@@ -26,6 +27,12 @@ class EventServiceProvider extends ServiceProvider {
 	public function boot(DispatcherContract $events)
 	{
 		parent::boot($events);
+
+        // Sørger for at moduloppgaver slettes med sin oppgave
+        // (kan ikke gjøres med 'on delete cascade' i DB):
+        Oppgave::deleting(function ($oppgave) {
+            if (!$oppgave->moduloppgave->delete()) return false;
+        });
 
         // Sørger for at moduloppgavesvar slettes med sin besvarelse
         // (kan ikke gjøres med 'on delete cascade' i DB):

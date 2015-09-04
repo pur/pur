@@ -45,15 +45,11 @@
                             <a href="{{ URL::route('bilagsmalsekvenser.edit', $oppgave) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Rediger oppgave">
                                 <span class="fa fa-pencil-square-o"></span>
                             </a>
-                            @if(isset($kanOpprette) && $kanOpprette == true)
-                                <a href="#" class="btn btn-default ikke-implementert disabled" data-toggle="tooltip" data-placement="top" data-container="body" title="Fjern oppgave fra oppgavesett">
-                                    <span class="fa fa-trash"></span>
-                                </a>
-                                @else
-                                <a href="#" class="btn btn-default ikke-implementert disabled" data-toggle="tooltip" data-placement="top" data-container="body" title="Slett oppgave">
-                                    <span class="fa fa-trash"></span>
-                                </a>
-                            @endif
+                            {!! Form::open(['route' => ['regnskap.oppgaver.slett', $oppgave], 'method' => 'DELETE', 'class' => 'form-inline']) !!}
+                            <button type="submit" class="btn btn-default bekreft-slett" data-toggle="tooltip" data-placement="top" data-container="body" title="Slett oppgave">
+                                <span class="fa fa-trash"></span>
+                            </button>
+                            {!! Form::close() !!}
                         </div>
 
                     </div>

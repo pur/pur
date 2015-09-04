@@ -103,9 +103,15 @@ class BilagsmalsekvensController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function destroy(Bilagsmalsekvens $bilagsmalsekvens)
+    public function slett(Bilagsmalsekvens $bilagsmalsekvens)
     {
-        //
+
+        $bilagsmalsekvens->oppgave->delete();
+
+        flash('Oppgaven ble slettet');
+
+        // TODO: Gjør purmoduluavhengig:
+        return redirect('/regnskap/oppgaver');
     }
 
 }

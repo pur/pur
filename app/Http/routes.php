@@ -196,6 +196,12 @@ Route::get('regnskap/bilagsmalsekvenser/{bilagsmalsekvenser}/update',
         'uses' => 'Purmoduler\Regnskap\BilagsmalsekvensController@update'
     ]);
 
+Route::delete('regnskap/oppgaver/{bilagsmalsekvens}',
+    [
+        'as' => 'regnskap.oppgaver.slett',
+        'uses' => 'Purmoduler\Regnskap\BilagsmalsekvensController@slett'
+    ]);
+
 
 // TODO: Gjør til eksplisitte ruter:
 
