@@ -1,6 +1,6 @@
 @extends('pur')
 @section('content')
-    @include('purmoduler.regnskap.bilagsmalsekvenser._editSubmenu')
+    @include('purmoduler.regnskap.bilagsmalsekvenser._rediger-undermeny')
 
     <div class="container content">
 

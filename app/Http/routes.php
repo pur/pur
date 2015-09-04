@@ -129,9 +129,10 @@ Route::patch('regnskap/besvarelser/{besvarelse}',
 Route::delete('regnskap/besvarelser/{besvarelse}',
     ['as' => 'besvarelser.slett', 'uses' => 'BesvarelseController@slett']);
 
+
 // PURMODULER - REGNSKAP:
 
-// TODO Lag norske rute– og controllermetode-navn:
+// Oppgaver (bilagsmalsekvenser)
 
 Route::get('regnskap/oppgaver',
     [
@@ -151,19 +152,26 @@ Route::post('regnskap/oppgaver',
      'uses' => 'Purmoduler\Regnskap\BilagsmalsekvensController@lagre'
     ]);
 
-Route::get('regnskap/bilagsmalsekvenser/{bilagsmalsekvenser}',
+Route::get('regnskap/oppgaver/{bilagsmalsekvens}',
     [
-        'as' => 'bilagsmalsekvenser.show',
-        'uses' => 'Purmoduler\Regnskap\BilagsmalsekvensController@show'
+        'as' => 'regnskap.oppgaver.vis',
+        'uses' => 'Purmoduler\Regnskap\BilagsmalsekvensController@vis'
     ]);
-Route::get('regnskap/bilagsmalsekvenser/{bilagsmalsekvenser}/rediger',
+
+Route::get('regnskap/oppgaver/{bilagsmalsekvens}/rediger',
     [
-        'as' => 'bilagsmalsekvenser.edit',
-        'uses' => 'Purmoduler\Regnskap\BilagsmalsekvensController@edit'
+        'as' => 'regnskap.oppgaver.rediger',
+        'uses' => 'Purmoduler\Regnskap\BilagsmalsekvensController@rediger'
     ]);
-Route::get('regnskap/bilagsmalsekvenser/{bilagsmalsekvenser}/update',
+
+Route::put('regnskap/oppgaver/{bilagsmalsekvens}/oppdater',
     [
-        'as' => 'bilagsmalsekvenser.update',
+        'as' => 'regnskap.oppgaver.oppdater',
+        'uses' => 'Purmoduler\Regnskap\BilagsmalsekvensController@update'
+    ]);
+
+Route::patch('regnskap/oppgaver/{bilagsmalsekvens}/oppdater',
+    [
         'uses' => 'Purmoduler\Regnskap\BilagsmalsekvensController@update'
     ]);
 

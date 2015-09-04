@@ -65,9 +65,9 @@ class BilagsmalsekvensController extends Controller
      * @return Response
      * @internal param int $id
      */
-    public function show(Bilagsmalsekvens $bilagsmalsekvens)
+    public function vis(Bilagsmalsekvens $bilagsmalsekvens)
     {
-        return view('purmoduler.regnskap.bilagsmalsekvenser.show', compact('bilagsmalsekvens'));
+        return view('purmoduler.regnskap.bilagsmalsekvenser.vis', compact('bilagsmalsekvens'));
     }
 
     /**
@@ -77,13 +77,14 @@ class BilagsmalsekvensController extends Controller
      * @return Response
      * @internal param int $id
      */
-    public function edit(Bilagsmalsekvens $bilagsmalsekvens)
+    public function rediger(Bilagsmalsekvens $bilagsmalsekvens)
     {
         $selectKontoer = Konto::alleSomKodeNavnTabell();
 
         $selectFormler = Formelregner::navnAlleFormler();
 
-        return view('purmoduler.regnskap.bilagsmalsekvenser.edit', compact('bilagsmalsekvens', 'selectKontoer', 'selectFormler'));
+        return view('purmoduler.regnskap.bilagsmalsekvenser.rediger',
+               compact('bilagsmalsekvens', 'selectKontoer', 'selectFormler'));
     }
 
     /**
@@ -94,12 +95,10 @@ class BilagsmalsekvensController extends Controller
      * @return Response
      * @internal param int $id
      */
-    public function update(Bilagsmalsekvens $bilagsmalsekvens, Request $request)
+    public function oppdater(Bilagsmalsekvens $bilagsmalsekvens, Request $request)
     {
-        $bilagsmalsekvens->fill($request->all())->save();
-        $bilagsmalsekvens->oppgave->fill($request->all())->save();
-
-        return view('purmoduler.regnskap.bilagsmalsekvenser.testing.show', compact('bilagsmalsekvens'));
+//        $bilagsmalsekvens->fill($request->all())->save();
+//        $bilagsmalsekvens->oppgave->fill($request->all())->save();
     }
 
     /**
@@ -110,12 +109,10 @@ class BilagsmalsekvensController extends Controller
      */
     public function slett(Bilagsmalsekvens $bilagsmalsekvens)
     {
-
         $bilagsmalsekvens->oppgave->delete();
 
         flash('Oppgaven ble slettet');
 
-        // TODO: Gjør purmoduluavhengig:
         return redirect('/regnskap/oppgaver');
     }
 
