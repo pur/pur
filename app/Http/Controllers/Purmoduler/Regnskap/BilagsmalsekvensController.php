@@ -9,7 +9,7 @@ use Pur\Oppgave;
 use Pur\Purmoduler\Regnskap\Bilagsmalsekvens;
 use Pur\Purmoduler\Regnskap\Formelregner;
 use Pur\Purmoduler\Regnskap\Konto;
-
+use Pur\Services\Purmoduler\Regnskap\RegnskapOppgaveTjeneste;
 
 class BilagsmalsekvensController extends Controller
 {
@@ -39,22 +39,14 @@ class BilagsmalsekvensController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+     * @param Request $request
      * @return Response
      */
     public function lagre(Request $request)
     {
-        $bilagsmalsekvens = new Bilagsmalsekvens();
-        $bilagsmalsekvens->motpart = $request->input('motpart');
-        $bilagsmalsekvens->save();
+        $oppgaveTjeneste = new RegnskapOppgaveTjeneste();
 
-        $oppgave = new Oppgave();
-        $oppgave->beskrivelse = $request->input('beskrivelse');
-
-        $oppgave->moduloppgave_type = 'Pur\Purmoduler\Regnskap\Bilagsmalsekvens';
-        $oppgave->moduloppgave_id = $bilagsmalsekvens->id;
-
-        $oppgave->skaper()->associate(Auth::user());
-        $oppgave->save();
+        $oppgaveTjeneste->opprett($request, Auth::user());
 
         flash('Oppgaven ble opprettet');
 
