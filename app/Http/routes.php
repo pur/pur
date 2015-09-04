@@ -80,9 +80,9 @@ Route::delete('brukere/{bruker}',
 
 // Oppgaver
 
-Route::get('regnskap/oppgaver/{rolle?}',
-    ['as' => 'oppgaver.opplist', 'uses' => 'OppgaveController@opplist']);
-
+//Route::get('regnskap/oppgaver/{rolle?}',
+//    ['as' => 'oppgaver.opplist', 'uses' => 'OppgaveController@opplist']);
+//
 //Route::get('regnskap/oppgaver/opprett',
 //    ['as' => 'oppgaver.opprett', 'uses' => 'OppgaveController@opprett']);
 //
@@ -162,10 +162,10 @@ Route::delete('regnskap/besvarelser/{besvarelse}',
 
 // TODO Lag norske rute– og controllermetode-navn:
 
-Route::get('regnskap/bilagsmalsekvenser',
+Route::get('regnskap/oppgaver',
     [
-        'as' => 'bilagsmalsekvenser.index',
-        'uses' => 'Purmoduler\Regnskap\BilagsmalsekvensController@index'
+        'as' => 'regnskap.oppgaver.opplist',
+        'uses' => 'Purmoduler\Regnskap\BilagsmalsekvensController@opplist'
     ]);
 
 Route::get('regnskap/oppgaver/opprett',

@@ -16,14 +16,13 @@ class BilagsmalsekvensController extends Controller
 
     /**
      * Display a listing of the resource.
-     *
-     * @param Bilagsmalsekvens $bilagsmalsekvens
      * @return Response
      */
-    public function index(Bilagsmalsekvens $bilagsmalsekvens)
+    public function opplist()
     {
-        $bilagsmalsekvenser = $bilagsmalsekvens->get();
-        return view('purmoduler.regnskap.bilagsmalsekvenser.index', compact('bilagsmalsekvenser'));
+        $oppgaver = Oppgave::get();
+
+        return view('oppgaver.opplist', compact('oppgaver'));
     }
 
     /**

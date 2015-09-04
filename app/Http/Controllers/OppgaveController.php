@@ -21,18 +21,12 @@ class OppgaveController extends Controller
     /**
      * List opp oppgaver.
      *
-     * For lærer: Alle lærerens oppgaver.
-     * For student: Alle publiserte oppgaver (Purmodul-avhengig).
-     *
      * @param Oppgave $oppgave
-     * @param null $rolle Ev. overstyring av rolle
      * @return \Illuminate\View\View
      */
-    public function opplist(Oppgave $oppgave, $rolle = null)
+    public function opplist(Oppgave $oppgave)
     {
-        // TODO: Håndter mht. rolle:
-        $oppgaver = $oppgave->get();
-        return view('oppgaver.opplist', compact('oppgaver'));
+        //
     }
 
     /**

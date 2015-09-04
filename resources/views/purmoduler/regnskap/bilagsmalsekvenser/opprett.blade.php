@@ -27,7 +27,7 @@
         </div>
         <div class="form-group col-sm-12">
             {!! Form::submit('Opprett', ['class' => 'btn btn-primary']) !!}
-            {!! link_to_route('oppgaver.opplist', 'Avbryt', null, ['class' => 'btn btn-warning']) !!}
+            {!! link_to_route('regnskap.oppgaver.opplist', 'Avbryt', null, ['class' => 'btn btn-warning']) !!}
         </div>
 
         {!! Form::close() !!}
