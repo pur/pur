@@ -14,6 +14,12 @@ use Pur\Services\Purmoduler\Regnskap\RegnskapOppgaveTjeneste;
 class BilagsmalsekvensController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('laerer');
+    }
+
     /**
      * Display a listing of the resource.
      * @return Response
