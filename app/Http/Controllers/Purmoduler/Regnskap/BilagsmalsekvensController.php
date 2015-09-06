@@ -55,7 +55,7 @@ class BilagsmalsekvensController extends Controller
 
         flash('Oppgaven ble opprettet');
 
-        return redirect()->route('oppgaver.opplist');
+        return redirect()->route('regnskap.oppgaver.opplist');
     }
 
     /**
@@ -110,6 +110,8 @@ class BilagsmalsekvensController extends Controller
     public function slett(Bilagsmalsekvens $bilagsmalsekvens)
     {
         $bilagsmalsekvens->oppgave->delete();
+        // app/Providers/EventServiceProvider sørger for å slette
+        // bilagsmalsekvensen når dens tilhørende oppgave slettes
 
         flash('Oppgaven ble slettet');
 

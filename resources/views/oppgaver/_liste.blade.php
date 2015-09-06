@@ -42,10 +42,10 @@
                     </div>
                     <div class="col-sm-2 actions">
                         <div class="pull-right">
-                            <a href="{{ URL::route('regnskap.oppgaver.rediger', $oppgave) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Rediger oppgave">
+                            <a href="{{ URL::route('regnskap.oppgaver.rediger', $oppgave->moduloppgave) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Rediger oppgave">
                                 <span class="fa fa-pencil-square-o"></span>
                             </a>
-                            {!! Form::open(['route' => ['regnskap.oppgaver.slett', $oppgave], 'method' => 'DELETE', 'class' => 'form-inline']) !!}
+                            {!! Form::open(['route' => ['regnskap.oppgaver.slett', $oppgave->moduloppgave], 'method' => 'DELETE', 'class' => 'form-inline']) !!}
                             <button type="submit" class="btn btn-default bekreft-slett" data-toggle="tooltip" data-placement="top" data-container="body" title="Slett oppgave">
                                 <span class="fa fa-trash"></span>
                             </button>
