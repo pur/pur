@@ -167,12 +167,12 @@ Route::get('regnskap/oppgaver/{bilagsmalsekvens}/rediger',
 Route::put('regnskap/oppgaver/{bilagsmalsekvens}/oppdater',
     [
         'as' => 'regnskap.oppgaver.oppdater',
-        'uses' => 'Purmoduler\Regnskap\BilagsmalsekvensController@update'
+        'uses' => 'Purmoduler\Regnskap\BilagsmalsekvensController@oppdater'
     ]);
 
 Route::patch('regnskap/oppgaver/{bilagsmalsekvens}/oppdater',
     [
-        'uses' => 'Purmoduler\Regnskap\BilagsmalsekvensController@update'
+        'uses' => 'Purmoduler\Regnskap\BilagsmalsekvensController@oppdater'
     ]);
 
 Route::delete('regnskap/oppgaver/{bilagsmalsekvens}',
