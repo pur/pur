@@ -36,4 +36,29 @@ class RegnskapOppgaveTjeneste
 
         return $bilagsmalsekvens;
     }
+
+    public function oppdater($bilagsmalsekvens, $request) {
+
+        $bilagsmalsekvens->fill($request->all())->save();
+        $bilagsmalsekvens->oppgave->fill($request->all())->save();
+
+
+        $varA = $bilagsmalsekvens->variabler->where('tegn_i_formel', 'a')->first();
+        $varA->navn = $request->input('anavn');
+        $varA->verdi_min = $request->input('aMin');
+        $varA->verdi_maks = $request->input('aMaks');
+        $varA->save();
+
+        $varB = $bilagsmalsekvens->variabler->where('tegn_i_formel', 'b')->first();
+        $varB->navn = $request->input('bnavn');
+        $varB->verdi_min = $request->input('bMin');
+        $varB->verdi_maks = $request->input('bMaks');
+        $varB->save();
+
+        $varX = $bilagsmalsekvens->variabler->where('tegn_i_formel', 'x')->first();
+        $varX->navn = $request->input('xnavn');
+        $varX->verdi_min = $request->input('xMin');
+        $varX->verdi_maks = $request->input('xMaks');
+        $varX->save();
+    }
 }

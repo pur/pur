@@ -32,9 +32,6 @@
         </div>
 
 
-        {!! Form::close() !!}
-
-
         <h2>Variabler</h2>
 
         <blockquote class="bq-info">
@@ -76,6 +73,14 @@
 
             </div>
         @endforeach
+
+        <div class="row">
+            <div class="col-md-1 pull-right">
+                {!! Form::submit('Lagre', ['class' => 'btn btn-default']) !!}
+            </div>
+        </div>
+
+        {!! Form::close() !!}
 
         <hr/>
 

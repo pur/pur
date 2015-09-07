@@ -97,8 +97,11 @@ class BilagsmalsekvensController extends Controller
      */
     public function oppdater(Bilagsmalsekvens $bilagsmalsekvens, Request $request)
     {
-//        $bilagsmalsekvens->fill($request->all())->save();
-//        $bilagsmalsekvens->oppgave->fill($request->all())->save();
+        $oppgaveTjeneste = new RegnskapOppgaveTjeneste();
+
+        $oppgaveTjeneste->oppdater($bilagsmalsekvens, $request);
+
+        return redirect()->route('regnskap.oppgaver.rediger', compact('bilagsmalsekvens'));
     }
 
     /**
