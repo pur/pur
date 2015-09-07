@@ -1,6 +1,6 @@
 <div role="tabpanel" class="tab-pane active" id="lagBilag{{ $bilagsmal->id }}">
     <div class="panel-body">
-        {!! Form::model($bilagsmal, ['route' => ['bilagsmaler.update', $bilagsmal->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
+        {!! Form::model($bilagsmal, ['route' => ['regnskap.bilagsmaler.oppdater', $bilagsmal], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout']) !!}
         <blockquote class="bq-info">
             <p>Fyll ut info om bilag</p>
         </blockquote>
@@ -13,7 +13,7 @@
                                 <label for="bilagstittel">Type:</label>
                             </div>
                             <div class="col-md-10">
-                                {!! Form::text('bilagstittel', $bilagsmal->bilagstype, ['class' => 'form-control bilagstittel', 'id' => 'bilagstittel' . $bilagsmal->id]) !!}
+                                {!! Form::text('bilagstype', $bilagsmal->bilagstype, ['class' => 'form-control bilagstittel', 'id' => 'bilagstittel' . $bilagsmal->id]) !!}
                             </div>
                         </div>
                     </div>
@@ -81,6 +81,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-md-1 pull-right">
+                {!! Form::submit('Lagre', ['class' => 'btn btn-default']) !!}
             </div>
 
         </div>

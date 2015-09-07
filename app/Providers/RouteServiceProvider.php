@@ -36,8 +36,8 @@ class RouteServiceProvider extends ServiceProvider {
         // Purmoduler\Regnskap:
         $router->model('bilagsmalsekvens', 'Pur\Purmoduler\Regnskap\Bilagsmalsekvens');
         $router->model('bilagsmalsekvenser', 'Pur\Purmoduler\Regnskap\Bilagsmalsekvens');
-        $router->model('bilagsmal', 'Pur\Purmoduler\Regnskap\Bilagsmaler');
-        $router->model('bilagsmaler', 'Pur\Purmoduler\Regnskap\Bilagsmaler');
+        $router->model('bilagsmal', 'Pur\Purmoduler\Regnskap\Bilagsmal');
+        $router->model('bilagsmaler', 'Pur\Purmoduler\Regnskap\Bilagsmal');
         $router->model('posteringsmal', 'Pur\Purmoduler\Regnskap\Posteringsmal');
         $router->model('posteringsmaler', 'Pur\Purmoduler\Regnskap\Posteringsmal');
         $router->model('bilag', 'Pur\Purmoduler\Regnskap\Bilag');

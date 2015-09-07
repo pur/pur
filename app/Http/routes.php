@@ -182,9 +182,22 @@ Route::delete('regnskap/oppgaver/{bilagsmalsekvens}',
     ]);
 
 
+// Bilagsmaler
+
+Route::put('regnskap/bilagsmaler/{bilagsmal}/oppdater',
+    [
+        'as' => 'regnskap.bilagsmaler.oppdater',
+        'uses' => 'Purmoduler\Regnskap\BilagsmalController@oppdater'
+    ]);
+
+Route::patch('regnskap/bilagsmaler/{bilagsmal}/oppdater',
+    [
+        'uses' => 'Purmoduler\Regnskap\BilagsmalController@oppdater'
+    ]);
+
+
 // TODO: Gjør til eksplisitte ruter:
 
-$router->resource('bilagsmaler', 'Purmoduler\Regnskap\BilagsmalController');
 $router->resource('posteringsmaler', 'Purmoduler\Regnskap\PosteringsmalController');
 $router->resource('posteringer', 'Purmoduler\Regnskap\PosteringController');
 
