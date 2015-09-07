@@ -32,6 +32,30 @@ function visBehandlingsResultat(behandlingsElement, behandlingsTekst) {
     menyanimasjon.delay(3000).fadeOut(1000);
 };
 
+
+// Bilagsmalsekvens
+
+(function () {
+    $('#bilagsmalsekvens').on('focusout', $(this), function (event) {
+        event.preventDefault();
+        var form = $(this);
+        var type = form.find('input[name="_method"]').val() || 'POST';
+        var url = form.prop('action');
+        var data = form.serialize();
+        visBehandling(null, 'Lagrer');
+
+        $.ajax({
+            type: type,
+            url: url,
+            data: data,
+            success: function () {
+                visBehandlingsResultat(null, 'Lagret');
+            }
+        });
+    });
+})();
+
+
 // Bilagsmaler:
 
 (function () {
@@ -54,7 +78,6 @@ function visBehandlingsResultat(behandlingsElement, behandlingsTekst) {
                 visBehandlingsResultat(postering, 'Lagret');
             }
         });
-        e.preventDefault();
     });
 
 })();

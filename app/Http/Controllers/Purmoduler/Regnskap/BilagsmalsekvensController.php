@@ -83,8 +83,7 @@ class BilagsmalsekvensController extends Controller
 
         $selectFormler = Formelregner::navnAlleFormler();
 
-        return view('purmoduler.regnskap.bilagsmalsekvenser.rediger',
-               compact('bilagsmalsekvens', 'selectKontoer', 'selectFormler'));
+        return view('purmoduler.regnskap.bilagsmalsekvenser.rediger', compact('bilagsmalsekvens', 'selectKontoer', 'selectFormler'));
     }
 
     /**
@@ -101,7 +100,7 @@ class BilagsmalsekvensController extends Controller
 
         $oppgaveTjeneste->oppdater($bilagsmalsekvens, $request);
 
-        return redirect()->route('regnskap.oppgaver.rediger', compact('bilagsmalsekvens'));
+        //return redirect()->route('regnskap.oppgaver.rediger', compact('bilagsmalsekvens'));
     }
 
     /**

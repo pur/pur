@@ -5,7 +5,9 @@
     <div class="container content">
 
         <h1>Rediger oppgave</h1>
-        {!! Form::model($bilagsmalsekvens, ['route' => ['regnskap.oppgaver.oppdater', $bilagsmalsekvens->id], 'method' => 'PATCH']) !!}
+
+        {!! Form::model($bilagsmalsekvens, ['route' => ['regnskap.oppgaver.oppdater', $bilagsmalsekvens->id], 'method' => 'PATCH', 'submit-async' => 'on-form-focusout', 'id' => 'bilagsmalsekvens']) !!}
+
         <div class="row">
             <div class="col-sm-12">
                 <div class="row">
@@ -70,15 +72,11 @@
                     <label class="visible-xs-inline">Maksimumsverdi: </label>
                     {!! Form::input('number', $variabel->tegn_i_formel . 'Maks', $variabel->verdi_maks, ['min'=>'0', 'class' => 'form-control variabel', 'id' => $variabel->tegn_i_formel . 'Maks']) !!}
                 </div>
-
             </div>
         @endforeach
 
-        <div class="row">
-            <div class="col-md-1 pull-right">
-                {!! Form::submit('Lagre', ['class' => 'btn btn-default']) !!}
-            </div>
-        </div>
+
+
 
         {!! Form::close() !!}
 
@@ -97,7 +95,7 @@
                 <section>
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Bilag nr. {{ $bilagsmal->nr_i_sekvens }}  -
+                            <h3 class="panel-title">Bilag nr. {{ $bilagsmal->nr_i_sekvens }} -
                                 <span id="bilagstittel{{ $bilagsmal->id }}HeadingVis">{{ $bilagsmal->bilagstype }}</span>
                             </h3>
 
@@ -141,7 +139,7 @@
                                     @include('purmoduler.regnskap.bilagsmalsekvenser._lagBilag')
 
 
-                                    <!-- Vis bilag tab -->
+                                            <!-- Vis bilag tab -->
                                     @include('purmoduler.regnskap.bilagsmalsekvenser._visBilag')
 
 
