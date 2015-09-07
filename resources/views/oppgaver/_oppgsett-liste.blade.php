@@ -3,9 +3,11 @@
     <div class="list-group panel panel-primary" role="tablist" aria-multiselectable="true">
         <div class="panel-heading hidden-xs">
             <div class="row">
-                <div class="col-sm-1">
-                    <b>Velg:</b>
-                </div>
+                @if($oppgaverKanVelges)
+                    <div class="col-sm-1">
+                        <b>Velg:</b>
+                    </div>
+                @endif
                 <div class="col-sm-6">
                     <b>Beskrivelse:</b>
                 </div>
