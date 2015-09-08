@@ -76,7 +76,7 @@ class Postering extends Model {
     }
 
     /**
-     * Begrenser spørreresultatet til rader med oppgitt beløp
+     * Begrenser spørreresultatet til rader med oppgitt beløp +/- 1 kr
      *
      * @param $query
      * @param $belop
@@ -84,7 +84,7 @@ class Postering extends Model {
      */
     public function scopeMedBelop($query, $belop)
     {
-        return $query->whereBelop($belop);
+        return $query->where('belop', '<=', $belop + 1.0)->where('belop', '>=', $belop - 1.0);
     }
 
     /**
