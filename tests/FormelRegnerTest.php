@@ -62,29 +62,50 @@ class FormelregnerTest extends TestCase
         // Formel 13: a - b
         $this->assertEquals(10620, $formelregner->brukFormel(13), $mld . ' 13');
 
-        // Formel 14: (a - b) * (x / 100)
-        $this->assertEquals(159.3, $formelregner->brukFormel(14), $mld . ' 14');
+        // Formel 14: - (a - b)
+        $this->assertEquals(-10620, $formelregner->brukFormel(14), $mld . ' 14');
 
-        // Formel 15: (a - b) * (x / 100) / 5
-        $this->assertEquals(31.86, $formelregner->brukFormel(15), $mld . ' 15');
+        // Formel 15: (a - b) * (x / 100)
+        $this->assertEquals(159.3, $formelregner->brukFormel(15), $mld . ' 15');
 
-        // Formel 16: (a - b) * (x / 100) / 1,25
-        $this->assertEquals(127.44, $formelregner->brukFormel(16), $mld . ' 16');
+        // Formel 16: (a - b) * (x / 100) / 5
+        $this->assertEquals(31.86, $formelregner->brukFormel(16), $mld . ' 16');
 
-        // Formel 17: (a - b) * (100 - x) / 100
-        $this->assertEquals(10460.7, $formelregner->brukFormel(17), $mld . ' 17');
+        // Formel 17: (a - b) * (x / 100) / 1,25
+        $this->assertEquals(127.44, $formelregner->brukFormel(17), $mld . ' 17');
 
-        // Formel 18: - (a - b) * (x / 100)
-        $this->assertEquals(-159.3, $formelregner->brukFormel(18), $mld . ' 18');
+        // Formel 18: (a - b) * (100 - x) / 100
+        $this->assertEquals(10460.7, $formelregner->brukFormel(18), $mld . ' 18');
 
-        // Formel 19: - (a - b) * (x / 100) / 5
-        $this->assertEquals(-31.86, $formelregner->brukFormel(19), $mld . ' 19');
+        // Formel 19: - (a - b) * (x / 100)
+        $this->assertEquals(-159.3, $formelregner->brukFormel(19), $mld . ' 19');
 
-        // Formel 20: - (a - b) * (x / 100) / 1,25
-        $this->assertEquals(-127.44, $formelregner->brukFormel(20), $mld . ' 20');
+        // Formel 20: - (a - b) * (x / 100) / 5
+        $this->assertEquals(-31.86, $formelregner->brukFormel(20), $mld . ' 20');
 
-        // Formel 21: - (a - b) * (100 - x) / 100
-        $this->assertEquals(-10460.7, $formelregner->brukFormel(21), $mld . ' 21');
+        // Formel 21: - (a - b) * (x / 100) / 1,25
+        $this->assertEquals(-127.44, $formelregner->brukFormel(21), $mld . ' 21');
+
+        // Formel 22: - (a - b) * (100 - x) / 100
+        $this->assertEquals(-10460.7, $formelregner->brukFormel(22), $mld . ' 22');
+
+        // Formel 23: a * 0,141
+        $this->assertEquals(1708.92, $formelregner->brukFormel(23), $mld . ' 23');
+
+        // Formel 24: a * 0,12
+        $this->assertEquals(1454.4, $formelregner->brukFormel(24), $mld . ' 24');
+
+        // Formel 25: a * 0,141 * 0,12
+        $this->assertEquals(205.0704, $formelregner->brukFormel(25), $mld . ' 25');
+
+        // Formel 26: - a * 0,141
+        $this->assertEquals(-1708.92, $formelregner->brukFormel(26), $mld . ' 26');
+
+        // Formel 27: - a * 0,12
+        $this->assertEquals(-1454.4, $formelregner->brukFormel(27), $mld . ' 27');
+
+        // Formel 28: - a * 0,141 * 0,12
+        $this->assertEquals(-205.0704, $formelregner->brukFormel(28), $mld . ' 28');
     }
 
 }
