@@ -17,63 +17,67 @@ class Formelregner
 
     public function brukFormel($formelNr)
     {
+        $a = $this->a;
+        $b = $this->b;
+        $x = $this->x;
+
         switch ($formelNr) {
             case 1 :
-                return $this->a;
+                return $a;
             case 2 :
-                return $this->a / 5;
+                return $a / 5;
             case 3 :
-                return $this->a / 1.25;
+                return $a / 1.25;
             case 4 :
-                return $this->b;
+                return $b;
             case 5 :
-                return $this->b / 5;
+                return $b / 5;
             case 6 :
-                return $this->b / 1.25;
+                return $b / 1.25;
             case 7 :
-                return 0 - $this->a;
+                return -$a;
             case 8 :
-                return 0 - $this->a / 5;
+                return -$a / 5;
             case 9 :
-                return 0 - $this->a / 1.25;
+                return -$a / 1.25;
             case 10 :
-                return 0 - $this->b;
+                return -$b;
             case 11 :
-                return 0 - $this->b / 5;
+                return -$b / 5;
             case 12 :
-                return 0 - $this->b / 1.25;
+                return -$b / 1.25;
             case 13 :
-                return $this->a - $this->b;
+                return $a - $b;
             case 14 :
-                return 0 - ($this->a - $this->b);
+                return -($a - $b);
             case 15 :
-                return ($this->a - $this->b) * ($this->x / 100);
+                return ($a - $b) * ($x / 100);
             case 16 :
-                return ($this->a - $this->b) * ($this->x / 100) / 5;
+                return ($a - $b) * ($x / 100) / 5;
             case 17 :
-                return ($this->a - $this->b) * ($this->x / 100) / 1.25;
+                return ($a - $b) * ($x / 100) / 1.25;
             case 18 :
-                return ($this->a - $this->b) * (100 - $this->x) / 100;
+                return ($a - $b) * (100 - $x) / 100;
             case 19 :
-                return 0 - ($this->a - $this->b) * ($this->x / 100);
+                return -($a - $b) * ($x / 100);
             case 20 :
-                return 0 - ($this->a - $this->b) * ($this->x / 100) / 5;
+                return -($a - $b) * ($x / 100) / 5;
             case 21 :
-                return 0 - ($this->a - $this->b) * ($this->x / 100) / 1.25;
+                return -($a - $b) * ($x / 100) / 1.25;
             case 22 :
-                return 0 - ($this->a - $this->b) * (100 - $this->x) / 100;
+                return -($a - $b) * (100 - $x) / 100;
             case 23 :
-                return $this->a * 0.141;
+                return $a * 0.141;
             case 24 :
-                return $this->a * 0.12;
+                return $a * 0.12;
             case 25 :
-                return $this->a * 0.141 * 0.12;
+                return $a * 0.141 * 0.12;
             case 26 :
-                return 0 - $this->a * 0.141;
+                return -$a * 0.141;
             case 27 :
-                return 0 - $this->a * 0.12;
+                return -$a * 0.12;
             case 28 :
-                return 0 - $this->a * 0.141 * 0.12;
+                return -$a * 0.141 * 0.12;
             default :
                 return 0;
         }
