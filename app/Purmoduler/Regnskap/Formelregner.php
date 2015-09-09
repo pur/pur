@@ -60,6 +60,18 @@ class Formelregner
                 return 0 - ($this->a - $this->b) * ($this->x / 100) / 1.25;
             case 21 :
                 return 0 - ($this->a - $this->b) * (100 - $this->x) / 100;
+            case 22 :
+                return $this->a * 0.141;
+            case 23 :
+                return $this->a * 0.12;
+            case 24 :
+                return $this->a * 0.141 * 0.12;
+            case 25 :
+                return 0 - $this->a * 0.141;
+            case 26 :
+                return 0 - $this->a * 0.12;
+            case 27 :
+                return 0 - $this->a * 0.141 * 0.12;
             default :
                 return 0;
         }
@@ -96,6 +108,12 @@ class Formelregner
             19 => '- (a - b) * (x / 100) / 5',
             20 => '- (a - b) * (x / 100) / 1,25',
             21 => '- (a - b) * (100 - x) / 100',
+            22 => 'a * 0,141',
+            23 => 'a * 0,12',
+            24 => 'a * 0,141 * 0,12',
+            25 => '- a * 0,141',
+            26 => '- a * 0,12',
+            27 => '- a * 0,141 * 0,12'
         ];
     }
 
