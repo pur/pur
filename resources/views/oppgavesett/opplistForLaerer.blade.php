@@ -67,7 +67,7 @@
                                     <a href="{{ URL::route('oppgavesett.vis', $oppgavesett) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Vis oppgavesett">
                                         <span class="fa fa-eye"></span>
                                     </a>
-                                    @if($oppgavesett->erPublisert())
+                                    @if(false) {--$oppgavesett->erPublisert())--}}
                                         <a class="btn btn-default disabled" data-toggle="tooltip" data-placement="top" data-container="body" title="Kan ikke endres. Oppgavesettet er publisert">
                                             <span class="fa fa-edit"></span>
                                         </a>
