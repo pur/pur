@@ -2,10 +2,9 @@
 
 @section('content')
     <div class="container innlogging">
-
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <section>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <section>
                     <div class="panel panel-primary">
                         <div class="panel-heading">Logg inn</div>
                         <div class="panel-body">
@@ -31,10 +30,9 @@
                             {!! Form::close()  !!}
                         </div>
                     </div>
-                    </section>
-                </div>
+                </section>
             </div>
-
+        </div>
     </div>
 
 

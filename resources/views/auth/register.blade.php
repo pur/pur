@@ -1,7 +1,7 @@
 @extends('pur')
 
 @section('content')
-<div class="container-fluid">
+<div class="container innlogging">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
@@ -44,7 +44,7 @@
 
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary">
+								<button type="submit" class="btn btn-default">
 									Opprett bruker
 								</button>
 							</div>

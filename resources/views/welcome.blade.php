@@ -19,8 +19,8 @@
 				<div class="title">Pur</div>
 				<!-- <div class="quote">{{ Inspiring::quote() }}</div> -->
                 <div class="quote">Tren på essensen - ikke konteksten!</div>
-                <a href="{{ env('APPWEBPATH') }}/auth/login" class="btn">Logg inn</a>
-                <a href="{{ env('APPWEBPATH') }}/auth/register" class="btn">Opprett bruker</a>
+                <a href="{{ env('APPWEBPATH') }}/auth/login" class="btn btn-default">Logg inn</a>
+                <a href="{{ env('APPWEBPATH') }}/auth/register" class="btn btn-default">Opprett bruker</a>
 			</div>
 		</div>
 
