@@ -80,7 +80,7 @@ class OppgavesettController extends Controller
 
         $oppgavesett = Auth::user()->oppgavesett()->create($request->all());
 
-        $oppgavesett->oppgaver()->sync($request->input('oppgaver'));
+        $oppgavesett->oppgaver()->sync($request->input('oppgaver', []));
 
         $oppgavesettsamling = $this->bruker->oppgavesett;
 
@@ -138,7 +138,7 @@ class OppgavesettController extends Controller
 
         $oppgavesett->update($request->all());
 
-        $oppgavesett->oppgaver()->sync($request->input('oppgaver'));
+        $oppgavesett->oppgaver()->sync($request->input('oppgaver', []));
 
         $oppgavesettsamling = $this->bruker->oppgavesett;
 
