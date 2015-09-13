@@ -47,6 +47,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   line-height: 1.1;
   color: inherit; }
 
+@media (max-width: 767px) {
+  .responsive-table h2 {
+    background-color: #4781cc;
+    color: #FFF;
+    margin: -5px -10px 10px -10px;
+    padding: 10px; } }
 a {
   color: #4781cc; }
 

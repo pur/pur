@@ -14,7 +14,7 @@
         <div class="clearfix"></div>
 
         {!! Form::close() !!}
-        <section class="padding">
+        <section class="padding responsive-table">
             <h2>Oppgaver</h2>
             @include('oppgaver._oppgsett-liste', ['oppgaver' => $oppgavesett->oppgaver, 'oppgaverKanVelges' => false])
         </section>

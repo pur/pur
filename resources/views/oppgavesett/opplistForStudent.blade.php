@@ -3,7 +3,7 @@
     @include('_undermeny')
     <div class="container">
         <h1>Oppgavesett</h1>
-        <section class="padding">
+        <section class="padding responsive-table">
             <h2>Alle oppgavesett</h2>
 
             <!-- TODO: Tilpass kolonner til visning for student -->

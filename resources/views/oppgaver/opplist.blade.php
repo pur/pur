@@ -3,7 +3,7 @@
     @include('oppgaver._opplist-undermeny')
     <div class="container">
         <h1>Oppgaver</h1>
-        <section class="padding">
+        <section class="padding responsive-table">
             <h2>Alle oppgaver</h2>
             @include('oppgaver._liste')
         </section>

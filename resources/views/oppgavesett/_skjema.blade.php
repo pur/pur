@@ -58,7 +58,7 @@
 
 <div class="clearfix"></div>
 
-<section class="padding">
+<section class="padding responsive-table">
     <h2>Inkluder oppgaver</h2>
     @include('oppgaver._oppgsett-liste', ['oppgaver' => $alleOppgaver, 'oppgaverKanVelges' => true])
 </section>

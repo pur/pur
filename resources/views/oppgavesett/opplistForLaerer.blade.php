@@ -3,7 +3,7 @@
     @include('oppgavesett._opplist-undermeny')
     <div class="container">
         <h1>Oppgavesett</h1>
-        <section class="padding">
+        <section class="padding responsive-table">
             <h2>Mine oppgavesett</h2>
 
             <div class="list-group panel panel-primary" id="accordion" role="tablist" aria-multiselectable="true">
