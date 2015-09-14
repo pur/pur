@@ -30,17 +30,6 @@ class BesvarelseController extends Controller
     }
 
     /**
-     * Vis skjermbilde for opprettelse av ny besvarelse.
-     *
-     * @return Response
-     */
-    public function opprett(Oppgavesett $oppgavesett)
-    {
-        $oppgavesettsamling = $oppgavesett->forStudenter();
-        return view('besvarelser.testopprett', compact('oppgavesettsamling'));
-    }
-
-    /**
      * Opprett og lagre besvarelse.
      *
      * @return Response

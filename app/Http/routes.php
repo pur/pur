@@ -108,9 +108,6 @@ Route::delete('regnskap/oppgavesett/{oppgavesett}',
 Route::get('regnskap/besvarelser/{rolle?}',
     ['as' => 'besvarelser.opplist', 'uses' => 'BesvarelseController@opplist']);
 
-Route::get('regnskap/besvarelser/opprett',
-    ['as' => 'besvarelser.opprett', 'uses' => 'BesvarelseController@opprett']);
-
 Route::post('regnskap/besvarelser/{oppgavesett}',
     ['as' => 'besvarelser.lagre', 'uses' => 'BesvarelseController@lagre']);
 
