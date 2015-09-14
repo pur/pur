@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Pur\Http\Requests;
 use Pur\Oppgave;
 use Pur\Oppgavesett;
+use Pur\Services\BesvarelseTjeneste;
 
 class OppgavesettController extends Controller
 {
@@ -104,6 +105,29 @@ class OppgavesettController extends Controller
 
         return view($view, compact('oppgavesett'));
     }
+
+    /**
+     * Test oppgavesett ved å generere en testbesvarelse
+     *
+     * @param Oppgavesett $oppgavesett
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function test(Oppgavesett $oppgavesett)
+    {
+        if($oppgavesett->skaper->id == Auth::user()->id) {
+
+            // TODO: Bruk ev. eksisterende besvarelse hvis ingen endring i oppgavesett
+
+            $oppgavesett->besvarelser()->whereBrukerId(Auth::user()->id)->delete();
+
+            $besvarelseTjeneste = new BesvarelseTjeneste();
+            $besvarelse = $besvarelseTjeneste->opprett($this->bruker, $oppgavesett);
+
+            return redirect()->route('besvarelser.rediger', $besvarelse);
+        }
+        return redirect('/home');
+    }
+
 
     /**
      * Åpne oppgavesett for redigering.

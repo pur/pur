@@ -99,6 +99,9 @@ Route::put('regnskap/oppgavesett/{oppgavesett}',
 Route::patch('regnskap/oppgavesett/{oppgavesett}',
     ['uses' => 'OppgavesettController@oppdater']);
 
+Route::post('regnskap/oppgavesett/{oppgavesett}',
+    ['as' => 'oppgavesett.test', 'uses' => 'OppgavesettController@test']);
+
 Route::delete('regnskap/oppgavesett/{oppgavesett}',
     ['as' => 'oppgavesett.slett', 'uses' => 'OppgavesettController@slett']);
 
