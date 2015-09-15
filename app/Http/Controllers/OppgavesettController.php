@@ -177,6 +177,9 @@ class OppgavesettController extends Controller
      */
     public function slett(Oppgavesett $oppgavesett)
     {
+        // Sletter først ev. testbesvarelser:
+        $oppgavesett->besvarelser()->whereBrukerId(Auth::user()->id)->delete();
+
         $oppgavesett->delete();
 
         flash('Oppgavesettet ble slettet');
