@@ -1,7 +1,7 @@
 @extends('pur')
 @section('content')
 
-    @include('oppgavesett._rediger-undermeny')
+    @include('oppgavesett._opprett-undermeny')
 
     <div class="container">
 
