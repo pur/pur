@@ -22,8 +22,11 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <p class="lead">Bruttobeløp: {{ $bilag->belop() }}<br />
-                                    <small>Rabattsats: {{ $bilag->bilagssekvens->rabattsats() }}</small></p>
+                                    <p class="lead">Bruttobeløp: {{ $bilag->belop() }}<br/>
+                                        @unless($bilag->bilagssekvens->rabattsats() == 0)
+                                            <small>Rabattsats: {{ $bilag->bilagssekvens->rabattsats() }}</small>
+                                        @endunless
+                                    </p>
                                 </div>
                                 <div class="col-sm-6 text-right">
                                    <p class="lead"> {{ $bilag->bilagsmal->bilagsmalsekvens->motpart}}</p>
