@@ -1,14 +1,24 @@
 <?php namespace Pur\Purmoduler\Regnskap;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Konto extends Model
 {
+    use SoftDeletes;
+
+
     protected $table = 'kontoer';
+
+    protected $primaryKey = 'kontokode';
 
     protected $fillable = ['kontokode', 'kontonavn'];
 
     public $timestamps = false;
+
+    const DELETED_AT = 'tid_slettet';
+
+    protected $dates = ['tid_slettet'];
 
 
     /**
