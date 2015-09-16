@@ -34,6 +34,8 @@ class RouteServiceProvider extends ServiceProvider {
         $router->model('oppgavesett', 'Pur\Oppgavesett');
 
         // Purmoduler\Regnskap:
+        $router->model('konto', 'Pur\Purmoduler\Regnskap\Konto');
+        $router->model('kontoer', 'Pur\Purmoduler\Regnskap\Konto');
         $router->model('bilagsmalsekvens', 'Pur\Purmoduler\Regnskap\Bilagsmalsekvens');
         $router->model('bilagsmalsekvenser', 'Pur\Purmoduler\Regnskap\Bilagsmalsekvens');
         $router->model('bilagsmal', 'Pur\Purmoduler\Regnskap\Bilagsmal');

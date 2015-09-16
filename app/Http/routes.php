@@ -201,3 +201,53 @@ Route::patch('regnskap/bilagsmaler/{bilagsmal}/oppdater',
 $router->resource('posteringsmaler', 'Purmoduler\Regnskap\PosteringsmalController');
 $router->resource('posteringer', 'Purmoduler\Regnskap\PosteringController');
 
+
+// Kontoer
+
+Route::get('regnskap/kontoer',
+    [
+        'as' => 'regnskap.kontoer.opplist',
+        'uses' => 'Purmoduler\Regnskap\KontoController@opplist'
+    ]);
+
+Route::get('regnskap/kontoer/opprett',
+    [
+        'as' => 'regnskap.kontoer.opprett',
+        'uses' => 'Purmoduler\Regnskap\KontoController@opprett'
+    ]);
+
+Route::post('regnskap/kontoer',
+    [
+        'as' => 'regnskap.kontoer.lagre',
+        'uses' => 'Purmoduler\Regnskap\KontoController@lagre'
+    ]);
+
+Route::get('regnskap/kontoer/{konto}',
+    [
+        'as' => 'regnskap.kontoer.vis',
+        'uses' => 'Purmoduler\Regnskap\KontoController@vis'
+    ]);
+
+Route::get('regnskap/kontoer/{konto}/rediger',
+    [
+        'as' => 'regnskap.kontoer.rediger',
+        'uses' => 'Purmoduler\Regnskap\KontoController@rediger'
+    ]);
+
+Route::patch('regnskap/kontoer/{konto}/oppdater',
+    [
+        'as' => 'regnskap.kontoer.oppdater',
+        'uses' => 'Purmoduler\Regnskap\KontoController@oppdater'
+    ]);
+
+Route::delete('regnskap/kontoer/{konto}',
+    [
+        'as' => 'regnskap.kontoer.slett',
+        'uses' => 'Purmoduler\Regnskap\KontoController@slett'
+    ]);
+
+Route::put('regnskap/kontoer/gjenopprett',
+    [
+        'as' => 'regnskap.kontoer.gjenopprett',
+        'uses' => 'Purmoduler\Regnskap\KontoController@gjenopprett'
+    ]);
