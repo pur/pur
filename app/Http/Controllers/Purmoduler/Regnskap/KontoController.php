@@ -36,7 +36,7 @@ class KontoController extends Controller
      */
     public function opprett()
     {
-        return "Opprett konto";
+        return view('purmoduler.regnskap.kontoer.opprett');
     }
 
     /**
@@ -47,7 +47,17 @@ class KontoController extends Controller
      */
     public function lagre(Request $request)
     {
-        return "Lagre konto";
+        // TODO: Flytt validering til egen valideringsklasse for gjenbruk i oppdater()
+        $this->validate($request, [
+            'kontokode' => 'required|unique:kontoer|digits:4',
+            'kontonavn' => 'required|max:90'
+        ]);
+
+        Konto::create($request->all());
+
+        flash('Konto ' . $request->input('kontokode') . ' ble opprettet');
+
+        return redirect()->route('regnskap.kontoer.opplist');
     }
 
     /**

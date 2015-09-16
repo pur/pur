@@ -1,6 +1,6 @@
 @extends('pur')
 @section('content')
-    {{--@include('?-undermeny') TODO: inkluder undermeny --}}
+    @include('purmoduler.regnskap.kontoer._opplist-undermeny')
     <div class="container">
         <h1>Kontoer</h1>
 
