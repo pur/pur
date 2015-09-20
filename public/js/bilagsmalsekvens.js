@@ -220,21 +220,35 @@ function brukFormel(formelNr, a, b, x) {
     else if (formelNr == 13)
         return a - b;
     else if (formelNr == 14)
-        return (a - b) * (x / 100);
+        return - (a - b);
     else if (formelNr == 15)
-        return (a - b) * (x / 100) / 5;
+        return (a - b) * (x / 100);
     else if (formelNr == 16)
-        return (a - b) * ( x / 100) / 1.25;
+        return (a - b) * (x / 100) / 5;
     else if (formelNr == 17)
-        return (a - b) * (100 - x) / 100;
+        return (a - b) * ( x / 100) / 1.25;
     else if (formelNr == 18)
-        return 0 - (a - b) * (x / 100);
+        return (a - b) * (100 - x) / 100;
     else if (formelNr == 19)
-        return 0 - (a - b) * (x / 100) / 5;
+        return 0 - (a - b) * (x / 100);
     else if (formelNr == 20)
-        return 0 - (a - b) * (x / 100) / 1.25;
+        return 0 - (a - b) * (x / 100) / 5;
     else if (formelNr == 21)
+        return 0 - (a - b) * (x / 100) / 1.25;
+    else if (formelNr == 22)
         return 0 - (a - b) * (100 - x) / 100;
+    else if (formelNr == 23)
+        return a * 0.141;
+    else if (formelNr == 24)
+        return a * 0.12;
+    else if (formelNr == 25)
+        return a * 0.141 * 0.12;
+    else if (formelNr == 26)
+        return 0 - (a * 0.141);
+    else if (formelNr == 27)
+        return 0 - (a * 0.12);
+    else if (formelNr == 28)
+        return 0 - (a * 0.141 * 0.12);
     else
         return 0;
 };
