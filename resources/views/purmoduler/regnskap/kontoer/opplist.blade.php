@@ -35,13 +35,7 @@
 
                             <div class="col-sm-2 actions">
                                 <div class="pull-right">
-{{--
-                                    <a href="{{ URL::route('regnskap.kontoer.rediger', $konto) }}"
-                                       class="btn btn-xs btn-default" data-toggle="tooltip" data-placement="top"
-                                       data-container="body" title="Rediger konto">
-                                        <span class="fa fa-edit"></span>
-                                    </a>
---}}
+
                                     @if($konto->trashed())
                                         {!! Form::open(['route' => ['regnskap.kontoer.gjenopprett'],
                                                         'method' => 'PUT', 'class' => 'form-inline']) !!}
@@ -53,6 +47,12 @@
                                         </button>
                                         {!! Form::close() !!}
                                     @else
+                                        <a href="{{ URL::route('regnskap.kontoer.rediger', $konto) }}"
+                                           class="btn btn-xs btn-default" data-toggle="tooltip" data-placement="top"
+                                           data-container="body" title="Rediger konto">
+                                            <span class="fa fa-edit"></span>
+                                        </a>
+
                                         {!! Form::open(['route' => ['regnskap.kontoer.slett', $konto],
                                                         'method' => 'DELETE', 'class' => 'form-inline']) !!}
                                         <button type="submit" class="btn btn-xs btn-default" data-toggle="tooltip"

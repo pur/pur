@@ -47,7 +47,6 @@ class KontoController extends Controller
      */
     public function lagre(Request $request)
     {
-        // TODO: Flytt validering til egen valideringsklasse for gjenbruk i oppdater()
         $this->validate($request, [
             'kontokode' => 'required|unique:kontoer|digits:4',
             'kontonavn' => 'required|max:90'
@@ -79,7 +78,7 @@ class KontoController extends Controller
      */
     public function rediger(Konto $konto)
     {
-        return "Rediger konto";
+        return view('purmoduler.regnskap.kontoer.rediger', compact('konto'));
     }
 
     /**
@@ -91,7 +90,13 @@ class KontoController extends Controller
      */
     public function oppdater(Konto $konto, Request $request)
     {
-        return "Oppdater konto";
+        $this->validate($request, ['kontonavn' => 'required|max:90']);
+
+        $konto->update($request->all());
+
+        flash('Konto ' . $konto->kontokode . ' ble oppdatert');
+
+        return redirect()->route('regnskap.kontoer.opplist');
     }
 
     /**

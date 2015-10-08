@@ -5,19 +5,19 @@
 
     <div class="container">
 
-        <h1>Ny konto</h1>
+        <h1>Rediger konto</h1>
 
         @include('_feilmeldinger')
 
-        {!! Form::open(['route' => 'regnskap.kontoer.lagre']) !!}
+        {!! Form::model($konto, ['route' => ['regnskap.kontoer.oppdater', $konto], 'method' => 'PATCH']) !!}
 
         <div class="row">
             <div class="col-sm-12">
                 <div class="row">
                     <div class="form-group col-sm-4">
                         <div class="input-group">
-                            <div class="input-group-addon">* Kontokode:</div>
-                            {!! Form::input('number', 'kontokode', null, ['class' => 'form-control']) !!}
+                            <div class="input-group-addon">Kontokode:</div>
+                            <b>{{ $konto->kontokode  }}</b>
                         </div>
                     </div>
                     <div class="form-group col-sm-6">
