@@ -60,6 +60,14 @@
                                             <span class="fa fa-remove"></span>
                                         </button>
                                         {!! Form::close() !!}
+                                        {!! Form::open(['route' => ['regnskap.kontoer.slett', $konto],
+                                        'method' => 'DELETE', 'class' => 'form-inline bekreft-slett']) !!}
+                                        {!! Form::hidden('delete', 'hard') !!}
+                                        <button type="submit" class="btn btn-xs btn-default" data-toggle="tooltip"
+                                                data-placement="top" data-container="body" title="Slett konto permanent">
+                                            <span class="fa fa-trash-o"></span>
+                                        </button>
+                                        {!! Form::close() !!}
                                     @endif
                                 </div>
                             </div>

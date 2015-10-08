@@ -103,14 +103,22 @@ class KontoController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Konto $konto
+     * @param Request $request
      * @return Response
      * @throws \Exception
      */
-    public function slett(Konto $konto)
+    public function slett(Konto $konto, Request $request)
     {
-        $konto->delete();
-
-        flash('Konto ' . $konto->kontokode . ' ble fjernet');
+        if ($request->input('delete') == 'hard')
+        {
+            $konto->forceDelete();
+            flash('Konto ' . $konto->kontokode . ' ble slettet permanent');
+        }
+        else
+        {
+            $konto->delete();
+            flash('Konto ' . $konto->kontokode . ' ble fjernet');
+        }
 
         return redirect()->route('regnskap.kontoer.opplist');
     }
