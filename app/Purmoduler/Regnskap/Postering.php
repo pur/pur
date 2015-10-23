@@ -60,7 +60,7 @@ class Postering extends Model {
      */
     public function erKorrekt()
     {
-        return $this->bilag->fasitposteringer()->medKontokode($this->kontokode)->medBelop($this->belop)->exists();
+        return $this->fasitpostering() != null;
     }
 
     /**
@@ -125,5 +125,18 @@ class Postering extends Model {
     public function konto()
     {
         return $this->belongsTo('Pur\Purmoduler\Regnskap\Konto', 'kontokode', 'kontokode');
+    }
+
+    /**
+     * Returnerer bilagets første fasitpostering som likner tilstrekkelig på posteringen
+     * eller returnerer posteringen selv, hvis posteringen selv er en fasitpostering
+     *
+     * @return \Pur\Purmoduler\Regnskap\Postering
+     */
+    public function fasitpostering()
+    {
+        if ($this->er_fasit) return $this;
+
+        return $this->bilag->fasitposteringer()->medKontokode($this->kontokode)->medBelop($this->belop)->first();
     }
 }
