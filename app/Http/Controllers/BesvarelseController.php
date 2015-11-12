@@ -55,8 +55,7 @@ class BesvarelseController extends Controller
      */
     public function vis(Besvarelse $besvarelse)
     {
-        if ($besvarelse->skaper != $this->bruker)
-            return redirect()->route('oppgavesett.opplist');
+        $this->authorize($besvarelse);
 
         return view('besvarelser.vis', compact('besvarelse'));
     }
@@ -69,6 +68,8 @@ class BesvarelseController extends Controller
      */
     public function rediger(Besvarelse $besvarelse)
     {
+        $this->authorize($besvarelse);
+
         // TODO : Gjør Purmodul-uavhengig:
         $bilagssamling = BesvarelseTjeneste::besvarelseBilag($besvarelse);
         $selectKontoer = Konto::alleSomKodeNavnTabell();
