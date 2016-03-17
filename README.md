@@ -1,2 +1,2 @@
-# Pur regnskap
-Et bachelorprosjekt
+# Pur
+Pedagogisk utviklingsrammeverk 
