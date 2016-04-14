@@ -1,6 +1,8 @@
 /vendor
 /node_modules
 .env
+Homestead.yaml
+.vagrant/
 .idea/
 
 public/google7bf2036411dcdd28.html

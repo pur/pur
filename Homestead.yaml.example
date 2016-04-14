@@ -1,0 +1,23 @@
+---
+ip: "10.0.0.10"
+memory: 2048
+cpus: 1
+hostname: pur
+name: pur
+provider: virtualbox
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+    - map: "~/pur"
+      to: "/home/vagrant/pur"
+
+sites:
+    - map: pur.app
+      to: "/home/vagrant/pur/public"
+
+databases:
+    - pur
