@@ -7,6 +7,7 @@ use Pur\Bruker;
 use Pur\Oppgave;
 use Pur\Oppgavesett;
 use Pur\Oppgavesvar;
+use Pur\Purmoduler\KoiAnalyse\Instans;
 use Pur\Purmoduler\Regnskap\Bilag;
 use Pur\Purmoduler\Regnskap\Bilagsmal;
 use Pur\Purmoduler\Regnskap\Bilagsmalsekvens;
@@ -47,6 +48,9 @@ class DatabaseSeeder extends Seeder
         //$this->call('BilagssekvensVarTableSeeder');
         //$this->call('BilagTableSeeder');
         //$this->call('PosteringTableSeeder');
+
+        // Pur\..\Kostnads- og inntektsanalyse
+        $this->call('InstansTableSeeder');
     }
 }
 
@@ -896,6 +900,28 @@ class PosteringTableSeeder extends Seeder
             'er_fasit' => false,
             'bilag_id' => 3,
             'kontokode' => 4300
+        ]);
+    }
+}
+
+// Pur\..\Kostnads- og inntektsanalyse
+
+class InstansTableSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('koia_instanser')->delete();
+
+        Instans::create([
+            'a' => 0.020,
+            'b' => -10,
+            'c' => 7000,
+            'd' => 900000,
+            'm' => -13,
+            'n' => 14000,
+            'q' => 7500,
+            'kapasitet' => 450,
+            'bruker_id' => 4
         ]);
     }
 }
