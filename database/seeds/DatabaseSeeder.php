@@ -50,6 +50,7 @@ class DatabaseSeeder extends Seeder
         //$this->call('PosteringTableSeeder');
 
         // Pur\..\Kostnads- og inntektsanalyse
+        $this->call('KoiaOppgaveTableSeeder');
         $this->call('InstansTableSeeder');
     }
 }
@@ -906,6 +907,17 @@ class PosteringTableSeeder extends Seeder
 
 // Pur\..\Kostnads- og inntektsanalyse
 
+class KoiaOppgaveTableSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('koia_oppgaver')->delete();
+
+        \Pur\Purmoduler\KoiAnalyse\Oppgave::create();
+        \Pur\Purmoduler\KoiAnalyse\Oppgave::create();
+    }
+}
+
 class InstansTableSeeder extends Seeder {
 
     public function run()
@@ -921,7 +933,9 @@ class InstansTableSeeder extends Seeder {
             'n' => 14000,
             'q' => 7500,
             'kapasitet' => 450,
-            'bruker_id' => 4
+            'bruker_id' => 4,
+            'oppgave_id' => 1
         ]);
     }
 }
+

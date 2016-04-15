@@ -42,7 +42,16 @@
                     </div>
                 </div>
             </div>
+            <div class="col-sm-6">
+                <br>
+                <br>
+                <h3>Spørsmål</h3>
+                {{ $instans->oppgave->sporsmal() }}
 
+                {{--@foreach($instans->oppgave->sporsmal as $sporsmal)--}}
+                    {{--@include('purmoduler.koi-analyse._sporsmal', $sporsmal)--}}
+                {{--@endforeach--}}
+            </div>
         </div>
     </div>
 @endsection

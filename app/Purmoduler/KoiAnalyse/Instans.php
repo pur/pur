@@ -4,8 +4,7 @@ namespace Pur\Purmoduler\KoiAnalyse;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Instans extends Model
-{
+class Instans extends Model {
     /**
      * Databasetabellen som modellen forholder seg til.
      *
@@ -14,4 +13,9 @@ class Instans extends Model
     protected $table = 'koia_instanser';
 
     public $timestamps = false;
+
+    public function oppgave()
+    {
+        return $this->belongsTo('Pur\Purmoduler\KoiAnalyse\Oppgave', 'oppgave_id');
+    }
 }
