@@ -23,12 +23,16 @@ class CreateKoiaInstanserTable extends Migration
             $table->decimal('q');
             $table->integer('kapasitet');
             $table->integer('bruker_id')->unsigned();
-            $table->integer('oppgave_id');
+            $table->integer('oppgave_id')->unsigned();
             $table->integer('datasett_id');
 
             $table->foreign('bruker_id')
                 ->references('id')->on('brukere')
                 ->onDelete('cascade'); // Instanser slettes hvis eieren slettes
+
+            $table->foreign('oppgave_id')
+                ->references('id')->on('koia_oppgaver')
+                ->onDelete('cascade'); // Instanser slettes hvis oppgaven slettes
         });
     }
 
