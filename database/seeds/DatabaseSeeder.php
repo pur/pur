@@ -51,6 +51,8 @@ class DatabaseSeeder extends Seeder
 
         // Pur\..\Kostnads- og inntektsanalyse
         $this->call('KoiaOppgaveTableSeeder');
+        $this->call('KoiaSporsmalTableSeeder');
+        $this->call('KoiaOppgavesporsmalTableSeeder');
         $this->call('InstansTableSeeder');
     }
 }
@@ -917,6 +919,44 @@ class KoiaOppgaveTableSeeder extends Seeder {
         \Pur\Purmoduler\KoiAnalyse\Oppgave::create();
     }
 }
+
+class KoiaSporsmalTableSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('koia_sporsmal')->delete();
+
+        \Pur\Purmoduler\KoiAnalyse\Sporsmal::create([
+            'sporsmal' => 'Hva er kostnadsoptimal produksjonsmengde?',
+            'formel' => 'KO'
+        ]);
+        \Pur\Purmoduler\KoiAnalyse\Sporsmal::create([
+            'sporsmal' => 'Hva er gevinstoptimal produksjonsmengde?',
+            'formel' => 'GOM'
+        ]);
+        \Pur\Purmoduler\KoiAnalyse\Sporsmal::create([
+            'sporsmal' => 'Hvilken pris vil være optimal?',
+            'formel' => 'GOP'
+        ]);
+    }
+}
+
+class KoiaOppgavesporsmalTableSeeder extends Seeder
+{
+
+    public function run()
+    {
+        DB::table('koia_oppgavesporsmal')->delete();
+
+        DB::insert('insert into koia_oppgavesporsmal (oppgave_id, sporsmal_id) values (?, ?)', [1, 1]);
+        DB::insert('insert into koia_oppgavesporsmal (oppgave_id, sporsmal_id) values (?, ?)', [1, 2]);
+        DB::insert('insert into koia_oppgavesporsmal (oppgave_id, sporsmal_id) values (?, ?)', [1, 3]);
+        DB::insert('insert into koia_oppgavesporsmal (oppgave_id, sporsmal_id) values (?, ?)', [2, 3]);
+        DB::insert('insert into koia_oppgavesporsmal (oppgave_id, sporsmal_id) values (?, ?)', [2, 2]);
+        DB::insert('insert into koia_oppgavesporsmal (oppgave_id, sporsmal_id) values (?, ?)', [2, 1]);
+    }
+}
+
 
 class InstansTableSeeder extends Seeder {
 

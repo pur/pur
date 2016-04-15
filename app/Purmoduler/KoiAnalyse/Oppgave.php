@@ -22,6 +22,6 @@ class Oppgave extends Model
 
     public function sporsmal()
     {
-        return 'spørsmålene...'; //$this->hasMany('Pur\Purmoduler\KoiAnalyse\Sporsmal', 'sporsmal_id');
+        return $this->belongsToMany('Pur\Purmoduler\KoiAnalyse\Sporsmal', 'koia_oppgavesporsmal');
     }
 }
