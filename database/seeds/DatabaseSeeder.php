@@ -927,15 +927,15 @@ class KoiaSporsmalTableSeeder extends Seeder {
         DB::table('koia_sporsmal')->delete();
 
         \Pur\Purmoduler\KoiAnalyse\Sporsmal::create([
-            'sporsmal' => 'Hva er kostnadsoptimal produksjonsmengde?',
+            'sporsmalstekst' => 'Hva er kostnadsoptimal produksjonsmengde?',
             'formel' => 'KO'
         ]);
         \Pur\Purmoduler\KoiAnalyse\Sporsmal::create([
-            'sporsmal' => 'Hva er gevinstoptimal produksjonsmengde?',
+            'sporsmalstekst' => 'Hva er gevinstoptimal produksjonsmengde?',
             'formel' => 'GOM'
         ]);
         \Pur\Purmoduler\KoiAnalyse\Sporsmal::create([
-            'sporsmal' => 'Hvilken pris vil være optimal?',
+            'sporsmalstekst' => 'Hvilken pris vil være optimal?',
             'formel' => 'GOP'
         ]);
     }

@@ -14,7 +14,7 @@ class CreateKoiaSporsmalTable extends Migration
     {
         Schema::create('koia_sporsmal', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('sporsmal');
+            $table->text('sporsmalstekst');
             $table->text('formel');
         });
     }
