@@ -258,3 +258,8 @@ Route::get('koi-analyse/instans/{id}/rediger', [
     'as' => 'koi-analyse.instans.rediger',
     'uses' => 'Purmoduler\KoiAnalyse\InstansController@rediger'
 ]);
+
+Route::get('koi-analyse/oppgaver', [
+    'as' => 'koi-analyse.oppgaver.opplist',
+    'uses' => 'Purmoduler\KoiAnalyse\OppgaveController@opplist'
+]);
