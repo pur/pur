@@ -7,6 +7,7 @@ use Pur\Bruker;
 use Pur\Oppgave;
 use Pur\Oppgavesett;
 use Pur\Oppgavesvar;
+use Pur\Purmoduler\KoiAnalyse\Datasett;
 use Pur\Purmoduler\KoiAnalyse\Instans;
 use Pur\Purmoduler\Regnskap\Bilag;
 use Pur\Purmoduler\Regnskap\Bilagsmal;
@@ -53,6 +54,7 @@ class DatabaseSeeder extends Seeder
         $this->call('KoiaOppgaveTableSeeder');
         $this->call('KoiaSporsmalTableSeeder');
         $this->call('KoiaOppgavesporsmalTableSeeder');
+        $this->call('DatasettTableSeeder');
         $this->call('InstansTableSeeder');
     }
 }
@@ -957,6 +959,40 @@ class KoiaOppgavesporsmalTableSeeder extends Seeder
     }
 }
 
+
+
+class DatasettTableSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('koia_datasett')->delete();
+
+        Datasett::create([
+            'a_min' => 0.020,
+            'a_maks' => 0.040,
+            'a_intervall' => 0.005,
+            'b_min' => -10,
+            'b_maks' => -9,
+            'b_intervall' => 0.1,
+            'c_min' => 7000,
+            'c_maks' => 8000,
+            'c_intervall' => 100,
+            'd_min' => 900000,
+            'd_maks' => 1100000,
+            'd_intervall' => 100000,
+            'm_min' => -16,
+            'm_maks' => -13,
+            'm_intervall' => 0.01,
+            'n_min' => 14000,
+            'n_maks' => 18000,
+            'n_intervall' => 100,
+            'q_min' => 6000,
+            'q_maks' => 7000,
+            'q_intervall' => 100,
+            'kapasitet' => 450,
+        ]);
+    }
+}
 
 class InstansTableSeeder extends Seeder {
 
