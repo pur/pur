@@ -17,6 +17,8 @@ class OppgaveController extends Controller {
      */
     public function opplist()
     {
-        return Oppgave::all();
+        $oppgaver = Oppgave::get();
+
+        return view('purmoduler.koi-analyse.oppgaver.opplist', compact('oppgaver'));
     }
 }
