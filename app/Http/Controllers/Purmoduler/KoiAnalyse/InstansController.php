@@ -58,10 +58,8 @@ class InstansController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function rediger($id)
+    public function rediger(Instans $instans)
     {
-       $instans = Instans::find($id);
-
         return View('purmoduler/koi-analyse/instans', compact('instans'));
     }
 
