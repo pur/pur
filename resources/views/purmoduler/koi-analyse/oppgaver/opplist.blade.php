@@ -14,14 +14,16 @@
                                 </div>
                                 <div class="col-sm-2 actions">
                                     <div class="pull-right">
-                                        <a href="instans/1/rediger" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Velg oppgave">
-                                            <span class="fa fa-play"></span>
-                                        </a>
-                                        {{--{!! Form::open(['route' => ['koi-analyse.instanser.generer', $oppgave], 'method' => 'POST', 'class' => 'form-inline']) !!}
-                                        <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Velg oppgave">
-                                            <span class="fa fa-play"></span>
-                                        </button>
-                                        {!! Form::close() !!}--}}
+                                        {!! Form::open(['route' => ['koi-analyse.instanser.generer'], 'method' => 'POST', 'class' => 'form-inline']) !!}
+                                        {!! Form::hidden('oppgave-id', $oppgave->id) !!}
+                                        {!! Form::button('<span class="fa fa-play"></span>',
+                                            ['type' => 'submit',
+                                             'class' => 'btn btn-default',
+                                             'data-toggle' => 'tooltip',
+                                             'data-placement' => 'top',
+                                             'data-container' => 'body',
+                                             'title' => 'Velg oppgave' ]) !!}
+                                        {!! Form::close() !!}
                                     </div>
                                 </div>
                             </div>

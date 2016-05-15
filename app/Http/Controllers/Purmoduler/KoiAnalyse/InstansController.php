@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Pur\Http\Requests;
 use Pur\Http\Controllers\Controller;
 use Pur\Purmoduler\KoiAnalyse\Instans;
+use Pur\Purmoduler\KoiAnalyse\Oppgave;
 
 class InstansController extends Controller
 {
@@ -36,9 +37,15 @@ class InstansController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function generer(Request $request)
     {
-        //
+        $oppgave = Oppgave::find($request->get('oppgave-id'));
+
+        // TODO: Generer instans og rediriger til instanser/rediger
+        //$instans = genererInstans($oppgave);
+        //return redirect()->route('koi-analyse.instanser.rediger', compact('instans'));
+
+        return "Skal generere instans fra oppgave nr. " . $oppgave->id;
     }
 
     /**
