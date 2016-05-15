@@ -254,6 +254,11 @@ Route::put('regnskap/kontoer/gjenopprett',
 
 // PURMODULER - Kostnads- og inntektsanalyse:
 
+Route::post('koi-analyse/instanser/generer', [
+    'as' => 'koi-analyse.instanser.generer',
+    'uses' => 'Purmoduler\KoiAnalyse\InstansController@generer'
+]);
+
 Route::get('koi-analyse/instanser/{instans}/rediger', [
     'as' => 'koi-analyse.instanser.rediger',
     'uses' => 'Purmoduler\KoiAnalyse\InstansController@rediger'
