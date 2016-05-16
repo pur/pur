@@ -18,4 +18,9 @@ class Instans extends Model {
     {
         return $this->belongsTo('Pur\Purmoduler\KoiAnalyse\Oppgave', 'oppgave_id');
     }
+
+    public function bruker()
+    {
+        return $this->belongsTo('Pur\Bruker', 'bruker_id');
+    }
 }
