@@ -991,6 +991,31 @@ class DatasettTableSeeder extends Seeder {
             'q_intervall' => 100,
             'kapasitet' => 450,
         ]);
+
+        Datasett::create([
+            'a_min' => 0.010,
+            'a_maks' => 0.050,
+            'a_intervall' => 0.01,
+            'b_min' => -12,
+            'b_maks' => -7,
+            'b_intervall' => 0.2,
+            'c_min' => 5000,
+            'c_maks' => 10000,
+            'c_intervall' => 200,
+            'd_min' => 1000000,
+            'd_maks' => 1600000,
+            'd_intervall' => 50000,
+            'm_min' => -18,
+            'm_maks' => -10,
+            'm_intervall' => 0.05,
+            'n_min' => 10000,
+            'n_maks' => 20000,
+            'n_intervall' => 50,
+            'q_min' => 3000,
+            'q_maks' => 10000,
+            'q_intervall' => 50,
+            'kapasitet' => 500,
+        ]);
     }
 }
 
