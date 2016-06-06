@@ -208,6 +208,7 @@ function visBehandlingsResultat(behandlingsElement, behandlingsTekst) {
                         visBehandlingsResultat(postering, 'Postering er korrekt');
                         postering.removeClass('lagres');
                         postering.addClass('korrekt');
+                        form.find('input[name="belop"]').val(formaterVerdier(response.postering.belop));
                         skrivebeskytt();
                     }
 
@@ -215,6 +216,7 @@ function visBehandlingsResultat(behandlingsElement, behandlingsTekst) {
                         visBehandlingsResultat(postering, 'Postering er ikke korrekt');
                         postering.removeClass('lagres');
                         postering.addClass('feil');
+                        form.find('input[name="belop"]').val(formaterVerdier(response.postering.belop));
                     }
                 }
             }

@@ -76,9 +76,18 @@ class PosteringController extends Controller {
 	 */
 	public function update(Postering $postering, Request $request)
     {
+        $postering->fill($request->all());
+
+        $fasitpostering = $postering->fasitpostering();
+        $posteringErKorrekt = isset($fasitpostering);
+        if ($posteringErKorrekt) $postering->belop = $fasitpostering->belop;
+
         return [
-            'lagretOk' => $postering->fill($request->all())->save(),
-            'postering' => ['erKorrekt' => $postering->erKorrekt()]
+            'lagretOk' => $postering->save(),
+            'postering' => [
+                'erKorrekt' => $posteringErKorrekt,
+                'belop' => $postering->belop
+            ]
         ];
     }
 
