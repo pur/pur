@@ -20,14 +20,14 @@
                 </div>
                 <div class="fagmodul col-xs-6 col-sm-4 col-md-3">
                     <div class="thumbnail">
-                        <img src="{{ env('APPWEBPATH') }}/images/module-thumbs/test-thumb-disabled.png" alt="...">
+                        <img src="{{ env('APPWEBPATH') }}/images/module-thumbs/pur_koi-analyse.png" alt="...">
 
                         <div class="caption">
-                            <h3>pur:Modul</h3>
+                            <h3>pur:KOI-analyse</h3>
 
-                            <p>Lag meg!<br/><a href="#">Hvordan?</a></p>
+                            <p>Kostnads– og inntektsanalyse<br />&nbsp;</p>
 
-                            <p><a class="btn btn-default disabled" role="button">Velg</a>
+                            <p><a href="{{ URL::route('koi-analyse.oppgaver.opplist') }}" class="btn btn-default" role="button">Velg</a>
                                 <a class="btn btn-default disabled" role="button">Info</a></p>
                         </div>
                     </div>

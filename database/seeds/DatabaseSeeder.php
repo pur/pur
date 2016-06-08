@@ -7,6 +7,8 @@ use Pur\Bruker;
 use Pur\Oppgave;
 use Pur\Oppgavesett;
 use Pur\Oppgavesvar;
+use Pur\Purmoduler\KoiAnalyse\Datasett;
+use Pur\Purmoduler\KoiAnalyse\Instans;
 use Pur\Purmoduler\Regnskap\Bilag;
 use Pur\Purmoduler\Regnskap\Bilagsmal;
 use Pur\Purmoduler\Regnskap\Bilagsmalsekvens;
@@ -47,6 +49,13 @@ class DatabaseSeeder extends Seeder
         //$this->call('BilagssekvensVarTableSeeder');
         //$this->call('BilagTableSeeder');
         //$this->call('PosteringTableSeeder');
+
+        // Pur\..\Kostnads- og inntektsanalyse
+        $this->call('KoiaOppgaveTableSeeder');
+        $this->call('KoiaSporsmalTableSeeder');
+        $this->call('KoiaOppgavesporsmalTableSeeder');
+        $this->call('DatasettTableSeeder');
+        $this->call('InstansTableSeeder');
     }
 }
 
@@ -899,3 +908,135 @@ class PosteringTableSeeder extends Seeder
         ]);
     }
 }
+
+// Pur\..\Kostnads- og inntektsanalyse
+
+class KoiaOppgaveTableSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('koia_oppgaver')->delete();
+
+        \Pur\Purmoduler\KoiAnalyse\Oppgave::create();
+        \Pur\Purmoduler\KoiAnalyse\Oppgave::create();
+    }
+}
+
+class KoiaSporsmalTableSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('koia_sporsmal')->delete();
+
+        \Pur\Purmoduler\KoiAnalyse\Sporsmal::create([
+            'sporsmalstekst' => 'Hva er kostnadsoptimal produksjonsmengde?',
+            'formel' => 'KO'
+        ]);
+        \Pur\Purmoduler\KoiAnalyse\Sporsmal::create([
+            'sporsmalstekst' => 'Hva er gevinstoptimal produksjonsmengde?',
+            'formel' => 'GOM'
+        ]);
+        \Pur\Purmoduler\KoiAnalyse\Sporsmal::create([
+            'sporsmalstekst' => 'Hvilken pris vil være optimal?',
+            'formel' => 'GOP'
+        ]);
+    }
+}
+
+class KoiaOppgavesporsmalTableSeeder extends Seeder
+{
+
+    public function run()
+    {
+        DB::table('koia_oppgavesporsmal')->delete();
+
+        DB::insert('insert into koia_oppgavesporsmal (oppgave_id, sporsmal_id) values (?, ?)', [1, 1]);
+        DB::insert('insert into koia_oppgavesporsmal (oppgave_id, sporsmal_id) values (?, ?)', [1, 2]);
+        DB::insert('insert into koia_oppgavesporsmal (oppgave_id, sporsmal_id) values (?, ?)', [1, 3]);
+        DB::insert('insert into koia_oppgavesporsmal (oppgave_id, sporsmal_id) values (?, ?)', [2, 3]);
+        DB::insert('insert into koia_oppgavesporsmal (oppgave_id, sporsmal_id) values (?, ?)', [2, 2]);
+        DB::insert('insert into koia_oppgavesporsmal (oppgave_id, sporsmal_id) values (?, ?)', [2, 1]);
+    }
+}
+
+
+
+class DatasettTableSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('koia_datasett')->delete();
+
+        Datasett::create([
+            'a_min' => 0.020,
+            'a_maks' => 0.040,
+            'a_intervall' => 0.005,
+            'b_min' => -10,
+            'b_maks' => -9,
+            'b_intervall' => 0.1,
+            'c_min' => 7000,
+            'c_maks' => 8000,
+            'c_intervall' => 100,
+            'd_min' => 800000,
+            'd_maks' => 900000,
+            'd_intervall' => 100000,
+            'm_min' => -16,
+            'm_maks' => -13,
+            'm_intervall' => 0.01,
+            'n_min' => 14000,
+            'n_maks' => 18000,
+            'n_intervall' => 100,
+            'q_min' => 6000,
+            'q_maks' => 7000,
+            'q_intervall' => 100,
+            'kapasitet' => 450,
+        ]);
+
+        Datasett::create([
+            'a_min' => 0.010,
+            'a_maks' => 0.050,
+            'a_intervall' => 0.01,
+            'b_min' => -12,
+            'b_maks' => -7,
+            'b_intervall' => 0.2,
+            'c_min' => 5000,
+            'c_maks' => 10000,
+            'c_intervall' => 200,
+            'd_min' => 400000,
+            'd_maks' => 600000,
+            'd_intervall' => 50000,
+            'm_min' => -18,
+            'm_maks' => -10,
+            'm_intervall' => 0.05,
+            'n_min' => 10000,
+            'n_maks' => 20000,
+            'n_intervall' => 50,
+            'q_min' => 3000,
+            'q_maks' => 10000,
+            'q_intervall' => 50,
+            'kapasitet' => 500,
+        ]);
+    }
+}
+
+class InstansTableSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('koia_instanser')->delete();
+
+        Instans::create([
+            'a' => 0.020,
+            'b' => -10,
+            'c' => 7000,
+            'd' => 900000,
+            'm' => -13,
+            'n' => 14000,
+            'q' => 7500,
+            'kapasitet' => 450,
+            'bruker_id' => 4,
+            'oppgave_id' => 1
+        ]);
+    }
+}
+

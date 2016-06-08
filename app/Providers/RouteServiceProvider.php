@@ -46,6 +46,9 @@ class RouteServiceProvider extends ServiceProvider {
         $router->model('postering', 'Pur\Purmoduler\Regnskap\Postering');
         $router->model('posteringer', 'Pur\Purmoduler\Regnskap\Postering');
 
+		// Purmoduler\Kostnads- og inntektsanalyse
+        $router->model('instans', 'Pur\Purmoduler\KoiAnalyse\Instans');
+        $router->model('instanser', 'Pur\Purmoduler\KoiAnalyse\Instans');
 	}
 
 	/**
