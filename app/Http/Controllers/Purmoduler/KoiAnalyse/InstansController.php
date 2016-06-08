@@ -70,7 +70,7 @@ class InstansController extends Controller
      */
     public function rediger(Instans $instans)
     {
-        return View('purmoduler/koi-analyse/instans', compact('instans'));
+        return view('purmoduler.koi-analyse.instanser.rediger', compact('instans'));
     }
 
     /**

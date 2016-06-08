@@ -8,12 +8,12 @@
                 <span class="icon-bar"></span>
             </button>
             <div class="nav navbar-nav navbar-brand">
-                @if(Request::segment(1) != 'regnskap')
-                <a href="{{ env('APPWEBPATH') }}/" role="button" aria-expanded="false">
-                    pur</a>
-                @endif
                 @if(Request::segment(1) == 'regnskap')
                     <a href="{{ URL::route('oppgavesett.opplist') }}">pur:Regnskap</a>
+                @elseif(Request::segment(1) == 'koi-analyse')
+                    <a href="{{ URL::route('oppgavesett.opplist') }}">pur:KOI-analyse</a>
+                @elseif(Request::segment(1) != 'regnskap')
+                    <a href="{{ env('APPWEBPATH') }}/" role="button" aria-expanded="false">pur</a>
                 @endif
             </div>
         </div>

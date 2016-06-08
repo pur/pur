@@ -1,43 +1,36 @@
 @extends('pur')
 @section('content')
 
-    <div class="container">
-        <div class="jumbotron">
-
-            <h1>Kostnads- og inntektsanalyse</h1>
-
-        </div>
+    <div class="container content">
+        <h1>Oppgave {{ $instans->oppgave->id }}</h1>
         <div class="row">
             <div class="col-sm-6">
-                <div class="container">
+                <div id="tabs">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#totaldiagram">Totaldiagram</a></li>
+                        <li><a href="#enhetsdiagram">Enhetsdiagram</a></li>
+                    </ul>
 
-                    <div id="tabs">
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li class="active"><a href="#totaldiagram">Totaldiagram</a></li>
-                            <li><a href="#enhetsdiagram">Enhetsdiagram</a></li>
-                        </ul>
+                    <div class="tab-content">
 
-                        <div class="tab-content">
+                        <div id="totaldiagram" class="tab-pane fade in active"></div>
 
-                            <div id="totaldiagram" class="tab-pane fade in active"></div>
+                        <div id="enhetsdiagram" class="tab-pane fade in active"></div>
 
-                            <div id="enhetsdiagram" class="tab-pane fade in active"></div>
-
-                            <div id="enhetsKnapper">
-                                <button type="button" value="1" class="btn btn-success" id="pris">pris</button>
-                                <button type="button" value="1" class="btn btn-primary" id="TEK">TEK</button>
-                                <button type="button" value="1" class="btn btn-danger" id="DEK">DEK</button>
-                                <button type="button" value="1" class="btn btn-warning" id="DEI" onclick="click(DEI);">
-                                    DEI
-                                </button>
-                            </div>
-                            <div id="totalKnapper" style="visibility: hidden">
-                                <button type="button" value="1" class="btn btn-danger" id="TK">TK</button>
-                                <button type="button" value="1" class="btn btn-success" id="TI">TI</button>
-                                <button type="button" value="1" class="btn btn-primary" id="VK">VK</button>
-                                <button type="button" value="1" class="btn btn-warning" id="FK">FK</button>
-                                <button type="button" value="1" class="btn default" id="DB">DB</button>
-                            </div>
+                        <div id="enhetsKnapper">
+                            <button type="button" value="1" class="btn btn-success" id="pris">pris</button>
+                            <button type="button" value="1" class="btn btn-primary" id="TEK">TEK</button>
+                            <button type="button" value="1" class="btn btn-danger" id="DEK">DEK</button>
+                            <button type="button" value="1" class="btn btn-warning" id="DEI" onclick="click(DEI);">
+                                DEI
+                            </button>
+                        </div>
+                        <div id="totalKnapper" style="visibility: hidden">
+                            <button type="button" value="1" class="btn btn-danger" id="TK">TK</button>
+                            <button type="button" value="1" class="btn btn-success" id="TI">TI</button>
+                            <button type="button" value="1" class="btn btn-primary" id="VK">VK</button>
+                            <button type="button" value="1" class="btn btn-warning" id="FK">FK</button>
+                            <button type="button" value="1" class="btn default" id="DB">DB</button>
                         </div>
                     </div>
                 </div>
@@ -47,7 +40,7 @@
                 <br>
                 <h3>Spørsmål</h3>
                 @foreach($instans->oppgave->sporsmal as $sporsmal)
-                    @include('purmoduler.koi-analyse._sporsmal', $sporsmal)
+                    @include('purmoduler.koi-analyse.instanser._sporsmal', $sporsmal)
                 @endforeach
             </div>
         </div>

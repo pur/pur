@@ -10,7 +10,7 @@
                             <div class="row">
                                 <div class="col-sm-10">
                                     <span class="visible-xs-inline">Beskrivelse: </span>
-                                    <i>(Beskrivelsen av oppg. {{ $oppgave->id }})</i>
+                                    <b>Oppgave {{ $oppgave->id }} </b><i>(Beskrivelse...)</i>
                                 </div>
                                 <div class="col-sm-2 actions">
                                     <div class="pull-right">
