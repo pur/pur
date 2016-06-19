@@ -126,6 +126,9 @@ Route::put('regnskap/besvarelser/{besvarelse}',
 Route::patch('regnskap/besvarelser/{besvarelse}',
     ['uses' => 'BesvarelseController@oppdater']);
 
+Route::post('regnskap/besvarelser/{besvarelse}/generer-pdf',
+    ['as' => 'besvarelser.generer-pdf', 'uses' => 'BesvarelseController@genererPdf']);
+
 Route::delete('regnskap/besvarelser/{besvarelse}',
     ['as' => 'besvarelser.slett', 'uses' => 'BesvarelseController@slett']);
 

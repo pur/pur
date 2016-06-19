@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 use Pur\Besvarelse;
 use Pur\Http\Requests;
 use Pur\Oppgavesett;
@@ -88,6 +89,21 @@ class BesvarelseController extends Controller
         // TODO: implementér
         return "<i>Oppdater besvarelse med id " . $besvarelse->id . "</i>";
 
+    }
+
+    /**
+     * Generer PDF av besvarelse.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function genererPdf(Besvarelse $besvarelse)
+    {
+        $pdf = PDF::loadView('besvarelser.pdf', ['besvarelse' => $besvarelse]);
+
+        $filnavn = 'PUR-besvarelse_' . $besvarelse->id . '.pdf';
+
+        return $pdf->stream($filnavn);
     }
 
     /**

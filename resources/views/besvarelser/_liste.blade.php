@@ -68,6 +68,11 @@
                                 <span class="fa fa-edit"></span>
                             </a>
                         @endif
+                        {!! Form::open(['route' => ['besvarelser.generer-pdf', $besvarelse], 'method' => 'POST', 'class' => 'form-inline']) !!}
+                        <button type="submit" formtarget="_blank" class="btn btn-default bekreft-lever" data-toggle="tooltip" data-placement="top" data-container="body" title="Lag PDF">
+                            <span class="fa fa-file-pdf-o"></span>
+                        </button>
+                        {!! Form::close() !!}
                         {!! Form::open(['route' => ['besvarelser.slett', $besvarelse->id], 'method' => 'DELETE', 'class' => 'form-inline']) !!}
                         <button type="submit" class="btn btn-default bekreft-slett" data-toggle="tooltip" data-placement="top" data-container="body" title="Slett besvarelse">
                             <span class="fa fa-trash"></span>
