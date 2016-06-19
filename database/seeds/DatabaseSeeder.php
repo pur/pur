@@ -154,8 +154,8 @@ class OppgavesettTableSeeder extends Seeder
             'tid_opprettet' => '2015-05-01 09:00:00',
             'tid_endret' => '2015-05-02 09:00:00',
             'tid_publisert' => '10.05.15 10:00',
-            'tid_aapent' => '12.05.15 10:00',
-            'tid_lukket' => '31.12.15 10:00',
+            'tid_aapent' => '12.05.16 10:00',
+            'tid_lukket' => '31.12.16 10:00',
             'bruker_id' => 1,
         ]);
 
