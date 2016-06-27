@@ -66,11 +66,11 @@
                 </div>
                 <div class="form-group col-sm-4">
                     <label class="visible-xs-inline">Minimumsverdi: </label>
-                    {!! Form::input('number', $variabel->tegn_i_formel . 'Min', $variabel->verdi_min, ['min'=>'0', 'class' => 'form-control variabel', 'id' => $variabel->tegn_i_formel . 'Min']) !!}
+                    {!! Form::input('number', $variabel->tegn_i_formel . 'Min', $variabel->verdi_min, ['min'=>'0', 'class' => 'form-control text-right variabel', 'id' => $variabel->tegn_i_formel . 'Min']) !!}
                 </div>
                 <div class="form-group col-sm-4">
                     <label class="visible-xs-inline">Maksimumsverdi: </label>
-                    {!! Form::input('number', $variabel->tegn_i_formel . 'Maks', $variabel->verdi_maks, ['min'=>'0', 'class' => 'form-control variabel', 'id' => $variabel->tegn_i_formel . 'Maks']) !!}
+                    {!! Form::input('number', $variabel->tegn_i_formel . 'Maks', $variabel->verdi_maks, ['min'=>'0', 'class' => 'form-control text-right variabel', 'id' => $variabel->tegn_i_formel . 'Maks']) !!}
                 </div>
             </div>
         @endforeach
