@@ -149,7 +149,8 @@ return [
 		Pur\Providers\RouteServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
 		Barryvdh\DomPDF\ServiceProvider::class,
-
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        
 	],
 
 	/*
