@@ -26,15 +26,15 @@
     "moment": "^2.13.0",
     "eonasdan-bootstrap-datetimepicker": "^4.17.37"
   },
-  "version": "0.0.4",
-  "_release": "0.0.4",
+  "version": "0.0.5",
+  "_release": "0.0.5",
   "_resolution": {
     "type": "version",
-    "tag": "v0.0.4",
-    "commit": "b4676cbc9eb39d9bee472cc788e1bba9876647d6"
+    "tag": "v0.0.5",
+    "commit": "869201ee526a1d2a0850b05fe2d68a8c2b04a3b7"
   },
   "_source": "https://github.com/pur/pur-GUI.git",
-  "_target": "^0.0.4",
+  "_target": "^0.0.5",
   "_originalSource": "pur-gui",
   "_direct": true
 }
