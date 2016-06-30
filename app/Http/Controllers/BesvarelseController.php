@@ -1,5 +1,6 @@
 <?php namespace Pur\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use PDF;
@@ -99,7 +100,11 @@ class BesvarelseController extends Controller
      */
     public function genererPdf(Besvarelse $besvarelse)
     {
-        $pdf = PDF::loadView('besvarelser.pdf', ['besvarelse' => $besvarelse]);
+        $pdf = PDF::loadView('besvarelser.pdf', [
+            'besvarelse' => $besvarelse,
+            'tidLevert' => $besvarelse->tidLevert() != null ?
+                $besvarelse->tidLevert() : Carbon::now()->format('d.m.y H:i')
+        ]);
 
         $filnavn = 'PUR-besvarelse_' . $besvarelse->id . '.pdf';
 
