@@ -89,4 +89,20 @@ class Bilagssekvens extends Model
 
         return ($antBilag == 0) ? 0 : round($antPaabegynteBilag / $antBilag * 100, 0);
     }
+
+    /**
+     * Prosentandelen av bilagssekvensen som er korrekt besvart av studenten
+     *
+     * @return float|int
+     */
+    public function prosentKorrekt()
+    {
+        $antallBilag = $this->bilag->count();
+
+        $prosentKorrekt = 0;
+        foreach ($this->bilag as $bilag)
+            $prosentKorrekt += $bilag->prosentKorrekt() / $antallBilag;
+
+        return ($antallBilag == 0) ? 0 : round($prosentKorrekt, 0);
+    }
 }

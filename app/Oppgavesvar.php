@@ -59,4 +59,14 @@ class Oppgavesvar extends Model
         return $this->moduloppgavesvar->prosentPaabegynt();
     }
 
+    /**
+     * Prosentandelen av oppgaven som er korrekt besvart av studenten
+     *
+     * @return mixed
+     */
+    public function prosentKorrekt()
+    {
+        return $this->moduloppgavesvar->prosentKorrekt();
+    }
+
 }

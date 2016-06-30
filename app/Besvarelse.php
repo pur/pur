@@ -1,6 +1,5 @@
 <?php namespace Pur;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Besvarelse extends Model
@@ -139,5 +138,21 @@ class Besvarelse extends Model
             $prosentPaabegynt += $oppgavesvar->prosentPaabegynt() / $antKrevdeSvar;
 
         return ($antKrevdeSvar == 0) ? 0 : round($prosentPaabegynt, 0);
+    }
+
+    /**
+     * Prosentandelen av oppgavesettet som er korrekt besvart av studenten
+     *
+     * @return float
+     */
+    public function prosentKorrekt()
+    {
+        $antallKrevdeOppgaveSvar = $this->antKrevdeSvar();
+
+        $prosentKorrekt = 0;
+        foreach ($this->oppgavesvar as $oppgavesvar)
+            $prosentKorrekt += $oppgavesvar->prosentKorrekt() / $antallKrevdeOppgaveSvar;
+
+        return ($antallKrevdeOppgaveSvar == 0) ? 0 : round($prosentKorrekt, 0);
     }
 }

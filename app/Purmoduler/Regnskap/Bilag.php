@@ -84,4 +84,23 @@ class Bilag extends Model
         return $this->elevposteringer()->count() > 1;
     }
 
+    /**
+     * Prosentandelen av bilaget som er korrekt postert av studenten
+     *
+     * @return float|int
+     */
+    public function prosentKorrekt()
+    {
+        $antallFasitPosteringer = $this->fasitposteringer()->count();
+
+        $antallKorrektePosteringer = 0;
+        foreach ($this->elevposteringer as $elevpostering)
+            if ($elevpostering->erKorrekt())
+                $antallKorrektePosteringer++;
+
+        $prosentKorrekt = $antallKorrektePosteringer / $antallFasitPosteringer * 100;
+
+        return ($antallFasitPosteringer == 0) ? 0 : round($prosentKorrekt, 0);
+    }
+
 }
