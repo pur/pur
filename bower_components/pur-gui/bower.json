@@ -1,0 +1,29 @@
+{
+  "name": "pur-gui",
+  "description": "GUI element for pur modules",
+  "main": [
+    "assets"
+  ],
+  "authors": [
+    "Benjamin Dehli <superelg@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/pur/pur-GUI",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "^3.3.6",
+    "font-awesome": "^4.6.3",
+    "bootstrap-material-design": "^0.5.10",
+    "roboto": "https://google-fonts.azurewebsites.net/googleFonts/Roboto?family=Roboto:400,300,500,700",
+    "autosize": "^3.0.15",
+    "moment": "^2.13.0",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.37"
+  }
+}
