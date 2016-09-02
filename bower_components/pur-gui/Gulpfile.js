@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
     concat = require('gulp-concat'),
+    replace = require('gulp-replace'),
     del = require('del');
 
 var config = require('./gulp-config.json');

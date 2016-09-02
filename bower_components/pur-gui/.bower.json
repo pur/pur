@@ -21,20 +21,18 @@
     "bootstrap": "^3.3.6",
     "font-awesome": "^4.6.3",
     "bootstrap-material-design": "^0.5.10",
-    "roboto": "https://google-fonts.azurewebsites.net/googleFonts/Roboto?family=Roboto:400,300,500,700",
     "autosize": "^3.0.15",
     "moment": "^2.13.0",
     "eonasdan-bootstrap-datetimepicker": "^4.17.37"
   },
-  "version": "0.0.5",
-  "_release": "0.0.5",
+  "version": "0.0.11",
+  "_release": "0.0.11",
   "_resolution": {
     "type": "version",
-    "tag": "v0.0.5",
-    "commit": "869201ee526a1d2a0850b05fe2d68a8c2b04a3b7"
+    "tag": "v0.0.11",
+    "commit": "b726103b6a525e6c480993663a0448d8bf81cd67"
   },
   "_source": "https://github.com/pur/pur-GUI.git",
-  "_target": "^0.0.5",
-  "_originalSource": "pur-gui",
-  "_direct": true
+  "_target": "^0.0.11",
+  "_originalSource": "pur-gui"
 }

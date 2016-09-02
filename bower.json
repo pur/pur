@@ -17,6 +17,6 @@
     "tests"
   ],
   "devDependencies": {
-    "pur-gui": "^0.0.5"
+    "pur-gui": "^0.0.11"
   }
 }

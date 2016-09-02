@@ -7946,27 +7946,65 @@ button.close {
 
 @font-face {
   font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url(13k-tfSpn0qi1SFdUfaCWcynf_cDxXwCLxiixG1c.ttf) format("truetype"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
+  src: url("../fonts/roboto/Roboto-Regular.ttf");
+  src: local("Roboto Regular"), local("Roboto-Regular"), url("../fonts/roboto/Roboto-Regular.ttf") format("truetype");
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url(GBFwfMP4uA6AR0HCoLQ.ttf) format("truetype"); }
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: url("../fonts/roboto/Roboto-Regular.ttf");
+  src: local("Roboto Regular"), local("Roboto-Regular"), url("../fonts/roboto/Roboto-Regular.ttf") format("truetype"); }
 
 @font-face {
   font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url(Jdnzeo3R5zSexge8UUaCWcynf_cDxXwCLxiixG1c.ttf) format("truetype"); }
+  src: url("../fonts/roboto/Roboto-Italic.ttf");
+  src: local("Roboto Italic"), local("Roboto-Italic"), url("../fonts/roboto/Roboto-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'Roboto-Italic';
+  src: url("../fonts/roboto/Roboto-Italic.ttf");
+  src: local("Roboto Italic"), local("Roboto-Italic"), url("../fonts/roboto/Roboto-Italic.ttf") format("truetype"); }
 
 @font-face {
   font-family: 'Roboto';
-  font-style: normal;
+  src: url("../fonts/roboto/Roboto-Bold.ttf");
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto/Roboto-Bold.ttf") format("truetype");
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url(IYplOFocCacKzxwXSOKCWcynf_cDxXwCLxiixG1c.ttf) format("truetype"); }
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Roboto-Bold';
+  src: url("../fonts/roboto/Roboto-Bold.ttf");
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto/Roboto-Bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Roboto';
+  src: url("../fonts/roboto/Roboto-BoldItalic.ttf");
+  src: local("Roboto BoldItalic"), local("Roboto-BoldItalic"), url("../fonts/roboto/Roboto-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'Roboto-BoldItalic';
+  src: url("../fonts/roboto/Roboto-BoldItalic.ttf");
+  src: local("Roboto BoldItalic"), local("Roboto-BoldItalic"), url("../fonts/roboto/Roboto-BoldItalic.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Lato';
+  src: url(../fonts/lato/Lato-Light.ttf);
+  src: local("Lato Light"), local("Lato-Light"), url(../fonts/lato/lato-light.ttf) format("truetype");
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Lato';
+  src: url(../fonts/lato/Lato-Thin.ttf);
+  src: local("Lato Thin"), local("Lato-Thin"), url(../fonts/lato/Lato-Thin.ttf) format("truetype");
+  font-weight: 200;
+  font-style: normal; }
 
 .panel-heading,
 .panel,
@@ -8060,7 +8098,7 @@ body.welcome {
   /* IE10+ */
   background: radial-gradient(ellipse at center, #4781cc 0%, #6996d6 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$blue', endColorstr='$blue-hover',GradientType=1 );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$blue', endColorstr='$blue-hover', GradientType=1);
   /* IE6-8 fallback on horizontal gradient */ }
   body.welcome .container {
     text-align: center;
@@ -8072,11 +8110,11 @@ body.welcome {
   body.welcome .title {
     font-size: 96px;
     margin-bottom: 20px;
-    font-family: 'LatoThin'; }
+    font-family: Lato, sans-serif; }
   body.welcome .quote {
     font-size: 24px;
     margin-bottom: 20px;
-    font-family: 'LatoThin'; }
+    font-family: Lato, sans-serif; }
 
 .btn {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
@@ -8731,8 +8769,9 @@ select.form-control.focus {
     color: #333; }
 
 .navbar-brand {
-  font-family: 'LatoThin', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 23px;
+  font-weight: 200;
   height: 47px;
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.004);
   text-rendering: optimizeLegibility; }

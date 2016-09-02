@@ -1,4 +1,5 @@
 var elixir = require('laravel-elixir');
+var config = require('./gulp-config.json');
 
 /*
  |--------------------------------------------------------------------------
@@ -12,5 +13,9 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.less('app.less');
+    mix.sass(config.paths.css);
+    mix.scripts(config.paths.js);
+    mix.copy(config.paths.localjs, 'public/js');
+    mix.copy(config.paths.fonts, 'public/fonts');
+    mix.copy(config.paths.images, 'public/images');
 });
