@@ -4,7 +4,7 @@
 
     <div class="container">
         <h1>Besvarelse på {{ $besvarelse->oppgavesett->tittel }}</h1>
-
+        <p>Av: {{ $besvarelse->skaper->navn }}</p>
         <p>Påbegynt: {{ $besvarelse->tidOpprettet('d.m.y') }} – Leveringsfrist: {{ $besvarelse->frist('d.m.y k\l.H:i') }}</p>
 
         <div class="input-group">

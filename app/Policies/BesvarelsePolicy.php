@@ -19,7 +19,8 @@ class BesvarelsePolicy {
      */
     public function vis(Bruker $bruker, Besvarelse $besvarelse)
     {
-        return $this->erBrukersBesvarelse($bruker, $besvarelse);
+        return $this->erBrukersBesvarelse($bruker, $besvarelse)
+            || $this->erBesvarelsePaaBrukerOppgavesett($bruker, $besvarelse);
     }
 
     /**
@@ -31,7 +32,8 @@ class BesvarelsePolicy {
      */
     public function rediger(Bruker $bruker, Besvarelse $besvarelse)
     {
-        return $this->erBrukersBesvarelse($bruker, $besvarelse);
+        return $this->erBrukersBesvarelse($bruker, $besvarelse)
+        || $this->erBesvarelsePaaBrukerOppgavesett($bruker, $besvarelse);
     }
 
     /**
@@ -44,6 +46,18 @@ class BesvarelsePolicy {
     private function erBrukersBesvarelse(Bruker $bruker, Besvarelse $besvarelse)
     {
         return $bruker->id === $besvarelse->bruker_id;
+    }
+
+    /**
+     * Sant hvis bruker har laget oppgavesettet til besvarelsen
+     *
+     * @param $bruker
+     * @param $besvarelse
+     * @return bool
+     */
+    private function erBesvarelsePaaBrukerOppgavesett($bruker, $besvarelse)
+    {
+        return $bruker->id === $besvarelse->oppgavesett->skaper->id;
     }
 
 }
