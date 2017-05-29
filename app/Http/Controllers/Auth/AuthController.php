@@ -40,7 +40,7 @@ class AuthController extends Controller {
 	public function validator(array $data)
 	{
 		return Validator::make($data, [
-			'email' => 'required|email|max:255|unique:brukere|regex:/^((?!\d{5,}).)*((?!usn\.no$).)*$/',
+			'email' => 'required|email|max:255|unique:brukere|regex:/^((?!\d{5,}).)*$/|regex:/^((?!usn\.no$).)*$/',
 			'password' => 'required|confirmed|min:4',
 			//TODO: 'betingelser' => 'accepted'
 		]);
